@@ -1,0 +1,19 @@
+.programContainer {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.informationText {
+  width: 20%;
+
+  border: 3px solid rgb(236, 205, 28);
+  border-radius: 25px;
+  min-height: 10em;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 20px;
+  padding: 24px;
+  background-color: rgb(247, 243, 238);
+}
