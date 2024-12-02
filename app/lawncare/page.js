@@ -17,6 +17,15 @@ export default function Lawncare() {
         </div>
       </div>
 
+      <div className={styles.servicesTokensHeader}>
+        <a href="#cutpackages" className={styles.serviceToken}>Cut Packages</a>
+        <a href="#fullpackages" className={styles.serviceToken}>Full Service Packages</a>
+        <a href="#hedges" className={styles.serviceToken}>Hedges</a>
+        <a href="#seeding" className={styles.serviceToken}>Aeration & Seeding</a>
+        <a href="#fertilization" className={styles.serviceToken}>Fertilization & Weeding</a>
+        <a href="#maintenance" className={styles.serviceToken}>Maintenance & Packages</a>
+      </div>
+      
       <div className={styles.services}>
         <div className={styles.alignment}>
           {showSizes ? (
@@ -29,7 +38,7 @@ export default function Lawncare() {
               <p>Greater Than — C</p>
             </div>
           ) : (
-            <div className={styles.service}>
+            <div id="cutpackages"  className={styles.service}>
               <div className={styles.serviceText}>
                 <h2>Cut Packages</h2>
                 <h3>
@@ -93,7 +102,7 @@ export default function Lawncare() {
             <button
               onClick={onButtonClick}
               style={{
-                backgroundColor: "#7b9e3d",
+                backgroundColor: "#83be48",
                 color: "white",
                 border: "none",
                 padding: "10px 20px",
@@ -109,7 +118,7 @@ export default function Lawncare() {
             style={{ height: "2px", background: "#9a9090", margin: "3rem 0" }}
           ></div>
 
-          <div className={styles.service}>
+          <div id="fullpackages" className={styles.service}>
             <div className={styles.serviceText}>
               <h2>Full Service Packages</h2>
               <h3>
@@ -201,7 +210,7 @@ export default function Lawncare() {
             style={{ height: "2px", background: "#9a9090", margin: "3rem 0" }}
           ></div>
 
-          <div className={`${styles.service} ${styles.reverse}`}>
+          <div id="hedges" className={`${styles.service} ${styles.reverse}`}>
             <div className={styles.serviceText}>
               <h2>Hedges</h2>
               <p>
@@ -246,9 +255,9 @@ export default function Lawncare() {
             style={{ height: "2px", background: "#9a9090", margin: "3rem 0" }}
           ></div>
 
-          <div className={styles.service}>
+          <div id="seeding" className={styles.service}>
             <div className={styles.serviceText}>
-              <h2>Aeration and Seeding​</h2>
+              <h2>Aeration & Seeding​</h2>
               <p>
                 A core aerator will pull dirt plugs for the ground, allowing
                 soil-decompression, nutrient penetration, and moisture to enter
@@ -311,7 +320,7 @@ export default function Lawncare() {
             style={{ height: "2px", background: "#9a9090", margin: "3rem 0" }}
           ></div>
 
-          <div className={`${styles.service} ${styles.reverse}`}>
+          <div id="fertilization" className={`${styles.service} ${styles.reverse}`}>
             <div className={styles.serviceText}>
               <h2>Fertilization & Weeding</h2>
               <p>
@@ -395,7 +404,7 @@ export default function Lawncare() {
             style={{ height: "2px", background: "#9a9090", margin: "3rem 0" }}
           ></div>
 
-          <div className={styles.service}>
+          <div id="maintenance" className={styles.service}>
             <div className={styles.serviceText}>
               <h2>Maintenance & Packages</h2>
               <p>
