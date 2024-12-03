@@ -1,12 +1,17 @@
-import React from "react";
-import "./information.css";
+import React from 'react';
+import Foundation from './Foundation/Foundation';
+import './Information.css';
 
-const Information = ({ headerText, informationText }) => {
+const Information = ({ headerText }) => {
   return (
-    <div className="programContainer">
-      <div className="headerText">{headerText}</div>
+    <div>
+      <div className='headerText'>
+        <h2>{headerText}</h2>
+      </div>
 
-      <div className="informationText">{informationText}</div>
+      <div className='informationText'>
+        <Foundation />
+      </div>
     </div>
   );
 };

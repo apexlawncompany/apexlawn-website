@@ -1,14 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+@import url('react-responsive-carousel/lib/styles/carousel.min.css');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
-  background: #f5f5f5;
+  /* background: #f5f5f5; */
 }
 
 .container {
@@ -33,4 +34,11 @@ body {
 .btn img {
   width: 55px;
   margin-left: 10px;
+}
+
+.image-container {
+  background-image: url('/assets/mainsection.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

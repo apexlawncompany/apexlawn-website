@@ -1,17 +1,21 @@
-import React from "react";
-import Information from "./Information/information";
-import "./Programs.css";
+import React from 'react';
+import ApexLawn from './Information/ApexLawn/ApexLawn';
+import Competitors from './Information/Competitors/Competitors';
+import Foundation from './Information/Foundation/Foundation';
+import Information from './Information/Information';
+import './Programs.css';
 
 const Programs = () => {
   return (
-    <div className="programs">
-      <div className="single-program">
-        <Information
-          headerText={"About Our Foundation"}
-          informationText={
-            "Eco-Utility​​​​​​​​​​​​​​ Based in Apex, NC We kicked off Apex Lawn Company March of 2019.Ethics count; our company cares about delivering an outstanding product to our clients and providing good careers for our team. Every opportunity is a step forward in building the American Dream."
-          }
-        />
+    <div className='programs'>
+      <div className='single-program'>
+        <Foundation headerText={'About Our Foundation'} />
+      </div>
+      <div className='single-program'>
+        <Competitors headerText={'Apex Lawn Company'} />
+      </div>
+      <div className='single-program'>
+        <ApexLawn headerText={'Average Competitors'} />
       </div>
     </div>
   );
