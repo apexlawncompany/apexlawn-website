@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Information/Information.css';
+
 const Competitors = ({ headerText }) => {
   return (
     <>
@@ -13,7 +13,6 @@ const Competitors = ({ headerText }) => {
 
           <li> Customized Care & Same Team Assigned to Each Lawn </li>
           <li> Satisfaction Guarantee. </li>
-
           <li> Customer Support: Mon-Sat 8 am-7 pm. </li>
         </ul>
       </div>

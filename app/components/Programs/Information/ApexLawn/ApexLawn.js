@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../Information/Information.css';
 
 const ApexLawn = ({ headerText }) => {
   return (
