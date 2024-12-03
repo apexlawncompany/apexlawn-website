@@ -1,0 +1,13 @@
+.programs {
+  margin: 10px auto;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.single-program {
+  width: 100%;
+  display: block;
+  flex-basis: 31%;
+}
