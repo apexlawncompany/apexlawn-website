@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap");
-@import url("react-responsive-carousel/lib/styles/carousel.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+@import url('react-responsive-carousel/lib/styles/carousel.min.css');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -37,8 +37,52 @@ body {
 }
 
 .image-container {
-  background-image: url("/assets/mainsection.jpeg");
+  background-image: url('/assets/mainsection.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.informationText {
+  width: 250px;
+  height: 350px;
+  border: 3px solid rgb(236, 205, 28);
+  border-radius: 25px;
+  vertical-align: middle;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgb(247, 243, 238);
+}
+
+.headerText {
+  width: max-content;
+}
+
+.headerText h2 {
+  text-align: center;
+  color: rgb(247, 243, 238);
+}
+
+.informationText ul {
+  text-decoration: none;
+}
+
+.apexlawn-ul {
+  margin: 0;
+  padding: 20px;
+}
+
+.apexlawn-ul li {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.schedule-btn button {
+  margin: 10px;
+  background-color: rgb(56, 86, 223);
+  color: beige;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 18px;
 }
