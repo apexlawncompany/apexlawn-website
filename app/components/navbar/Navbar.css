@@ -1,6 +1,7 @@
 nav {
   width: 100%;
   /* background: rgb(200, 233, 192); */
+  background: url('/assets/mainsection.jpeg');
   color: rgb(255, 255, 255);
   padding: 4px 0;
   position: fixed;
@@ -17,4 +18,29 @@ nav ul li {
   list-style: none;
   margin: 5px 20px;
   font-size: 16px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #83be48;
+  text-decoration: underline;
+}
+
+nav ul li a.active {
+  text-decoration: underline;
+  font-weight: 700;
+  background: #ffdd00;
+  padding: 14px 25px;
+  color: black;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
