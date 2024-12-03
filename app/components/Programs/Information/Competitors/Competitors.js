@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
 const Competitors = ({ headerText }) => {
   return (
     <>
-      <div className='headerText'>
+      <div className="headerText">
         <h2>{headerText}</h2>
       </div>
 
-      <div className='informationText'>
-        <ul className='apexlawn-ul'>
+      <div className="informationText">
+        <ul className="apexlawn-ul">
           <li>Average Price Per Cut: $49​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​.</li>
 
           <li> Customized Care & Same Team Assigned to Each Lawn </li>
