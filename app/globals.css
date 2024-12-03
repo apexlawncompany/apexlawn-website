@@ -36,12 +36,12 @@ body {
   margin-left: 10px;
 }
 
-.image-container {
-  background-image: url('apexlawn-website/assets/mainsection.jpeg');
+/* .image-container {
+  background-image: url('/assets/mainsection.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 .informationText {
   width: 250px;

@@ -1,13 +1,16 @@
 import About from './components/About/About';
 import Main from './components/Main/Main';
-import Navbar from './components/navbar/Navbar';
-import styles from './page.module.css';
+import { basePath } from '@/next.config';
 
 export default function Home() {
   return (
     <>
-      <div className='image-container'>
-        <Navbar />
+      <div
+        style={{
+          backgroundImage: `url(${basePath}/assets/mainsection.jpeg)`,
+          backgroundPosition: 'center',
+        }}
+      >
         <Main />
         <About />
       </div>
