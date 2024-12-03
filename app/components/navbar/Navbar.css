@@ -1,7 +1,7 @@
 nav {
   width: 100%;
   /* background: rgb(200, 233, 192); */
-  background: url('/assets/mainsection.jpeg');
+  background: url("/assets/mainsection.jpeg");
   color: rgb(255, 255, 255);
   padding: 4px 0;
   position: fixed;

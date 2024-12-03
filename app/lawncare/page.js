@@ -18,14 +18,26 @@ export default function Lawncare() {
       </div>
 
       <div className={styles.servicesTokensHeader}>
-        <a href="#cutpackages" className={styles.serviceToken}>Cut Packages</a>
-        <a href="#fullpackages" className={styles.serviceToken}>Full Service Packages</a>
-        <a href="#hedges" className={styles.serviceToken}>Hedges</a>
-        <a href="#seeding" className={styles.serviceToken}>Aeration & Seeding</a>
-        <a href="#fertilization" className={styles.serviceToken}>Fertilization & Weeding</a>
-        <a href="#maintenance" className={styles.serviceToken}>Maintenance & Packages</a>
+        <a href="#cutpackages" className={styles.serviceToken}>
+          Cut Packages
+        </a>
+        <a href="#fullpackages" className={styles.serviceToken}>
+          Full Service Packages
+        </a>
+        <a href="#hedges" className={styles.serviceToken}>
+          Hedges
+        </a>
+        <a href="#seeding" className={styles.serviceToken}>
+          Aeration & Seeding
+        </a>
+        <a href="#fertilization" className={styles.serviceToken}>
+          Fertilization & Weeding
+        </a>
+        <a href="#maintenance" className={styles.serviceToken}>
+          Maintenance & Packages
+        </a>
       </div>
-      
+
       <div className={styles.services}>
         <div className={styles.alignment}>
           {showSizes ? (
@@ -38,7 +50,7 @@ export default function Lawncare() {
               <p>Greater Than — C</p>
             </div>
           ) : (
-            <div id="cutpackages"  className={styles.service}>
+            <div id="cutpackages" className={styles.service}>
               <div className={styles.serviceText}>
                 <h2>Cut Packages</h2>
                 <h3>
@@ -46,11 +58,12 @@ export default function Lawncare() {
                   schedule:
                 </h3>
                 <p>
-                  <strong>Summer:</strong> (Mar-Oct) Mowing, blowing, string-trimming, & edging.
+                  <strong>Summer:</strong> (Mar-Oct) Mowing, blowing,
+                  string-trimming, & edging.
                 </p>
                 <p>
-                  <strong>Winter:</strong> (Nov-Dec) Leaf-removal, & string-trimming (Jan) No
-                  service (Feb) Spring Prep​.
+                  <strong>Winter:</strong> (Nov-Dec) Leaf-removal, &
+                  string-trimming (Jan) No service (Feb) Spring Prep​.
                 </p>
 
                 <div className={styles.pricingTable}>
@@ -320,7 +333,10 @@ export default function Lawncare() {
             style={{ height: "2px", background: "#9a9090", margin: "3rem 0" }}
           ></div>
 
-          <div id="fertilization" className={`${styles.service} ${styles.reverse}`}>
+          <div
+            id="fertilization"
+            className={`${styles.service} ${styles.reverse}`}
+          >
             <div className={styles.serviceText}>
               <h2>Fertilization & Weeding</h2>
               <p>
