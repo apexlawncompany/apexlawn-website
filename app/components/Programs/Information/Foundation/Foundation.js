@@ -1,13 +1,13 @@
-import React from "react";
-
+import React from 'react';
+import '../Information.css';
 const Foundation = ({ headerText }) => {
   return (
     <div>
-      <div className="headerText">
+      <div className='headerText'>
         <h2>{headerText}</h2>
       </div>
 
-      <div className="informationText">
+      <div className='informationText'>
         <p> Eco-Utility​​​​​​​​​​​​​​ Based in Apex, NC </p> <br />
         <p>We kicked off Apex Lawn Company March of 2019.</p>
         <br />
