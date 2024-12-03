@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Information.css';
+import '../../Information/Information.css';
 const Foundation = ({ headerText }) => {
   return (
     <div>
