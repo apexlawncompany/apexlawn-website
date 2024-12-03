@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { basePath } from '@/next.config';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import './Navbar.css';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -43,7 +44,7 @@ const Navbar = () => {
               href='/land-scaping'
               className={pathname === '/land-scaping' ? 'active' : ''}
             >
-              Land Scaping
+              Landscaping
             </Link>
           </li>
           <li>
