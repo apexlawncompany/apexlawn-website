@@ -1,5 +1,3 @@
-import apexLawn from "../../public/apex-lawn.jpg";
-
 const HEADER_DATA = [
   {
     type: "text",
@@ -13,7 +11,7 @@ const HEADER_DATA = [
   },
   {
     type: "image",
-    image: apexLawn,
+    image: "/apex-lawn.jpg",
     path: "/"
   },
   {

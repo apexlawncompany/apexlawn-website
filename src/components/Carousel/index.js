@@ -5,6 +5,7 @@ import { Autoplay, EffectCreative } from "swiper/modules";
 import CAROUSEL_DATA from "@/src/data/carousel";
 import Image from "next/image";
 import styles from "./carousel.module.css";
+import { basePath } from "@/next.config";
 
 function Carousel() {
   return (
@@ -35,7 +36,7 @@ function Carousel() {
           <Image
             alt="apex lawn"
             className={styles.carouselImage}
-            src={item.image}
+            src={`${basePath}${item.image}`}
             width={449}
             height={429}
           />

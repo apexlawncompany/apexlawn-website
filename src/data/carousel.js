@@ -1,156 +1,123 @@
-import carousel_1 from "../../public/carousel/carousel-1.jpeg";
-import carousel_2 from "../../public/carousel/carousel-2.jpeg";
-import carousel_3 from "../../public/carousel/carousel-3.jpeg";
-import carousel_4 from "../../public/carousel/carousel-4.jpeg";
-import carousel_5 from "../../public/carousel/carousel-5.jpeg";
-import carousel_6 from "../../public/carousel/carousel-6.jpeg";
-import carousel_7 from "../../public/carousel/carousel-7.jpeg";
-import carousel_8 from "../../public/carousel/carousel-8.jpg";
-import carousel_9 from "../../public/carousel/carousel-9.jpg";
-import carousel_10 from "../../public/carousel/carousel-10.jpg";
-import carousel_11 from "../../public/carousel/carousel-11.jpg";
-import carousel_12 from "../../public/carousel/carousel-12.jpg";
-import carousel_13 from "../../public/carousel/carousel-13.jpg";
-import carousel_14 from "../../public/carousel/carousel-14.jpg";
-import carousel_15 from "../../public/carousel/carousel-15.jpg";
-import carousel_16 from "../../public/carousel/carousel-16.jpg";
-import carousel_17 from "../../public/carousel/carousel-17.jpg";
-import carousel_18 from "../../public/carousel/carousel-18.jpg";
-import carousel_19 from "../../public/carousel/carousel-19.jpg";
-import carousel_20 from "../../public/carousel/carousel-20.jpg";
-import carousel_21 from "../../public/carousel/carousel-21.jpg";
-import carousel_22 from "../../public/carousel/carousel-22.jpg";
-import carousel_23 from "../../public/carousel/carousel-23.jpg";
-import carousel_24 from "../../public/carousel/carousel-24.jpg";
-import carousel_25 from "../../public/carousel/carousel-25.jpg";
-import carousel_26 from "../../public/carousel/carousel-26.jpg";
-import carousel_27 from "../../public/carousel/carousel-27.jpg";
-import carousel_28 from "../../public/carousel/carousel-28.jpg";
-import carousel_29 from "../../public/carousel/carousel-29.jpg";
-import carousel_30 from "../../public/carousel/carousel-30.jpg";
-
-
-
 const CAROUSEL_DATA = [
   {
     type: "image",
-    image: carousel_1,
+    image: "/carousel/carousel-1.jpeg",
   },
   {
     type: "image",
-    image: carousel_2,
+    image: "/carousel/carousel-2.jpeg",
   },
   {
     type: "image",
-    image: carousel_3,
+    image: "/carousel/carousel-3.jpeg",
   },
   {
     type: "image",
-    image: carousel_4,
+    image: "/carousel/carousel-4.jpeg",
   },
   {
     type: "image",
-    image: carousel_5,
+    image: "/carousel/carousel-5.jpeg",
   },
   {
     type: "image",
-    image: carousel_6,
+    image: "/carousel/carousel-6.jpeg",
   },
   {
     type: "image",
-    image: carousel_7,
+    image: "/carousel/carousel-7.jpeg",
   },
   {
     type: "image",
-    image: carousel_8,
+    image: "/carousel/carousel-8.jpg",
   },
   {
     type: "image",
-    image: carousel_9,
+    image: "/carousel/carousel-9.jpg",
   },
   {
     type: "image",
-    image: carousel_10,
+    image: "/carousel/carousel-10.jpg",
   },
   {
     type: "image",
-    image: carousel_11,
+    image: "carousel/carousel-11.jpg",
   },
   {
     type: "image",
-    image: carousel_12,
+    image: "carousel/carousel-12.jpg",
   },
   {
     type: "image",
-    image: carousel_13,
+    image: "carousel/carousel-13.jpg",
   },
   {
     type: "image",
-    image: carousel_14,
+    image: "carousel/carousel-14.jpg",
   },
   {
     type: "image",
-    image: carousel_15,
+    image: "carousel/carousel-15.jpg",
   },
   {
     type: "image",
-    image: carousel_16,
+    image: "carousel/carousel-16.jpg",
   },
   {
     type: "image",
-    image: carousel_17,
+    image: "carousel/carousel-17.jpg",
   },
   {
     type: "image",
-    image: carousel_18,
+    image: "carousel/carousel-18.jpg",
   },
   {
     type: "image",
-    image: carousel_19,
+    image: "carousel/carousel-19.jpg",
   },
   {
     type: "image",
-    image: carousel_20,
+    image: "carousel/carousel-20.jpg",
   },
   {
     type: "image",
-    image: carousel_21,
+    image: "carousel/carousel-21.jpg",
   },
   {
     type: "image",
-    image: carousel_22,
+    image: "carousel/carousel-22.jpg",
   },
   {
     type: "image",
-    image: carousel_23,
+    image: "carousel/carousel-23.jpg",
   },
   {
     type: "image",
-    image: carousel_24,
+    image: "carousel/carousel-24.jpg",
   },
   {
     type: "image",
-    image: carousel_25,
+    image: "carousel/carousel-25.jpg",
   },
   {
     type: "image",
-    image: carousel_26,
+    image: "carousel/carousel-26.jpg",
   },
   {
     type: "image",
-    image: carousel_27,
+    image: "carousel/carousel-27.jpg",
   },
   {
     type: "image",
-    image: carousel_28,
+    image: "carousel/carousel-28.jpg",
   },
   {
     type: "image",
-    image: carousel_29,
+    image: "carousel/carousel-29.jpg",
   },
   {
     type: "image",
-    image: carousel_30,
+    image: "carousel/carousel-30.jpg",
   },
 
 ];

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./headercard.module.css";
+import { basePath } from "@/next.config";
 
 function HeaderCard({ item }) {
   const { type, text, image, path } = item || {};
@@ -11,7 +12,7 @@ function HeaderCard({ item }) {
       ) : (
         <Image
           alt="apex lawn"
-          src={image}
+          src={`${basePath}${image}`}
           width={129}
           height={84}
           style={{
