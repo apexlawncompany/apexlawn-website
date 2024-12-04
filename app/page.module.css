@@ -1,0 +1,17 @@
+.homepage {
+  background-image: url("/home-background.jpg");
+  background-size: cover;
+  /* background-position: 0px -110px; */
+  /* position: relative; */
+}
+
+.greenbar {
+  background-color: rgb(131, 190, 73);
+  border: 6px solid #000;
+  height: 54px;
+}
+
+.carouselSection {
+  color: #fff;
+  height: 480px;
+}

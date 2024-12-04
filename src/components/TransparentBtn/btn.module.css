@@ -1,0 +1,19 @@
+.transparentBtn {
+  width: 100%;
+  background: transparent;
+  font-size: 20px;
+  text-decoration: underline;
+  padding: 3px;
+  color: #fff;
+  border-radius: 50px;
+  border: 5px solid rgb(255, 221, 0);
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.transparentBtn:hover {
+  background: #fff;
+  color: rgb(22, 22, 22);
+}

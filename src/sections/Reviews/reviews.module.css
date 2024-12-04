@@ -1,0 +1,68 @@
+.reviewSection {
+  display: flex;
+  gap: 8px;
+}
+
+.googleReviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.starRating {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+}
+
+.plusSymbol {
+  position: relative;
+}
+
+.plusHorizontal,
+.plusVertical {
+  width: 97px;
+  height: 15px;
+  background: #fff;
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 8px);
+}
+
+.plusVertical {
+  transform: rotate(90deg);
+}
+
+.certificate {
+  flex: 1;
+  max-width: 430px;
+  background: #fff;
+  border: 5px solid rgb(3, 195, 157);
+  border-radius: 28px;
+  display: flex;
+  color: rgb(53, 52, 52);
+  align-items: center;
+}
+
+.reviewText {
+  color: rgb(53, 52, 52);
+  font-size: 18px;
+  padding: 0 0 0 8px;
+  font-style: italic;
+}
+
+.reviewText a {
+  text-decoration: underline;
+  color: #000;
+}
+
+.googleRatingText {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.googleRatingDesc {
+  font-size: 18px;
+  font-weight: 400;
+}

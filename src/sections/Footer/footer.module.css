@@ -1,0 +1,25 @@
+.footer {
+  background-color: rgb(71, 71, 71);
+  /* height: 52px; */
+  padding: 1rem 0.5rem;
+}
+
+.footerWrap {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+.footerText {
+  flex: 1;
+}
+
+.footerText:hover {
+  color: rgb(13, 13, 13);
+  transition: color 0.2s ease;
+}
+
+.footerTextMax {
+  max-width: 272px;
+}
