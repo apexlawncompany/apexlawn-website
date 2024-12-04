@@ -1,0 +1,97 @@
+.page-content {
+  background-color: #fff;
+  color: #000;
+}
+
+.greenbar {
+  background-color: rgb(131, 190, 73);
+  border: 6px solid #000;
+  height: 54px;
+}
+
+.page-section {
+  padding: 2rem;
+}
+
+.alignment {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.service.reverse {
+  flex-direction: row-reverse;
+}
+
+.serviceText {
+  flex: 1;
+}
+
+.serviceText h2 {
+  font-size: 3rem;
+}
+
+.serviceText p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.serviceImage {
+  display: flex;
+  flex-direction: column;
+  
+  gap: 10px;
+}
+
+.image {
+  border-radius: 5%;
+}
+
+.divider {
+  border: 1px solid #000;
+  margin: 1rem 0;
+}
+
+/* Button Styles */
+.toggleButton , .sizeChartButton {
+  background-color: rgb(131, 190, 73); /* Green color */
+  color: white;
+  border: none;
+  padding: 0 38px;
+  margin: 3px 0;
+  font-size: 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggleButton:hover , .sizeChartButton:hover{
+  background-color: #6ca03e;
+}
+
+.priceList {
+  font-size: 1.1rem !important;
+  font-weight: normal;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.priceItem {
+  padding: 0 5px;
+  display: inline-block;
+  position: relative;
+}
+
+.priceItem::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #333;
+}
