@@ -1,0 +1,19 @@
+.headerCard {
+  width: 150px;
+  height: 95px;
+  background: #fff;
+  border: 5px solid rgb(255, 221, 0);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.headerName {
+  font-size: 30px;
+  white-space: nowrap;
+  font-family: var(--font-amatics-sc);
+  text-transform: uppercase;
+}

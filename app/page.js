@@ -1,19 +1,28 @@
-import About from './components/About/About';
-import Main from './components/Main/Main';
-import { basePath } from '@/next.config';
+import Reviews from "@/src/sections/Reviews";
+import styles from "./page.module.css";
+import Details from "@/src/sections/Details";
+import TransparentBtn from "@/src/components/TransparentBtn";
+import Contact from "@/src/components/Contact";
+import Portfolio from "@/src/sections/Portfolio";
+import { basePath } from "@/next.config";
 
 export default function Home() {
   return (
-    <>
-      <div
-        style={{
-          backgroundImage: `url(${basePath}/assets/mainsection.jpeg)`,
-          backgroundPosition: 'center',
-        }}
-      >
-        <Main />
-        <About />
+    <div
+      className={`page-content ${styles.homepage}`}
+      style={{ backgroundImage: `url(${basePath}/home-background.jpg)` }}
+    >
+      <div className={styles.greenbar}></div>
+      <div className="page-section">
+        <div className="center-aligned">
+          {/* <div className={styles.carouselSection}>Carouse section</div> */}
+          <Portfolio />
+          <Reviews />
+          <Details />
+          <TransparentBtn>Setup an Appointment</TransparentBtn>
+          <div style={{ height: 12 }}></div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

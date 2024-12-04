@@ -1,0 +1,24 @@
+.contact {
+  background: #83be49;
+  position: absolute;
+  top: 114px;
+  font-size: 28px;
+  padding: 2px 16px;
+  border-radius: 10px;
+  font-family: OpenSans, OpenSans Fallback;
+  font-weight: 400;
+  color: #fff;
+}
+
+.contact button {
+  background: transparent;
+  border: none;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.contact a {
+  text-decoration: underline;
+}

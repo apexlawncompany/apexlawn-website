@@ -1,0 +1,40 @@
+.portfolio {
+  display: flex;
+  margin: 16px 0 90px;
+  gap: 20px;
+}
+
+.carousel {
+  width: 415px;
+  height: 415px;
+  border-radius: 28px;
+  border: 5px solid rgb(255, 221, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+.appointments {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.appointmentBtn {
+  padding: 11px;
+  margin: 2px 0;
+}
+
+.portfolioBtnWrp {
+  position: absolute;
+  width: calc(100% + 10px);
+  top: -5px;
+  left: -5px;
+  z-index: 99;
+}
+
+.portfolioBtn {
+  padding: 10px;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
