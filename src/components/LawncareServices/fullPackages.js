@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "../../../app/lawncare/page.module.css";
+import styles from "../../../app/lawncare/lawncare.module.css";
 import { useState } from "react";
 import { basePath } from "@/next.config";
 export default function FullPackages() {
@@ -12,8 +12,11 @@ export default function FullPackages() {
       { size: "Large", price: "$189 (Per Month)" },
     ],
     commercial: [
-      { size: "Commercial Maintenace as estimated", price: "$180 / .5 Acre" },
-      //   { size: ".5 Acer", price: "$189" },
+      {
+        size: "Commercial Maintenace as estimated",
+        price:
+          "$189 / .5 Acre Lot & $189 /Acre after first Acre (Per Month)​​​​​​​​​​",
+      },
     ],
   };
   const [pricingType, setPricingType] = useState("residential");
@@ -28,8 +31,15 @@ export default function FullPackages() {
       <div className={styles.serviceText}>
         <h2>Full Service Packages</h2>
         <div className={styles.pricing}>
-          <button onClick={handlePricingToggle} className={styles.toggleButton}>
-            {pricingType === "standard"
+          <button
+            onClick={handlePricingToggle}
+            className={styles.toggleButton}
+            style={{
+              backgroundColor:
+                pricingType === "residential" ? "rgb(131, 190, 73)" : "#343434",
+            }}
+          >
+            {pricingType === "residential"
               ? "View As Commercial"
               : "View As Residential"}
           </button>
@@ -43,7 +53,7 @@ export default function FullPackages() {
             ))}
           </p>
         </div>
-        
+
         <p>
           The Full Service package includes applications on a rotational basis
           biweekly:

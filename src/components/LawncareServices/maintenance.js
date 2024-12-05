@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
-import styles from "../../../app/lawncare/page.module.css";
+import styles from "../../../app/lawncare/lawncare.module.css";
 import { basePath } from "@/next.config";
+
 export default function Maintenance() {
   return (
     <div className={`${styles.service}`}>
@@ -22,9 +23,10 @@ export default function Maintenance() {
           seed, and apply pre-emergent to your lawn.​​​​​​​​
         </p>
         <p>
-          Services Included: Aeration, Fertilization, Dethatching, Pre-Emergent,
+          <strong>Services Included:</strong><br />Aeration, Fertilization, Dethatching, Pre-Emergent,
           Lawn Vacuuming, Seeding, Soil Testing, Weed Control
         </p>
+        <br />
         <h3>Spring Prep S $195 · M $215 · ML $240 · L $275​​​​</h3>
         <p>
           Spring up the new season with a lawn cleanup. Pre-emergent can reduce
@@ -32,9 +34,10 @@ export default function Maintenance() {
           healthy growth.
         </p>
         <p>
-          Services Included:​​ cutting, dethatching, vacuuming, fertilizer, and
+        <strong>Services Included:</strong><br />cutting, dethatching, vacuuming, fertilizer, and
           pre-emergent
         </p>
+        <br />
         <h3>
           Cultivation Package S $440 · M $550 · ML $660 · L $770​​​​​
         </h3>
@@ -43,7 +46,7 @@ export default function Maintenance() {
           renewal​​​​.
         </p>
         <p>
-          Services Included: power-raking & vacuuming, cultivation (double
+        <strong>Services Included:</strong><br />power-raking & vacuuming, cultivation (double
           pass), seeding, fertilization & pre-emergent in three months​​
         </p>
       </div>

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "../../../app/lawncare/page.module.css";
+import styles from "../../../app/lawncare/lawncare.module.css";
 import { useState } from "react";
 import { basePath } from "@/next.config";
 
@@ -54,6 +54,9 @@ export default function CutPackages() {
               <button
                 onClick={handlePricingToggle}
                 className={styles.toggleButton}
+                style={{
+                  backgroundColor:
+                    pricingType === "standard" ? "rgb(131, 190, 73)" : "#343434",}}
               >
                 {pricingType === "standard"
                   ? "View As Add-on"
@@ -88,18 +91,21 @@ export default function CutPackages() {
               src={`${basePath}/assets/cut_package.JPG`}
               alt="Cut Packages"
               width={300}
-              height={200}
+              height={230}
               className={styles.image}
             />
           </div>
         </div>
       )}
-      <button
-        onClick={handleSizeChartToggle}
-        className={styles.sizeChartButton}
-      >
-        {showSizeChart ? "View Pricing" : "View Size Chart"}
-      </button>
+     <div className={styles.buttonGroup}>
+  <button
+    onClick={handleSizeChartToggle}
+    className={styles.sizeChartButton}
+  >
+    {showSizeChart ? "View Pricing" : "View Size Chart"}
+  </button>
+  <button className={styles.roboticButton}>Robotic mowing</button>
+</div>
     </div>
   );
 }

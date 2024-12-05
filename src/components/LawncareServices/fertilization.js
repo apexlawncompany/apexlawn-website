@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
-import styles from "../../../app/lawncare/page.module.css";
+import styles from "../../../app/lawncare/lawncare.module.css";
 import { basePath } from "@/next.config";
+
 export default function FertilizatinWeeding() {
   return (
     <div className={`${styles.service} ${styles.reverse}`}>
       <div className={styles.serviceText}>
-        <h2>Fertilization and Weeding</h2>
+        <h2>Fertilization & Weeding</h2>
         <h3>Hard-surfaces + Beds S-M $99 ML-L $119​​​​</h3>
         <p>
           Cleanup your mulch, flower, or any types of beds by getting rid of the

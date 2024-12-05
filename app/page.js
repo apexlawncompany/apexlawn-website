@@ -2,7 +2,6 @@ import Reviews from "@/src/sections/Reviews";
 import styles from "./page.module.css";
 import Details from "@/src/sections/Details";
 import TransparentBtn from "@/src/components/TransparentBtn";
-import Contact from "@/src/components/Contact";
 import Portfolio from "@/src/sections/Portfolio";
 import { basePath } from "@/next.config";
 

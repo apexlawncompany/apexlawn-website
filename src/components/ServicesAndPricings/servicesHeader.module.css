@@ -1,0 +1,40 @@
+.options-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: sticky;
+  padding: 5px 0 5px;
+  top: 109px;
+  left: 0;
+  z-index: 999;
+  background-color: black;
+}
+
+.options {
+  display: flex;
+  gap: 16px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.optionButton {
+  font-family: var(--font-amatics-sc);
+  font-size: 18px;
+  width: 93px;
+  height: 53px;
+  background: #fff;
+  border: 5px solid rgb(255, 221, 0);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  white-space: break-spaces;
+}
+
+.optionButton:hover {
+  background-color: gray;
+}
