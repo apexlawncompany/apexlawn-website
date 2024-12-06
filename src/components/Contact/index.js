@@ -1,8 +1,13 @@
 "use client";
-import { useState } from "react";
 import styles from "./contact.module.css";
+import { useState } from "react";
+import { usePathname } from 'next/navigation';
 function Contact() {
   const [showDetails, setShowDetails] = useState(false);
+  const pathname = usePathname();
+  if(pathname !== "/"){
+    return;
+  }
   return (
     <div className={styles.contact}>
       {showDetails ? (

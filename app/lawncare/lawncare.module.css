@@ -1,0 +1,109 @@
+.page-content {
+  background-color: #fff;
+  color: #000;
+}
+
+.page-section {
+  padding: 2rem;
+}
+
+.alignment {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.heading {
+  background-color: #000;
+  font-size: 34px;
+  color: white;
+  text-align: center;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.service.reverse {
+  flex-direction: row-reverse;
+}
+
+.serviceText {
+  flex: 1;
+}
+
+.serviceText h2 {
+  font-size: 3rem;
+}
+
+.serviceText p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.serviceImage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image {
+  border-radius: 5%;
+}
+
+.divider {
+  border: 1px solid #000;
+  margin: 1rem 0;
+}
+
+.toggleButton , .sizeChartButton, .roboticButton {
+  background-color: rgb(131, 190, 73);
+  color: white;
+  border: none;
+  padding: 0 38px;
+  margin: 3px 0;
+  font-size: 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.roboticButton {
+  background-color: #343434 !important;
+} 
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+}
+
+.toggleButton:hover , .sizeChartButton:hover{
+  background-color: #6ca03e;
+}
+
+.priceList {
+  font-size: 1.1rem !important;
+  font-weight: normal;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.priceItem {
+  padding: 0 5px;
+  display: inline-block;
+  position: relative;
+}
+
+.priceItem::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #333;
+}
+
+.footer {
+  background-color: black;
+  padding: 2rem;
+}
