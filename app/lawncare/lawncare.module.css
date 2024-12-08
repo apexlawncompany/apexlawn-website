@@ -7,17 +7,13 @@
   padding: 2rem;
 }
 
-.alignment {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
 .heading {
   background-color: #000;
-  font-size: 34px;
+  font-size: 30px;
   color: white;
   text-align: center;
+  padding-bottom: 5px;
+  padding-top: 60px
 }
 
 .service {
@@ -40,7 +36,7 @@
 }
 
 .serviceText p {
-  font-size: 1rem;
+  font-size: 15px;
   line-height: 1.6;
 }
 
@@ -55,7 +51,7 @@
 }
 
 .divider {
-  border: 1px solid #000;
+  border: 1px solid #343434;
   margin: 1rem 0;
 }
 
@@ -74,6 +70,7 @@
 .roboticButton {
   background-color: #343434 !important;
 } 
+
 .buttonGroup {
   display: flex;
   gap: 1rem;
@@ -84,7 +81,7 @@
 }
 
 .priceList {
-  font-size: 1.1rem !important;
+  font-size: 23px !important;
   font-weight: normal;
   display: flex;
   flex-wrap: wrap;

@@ -23,55 +23,55 @@ export default function Lawncare() {
   ];
 
   return (
-    <div className={`page-content ${styles.services}`}>
+    <>
       <ServicesOptions options={options} />
-
-      <div id="services-pricing" className={styles.heading}>
-        <p>Services & Pricings</p>
-      </div>
-
-      <div className="page-section">
-        <div className="center-aligned">
-          <div id="cut-packages">
-            <CutPackages />
-          </div>
-          <hr className={styles.divider} />
-
-          <div id="full-packages">
-            <FullPackages />
-          </div>
-          <hr className={styles.divider} />
-
-          <div id="hedges">
-            <Hedges />
-          </div>
-          <hr className={styles.divider} />
-
-          <div id="aeriation-seeding">
-            <AeriationSeeding />
-          </div>
-          <hr className={styles.divider} />
-
-          <div id="fertilization-weeding">
-            <FertilizatinWeeding />
-          </div>
-          <hr className={styles.divider} />
-
-          <div id="maintenance">
-            <Maintenance />
-          </div>
-          <div style={{ height: 15 }}></div>
+      <div className={`page-content`}>
+        <div id="services-pricing" className={styles.heading}>
+          <p>Services & Pricings</p>
         </div>
-      </div>
-
-      <div id="footer" className={styles.footer}>
+        
         <div className="page-section">
           <div className="center-aligned">
-            <TransparentBtn>Setup an Appointment</TransparentBtn>
+            <div id="cut-packages">
+              <CutPackages />
+            </div>
+            <hr className={styles.divider} />
+
+            <div id="full-packages">
+              <FullPackages />
+            </div>
+            <hr className={styles.divider} />
+
+            <div id="hedges">
+              <Hedges />
+            </div>
+            <hr className={styles.divider} />
+
+            <div id="aeriation-seeding">
+              <AeriationSeeding />
+            </div>
+            <hr className={styles.divider} />
+
+            <div id="fertilization-weeding">
+              <FertilizatinWeeding />
+            </div>
+            <hr className={styles.divider} />
+
+            <div id="maintenance">
+              <Maintenance />
+            </div>
+            <div style={{ height: 15 }}></div>
+          </div>
+        </div>
+
+        <div id="footer" className={styles.footer}>
+          <div className="page-section">
+            <div className="center-aligned">
+              <TransparentBtn>Setup an Appointment</TransparentBtn>
+            </div>
           </div>
         </div>
       </div>
-
-    </div>
+    </>
   );
 }

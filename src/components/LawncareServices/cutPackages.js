@@ -104,7 +104,9 @@ export default function CutPackages() {
   >
     {showSizeChart ? "View Pricing" : "View Size Chart"}
   </button>
-  <button className={styles.roboticButton}>Robotic mowing</button>
+  {!showSizeChart && (
+          <button className={styles.roboticButton}>Robotic Mowing</button>
+        )}
 </div>
     </div>
   );
