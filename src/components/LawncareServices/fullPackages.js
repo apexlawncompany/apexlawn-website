@@ -70,7 +70,9 @@ export default function FullPackages() {
           Dethatching, Vacuuming, Other (based on grass type)
         </p>
         <br />
-        <h3>Premium Service · S $200 · M $225 · ML $255 · L $285​</h3>
+        <p className={styles.priceList}>
+          <strong>Premium Service · S $200 · M $225 · ML $255 · L $285</strong>​
+        </p>
         <p>
           Premium Service is our most advanced package: customized specifically
           for you. Due to the multitude of services provided, we can adjust

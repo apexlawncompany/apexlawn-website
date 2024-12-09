@@ -33,17 +33,24 @@ export default function CutPackages() {
   return (
     <div>
       {showSizeChart ? (
-        <div className={styles.sizeChart}>
-          <p>
-            <strong>Use GISACRES Value</strong>
-          </p>
-          <ul>
-            <li>Less Than 0.2 Acres — S</li>
-            <li>0.2 to 0.29 Acres — M</li>
-            <li>0.3 to 0.39 Acres — ML</li>
-            <li>0.4 to 0.49 Acres — L</li>
-            <li>Greater Than — C</li>
-          </ul>
+        <div className={styles.sizeChartContainer}>
+          <div className={styles.sizeChart}>
+            <p>
+              <strong>Use GISACRES Value</strong>
+            </p>
+            <p>
+              Less Than 0.2 Acres — S <br />
+              0.2 to 0.29 Acres — M <br />
+              0.3 to 0.39 Acres — ML <br />
+              0.4 to 0.49 Acres — L <br />
+              Greater Than — C <br />
+            </p>
+          </div>
+          <iframe
+            src="https://nconemap.maps.arcgis.com/apps/webappviewer/index.html?id=c49f804bced8479fb83d0cadf1436b25"
+            className={styles.map}
+            title="GIS Acres Map"
+          ></iframe>
         </div>
       ) : (
         <div className={`${styles.service} ${styles.reverse}`}>
@@ -56,7 +63,10 @@ export default function CutPackages() {
                 className={styles.toggleButton}
                 style={{
                   backgroundColor:
-                    pricingType === "standard" ? "rgb(131, 190, 73)" : "#343434",}}
+                    pricingType === "standard"
+                      ? "rgb(131, 190, 73)"
+                      : "#343434",
+                }}
               >
                 {pricingType === "standard"
                   ? "View As Add-on"
@@ -97,15 +107,17 @@ export default function CutPackages() {
           </div>
         </div>
       )}
-     <div className={styles.buttonGroup}>
-  <button
-    onClick={handleSizeChartToggle}
-    className={styles.sizeChartButton}
-  >
-    {showSizeChart ? "View Pricing" : "View Size Chart"}
-  </button>
-  <button className={styles.roboticButton}>Robotic mowing</button>
-</div>
+      <div className={styles.buttonGroup}>
+        <button
+          onClick={handleSizeChartToggle}
+          className={styles.sizeChartButton}
+        >
+          {showSizeChart ? "View Pricing" : "View Size Chart"}
+        </button>
+        {!showSizeChart && (
+          <button className={styles.roboticButton}>Robotic Mowing</button>
+        )}
+      </div>
     </div>
   );
 }

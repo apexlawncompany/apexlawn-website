@@ -8,7 +8,9 @@ export default function Hedges() {
     <div className={`${styles.service} ${styles.reverse}`}>
       <div className={styles.serviceText}>
         <h2>Hedges</h2>
-        <h3>Hedge Trimming S $3 · M $6 · L $9 · O $12</h3>
+        <p className={styles.priceList}>
+          <strong>Hedge Trimming S $3 · M $6 · L $9 · O $12</strong>
+        </p>
         <p>
           Hedges can be rounded or squared. Hedge trimming is priced per hedge.
           Hand-pruning and shaping is also available for an hourly fee.​​​

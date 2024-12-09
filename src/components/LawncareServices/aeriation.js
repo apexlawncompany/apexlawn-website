@@ -8,18 +8,24 @@ export default function AeriationSeeding() {
     <div className={`${styles.service}`}>
       <div className={styles.serviceText}>
         <h2>Aeriation & Seeding</h2>
-        <h3>Aeration S $100 · M $125 · ML $150 · L $175​​​​​​</h3>
+        <p className={styles.priceList}>
+          <strong>Aeration S $100 · M $125 · ML $150 · L $175</strong>
+        </p>
         <p>
           A core aerator will pull dirt plugs for the ground, allowing
           soil-decompression, nutrient penetration, and moisture to enter the
           ground.
         </p>
-        <h3>Seeding Starting at $2/100 sqft</h3>
+        <p className={styles.priceList}>
+          <strong>Seeding Starting at $2/100 sqft</strong>
+        </p>
         <p>
           Nitrogen and phosphate allow for greater, greener, grass-growth when
           applied properly by a professional.
         </p>
-        <h3>Aeration Package S $380 · M $420 · ML $470 · L $520​​​ ​</h3>
+        <p className={styles.priceList}>
+          <strong>Aeration Package S $380 · M $420 · ML $470 · L $520</strong>
+        </p>
         <p>
           The lawn is prepared by dethatching and vacuuming. Aeration creates
           plugs in the ground to allow decompression; seed fertilizer, and lime
