@@ -11,7 +11,7 @@ import TransparentBtn from "@/src/components/TransparentBtn";
 export default function Lawncare() {
 
   const options = [
-    { text: "Top", path: "services-pricing" },
+    { text: "Top", path: "top" },
     { text: "Services And Pricings", path: "services-pricing" },
     { text: "Cut Packages", path: "cut-packages" },
     { text: "Full Service Packages", path: "full-packages" },
@@ -26,8 +26,8 @@ export default function Lawncare() {
     <>
       <ServicesOptions options={options} />
       <div className={`page-content`}>
-        <div id="services-pricing" className={styles.heading}>
-          <p>Services & Pricings</p>
+        <div id="top" className={styles.heading}>
+          <p id="services-pricing">Services & Pricings</p>
         </div>
         
         <div className="page-section">

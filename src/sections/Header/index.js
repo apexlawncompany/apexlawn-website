@@ -19,6 +19,7 @@ function Header() {
         style={{
           backgroundImage: `url(${basePath}/header-background.jpg)`,
         }}
+        id="navbar"
       >
         <div className={`center-aligned ${styles["cards-wrap"]}`}>
           {HEADER_DATA.map((item, index) => (
