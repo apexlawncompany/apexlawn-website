@@ -1,0 +1,77 @@
+.page-content {
+  background-color: #fff;
+  color: #000;
+}
+
+.page-section {
+  padding: 2rem;
+}
+
+.heading {
+  background-color: #000;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  padding-bottom: 5px;
+  padding-top: 60px;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.service.reverse {
+  flex-direction: row-reverse;
+}
+
+.serviceText {
+  flex: 1;
+}
+
+.serviceText h3 {
+  color: #000;
+  font-size: 48px;
+}
+
+.serviceText p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.serviceImage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image {
+  border-radius: 5%;
+}
+
+.divider {
+  border: 1px solid #343434;
+  margin: 1rem 0;
+}
+
+.buttonGroup {
+  display: flex;
+}
+
+.blackTextButton {
+  color: black !important;
+}
+
+.priceList {
+  font-size: 23px !important;
+  font-weight: normal;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer {
+  background-color: black;
+  padding: 2rem;
+}
