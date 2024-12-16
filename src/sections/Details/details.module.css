@@ -35,3 +35,52 @@
 .cardBody .marginTop {
   margin-top: 14px;
 }
+
+
+@media(min-width: 500px) and (max-width: 1000px) {
+  .details{
+    font-size: 10px;
+  }
+  .detailsCard{
+    width: 150px;
+  }
+  .cardHeader{
+    font-size: 20px;
+    height: 66px;
+  }
+  .cardBody{
+    padding: 3px 10px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 500px) {
+  .details{
+    font-size: 8px;
+  }
+  .detailsCard{
+    width: 120px;
+  }
+  .cardHeader{
+    font-size: 13px;
+    height: 56px;
+  }
+  .cardBody{
+    padding: 6px 8px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 400px) {
+  .details{
+    font-size: 6px;
+  }
+  .detailsCard{
+    width: 90px;
+  }
+  .cardHeader{
+    font-size: 10px;
+    height: 46px;
+  }
+  .cardBody{
+    padding: 6px 8px;
+  }
+}

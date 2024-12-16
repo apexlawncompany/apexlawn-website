@@ -23,3 +23,30 @@
 .footerTextMax {
   max-width: 272px;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer{
+    padding: 1rem 2rem;
+  }
+  .footerWrap {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 768px) {
+  .footer{
+    padding: 1rem 2.5rem;
+  }
+  .footerWrap {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 550px) {
+  .footer{
+    padding: 1rem 1.5rem;
+  }
+  .footerWrap {
+    font-size: 4px;
+  }
+}

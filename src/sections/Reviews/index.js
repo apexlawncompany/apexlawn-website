@@ -8,13 +8,16 @@ function Reviews() {
       <div className={styles.googleReviews}>
         <div className={styles.starRating}>
           {[1, 2, 3, 4].map((item) => (
-            <Image
-              key={"star-" + item}
-              alt="apex lawn"
-              src={`${basePath}/star.png`}
-              width={100}
-              height={100}
-            />
+           <Image
+           key={"star-" + item}
+           alt="apex lawn"
+           src={`${basePath}/star.png`}
+           width={100}
+           height={100}
+           style={{
+             // Maintain aspect ratio
+           }}
+         />
           ))}
           <p className={styles.plusSymbol}>
             <span className={styles.plusHorizontal}></span>

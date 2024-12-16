@@ -22,3 +22,33 @@
 .contact a {
   text-decoration: underline;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contact {
+    top: 97px;
+    font-size: 20px;
+    position: absolute;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 768px) {
+  .contact {
+    top: 81px;
+    font-size: 15px;
+    position: absolute;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 550px) {
+  .contact {
+    top: 67px;
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 420px) {
+  .contact {
+    top: 51px;
+    font-size: 9px;
+  }
+}

@@ -12,3 +12,43 @@
   color: #fff;
   height: 480px;
 }
+
+@media (max-width: 1024px){
+  .responivepage{padding : 0 1.5rem ;}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .homepage {
+    padding : 90px 0 0;
+  }
+  .greenbar{
+    height: 45px;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 768px) {
+  .homepage {
+    padding : 75px 0 0;
+  }
+  .greenbar{
+    height: 40px;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 550px) {
+  .homepage {
+    padding : 59px 0 0;
+  }
+  .greenbar{
+    height: 33px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+  .homepage {
+    padding : 45px 0 0;
+  }
+  .greenbar{
+    height: 31px;
+  }
+}
