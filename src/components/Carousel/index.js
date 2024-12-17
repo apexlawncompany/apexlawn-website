@@ -32,13 +32,17 @@ function Carousel() {
     >
       {CAROUSEL_DATA.map((item, index) => (
         <SwiperSlide key={"carouse-" + index}>
-          <Image
-            alt="apex lawn"
-            className={styles.carouselImage}
-            src={`${basePath}${item.image}`}
-            width={449}
-            height={429}
-          />
+          <div style={{ width: "100%", height: "100%", position: "relative" }}>
+            <Image
+              alt="apex lawn"
+              className={styles.carouselImage}
+              src={`${basePath}${item.image}`}
+              fill
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          </div>
         </SwiperSlide>
       ))}
     </Swiper>

@@ -18,3 +18,29 @@
   gap: 1rem;
   color: rgb(22, 22, 22);
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header-navbar .cards-wrap {
+    padding: 0 2.5rem;
+    width: calc(100% - 5rem);
+  }
+}
+
+@media (min-width: 550px) and (max-width: 768px) {
+  .header-navbar .cards-wrap {
+    padding: 0 1.5rem;
+    width: calc(100% - 3rem);
+  }
+}
+
+@media (min-width: 425px) and (max-width: 550px) {
+  .header-navbar .cards-wrap {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .header-navbar .cards-wrap {
+    padding: 0 1rem;
+  }
+}

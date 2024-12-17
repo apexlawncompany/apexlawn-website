@@ -1,6 +1,6 @@
 .reviewSection {
   display: flex;
-  gap: 8px;
+  gap: 100px;
 }
 
 .googleReviews {
@@ -14,7 +14,11 @@
 .starRating {
   display: flex;
   gap: 6px;
-  width: 100%;
+}
+
+.starRating img {
+  width: 100px;
+  height: 100px;
 }
 
 .plusSymbol {
@@ -66,4 +70,134 @@
 .googleRatingDesc {
   font-size: 18px;
   font-weight: 400;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .reviewSection {
+    gap: 50px;
+  }
+  .reviewText {
+    font-size: 14px;
+  }
+  .googleRatingText {
+    font-size: 32px;
+  }
+  .googleRatingDesc {
+    font-size: 16px;
+    text-align: center;
+  }
+  .starRating img {
+    width: 70px;
+    height: 70px;
+  }
+  .certificate img {
+    width: 200px;
+    height: 200px;
+  }
+  .plusHorizontal,
+  .plusVertical {
+    width: 70px;
+    height: 11px;
+    top: calc(50% - 8px);
+  }
+}
+
+@media (min-width: 550px) and (max-width: 768px) {
+  .reviewSection {
+    gap: 75px;
+  }
+  .reviewText {
+    font-size: 12px;
+  }
+  .googleRatingText {
+    font-size: 28px;
+  }
+  .googleRatingDesc {
+    font-size: 14px;
+    text-align: center;
+  }
+  .starRating img {
+    width: 60px;
+    height: 60px;
+  }
+  .certificate img {
+    width: 150px;
+    height: 150px;
+  }
+  .plusHorizontal,
+  .plusVertical {
+    width: 60px;
+    height: 9px;
+    top: calc(50% - 7px);
+  }
+}
+
+@media (min-width: 425px) and (max-width: 550px) {
+  .reviewSection {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .starRating {
+    justify-content: center;
+  }
+  .reviewText {
+    font-size: 12px;
+  }
+  .googleRatingText {
+    font-size: 28px;
+  }
+  .googleRatingDesc {
+    font-size: 14px;
+    text-align: center;
+  }
+  .starRating img {
+    width: 60px;
+    height: 60px;
+  }
+  .certificate img {
+    width: 150px;
+    height: 150px;
+  }
+  .plusHorizontal,
+  .plusVertical {
+    width: 60px;
+    height: 9px;
+    top: calc(50% - 7px);
+  }
+}
+
+@media (min-width: 320px) and (max-width: 424px) {
+  .reviewSection {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .starRating {
+    justify-content: center;
+  }
+  .reviewText {
+    font-size: 10px;
+  }
+  .googleRatingText {
+    font-size: 15px;
+  }
+  .googleRatingDesc {
+    font-size: 10px;
+    text-align: center;
+  }
+  .starRating img {
+    width: 40px;
+    height: 40px;
+  }
+  .certificate img {
+    width: 150px;
+    height: 150px;
+  }
+  .plusHorizontal,
+  .plusVertical {
+    width: 40px;
+    height: 8px;
+    top: calc(50% - 5px);
+  }
 }

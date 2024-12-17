@@ -12,7 +12,7 @@ export default function Home() {
       style={{ backgroundImage: `url(${basePath}/home-background.jpg)` }}
     >
       <div className={styles.greenbar}></div>
-      <div className="page-section">
+      <div className={`page-section ${styles.responivepage}`}>
         <div className="center-aligned">
           {/* <div className={styles.carouselSection}>Carouse section</div> */}
           <Portfolio />
