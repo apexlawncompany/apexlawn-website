@@ -48,7 +48,7 @@ export default function MulchSection() {
             alt="Mulch"
             width={330}
             height={300}
-            className={styles.image}
+            className={`${styles.image} ${styles.mulchImage}`}
           />
           <div className={styles.buttonGroup}>
             <Link href="/mulch" style={{ width: "100%" }}>

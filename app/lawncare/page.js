@@ -30,7 +30,7 @@ export default function Lawncare() {
           <p id="services-pricing">Services & Pricings</p>
         </div>
         
-        <div className="page-section">
+        <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
             <div id="cut-packages">
               <CutPackages />

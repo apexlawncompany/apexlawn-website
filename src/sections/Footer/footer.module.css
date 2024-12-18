@@ -44,7 +44,7 @@
 
 @media (min-width: 320px) and (max-width: 550px) {
   .footer{
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1.5rem;
   }
   .footerWrap {
     font-size: 4px;

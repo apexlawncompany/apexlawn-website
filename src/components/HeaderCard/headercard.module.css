@@ -23,6 +23,9 @@
     width: 120px;
     height: 80px;
   }
+  .headerCard img {
+    height: 75px;
+  }
   .headerName {
     font-size: 25px;
   }
@@ -34,6 +37,9 @@
     height: 65px;
     border: 4px solid rgb(255, 221, 0);
   }
+  .headerCard img {
+    height: 55px;
+  }
   .headerName {
     font-size: 15px;
   }
@@ -43,6 +49,7 @@
   .headerCard {
     height: 50px;
     border: 3px solid rgb(255, 221, 0);
+    border-radius: 15px;
   }
   .headerCard img {
     height: 40px;
@@ -57,9 +64,10 @@
     width: 150px;
     height: 30px;
     border: 2px solid rgb(255, 221, 0);
+    border-radius: 10px;
   }
   .headerCard img {
-    height: 30px;
+    height: 27px;
   }
   .headerName {
     font-size: 10px;

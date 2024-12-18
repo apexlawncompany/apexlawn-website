@@ -3,9 +3,9 @@ import styles from "./policy.module.css";
 export default function Policy() {
   return (
     <div className={`page-content`}>
-      <div className="page-section">
+      <div className={`page-section ${styles.responivepage}`}>
         <div className="center-aligned">
-          <p className={styles.policy}>Company Policy -- In Plain English</p>
+          <h1 className={styles.policy}>Company Policy -- In Plain English</h1>
           <h2>Information We Collect</h2>
           <p>
             Information you give us, such as your phone number
