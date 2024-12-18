@@ -63,9 +63,11 @@ export default function MulchSection() {
         <TransparentBtn className={styles.blackTextButton}>
           Setup an Appointment
         </TransparentBtn>
-        <TransparentBtn className={styles.blackTextButton}>
-          Schedule a Drone Fly-by
-        </TransparentBtn>
+        <Link href="/drone" style={{ width: "100%" }}>
+          <TransparentBtn className={styles.blackTextButton}>
+            Schedule a Drone Fly-by
+          </TransparentBtn>
+        </Link>
       </div>
     </>
   );

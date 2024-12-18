@@ -2,15 +2,18 @@
 import TransparentBtn from "@/src/components/TransparentBtn";
 import styles from "./portfolio.module.css";
 import Carousel from "@/src/components/Carousel";
+import Link from "next/link";
 
 function Portfolio() {
   return (
     <div className={styles.portfolio}>
       <div className={styles.carousel}>
         <div className={styles.portfolioBtnWrp}>
-          <TransparentBtn className={styles.portfolioBtn}>
-            View Project Portfolio
-          </TransparentBtn>
+          <Link href="/retail" style={{ width: "100%" }}>
+            <TransparentBtn className={styles.portfolioBtn}>
+              View Project Portfolio
+            </TransparentBtn>
+          </Link>
         </div>
         <Carousel />
       </div>
@@ -18,9 +21,11 @@ function Portfolio() {
         <TransparentBtn className={styles.appointmentBtn}>
           Setup an Appointment
         </TransparentBtn>
-        <TransparentBtn className={styles.appointmentBtn}>
-          Schedule a Drone Fly-by
-        </TransparentBtn>
+        <Link href="/drone" style={{ width: "100%" }}>
+          <TransparentBtn className={styles.appointmentBtn}>
+            Schedule a Drone Fly-by
+          </TransparentBtn>
+        </Link>
       </div>
     </div>
   );
