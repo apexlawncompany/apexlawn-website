@@ -141,9 +141,6 @@
 }
 
 @media (min-width: 320px) and (max-width: 424px) {
-  .pageHeight {
-    min-height: 460px !important;
-  }
   .formContainer label {
     font-size: 5px;
   }

@@ -29,16 +29,26 @@ function Details() {
           <p className={styles.marginTop}>Customer Support: Mon-Sat 8am-7pm</p>
           <p className={styles.marginTop}>
             Workers paid living wage by W-2.{" "}
-            <span className="color-red">We hire Vets!</span>
+            <span style={{ color: "red" }}>We hire Vests!</span>
           </p>
         </div>
       </div>
       <div className={styles.detailsCard}>
-        <div className={styles.cardHeader}>Average Competitors</div>
+        <div className={styles.cardHeader}>About Our Team</div>
         <div className={styles.cardBody}>
-          <p className="text-center">Average Price Per Cut: $60</p>
-          <p className={styles.marginTop}>&quot;Big Box&quot; Packages</p>
-          <p className={styles.marginTop}>Customer Service: Mon-Fri 8am-5pm</p>
+          <p className="text-center">
+            We take pride in our team.James started Apex Lawn Company out of his
+            garage in 2019 at the age of 17.
+          </p>
+          <p className={styles.marginTop}>
+            The company has become a premeir landscape maintenance and install
+            option for the Triangle Area.
+          </p>
+          <p className={styles.marginTop}>
+            We pledge to source our labor ethically, and only hire{" "}
+            <span style={{ color: "red" }}>W-2 Employees</span> who pass our
+            background screening.
+          </p>
         </div>
       </div>
     </div>
