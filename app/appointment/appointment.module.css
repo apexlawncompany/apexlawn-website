@@ -1,3 +1,6 @@
+.pageHeight {
+  min-height: 760px !important;
+}
 .formPage {
   display: flex;
   flex-direction: row;
@@ -10,21 +13,16 @@
   padding: 5px;
   margin: 5px;
 }
-
 .formContainer label {
   padding: 5px;
   font-size: 14px;
   font-weight: bold;
-  margin-top: 5px;
   display: inline-block;
 }
 
-.formContainer select{
-  padding: 5px;
-  margin: 5px;
-  width: 100%;
-  height: 30px;
-}
+/* .imageContainer {
+  margin-top: 20px;
+} */
 
 .formContainer button {
   padding: 5px;
@@ -41,14 +39,6 @@
   font-weight: bold;
   margin-top: 15px;
 }
-
-.thankYouMessage {
-  text-align: center;
-  margin-top: 50px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
 @media (max-width: 1024px) {
   .responivepage {
     padding: 0 1.5rem;
@@ -66,16 +56,13 @@
     padding: 4px;
     margin: 4px;
   }
-  .formContainer select{
-    font-size: 15px;
-  }
   .formContainer button {
     font-size: 15px;
     height: 30px;
   }
   .imageContainer img {
-    width: 390px;
-    height: 450px;
+    width: 450px;
+    height: 475px;
   }
   .formContainer label {
     padding: 4px;
@@ -97,13 +84,9 @@
     font-size: 10px;
     height: 25px;
   }
-  .formContainer select{
-    font-size: 10px;
-    height: 22px;
-  }
   .imageContainer img {
     width: 350px;
-    height: 400px;
+    height: 370px;
   }
   .formContainer label {
     padding: 3px;
@@ -111,6 +94,9 @@
 }
 
 @media (min-width: 425px) and (max-width: 550px) {
+  .pageHeight {
+    min-height: 460px !important;
+  }
   .formContainer label {
     font-size: 8px;
   }
@@ -124,12 +110,6 @@
   .formContainer button {
     font-size: 8px;
     height: 20px;
-  }
-  .formContainer select{
-    font-size: 7px;
-    height: 18px;
-    margin: 0px;
-    padding: 0px;
   }
   .imageContainer img {
     width: 230px;
@@ -154,11 +134,6 @@
     padding: 1px;
     margin: 1px;
   }
-  .formContainer select{
-    font-size: 5px;
-    height: 12px;
-    margin-left: 0px
-  }
   .formContainer button {
     font-size: 5px;
     height: 15px;
@@ -169,8 +144,5 @@
   }
   .formContainer label {
     padding: 1px;
-  }
-  .thankYouMessage {
-    font-size: 10px;
   }
 }

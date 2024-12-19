@@ -6,7 +6,7 @@ function TransparentBtn({ children, className, ...otherProps }) {
   const router = useRouter();
 
   const handleButtonClick = () => {
-    router.push('/contact');
+    router.push('/appointment');
   };
 
   return (
