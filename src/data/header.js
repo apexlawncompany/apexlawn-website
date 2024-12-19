@@ -11,7 +11,7 @@ const HEADER_DATA = [
   },
   {
     type: "image",
-    image: "/apex-lawn.JPG",
+    image: "/apex-lawn.jpg",
     path: "/"
   },
   {
