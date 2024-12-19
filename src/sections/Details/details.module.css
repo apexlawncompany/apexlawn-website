@@ -81,6 +81,7 @@
     height: 46px;
   }
   .cardBody{
+    border: 3px solid rgb(255, 221, 0);
     padding: 6px 8px;
   }
 }

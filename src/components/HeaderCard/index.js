@@ -17,8 +17,8 @@ function HeaderCard({ item }) {
           height={84}
           style={{
             position: "relative",
-            top: "-2px",
-            objectFit: "cover",
+            // top: "-2px",
+            // objectFit: "cover",
           }}
         />
       )}

@@ -68,7 +68,7 @@ export default function Maintenance() {
           alt="full Service"
           width={300}
           height={400}
-          className={styles.image}
+          className={`${styles.image} ${styles.maintenanceImage}`}
         />
       </div>
     </div>

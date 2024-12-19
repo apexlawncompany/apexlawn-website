@@ -28,7 +28,7 @@ export default function LandScaping() {
           <p id="services-pricing">Services & Pricings</p>
         </div>
 
-        <div className="page-section">
+        <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
             <div id="mulch">
               <MulchSection />
