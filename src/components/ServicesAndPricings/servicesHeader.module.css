@@ -78,6 +78,12 @@
   align-self: center;
 }
 
+@media (prefers-color-scheme: dark) {
+  .optionButton {
+    color:black;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .options-navbar {
     top: 92px;

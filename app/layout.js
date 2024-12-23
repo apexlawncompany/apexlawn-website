@@ -13,6 +13,11 @@ const OpenSans = localFont({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>Apex Lawn Company</title>
+        <meta name="description" content="Quality Affordable Lawncare" />
+        <link rel="icon" href="/apex-lawn-icon.png" />
+      </head>
       <body className={`${OpenSans.className}`}>
         <Header />
         {children}
