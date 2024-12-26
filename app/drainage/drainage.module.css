@@ -1,0 +1,67 @@
+.aboutBg {
+  height: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  z-index: -1;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.service.reverse {
+  flex-direction: row-reverse;
+}
+
+.serviceText {
+  flex: 1;
+}
+
+.serviceText h3 {
+  color: #000;
+  font-size: 30px;
+}
+
+.serviceText p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+.serviceText ul {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+.serviceText ul li {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.serviceImage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image {
+  border-radius: 5%;
+}
+
+.divider {
+  border: 1px solid #343434;
+  margin: 1rem 0;
+}
+
+.blackTextButton {
+  color: black !important;
+  margin: 10px 0;
+}
+
+.footer {
+  background-color: black;
+  padding: 2rem;
+  margin-top: 20px;
+}

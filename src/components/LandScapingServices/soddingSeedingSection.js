@@ -2,6 +2,8 @@
 import Image from "next/image";
 import styles from "../../../app/landscaping/landscaping.module.css";
 import { basePath } from "@/next.config";
+import TransparentBtn from "../TransparentBtn";
+import Link from "next/link";
 
 export default function SoddingSeedingSection() {
   return (
@@ -27,6 +29,13 @@ export default function SoddingSeedingSection() {
           height={230}
           className={styles.image}
         />
+        <div className={styles.buttonGroup}>
+          <Link href="/sod" style={{ width: "100%" }}>
+            <TransparentBtn className={styles.blackTextButton}>
+              See Sod Options
+            </TransparentBtn>
+          </Link>
+        </div>
       </div>
     </div>
   );
