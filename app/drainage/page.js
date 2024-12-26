@@ -28,7 +28,6 @@ export default function Drainage() {
                   <h1
                     style={{
                       color: "white",
-                      fontSize: "50px",
                       whiteSpace: "nowrap",
                     }}
                   >
@@ -36,7 +35,7 @@ export default function Drainage() {
                   </h1>
                 </div>
                 <div>
-                  <p style={{ color: "white", fontSize: "23px" }}>
+                  <p style={{ color: "white"}}>
                     Draining refers to the process of managing and removing
                     excess water from the soil to ensure proper growing
                     conditions for plants.
@@ -47,7 +46,7 @@ export default function Drainage() {
           </div>
         </div>
 
-        <div className={`page-section`}>
+        <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
             <TransparentBtn className={styles.blackTextButton}>
               Setup an Appointment

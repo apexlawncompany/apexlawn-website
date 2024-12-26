@@ -1,9 +1,16 @@
 .aboutBg {
-  height: 180px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: center;
   z-index: -1;
+}
+
+.aboutBg h1 {
+  font-size: 50px;
+}
+
+.aboutBg p {
+  font-size: 25px;
 }
 
 .service {
@@ -64,4 +71,146 @@
   background-color: black;
   padding: 2rem;
   margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  .responivepage {
+    padding: 0 1.5rem;
+  }
+  .divider {
+    margin: 5px 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .heading {
+    font-size: 30px;
+    padding-top: 52px;
+  }
+  .aboutBg h1 {
+    font-size: 40px;
+  }
+  .aboutBg p {
+    font-size: 20px;
+  }
+  .serviceText ul li {
+    font-size: 15px;
+  }
+  .serviceText h3 {
+    font-size: 2rem;
+  }
+  .serviceText p {
+    font-size: 15px;
+  }
+  .serviceImage img {
+    width: 270px;
+    height: 250px;
+    padding-top: 2px;
+  }
+  .blackTextButton {
+    font-size: 15px;
+    border: 3px solid rgb(255, 221, 0);
+  }
+  .footer {
+    padding: 25px;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 768px) {
+  .heading {
+    font-size: 25px;
+    padding-top: 43px;
+  }
+  .aboutBg h1 {
+    font-size: 30px;
+  }
+  .aboutBg p {
+    font-size: 15px;
+  }
+  .serviceText ul li {
+    font-size: 12px;
+  }
+  .serviceText h3 {
+    font-size: 1.5rem;
+  }
+  .serviceText p {
+    font-size: 12px;
+  }
+  .serviceImage img {
+    width: 280px;
+    height: 240px;
+    padding-top: 2px;
+  }
+  .footer {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 550px) {
+  .heading {
+    font-size: 20px;
+    padding-top: 32px;
+  }
+  .aboutBg h1 {
+    font-size: 25px;
+  }
+  .aboutBg p {
+    font-size: 13px;
+  }
+  .serviceText ul li {
+    font-size: 8px;
+  }
+  .serviceText h3 {
+    font-size: 1rem;
+  }
+  .serviceText p {
+    font-size: 7px;
+  }
+  .serviceImage {
+    gap: 3px;
+  }
+  .serviceImage img {
+    width: 175px;
+    height: 180px;
+    padding-top: 2px;
+  }
+  .footer {
+    padding: 5px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 424px) {
+  .heading {
+    font-size: 10px;
+    padding-top: 25px;
+  }
+  .aboutBg h1 {
+    font-size: 20px;
+  }
+  .aboutBg p {
+    font-size: 10px;
+  }
+  .serviceText ul {
+    margin-left: 10px;
+  }
+  .serviceText ul li {
+    font-size: 6px;
+  }
+  .serviceText h3 {
+    font-size: 0.5rem;
+  }
+  .serviceText p {
+    font-size: 6px;
+  }
+  .serviceImage {
+    gap: 2px;
+  }
+  .serviceImage img {
+    width: 130px;
+    height: 150px;
+    padding-top: 2px;
+  }
+  .footer {
+    padding: 5px;
+  }
 }

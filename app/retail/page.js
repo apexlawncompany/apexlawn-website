@@ -2,7 +2,7 @@ import styles from "./retail.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 
-export default function Retail() {
+export default function More() {
   const options = [
     { text: "Top", path: "top" },
     { text: "Locations", path: "locations" },
@@ -19,9 +19,15 @@ export default function Retail() {
           <p id="services-pricing">Services & Pricings</p>
         </div>
 
-        <div className="page-section">
+        <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
-            <p style={{ color: "red", fontSize: "50px" }}>Page Coming Soon !</p>
+            <p style={{ color: "red"}}>
+              PAGE COMING SOON<br /> CALL/TEXT:
+            </p>
+            <a style={{  textDecoration:"underline" }} href="tel:9046792513">9</a>
+            <a style={{   textDecoration:"underline" }} href="tel:9199394665">199394665</a>
+            <p>FOR MORE INFOMATION ON PRODUCTS <br/>
+            OR TRY ANOTHER PAGE</p>
           </div>
         </div>
       </div>

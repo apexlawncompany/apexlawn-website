@@ -35,7 +35,6 @@ export default function Sod() {
                   <h1
                     style={{
                       color: "white",
-                      fontSize: "50px",
                       whiteSpace: "nowrap",
                     }}
                   >
@@ -43,7 +42,7 @@ export default function Sod() {
                   </h1>
                 </div>
                 <div>
-                  <p style={{ color: "white", fontSize: "23px" }}>
+                  <p style={{ color: "white"}}>
                     Sodding refers to the process of installing pre-grown grass
                     and soil, known as sod or turf, onto an area to establish a
                     lawn or cover bare ground quickly.
@@ -54,7 +53,7 @@ export default function Sod() {
           </div>
         </div>
 
-        <div className={`page-section`}>
+        <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
             <TransparentBtn className={styles.blackTextButton}>
               Setup an Appointment
@@ -119,14 +118,14 @@ export default function Sod() {
                 <Image
                   src={`${basePath}/assets/sod/soil_prep.jpg`}
                   alt="soil preparation"
-                  width={450}
+                  width={430}
                   height={280}
                   className={styles.image}
                 />
                 <Image
                   src={`${basePath}/assets/sod/sod_bg.jpg`}
                   alt="soil preparation"
-                  width={450}
+                  width={430}
                   height={280}
                   className={styles.image}
                 />

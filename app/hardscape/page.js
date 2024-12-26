@@ -28,15 +28,13 @@ export default function HardScape() {
                   <h1
                     style={{
                       color: "white",
-                      fontSize: "50px",
-                      whiteSpace: "nowrap",
                     }}
                   >
                     About Hardscaping
                   </h1>
                 </div>
                 <div>
-                  <p style={{ color: "white", fontSize: "23px" }}>
+                  <p style={{ color: "white" }}>
                     Hardscaping forms the backbone of a well-designed outdoor
                     space, complementing the living elements of landscaping,
                     such as plants and lawns.
@@ -47,7 +45,7 @@ export default function HardScape() {
           </div>
         </div>
 
-        <div className={`page-section`}>
+        <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
             <TransparentBtn className={styles.blackTextButton}>
               Setup an Appointment

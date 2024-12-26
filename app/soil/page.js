@@ -28,15 +28,13 @@ export default function Soil() {
                   <h1
                     style={{
                       color: "white",
-                      fontSize: "50px",
-                      whiteSpace: "nowrap",
                     }}
                   >
                     About Top Dressing
                   </h1>
                 </div>
                 <div>
-                  <p style={{ color: "white", fontSize: "23px" }}>
+                  <p style={{ color: "white" }}>
                     Soil delivery and spreading are essential processes in
                     gardening, landscaping, and construction projects. These
                     steps are fundamental when preparing planting areas,
@@ -49,7 +47,7 @@ export default function Soil() {
           </div>
         </div>
 
-        <div className={`page-section`}>
+        <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
             <TransparentBtn className={styles.blackTextButton}>
               Setup an Appointment
