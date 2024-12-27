@@ -2,6 +2,8 @@
 import Image from "next/image";
 import styles from "../../../app/landscaping/landscaping.module.css";
 import { basePath } from "@/next.config";
+import TransparentBtn from "../TransparentBtn";
+import Link from "next/link";
 
 export default function HardScapingSection() {
   return (
@@ -41,6 +43,13 @@ export default function HardScapingSection() {
           height={300}
           className={styles.image}
         />
+        <div className={styles.buttonGroup}>
+          <Link href="/hardscape" style={{ width: "100%" }}>
+            <TransparentBtn className={styles.blackTextButton}>
+              See Hardscape Options
+            </TransparentBtn>
+          </Link>
+        </div>
       </div>
     </div>
   );

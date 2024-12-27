@@ -2,6 +2,8 @@
 import Image from "next/image";
 import styles from "../../../app/landscaping/landscaping.module.css";
 import { basePath } from "@/next.config";
+import TransparentBtn from "../TransparentBtn";
+import Link from "next/link";
 
 export default function SoilSection() {
   return (
@@ -49,6 +51,13 @@ export default function SoilSection() {
           height={300}
           className={styles.image}
         />
+        <div className={styles.buttonGroup}>
+          <Link href="/soil" style={{ width: "100%" }}>
+            <TransparentBtn className={styles.blackTextButton}>
+              See Soil Delivery Options
+            </TransparentBtn>
+          </Link>
+        </div>
       </div>
     </div>
   );

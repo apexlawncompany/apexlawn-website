@@ -1,29 +1,18 @@
-.heading {
-  background-color: #000;
-  font-size: 30px;
-  color: white;
-  text-align: center;
-  padding-bottom: 5px;
-  padding-top: 60px;
-}
-
 .aboutBg {
-  /* height: 150px; */
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-y: top;
+  background-position-y: center;
   z-index: -1;
 }
+
 .aboutBg h1 {
   font-size: 50px;
 }
+
 .aboutBg p {
   font-size: 25px;
 }
 
-.aboutMulch p {
-  font-size: 20px;
-}
 .service {
   display: flex;
   align-items: center;
@@ -41,12 +30,29 @@
 
 .serviceText h3 {
   color: #000;
-  font-size: 45px;
+  font-size: 25px;
 }
 
 .serviceText p {
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.6;
+}
+.serviceText ul {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+.serviceText ol {
+  font-family: var(--font-amatics-sc);
+  margin-left: 20px;
+  list-style-type: decimal;
+}
+.serviceText ol li {
+  font-size: 20px;
+}
+.serviceText ul li {
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .serviceImage {
@@ -67,13 +73,6 @@
 .blackTextButton {
   color: black !important;
   margin: 10px 0;
-}
-
-.priceList {
-  font-size: 23px !important;
-  font-weight: normal;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .footer {
@@ -102,10 +101,13 @@
   .aboutBg p {
     font-size: 20px;
   }
-  .aboutMulch h2 {
-    font-size: 1.3em;
+  /* .serviceText ul , .serviceText ol {
+    margin-left: 10px;
+  } */
+  .serviceText ol li {
+    font-size: 15px;
   }
-  .aboutMulch p {
+  .serviceText ul li {
     font-size: 15px;
   }
   .serviceText h3 {
@@ -123,9 +125,6 @@
     font-size: 15px;
     border: 3px solid rgb(255, 221, 0);
   }
-  .priceList {
-    font-size: 18px !important;
-  }
   .footer {
     padding: 25px;
   }
@@ -142,10 +141,13 @@
   .aboutBg p {
     font-size: 15px;
   }
-  .aboutMulch h2 {
-    font-size: 1em;
+  /* .serviceText ul , .serviceText ol {
+    margin-left: 10px;
+  } */
+  .serviceText ol li {
+    font-size: 12px;
   }
-  .aboutMulch p {
+  .serviceText ul li {
     font-size: 12px;
   }
   .serviceText h3 {
@@ -158,9 +160,6 @@
     width: 280px;
     height: 240px;
     padding-top: 2px;
-  }
-  .priceList {
-    font-size: 15px !important;
   }
   .footer {
     padding: 20px;
@@ -178,11 +177,14 @@
   .aboutBg p {
     font-size: 13px;
   }
-  .aboutMulch h2 {
-    font-size: 0.8em;
+  .serviceText ul , .serviceText ol {
+    margin-left: 10px;
   }
-  .aboutMulch p {
-    font-size: 7px;
+  .serviceText ol li {
+    font-size: 8px;
+  }
+  .serviceText ul li {
+    font-size: 8px;
   }
   .serviceText h3 {
     font-size: 1rem;
@@ -197,9 +199,6 @@
     width: 175px;
     height: 130px;
     padding-top: 2px;
-  }
-  .priceList {
-    font-size: 10px !important;
   }
   .footer {
     padding: 5px;
@@ -217,25 +216,28 @@
   .aboutBg p {
     font-size: 10px;
   }
-  .aboutMulch h2 {
-    font-size: 0.5em;
+  .serviceText ul , .serviceText ol {
+    margin-left: 10px;
   }
-  .aboutMulch p {
+  .serviceText ol li {
+    font-size: 6px;
+  }
+  .serviceText ul li {
     font-size: 6px;
   }
   .serviceText h3 {
-    font-size: 0.8rem;
+    font-size: 0.5rem;
   }
   .serviceText p {
     font-size: 6px;
+  }
+  .serviceImage {
+    gap: 2px;
   }
   .serviceImage img {
     width: 130px;
     height: 120px;
     padding-top: 2px;
-  }
-  .priceList {
-    font-size: 8px !important;
   }
   .footer {
     padding: 5px;

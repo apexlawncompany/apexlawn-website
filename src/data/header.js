@@ -7,7 +7,7 @@ const HEADER_DATA = [
   {
     type: "text",
     text: "Irrigation",
-    path: "/Irrigation",
+    path: "/irrigation",
   },
   {
     type: "image",

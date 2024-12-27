@@ -30,17 +30,17 @@ export default function Mulch() {
           style={{
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${basePath}/assets/mulch/mulch_bg.jpeg)`,
           }}
-          >
+        >
           <div className={`page-section`}>
             <div className="center-aligned">
               <div style={{display: "flex",gap: "30px",alignItems: "center",padding: "15px",}}>
                 <div>
-                  <h1 style={{ color: "white", fontSize: "50px", whiteSpace: "nowrap"}}>
+                  <h1 style={{ color: "white", whiteSpace: "nowrap" }}>
                     About Mulch
                   </h1>
                 </div>
                 <div>
-                  <p style={{ color: "white", fontSize: "23px" }}>
+                  <p style={{ color: "white" }}>
                     Mulch can be formed from any organic plant clippings,
                     shavings, or cuttings. However, most of the time we are
                     looking for wood mulch.​
@@ -51,7 +51,7 @@ export default function Mulch() {
           </div>
         </div>
 
-        <div className={`page-section`}>
+        <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
             <TransparentBtn className={styles.blackTextButton}>
               Setup an Appointment

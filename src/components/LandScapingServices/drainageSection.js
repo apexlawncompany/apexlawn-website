@@ -2,6 +2,8 @@
 import Image from "next/image";
 import styles from "../../../app/landscaping/landscaping.module.css";
 import { basePath } from "@/next.config";
+import TransparentBtn from "../TransparentBtn";
+import Link from "next/link";
 
 export default function DrainageSection() {
   return (
@@ -32,9 +34,16 @@ export default function DrainageSection() {
           src={`${basePath}/assets/drainage.JPG`}
           alt="Drainage"
           width={280}
-          height={280}
+          height={230}
           className={styles.image}
         />
+        <div className={styles.buttonGroup}>
+          <Link href="/drainage" style={{ width: "100%" }}>
+            <TransparentBtn className={styles.blackTextButton}>
+              See Drainage Options
+            </TransparentBtn>
+          </Link>
+        </div>
       </div>
     </div>
   );

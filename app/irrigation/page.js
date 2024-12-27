@@ -1,8 +1,8 @@
-import styles from "./retail.module.css";
+import styles from "./irrigation.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 
-export default function More() {
+export default function Irrigation() {
   const options = [
     { text: "Top", path: "top" },
     { text: "Locations", path: "locations" },

@@ -1,4 +1,4 @@
-import styles from "./retail.module.css";
+import styles from "./more.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 
