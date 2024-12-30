@@ -2,6 +2,7 @@ import styles from "./sod.module.css";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
 import { basePath } from "@/next.config";
+import ContactDetails from "../../src/components/ContactDetails";
 import localFont from "next/font/local";
 
 // const AmaticSC = localFont({
@@ -21,6 +22,11 @@ export default function Sod() {
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${basePath}/assets/sod/sod_bg.jpg)`,
           }}
         >
+          <div className={styles.contactDetails}>
+            <div className={styles.maxDiv}>
+              <ContactDetails />
+            </div>
+          </div>
           <div className={`page-section`}>
             <div className="center-aligned">
               <div
@@ -28,7 +34,7 @@ export default function Sod() {
                   display: "flex",
                   gap: "30px",
                   alignItems: "center",
-                  padding: "15px",
+                  padding: " 40px 15px 15px",
                 }}
               >
                 <div>
@@ -180,7 +186,7 @@ export default function Sod() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/sod/sod_lawn.jpg`}
+                  src={`${basePath}/assets/sod/sod_lawn.JPG`}
                   alt="Sod Lawn"
                   width={450}
                   height={300}

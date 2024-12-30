@@ -1,6 +1,7 @@
 import styles from "./hardscape.module.css";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
+import ContactDetails from "../../src/components/ContactDetails";
 import { basePath } from "@/next.config";
 
 export default function HardScape() {
@@ -14,6 +15,11 @@ export default function HardScape() {
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${basePath}/assets/hardscape/hardscape_bg.jpg)`,
           }}
         >
+          <div className={styles.contactDetails}>
+            <div className={styles.maxDiv}>
+              <ContactDetails />
+            </div>
+          </div>
           <div className={`page-section`}>
             <div className="center-aligned">
               <div
@@ -21,7 +27,7 @@ export default function HardScape() {
                   display: "flex",
                   gap: "30px",
                   alignItems: "center",
-                  padding: "15px",
+                  padding: "40px 15px 15px",
                 }}
               >
                 <div>

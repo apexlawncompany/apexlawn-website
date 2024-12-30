@@ -1,0 +1,65 @@
+.contact {
+    background: #83be49;
+    color: #fff;
+    font-family: OpenSans, OpenSans Fallback;
+    font-weight: 600;
+    font-size: 25px;
+    text-align: center;
+    padding: 2px 18px;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    align-self: flex-end;
+    z-index: 10;
+  }
+  
+  .contact button {
+    background: transparent;
+    border: none;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  
+  .contact a {
+    text-decoration: underline;
+  }
+  
+  .fullDetails {
+    width: 100%;
+    align-self: center;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .contact {
+      font-size: 20px;
+      margin: 6px 8px 0;
+      border-radius: 10px;
+    }
+  }
+  
+  @media (min-width: 550px) and (max-width: 768px) {
+    .contact {
+      font-size: 20px;
+      margin: 3px 3px 0;
+      border-radius: 10px;
+    }
+  }
+  
+  @media (min-width: 425px) and (max-width: 550px) {
+    .contact {
+      font-size: 13px;
+      margin: 8px 5px 0;
+      border-radius: 5px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 424px) {
+    .contact {
+      font-size: 9px;
+      margin: 3px 1px 0;
+      border-radius: 5px;
+    }
+  }
+  

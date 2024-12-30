@@ -17,7 +17,10 @@ export default function RootLayout({ children }) {
       <head>
         <title>Apex Lawn Company</title>
         <meta name="description" content="Quality Affordable Lawncare" />
-        <link rel="icon" href={`${basePath}/apex-lawn-icon.png`} />
+        <meta
+          name="keywords"
+          content="apex lawn company, lawncare, lawn care, Grass Fertilization, residential lawn maintenance, leaf removal companies, lawn, maintenance service, turf lawn care, Lawn Fertilizer And Weed Control Company, leaf removal services, residential lawn service, Grass Fertilization Service, landscaping companies near me, landscape maintenance contractor, best lawn mowing, fall leaf cleanup, lawn aeration company, lawn aeration costs, lawn services, grass cutting service, lawn maintenance"
+        ></meta>
       </head>
       <body className={`${OpenSans.className}`}>
         <Header />

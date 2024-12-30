@@ -5,6 +5,21 @@
   z-index: -1;
 }
 
+.contactDetails{
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  left: 0;
+  justify-content: center;
+}
+
+.maxDiv {
+  max-width: 1000px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 .aboutBg h1 {
   font-size: 50px;
 }

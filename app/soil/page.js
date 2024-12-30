@@ -1,6 +1,7 @@
 import styles from "./soil.module.css";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
+import ContactDetails from "../../src/components/ContactDetails";
 import { basePath } from "@/next.config";
 
 export default function Soil() {
@@ -14,6 +15,11 @@ export default function Soil() {
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${basePath}/assets/sod/Top_Soil_Delivery.jpg)`,
           }}
         >
+          <div className={styles.contactDetails}>
+            <div className={styles.maxDiv}>
+              <ContactDetails />
+            </div>
+          </div>
           <div className={`page-section`}>
             <div className="center-aligned">
               <div
@@ -21,7 +27,7 @@ export default function Soil() {
                   display: "flex",
                   gap: "30px",
                   alignItems: "center",
-                  padding: "15px",
+                  padding: "40px 15px 15px",
                 }}
               >
                 <div>
