@@ -2,6 +2,7 @@ import styles from "./drainage.module.css";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
 import { basePath } from "@/next.config";
+import ContactDetails from "../../src/components/ContactDetails";
 
 export default function Drainage() {
   return (
@@ -14,6 +15,11 @@ export default function Drainage() {
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${basePath}/assets/drainage/drainage_bg.jpg)`,
           }}
         >
+          <div className={styles.contactDetails}>
+            <div className={styles.maxDiv}>
+              <ContactDetails />
+            </div>
+          </div>
           <div className={`page-section`}>
             <div className="center-aligned">
               <div
@@ -21,7 +27,7 @@ export default function Drainage() {
                   display: "flex",
                   gap: "30px",
                   alignItems: "center",
-                  padding: "15px",
+                  padding: "40px 15px 15px",
                 }}
               >
                 <div>
@@ -52,9 +58,7 @@ export default function Drainage() {
               Setup an Appointment
             </TransparentBtn>
             {/*Section 1 */}
-            <div
-              className={`${styles.service} ${styles.reverse}`}
-            >
+            <div className={`${styles.service} ${styles.reverse}`}>
               <div className={styles.serviceText}>
                 <h3>Surface Drainage</h3>
                 <p>
