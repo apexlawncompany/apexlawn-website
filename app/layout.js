@@ -16,6 +16,33 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <title>Apex Lawn Company</title>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Apex Lawn Company",
+              url: "https://apexlawncompany.github.io/apexlawn-website/",
+              telephone: "+1 919-939-4665",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "501 W Williams St Box 1012",
+                addressLocality: "Apex",
+                addressRegion: "NC",
+                postalCode: "27502",
+                addressCountry: "US",
+              },
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.5",
+                reviewCount: "123",
+              },
+            }),
+          }}
+        />
+        <meta name="google-site-verification" content="Q-h9fQ_yBWCyBHKa6MHkm-ME3RYiWcIHuufxSyVIft0" />
+
         <meta name="description" content="Quality Affordable Lawncare" />
         <meta
           name="keywords"
