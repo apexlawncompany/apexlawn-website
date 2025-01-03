@@ -44,9 +44,26 @@ const DronePage = () => {
     e.preventDefault();
     const newErrors = validateForm();
     setErrors(newErrors);
-
+  
     if (Object.keys(newErrors).length === 0) {
       setFormSubmitted(true);
+  
+      // Push event to GTM
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: "form_submission",
+          form_name: "Drone Flyby Form",
+          submission_status: "success",
+          form_data: {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            request: formData.request,
+            details: formData.details,
+          },
+        });
+      }
+  
       console.log("Form Submitted Successfully:", formData);
     }
   };

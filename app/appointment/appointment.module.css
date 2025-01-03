@@ -36,6 +36,19 @@
   font-weight: bold;
   margin-top: 15px;
 }
+
+.error{
+  color: red;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.thankYouMessage {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
 @media (max-width: 1024px) {
   .responivepage {
     padding: 0 1.5rem;
