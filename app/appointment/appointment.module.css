@@ -37,6 +37,12 @@
   margin-top: 15px;
 }
 
+.formContainer button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
 .error{
   color: red;
   padding: 5px;
@@ -134,6 +140,9 @@
   /* .pageHeight {
     min-height: 460px !important;
   } */
+  .formPage{
+    transform: scale(0.6);
+  }
   .formContainer label {
     font-size: 5px;
   }

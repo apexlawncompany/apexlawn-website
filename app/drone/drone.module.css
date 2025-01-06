@@ -22,7 +22,7 @@
 .formContainer select{
   padding: 5px;
   margin: 5px;
-  width: 100%;
+  width: 97%;
   height: 30px;
 }
 
@@ -40,6 +40,12 @@
   font-size: 16px;
   font-weight: bold;
   margin-top: 15px;
+}
+
+.formContainer button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
 }
 
 .thankYouMessage {
@@ -141,6 +147,9 @@
 }
 
 @media (min-width: 320px) and (max-width: 424px) {
+  .formPage{
+    transform: scale(0.6);
+  }
   .formContainer label {
     font-size: 5px;
   }

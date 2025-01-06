@@ -4,6 +4,7 @@ import styles from "./drone.module.css";
 import Image from "next/image";
 import { basePath } from "@/next.config";
 import validLocations from "@/src/data/locations";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const DronePage = () => {
   // State management for form inputs
@@ -19,11 +20,21 @@ const DronePage = () => {
 
   const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [recaptchaVerified, setRecaptchaVerified] = useState(false);
 
   // Handle input changes
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
+  };
+
+  // Handle reCAPTCHA verification
+  const handleRecaptchaChange = (token) => {
+    if (token) {
+      setRecaptchaVerified(true);
+    } else {
+      setRecaptchaVerified(false);
+    }
   };
 
   // Validate form fields
@@ -44,10 +55,10 @@ const DronePage = () => {
     e.preventDefault();
     const newErrors = validateForm();
     setErrors(newErrors);
-  
+
     if (Object.keys(newErrors).length === 0) {
       setFormSubmitted(true);
-  
+
       // Push event to GTM
       if (window.dataLayer) {
         window.dataLayer.push({
@@ -63,7 +74,7 @@ const DronePage = () => {
           },
         });
       }
-  
+
       console.log("Form Submitted Successfully:", formData);
     }
   };
@@ -85,7 +96,7 @@ const DronePage = () => {
                       value={formData.name}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                     {errors.name && (
                       <p
@@ -109,7 +120,7 @@ const DronePage = () => {
                       value={formData.email}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                   </div>
 
@@ -122,7 +133,7 @@ const DronePage = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                     {errors.phone && (
                       <p
@@ -174,7 +185,7 @@ const DronePage = () => {
                       value={formData.address}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                   </div>
 
@@ -188,7 +199,7 @@ const DronePage = () => {
                       value={formData.day}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                   </div>
 
@@ -199,14 +210,35 @@ const DronePage = () => {
                     <textarea
                       id="details"
                       rows={7}
-                      cols={40}
+                      cols={39}
                       value={formData.details}
                       onChange={handleChange}
                     />
                   </div>
 
+                  {/* ReCaptcha Button */}
+                  <div style={{paddingTop:"5px"}}>
+                    <ReCAPTCHA
+                      sitekey="6LfHVq8qAAAAAMRV33TzE9xndV1zSp4LjbGlXKdu" // site key
+                      onChange={handleRecaptchaChange}
+                    />
+                    {errors.recaptcha && (
+                      <p
+                        style={{
+                          color: "red",
+                          padding: "5px",
+                          fontSize: "12px",
+                        }}
+                      >
+                        {errors.recaptcha}
+                      </p>
+                    )}
+                  </div>
+
                   {/* Submit Button */}
-                  <button type="submit">Submit</button>
+                  <button type="submit" disabled={!recaptchaVerified}>
+                    Submit
+                  </button>
                 </form>
               ) : (
                 <div className={styles.thankYouMessage}>
