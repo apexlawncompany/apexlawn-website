@@ -162,7 +162,7 @@ const AppointmentForm = () => {
                   </div>
 
                   {/* ReCaptcha Button */}
-                  <div style={{paddingTop:"5px"}}>
+                  <div className={styles.recaptcha}>
                     <ReCAPTCHA
                       sitekey="6LfHVq8qAAAAAMRV33TzE9xndV1zSp4LjbGlXKdu" // site key
                       onChange={handleRecaptchaChange}

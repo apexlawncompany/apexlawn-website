@@ -48,6 +48,10 @@
   cursor: not-allowed;
 }
 
+.recaptcha {
+  padding-top: 5px;
+}
+
 .thankYouMessage {
   text-align: center;
   margin-top: 50px;
@@ -117,6 +121,9 @@
 }
 
 @media (min-width: 425px) and (max-width: 550px) {
+  .formPage{
+    transform: scale(0.7);
+  }
   .formContainer label {
     font-size: 8px;
   }
