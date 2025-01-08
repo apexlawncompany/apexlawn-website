@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styles from "./appointment.module.css";
 import Image from "next/image";
 import { basePath } from "@/next.config";
-import ReCAPTCHA from "react-google-recaptcha";
 
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({
@@ -15,16 +14,6 @@ const AppointmentForm = () => {
   });
   const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [recaptchaVerified, setRecaptchaVerified] = useState(false);
-
-  // Handle reCAPTCHA verification
-  const handleRecaptchaChange = (token) => {
-    if (token) {
-      setRecaptchaVerified(true);
-    } else {
-      setRecaptchaVerified(false);
-    }
-  };
 
   // Handle input changes
   const handleChange = (e) => {
@@ -54,10 +43,10 @@ const AppointmentForm = () => {
     e.preventDefault();
     const newErrors = validateForm();
     setErrors(newErrors);
-
+  
     if (Object.keys(newErrors).length === 0) {
       setFormSubmitted(true);
-
+  
       // Push event to GTM
       if (window.dataLayer) {
         window.dataLayer.push({
@@ -73,7 +62,7 @@ const AppointmentForm = () => {
           },
         });
       }
-
+  
       console.log("Form Submitted Successfully:", formData);
     }
   };
@@ -96,7 +85,7 @@ const AppointmentForm = () => {
                       value={formData.name}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={39}
+                      size={40}
                     />
                     {errors.name && (
                       <p className={styles.error}>{errors.name}</p>
@@ -112,7 +101,7 @@ const AppointmentForm = () => {
                       value={formData.email}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={39}
+                      size={40}
                     />
                     {errors.email && (
                       <p className={styles.error}>{errors.email}</p>
@@ -128,7 +117,7 @@ const AppointmentForm = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={39}
+                      size={40}
                     />
                     {errors.phone && (
                       <p className={styles.error}>{errors.phone}</p>
@@ -145,7 +134,7 @@ const AppointmentForm = () => {
                       value={formData.request}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={39}
+                      size={40}
                     />
                   </div>
 
@@ -155,35 +144,14 @@ const AppointmentForm = () => {
                     <textarea
                       id="details"
                       rows={7}
-                      cols={39}
+                      cols={35}
                       value={formData.details}
                       onChange={handleChange}
                     />
                   </div>
 
-                  {/* ReCaptcha Button */}
-                  <div className={styles.recaptcha}>
-                    <ReCAPTCHA
-                      sitekey="6LfHVq8qAAAAAMRV33TzE9xndV1zSp4LjbGlXKdu" // site key
-                      onChange={handleRecaptchaChange}
-                    />
-                    {errors.recaptcha && (
-                      <p
-                        style={{
-                          color: "red",
-                          padding: "5px",
-                          fontSize: "12px",
-                        }}
-                      >
-                        {errors.recaptcha}
-                      </p>
-                    )}
-                  </div>
-
                   {/* Submit Button */}
-                  <button type="submit" disabled={!recaptchaVerified}>
-                    Submit
-                  </button>
+                  <button type="submit">Submit</button>
                 </form>
               ) : (
                 <div className={styles.thankYouMessage}>
