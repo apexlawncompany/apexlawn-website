@@ -4,6 +4,7 @@ import styles from "./drone.module.css";
 import Image from "next/image";
 import { basePath } from "@/next.config";
 import validLocations from "@/src/data/locations";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const DronePage = () => {
   // State management for form inputs
@@ -19,6 +20,9 @@ const DronePage = () => {
 
   const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+
+  const reCaptchaSiteKey = "6LeIarEqAAAAADgWfRRxNEzrqdSGUCDx1RPEoRJV";
 
   // Handle input changes
   const handleChange = (e) => {
@@ -44,10 +48,10 @@ const DronePage = () => {
     e.preventDefault();
     const newErrors = validateForm();
     setErrors(newErrors);
-  
-    if (Object.keys(newErrors).length === 0) {
+
+    if (Object.keys(newErrors).length === 0 && captchaVerified) {
       setFormSubmitted(true);
-  
+
       // Push event to GTM
       if (window.dataLayer) {
         window.dataLayer.push({
@@ -63,8 +67,17 @@ const DronePage = () => {
           },
         });
       }
-  
+
       console.log("Form Submitted Successfully:", formData);
+    }
+  };
+
+  // Handle reCAPTCHA verification
+  const handleCaptchaChange = (token) => {
+    if (token) {
+      setCaptchaVerified(true);
+    } else {
+      setCaptchaVerified(false);
     }
   };
 
@@ -85,7 +98,7 @@ const DronePage = () => {
                       value={formData.name}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                     {errors.name && (
                       <p
@@ -109,7 +122,7 @@ const DronePage = () => {
                       value={formData.email}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                   </div>
 
@@ -122,7 +135,7 @@ const DronePage = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                     {errors.phone && (
                       <p
@@ -174,7 +187,7 @@ const DronePage = () => {
                       value={formData.address}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                   </div>
 
@@ -188,7 +201,7 @@ const DronePage = () => {
                       value={formData.day}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                   </div>
 
@@ -199,14 +212,24 @@ const DronePage = () => {
                     <textarea
                       id="details"
                       rows={7}
-                      cols={40}
+                      cols={39}
                       value={formData.details}
                       onChange={handleChange}
                     />
                   </div>
 
+                  {/* reCAPTCHA */}
+                  <div className={styles.recaptcha}>
+                    <ReCAPTCHA
+                      sitekey={reCaptchaSiteKey}
+                      onChange={handleCaptchaChange}
+                    />
+                  </div>
+
                   {/* Submit Button */}
-                  <button type="submit">Submit</button>
+                  <button type="submit" disabled={!captchaVerified}>
+                    Submit
+                  </button>
                 </form>
               ) : (
                 <div className={styles.thankYouMessage}>

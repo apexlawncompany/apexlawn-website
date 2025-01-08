@@ -41,6 +41,19 @@
   font-weight: bold;
   margin-top: 15px;
 }
+.formContainer iframe {
+  width: auto !important;
+}
+
+.formContainer button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.recaptcha {
+  padding-top: 5px;
+}
 
 .thankYouMessage {
   text-align: center;
@@ -83,6 +96,14 @@
 }
 
 @media (min-width: 550px) and (max-width: 768px) {
+  .formContainer iframe {
+    transform: scale(0.6);
+    transform-origin: 0 0;
+  }
+  .recaptcha {
+    width: 200px !important;
+    height: 50px;
+  }
   .formContainer label {
     font-size: 10px;
   }
@@ -111,6 +132,14 @@
 }
 
 @media (min-width: 425px) and (max-width: 550px) {
+  .formContainer iframe {
+    transform: scale(0.5);
+    transform-origin: 0 0;
+  }
+  .recaptcha {
+    width: 140px !important;
+    height: 40px;
+  }
   .formContainer label {
     font-size: 8px;
   }
@@ -141,6 +170,14 @@
 }
 
 @media (min-width: 320px) and (max-width: 424px) {
+  .formContainer iframe {
+    transform: scale(0.35);
+    transform-origin: 0 0;
+  }
+  .recaptcha {
+    width: 110px !important;
+    height: 30px;
+  }
   .formContainer label {
     font-size: 5px;
   }
