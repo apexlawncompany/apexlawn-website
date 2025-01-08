@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./appointment.module.css";
 import Image from "next/image";
 import { basePath } from "@/next.config";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,9 @@ const AppointmentForm = () => {
   });
   const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+
+  const reCaptchaSiteKey = "6LeIarEqAAAAADgWfRRxNEzrqdSGUCDx1RPEoRJV"; // Replace with your actual site key
 
   // Handle input changes
   const handleChange = (e) => {
@@ -43,10 +47,10 @@ const AppointmentForm = () => {
     e.preventDefault();
     const newErrors = validateForm();
     setErrors(newErrors);
-  
-    if (Object.keys(newErrors).length === 0) {
+
+    if (Object.keys(newErrors).length === 0 && captchaVerified) {
       setFormSubmitted(true);
-  
+
       // Push event to GTM
       if (window.dataLayer) {
         window.dataLayer.push({
@@ -62,11 +66,19 @@ const AppointmentForm = () => {
           },
         });
       }
-  
+
       console.log("Form Submitted Successfully:", formData);
     }
   };
-  
+
+  // Handle reCAPTCHA verification
+  const handleCaptchaChange = (token) => {
+    if (token) {
+      setCaptchaVerified(true);
+    } else {
+      setCaptchaVerified(false);
+    }
+  };
 
   return (
     <div className={`page-content ${styles.pageHeight}`}>
@@ -85,7 +97,7 @@ const AppointmentForm = () => {
                       value={formData.name}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                     {errors.name && (
                       <p className={styles.error}>{errors.name}</p>
@@ -101,7 +113,7 @@ const AppointmentForm = () => {
                       value={formData.email}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                     {errors.email && (
                       <p className={styles.error}>{errors.email}</p>
@@ -117,7 +129,7 @@ const AppointmentForm = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                     {errors.phone && (
                       <p className={styles.error}>{errors.phone}</p>
@@ -134,7 +146,7 @@ const AppointmentForm = () => {
                       value={formData.request}
                       onChange={handleChange}
                       autoComplete="off"
-                      size={40}
+                      size={39}
                     />
                   </div>
 
@@ -144,14 +156,24 @@ const AppointmentForm = () => {
                     <textarea
                       id="details"
                       rows={7}
-                      cols={35}
+                      cols={39}
                       value={formData.details}
                       onChange={handleChange}
                     />
                   </div>
 
+                  {/* reCAPTCHA */}
+                  <div className={styles.recaptcha}>
+                    <ReCAPTCHA
+                      sitekey={reCaptchaSiteKey}
+                      onChange={handleCaptchaChange}
+                    />
+                  </div>
+
                   {/* Submit Button */}
-                  <button type="submit">Submit</button>
+                  <button type="submit" disabled={!captchaVerified}>
+                    Submit
+                  </button>
                 </form>
               ) : (
                 <div className={styles.thankYouMessage}>
