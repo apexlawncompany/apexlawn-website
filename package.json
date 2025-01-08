@@ -24,7 +24,8 @@
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "react-google-recaptcha": "^3.1.0"
   },
   "overrides": {
     "react-google-recaptcha": "^3.1.0"
