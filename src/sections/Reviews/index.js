@@ -11,7 +11,7 @@ function Reviews() {
            <Image
            key={"star-" + item}
            alt="apex lawn"
-           src={`${basePath}/star.png`}
+           src={`/star.png`}
            width={100}
            height={100}
            style={{
@@ -48,7 +48,7 @@ function Reviews() {
         </p>
         <Image
           alt="apex lawn"
-          src={`${basePath}/expert-certificate.svg`}
+          src={`/expert-certificate.svg`}
           width={230}
           height={230}
           style={{

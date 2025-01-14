@@ -37,7 +37,7 @@ export default function HardScapingSection() {
 
       <div className={styles.serviceImage}>
         <Image
-          src={`${basePath}/assets/hardScaping.JPG`}
+          src={`/assets/hardScaping.JPG`}
           alt="Hard Scaping"
           width={300}
           height={300}

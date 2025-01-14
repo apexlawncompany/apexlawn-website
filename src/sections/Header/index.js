@@ -17,7 +17,7 @@ function Header() {
       <nav
         className={styles["header-navbar"]}
         style={{
-          backgroundImage: `url(${basePath}/header-background.jpg)`,
+          backgroundImage: `url(/header-background.jpg)`,
         }}
         id="navbar"
       >

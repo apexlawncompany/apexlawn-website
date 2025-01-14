@@ -28,7 +28,7 @@ export default function Mulch() {
           id="about"
           className={styles.aboutBg}
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${basePath}/assets/mulch/mulch_bg.jpeg)`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(/assets/mulch/mulch_bg.jpeg)`,
           }}
         >
           <div className={`page-section`}>
@@ -104,7 +104,7 @@ export default function Mulch() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/mulch/walnut_mulch.jpg`}
+                  src={`/assets/mulch/walnut_mulch.jpg`}
                   alt="Mulch"
                   width={450}
                   height={350}
@@ -130,7 +130,7 @@ export default function Mulch() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/mulch/play_mulch.jpg`}
+                  src={`/assets/mulch/play_mulch.jpg`}
                   alt="Mulch"
                   width={480}
                   height={330}
@@ -175,7 +175,7 @@ export default function Mulch() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/mulch/pine_nuget_mulch.jpg`}
+                  src={`/assets/mulch/pine_nuget_mulch.jpg`}
                   alt="Mulch"
                   width={450}
                   height={380}
@@ -202,7 +202,7 @@ export default function Mulch() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/mulch/triple_shred_pine_mulch.png`}
+                  src={`/assets/mulch/triple_shred_pine_mulch.png`}
                   alt="Mulch"
                   width={480}
                   height={330}
@@ -240,7 +240,7 @@ export default function Mulch() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/mulch/triple_shred_bark_mulch.jpg`}
+                  src={`/assets/mulch/triple_shred_bark_mulch.jpg`}
                   alt="Mulch"
                   width={480}
                   height={335}
@@ -273,7 +273,7 @@ export default function Mulch() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/mulch/pine_straw.jpg`}
+                  src={`/assets/mulch/pine_straw.jpg`}
                   alt="Mulch"
                   width={480}
                   height={330}

@@ -98,7 +98,7 @@ export default function CutPackages() {
 
           <div className={styles.serviceImage}>
             <Image
-              src={`${basePath}/assets/cut_package.JPG`}
+              src={`/assets/cut_package.JPG`}
               alt="Cut Packages"
               width={300}
               height={230}

@@ -19,7 +19,7 @@ export default function Sod() {
           id="about"
           className={styles.aboutBg}
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${basePath}/assets/sod/sod_bg.jpg)`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(/assets/sod/sod_bg.jpg)`,
           }}
         >
           <div className={styles.contactDetails}>
@@ -122,14 +122,14 @@ export default function Sod() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/sod/soil_prep.jpg`}
+                  src={`/assets/sod/soil_prep.jpg`}
                   alt="soil preparation"
                   width={430}
                   height={280}
                   className={styles.image}
                 />
                 <Image
-                  src={`${basePath}/assets/sod/sod_bg.jpg`}
+                  src={`/assets/sod/sod_bg.jpg`}
                   alt="soil preparation"
                   width={430}
                   height={280}
@@ -186,14 +186,14 @@ export default function Sod() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/sod/sod_lawn.JPG`}
+                  src={`/assets/sod/sod_lawn.JPG`}
                   alt="Sod Lawn"
                   width={450}
                   height={300}
                   className={styles.image}
                 />
                 <Image
-                  src={`${basePath}/assets/sodding.jpg`}
+                  src={`/assets/sodding.jpg`}
                   alt="Sodding"
                   width={450}
                   height={300}
@@ -220,7 +220,7 @@ export default function Sod() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/sod/sod_footer.jpg`}
+                  src={`/assets/sod/sod_footer.jpg`}
                   alt="Sod"
                   width={450}
                   height={250}

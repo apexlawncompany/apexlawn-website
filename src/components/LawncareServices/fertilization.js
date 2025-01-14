@@ -37,7 +37,7 @@ export default function FertilizatinWeeding() {
 
       <div className={styles.serviceImage}>
         <Image
-          src={`${basePath}/assets/fertilization.jpg`}
+          src={`/assets/fertilization.jpg`}
           alt="full Service"
           width={300}
           height={270}
