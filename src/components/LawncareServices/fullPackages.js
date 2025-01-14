@@ -97,14 +97,14 @@ export default function FullPackages() {
 
       <div className={styles.serviceImage}>
         <Image
-          src={`${basePath}/assets/full_service.JPG`}
+          src={`/assets/full_service.JPG`}
           alt="full Service"
           width={300}
           height={200}
           className={`${styles.image} ${styles.fullService1}`}
         />
         <Image
-          src={`${basePath}/assets/full_service2.jpg`}
+          src={`/assets/full_service2.jpg`}
           alt="full Service"
           width={300}
           height={400}

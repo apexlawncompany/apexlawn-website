@@ -2,7 +2,6 @@ import styles from "./hardscape.module.css";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
 import ContactDetails from "../../src/components/ContactDetails";
-import { basePath } from "@/next.config";
 
 export default function HardScape() {
   return (
@@ -12,7 +11,7 @@ export default function HardScape() {
           id="about"
           className={styles.aboutBg}
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${basePath}/assets/hardscape/hardscape_bg.jpg)`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(/assets/hardscape/hardscape_bg.jpg)`,
           }}
         >
           <div className={styles.contactDetails}>
@@ -88,7 +87,7 @@ export default function HardScape() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/hardscape/hardscape1.jpg`}
+                  src={`/assets/hardscape/hardscape1.jpg`}
                   alt="Hard Scaping"
                   width={480}
                   height={380}
@@ -127,7 +126,7 @@ export default function HardScape() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/hardscape/hardscape2.jpg`}
+                  src={`/assets/hardscape/hardscape2.jpg`}
                   alt="Hard Scaping"
                   width={480}
                   height={380}

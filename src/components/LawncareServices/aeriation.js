@@ -36,7 +36,7 @@ export default function AeriationSeeding() {
 
       <div className={styles.serviceImage}>
         <Image
-          src={`${basePath}/assets/aeriation.JPG`}
+          src={`/assets/aeriation.JPG`}
           alt="full Service"
           width={300}
           height={310}

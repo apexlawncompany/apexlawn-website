@@ -45,7 +45,7 @@ export default function SoilSection() {
 
       <div className={styles.serviceImage}>
         <Image
-          src={`${basePath}/assets/soil.JPG`}
+          src={`/assets/soil.JPG`}
           alt="Soil Delivery"
           width={280}
           height={300}

@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import styles from "./appointment.module.css";
 import Image from "next/image";
-import { basePath } from "@/next.config";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const AppointmentForm = () => {
@@ -185,7 +184,7 @@ const AppointmentForm = () => {
             <div className={styles.imageContainer}>
               <Image
                 alt="apex lawn"
-                src={`${basePath}/header-background.jpg`}
+                src={`/header-background.jpg`}
                 width={550}
                 height={575}
               />

@@ -44,7 +44,7 @@ export default function MulchSection() {
 
         <div className={styles.serviceImage}>
           <Image
-            src={`${basePath}/assets/mulch.JPG`}
+            src={`/assets/mulch.JPG`}
             alt="Mulch"
             width={330}
             height={300}

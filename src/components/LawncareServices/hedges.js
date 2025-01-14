@@ -19,7 +19,7 @@ export default function Hedges() {
 
       <div className={styles.serviceImage}>
         <Image
-          src={`${basePath}/assets/hedge1.JPG`}
+          src={`/assets/hedge1.JPG`}
           alt="full Service"
           width={300}
           height={200}

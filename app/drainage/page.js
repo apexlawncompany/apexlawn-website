@@ -1,7 +1,6 @@
 import styles from "./drainage.module.css";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
-import { basePath } from "@/next.config";
 import ContactDetails from "../../src/components/ContactDetails";
 
 export default function Drainage() {
@@ -12,7 +11,7 @@ export default function Drainage() {
           id="about"
           className={styles.aboutBg}
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${basePath}/assets/drainage/drainage_bg.jpg)`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(/assets/drainage/drainage_bg.jpg)`,
           }}
         >
           <div className={styles.contactDetails}>
@@ -85,7 +84,7 @@ export default function Drainage() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/drainage/drainage1.jpg`}
+                  src={`/assets/drainage/drainage1.jpg`}
                   alt="surface drainage"
                   width={480}
                   height={380}
@@ -130,7 +129,7 @@ export default function Drainage() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/drainage/drainage2.jpg`}
+                  src={`/assets/drainage/drainage2.jpg`}
                   alt="drainage"
                   width={480}
                   height={380}
@@ -157,7 +156,7 @@ export default function Drainage() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/drainage/drainage3.jpg`}
+                  src={`/assets/drainage/drainage3.jpg`}
                   alt="drainage"
                   width={480}
                   height={380}

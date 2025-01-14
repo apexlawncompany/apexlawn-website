@@ -64,7 +64,7 @@ export default function Maintenance() {
 
       <div className={styles.serviceImage}>
         <Image
-          src={`${basePath}/assets/maintenance.jpg`}
+          src={`/assets/maintenance.jpg`}
           alt="full Service"
           width={300}
           height={400}

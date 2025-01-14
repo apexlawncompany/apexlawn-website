@@ -36,7 +36,7 @@ function Carousel() {
             <Image
               alt="apex lawn"
               className={styles.carouselImage}
-              src={`${basePath}${item.image}`}
+              src={`${item.image}`}
               fill
               style={{
                 objectFit: "cover",

@@ -23,7 +23,7 @@ export default function SoddingSeedingSection() {
 
       <div className={styles.serviceImage}>
         <Image
-          src={`${basePath}/assets/sodding.jpg`}
+          src={`/assets/sodding.jpg`}
           alt="Sodding"
           width={280}
           height={230}

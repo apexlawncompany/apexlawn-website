@@ -31,7 +31,7 @@ export default function DrainageSection() {
 
       <div className={styles.serviceImage}>
         <Image
-          src={`${basePath}/assets/drainage.JPG`}
+          src={`/assets/drainage.JPG`}
           alt="Drainage"
           width={280}
           height={230}

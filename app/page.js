@@ -3,13 +3,12 @@ import styles from "./page.module.css";
 import Details from "@/src/sections/Details";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Portfolio from "@/src/sections/Portfolio";
-import { basePath } from "@/next.config";
 
 export default function Home() {
   return (
     <div
       className={`page-content ${styles.homepage}`}
-      style={{ backgroundImage: `url(${basePath}/home-background.jpg)` }}
+      style={{ backgroundImage: `url(/home-background.jpg)` }}
     >
       <div className={styles.greenbar}></div>
       <div className={`page-section ${styles.responivepage}`}>

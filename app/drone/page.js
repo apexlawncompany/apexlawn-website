@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import styles from "./drone.module.css";
 import Image from "next/image";
-import { basePath } from "@/next.config";
 import validLocations from "@/src/data/locations";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -241,7 +240,7 @@ const DronePage = () => {
             <div className={styles.imageContainer}>
               <Image
                 alt="Service Area"
-                src={`${basePath}/assets/drone_area_map.jpg`}
+                src={`/assets/drone_area_map.jpg`}
                 width={550}
                 height={570}
               />

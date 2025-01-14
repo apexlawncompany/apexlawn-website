@@ -12,7 +12,7 @@ export default function Soil() {
           id="about"
           className={styles.aboutBg}
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${basePath}/assets/sod/Top_Soil_Delivery.jpg)`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(/assets/sod/Top_Soil_Delivery.jpg)`,
           }}
         >
           <div className={styles.contactDetails}>
@@ -93,7 +93,7 @@ export default function Soil() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/sod/soil_delivery.jpg`}
+                  src={`/assets/sod/soil_delivery.jpg`}
                   alt="surface drainage"
                   width={480}
                   height={380}
@@ -137,7 +137,7 @@ export default function Soil() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/sod/soil_prep.jpg`}
+                  src={`/assets/sod/soil_prep.jpg`}
                   alt="drainage"
                   width={480}
                   height={380}
@@ -164,7 +164,7 @@ export default function Soil() {
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`${basePath}/assets/sod/sod_footer.jpg`}
+                  src={`/assets/sod/sod_footer.jpg`}
                   alt="drainage"
                   width={480}
                   height={380}
