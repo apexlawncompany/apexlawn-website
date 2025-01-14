@@ -12,7 +12,7 @@ function HeaderCard({ item }) {
       ) : (
         <Image
           alt="apex lawn"
-          src={`${basePath}${image}`}
+          src={`${image}`}
           width={129}
           height={84}
           style={{
