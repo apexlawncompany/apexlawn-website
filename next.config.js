@@ -6,8 +6,7 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   optimizeFonts: false,
-  distDir: 'dist',
-  basePath: isProd ? '/apexlawn-website' : '',
+  //basePath: isProd ? '/apexlawn-website' : '',
   images: {
     unoptimized: true,
   },
