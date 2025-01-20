@@ -2,24 +2,20 @@
 import Image from "next/image";
 import styles from "../../../app/lawncare/lawncare.module.css";
 import { useState } from "react";
-import { basePath } from "@/next.config";
-export default function FullPackages() {
-  const pricingDetails = {
-    residential: [
-      { size: "Small", price: "$109" },
-      { size: "Medium", price: "$149" },
-      { size: "Medium-Large", price: "$169" },
-      { size: "Large", price: "$189 (Per Month)" },
-    ],
-    commercial: [
-      {
-        size: "Commercial Maintenace as estimated",
-        price:
-          "$189 / .5 Acre Lot & $189 /Acre after first Acre (Per Month)​​​​​​​​​​",
-      },
-    ],
-  };
+
+export default function FullPackages({ service }) {
+  const {
+    title,
+    pricingDetails,
+    description,
+    seasonalDetails,
+    premiumSeasonalDetails,
+    images,
+    premiumPricingPara,
+  } = service;
+
   const [pricingType, setPricingType] = useState("residential");
+
   const handlePricingToggle = () => {
     setPricingType((prev) =>
       prev === "residential" ? "commercial" : "residential"
@@ -29,7 +25,9 @@ export default function FullPackages() {
   return (
     <div className={`${styles.service}`}>
       <div className={styles.serviceText}>
-        <h2>Full Service Packages</h2>
+        <h2>{title}</h2>
+
+        {/* Pricing Toggle */}
         <div className={styles.pricing}>
           <button
             onClick={handlePricingToggle}
@@ -54,62 +52,42 @@ export default function FullPackages() {
           </p>
         </div>
 
+        {/* Full Service Description */}
+        <p>{description.fullService}</p>
         <p>
-          The Full Service package includes applications on a rotational basis
-          biweekly:
+          <strong>Summer:</strong> {seasonalDetails.summer}
         </p>
         <p>
-          A cut package add-on is recommended during the summer for weekly
-          cutting.
-          <br />
-          <strong>Summer:</strong> Lawn Mowing, String-trimming, Edging,
-          Blowing, Bed Maintenance, Hedge Maintenance, Fertilizer, and Weed
-          Killer (beds, lawn, & driveway) <br />
-          <strong>Winter:</strong> Pre-Emergent at beginning and end of season,
-          Leaf Cleanup, Hedge Maintenance, Soil Balancing, Soil Test,
-          Dethatching, Vacuuming, Other (based on grass type)
+          <strong>Winter:</strong> {seasonalDetails.winter}
         </p>
-        <br />
+
+        {/* Premium Service */}
         <p className={styles.priceList}>
-          <strong>Premium Service · S $200 · M $225 · ML $255 · L $285</strong>​
+          <strong>{premiumPricingPara}</strong>
+        </p>
+        <p>{description.premiumService}</p>
+        <p>
+          <strong>Summer:</strong> {premiumSeasonalDetails.summer}
         </p>
         <p>
-          Premium Service is our most advanced package: customized specifically
-          for you. Due to the multitude of services provided, we can adjust
-          different factors -- such as grass height, fertilizer, and herbicide
-          -- to create a positive synergy for your yard. It
-          includes:​​​​​​​​​​​​​​
-        </p>
-        <p>
-          <strong>Summer:</strong> March 1 - October 31 (8 mo) (34 w)
-          <br />
-          Lawn Mowing, String-trimming, Edging, Blowing, Bed Maintenance, Hedge
-          Maintenance, Fertilizer, Weed Killer, Lawn Cleanup, Edge Defining.{" "}
-          <br />
-          <strong>Winter</strong> November 1 - February 28 (4 mo) (18 w) <br />{" "}
-          Aeration and Dethatching at beginning and end of season, Fertilizer,
-          Seeding (depending on grass type), Pre-Emergent beginning and end of
-          season, Hedge Maintenance, Pressure Washing -- After Aeration 2,
-          Blowing and winter debris cleanup, Soil Balancing, Soil Testing.
-          <br />
+          <strong>Winter:</strong> {premiumSeasonalDetails.winter}
         </p>
       </div>
 
+      {/* Images */}
       <div className={styles.serviceImage}>
-        <Image
-          src={`/assets/full_service.JPG`}
-          alt="full Service"
-          width={300}
-          height={200}
-          className={`${styles.image} ${styles.fullService1}`}
-        />
-        <Image
-          src={`/assets/full_service2.jpg`}
-          alt="full Service"
-          width={300}
-          height={400}
-          className={`${styles.image} ${styles.fullService2}`}
-        />
+        {images.map((image, index) => (
+          <Image
+            key={index}
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            height={image.height}
+            className={`${styles.image} ${
+              index === 0 ? styles.fullService1 : styles.fullService2
+            }`}
+          />
+        ))}
       </div>
     </div>
   );

@@ -1,25 +1,19 @@
 import styles from "./sod.module.css";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
-import { basePath } from "@/next.config";
 import ContactDetails from "../../src/components/ContactDetails";
-import localFont from "next/font/local";
-
-// const AmaticSC = localFont({
-//   src: "../fonts/AmaticSC.woff",
-//   variable: "--font-amatics-sc",
-//   weight: "900",
-// });
+import { sodInfo } from "@/src/data/sodData";
 
 export default function Sod() {
   return (
     <>
       <div className={`page-content`}>
+        {/* About Section */}
         <div
           id="about"
           className={styles.aboutBg}
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(/assets/sod/sod_bg.jpg)`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${sodInfo.about.image})`,
           }}
         >
           <div className={styles.contactDetails}>
@@ -34,194 +28,100 @@ export default function Sod() {
                   display: "flex",
                   gap: "30px",
                   alignItems: "center",
-                  padding: " 40px 15px 15px",
+                  padding: "40px 15px 15px",
                 }}
               >
                 <div>
-                  <h1
-                    style={{
-                      color: "white",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    Sod Install
-                  </h1>
+                  <h1 style={{ color: "white" }}>{sodInfo.about.title}</h1>
                 </div>
                 <div>
-                  <p style={{ color: "white"}}>
-                    Sodding refers to the process of installing pre-grown grass
-                    and soil, known as sod or turf, onto an area to establish a
-                    lawn or cover bare ground quickly.
-                  </p>
+                  <p style={{ color: "white" }}>{sodInfo.about.description}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Key Steps Section */}
         <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
             <TransparentBtn className={styles.blackTextButton}>
               Setup an Appointment
             </TransparentBtn>
-            {/*Section 1 */}
+
             <div className={`${styles.service} ${styles.reverse}`}>
               <div className={styles.serviceText}>
-                <h3>Key Steps in Sodding:</h3>
+                <h3>{sodInfo.keySteps.title}</h3>
                 <ol>
-                  <li>
-                    <strong>Soil Preparation:</strong>
-                    <ul>
-                      <li>Clear the area of debris, weeds, and rocks.</li>
-                      <li>Loosen and level the soil.</li>
-                      <li>
-                        Add fertilizers or soil amendments if needed for better
-                        growth.
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <strong>Laying the Sod:</strong>
-                    <ul>
-                      <li>
-                        Lay the sod pieces tightly together in a staggered,
-                        brick-like pattern to avoid gaps.
-                      </li>
-                      <li>
-                        Ensure the sod edges align properly without overlapping.
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <strong>Watering:</strong>
-                    <ul>
-                      <li>
-                        Water immediately after installation to help the roots
-                        establish.
-                      </li>
-                      <li>
-                        Maintain consistent watering for the first couple of
-                        weeks.
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <strong>Maintenance:</strong>
-                    <ul>
-                      <li>
-                        Avoid heavy foot traffic for a few weeks to allow the
-                        sod to root properly.
-                      </li>
-                      <li>
-                        Mow and fertilize as needed after the sod has taken root
-                      </li>
-                    </ul>
-                  </li>
+                  {sodInfo.keySteps.points.map((step, index) => (
+                    <li key={index}>
+                      <strong>{step.label}:</strong>
+                      <ul>
+                        {step.subPoints.map((subPoint, subIndex) => (
+                          <li key={subIndex}>{subPoint}</li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
                 </ol>
               </div>
 
               <div className={styles.serviceImage}>
-                <Image
-                  src={`/assets/sod/soil_prep.jpg`}
-                  alt="soil preparation"
-                  width={430}
-                  height={280}
-                  className={styles.image}
-                />
-                <Image
-                  src={`/assets/sod/sod_bg.jpg`}
-                  alt="soil preparation"
-                  width={430}
-                  height={280}
-                  className={styles.image}
-                />
+                {sodInfo.keySteps.images.map((image, index) => (
+                  <Image
+                    key={index}
+                    src={image}
+                    alt="Key Steps"
+                    width={430}
+                    height={280}
+                    className={styles.image}
+                  />
+                ))}
               </div>
             </div>
             <hr className={styles.divider} />
 
-            {/*Section 2 */}
+            {/* Benefits Section */}
             <div className={`${styles.service}`}>
               <div className={styles.serviceText}>
-                <h3>
-                  A new lawn is an investment that requires planning and effort
-                  but pays off by providing a beautiful and functional outdoor
-                  space.
-                </h3>
-                <br />
+                <h3>{sodInfo.benefits.title}</h3>
                 <p>
-                  <strong>
-                    New lawn is important for several reasons, whether it’s for
-                    a residential yard, commercial space, or public area.
-                  </strong>
+                  <strong>{sodInfo.benefits.description}</strong>
                 </p>
-                <ol>
-                  <ul>
-                    <li>
-                      Lawns reduce soil erosion by stabilizing the ground.
-                    </li>
-                    <li>
-                      They improve air quality by absorbing carbon dioxide and
-                      releasing oxygen.
-                    </li>
-                    <li>
-                      Grass helps filter rainwater, reducing runoff and
-                      improving water quality.
-                    </li>
-                    <li>
-                      Lawns act as natural air conditioners, cooling the
-                      environment around them and reducing the urban heat island
-                      effect.​
-                    </li>
-                    <li>
-                      A lawn provides a soft, safe area for activities, play,
-                      and relaxation.
-                    </li>
-                    <li>
-                      Grass lawns offer habitats for insects, birds, and small
-                      animals.
-                    </li>
-                  </ul>
-                </ol>
+                <ul>
+                  {sodInfo.benefits.points.map((point, index) => (
+                    <li key={index}>{point}</li>
+                  ))}
+                </ul>
               </div>
 
               <div className={styles.serviceImage}>
-                <Image
-                  src={`/assets/sod/sod_lawn.JPG`}
-                  alt="Sod Lawn"
-                  width={450}
-                  height={300}
-                  className={styles.image}
-                />
-                <Image
-                  src={`/assets/sodding.jpg`}
-                  alt="Sodding"
-                  width={450}
-                  height={300}
-                  className={styles.image}
-                />
+                {sodInfo.benefits.images.map((image, index) => (
+                  <Image
+                    key={index}
+                    src={image}
+                    alt="Benefits"
+                    width={450}
+                    height={300}
+                    className={styles.image}
+                  />
+                ))}
               </div>
             </div>
             <hr className={styles.divider} />
 
-            {/*Section 3 */}
+            {/* Importance Section */}
             <div className={`${styles.service} ${styles.reverse}`}>
               <div className={styles.serviceText}>
                 <p style={{ textAlign: "center" }}>
-                  <strong>
-                    sodding is a practical and efficient solution for
-                    establishing a beautiful, functional, and environmentally
-                    beneficial lawn. It’s especially valuable when time, soil
-                    erosion, or an instant aesthetic transformation are key
-                    considerations.
-                  </strong>
+                  <strong>{sodInfo.importance.description}</strong>
                 </p>
-                <br />
               </div>
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`/assets/sod/sod_footer.jpg`}
-                  alt="Sod"
+                  src={sodInfo.importance.image}
+                  alt="Sod Importance"
                   width={450}
                   height={250}
                   className={styles.image}
@@ -231,6 +131,8 @@ export default function Sod() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
       <div id="footer" className={styles.footer}>
         <div className="page-section">
           <div className="center-aligned">

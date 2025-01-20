@@ -1,46 +1,37 @@
 "use client";
 import Image from "next/image";
 import styles from "../../../app/landscaping/landscaping.module.css";
-import { basePath } from "@/next.config";
 import TransparentBtn from "../TransparentBtn";
 import Link from "next/link";
 
-export default function DrainageSection() {
+export default function DrainageSection({ service }) {
+  const { title, details, image, link } = service;
   return (
     <div className={`${styles.service} ${styles.reverse}`}>
       <div className={styles.serviceText}>
-        <h3>Drainage</h3>
-        <p className={styles.priceList}>
-          <strong>C​orrugated​​​​​​​</strong>
-          ​​​​
-        </p>
-        <p>
-          Corrigated drains are hidden and serated, absorbing both exess soil
-          moisture and runoff from small green grates placed in low areas. Our
-          drains are sleeved to resist sediment accumulation with the pipes.
-        </p>
-        <p className={styles.priceList}>
-          <strong>French</strong>
-          ​​​​
-        </p>
-        <p>
-          We offer a vaireity of aesthetically pleasing natural drainage
-          solutions that can channel water from or to a specific area.
-        </p>
+        <h3>{title}</h3>
+        {details.map((detail, index) => (
+          <div key={index}>
+            <p className={styles.priceList}>
+              <strong>{detail.price}</strong>
+            </p>
+            <p>{detail.description}</p>
+          </div>
+        ))}
       </div>
 
       <div className={styles.serviceImage}>
         <Image
-          src={`/assets/drainage.JPG`}
-          alt="Drainage"
+          src={image}
+          alt={title}
           width={280}
           height={230}
           className={styles.image}
         />
         <div className={styles.buttonGroup}>
-          <Link href="/drainage" style={{ width: "100%" }}>
+          <Link href={link} style={{ width: "100%" }}>
             <TransparentBtn className={styles.blackTextButton}>
-              See Drainage Options
+              See {title} Options
             </TransparentBtn>
           </Link>
         </div>

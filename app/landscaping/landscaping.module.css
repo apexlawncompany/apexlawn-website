@@ -74,6 +74,7 @@
 .footer {
   background-color: black;
   padding: 2rem;
+  margin-top: 10px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -107,7 +108,7 @@
     height: 250px;
     padding-top: 2px;
   }
-  .mulchImage{
+  .mulchImage {
     height: 270px !important;
   }
   .blackTextButton {

@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import styles from "./contactdetails.module.css";
+import contactInfo from "@/src/data/contactInfo";
+
 function ContactDetails() {
   const [showDetails, setShowDetails] = useState(false);
 
@@ -22,17 +24,17 @@ function ContactDetails() {
         <p onClick={() => setShowDetails(false)}>
           Call or Text: 
           <a
-            href="tel:9199394665"
-            onClick={() => trackClick("phone_click", "9199394665")}
+            href={`tel:${contactInfo.phoneNumber}`}
+            onClick={() => trackClick("phone_click", contactInfo.phoneNumber)}
           >
-            9199394665
+            {contactInfo.phoneNumber}
           </a>.
           Email:{" "}
           <a
-            href="mailto:client@apexlawncompany.com"
-            onClick={() => trackClick("email_click", "client@apexlawncompany.com")}
+            href={`mailto:${contactInfo.email}`}
+            onClick={() => trackClick("email_click", contactInfo.email)}
           >
-            client@apexlawncompany.com
+            {contactInfo.email}
           </a>
         </p>
       ) : (

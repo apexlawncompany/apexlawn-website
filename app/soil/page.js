@@ -2,7 +2,7 @@ import styles from "./soil.module.css";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
 import ContactDetails from "../../src/components/ContactDetails";
-import { basePath } from "@/next.config";
+import { soilInfo } from "@/src/data/soilData";
 
 export default function Soil() {
   return (
@@ -12,7 +12,7 @@ export default function Soil() {
           id="about"
           className={styles.aboutBg}
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(/assets/sod/Top_Soil_Delivery.jpg)`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${soilInfo.about.image})`,
           }}
         >
           <div className={styles.contactDetails}>
@@ -31,22 +31,10 @@ export default function Soil() {
                 }}
               >
                 <div>
-                  <h1
-                    style={{
-                      color: "white",
-                    }}
-                  >
-                    About Top Dressing
-                  </h1>
+                  <h1 style={{ color: "white" }}>{soilInfo.about.title}</h1>
                 </div>
                 <div>
-                  <p style={{ color: "white" }}>
-                    Soil delivery and spreading are essential processes in
-                    gardening, landscaping, and construction projects. These
-                    steps are fundamental when preparing planting areas,
-                    leveling land, or enhancing soil quality for optimal plant
-                    growth.
-                  </p>
+                  <p style={{ color: "white" }}>{soilInfo.about.description}</p>
                 </div>
               </div>
             </div>
@@ -58,87 +46,27 @@ export default function Soil() {
             <TransparentBtn className={styles.blackTextButton}>
               Setup an Appointment
             </TransparentBtn>
-            {/*Section 1 */}
-            <div
-              className={`${styles.service} ${styles.reverse}`}
-            >
-              <div className={styles.serviceText}>
-                <p>
-                  <strong>Why Is Soil Delivery and Spreading Important?</strong>
-                </p>
-                <br/>
-                <ul>
-                  <li>
-                    <strong>Improves Soil Quality:-</strong> Adding
-                    nutrient-rich soil or amendments provides plants with the
-                    optimal conditions for growth.
-                  </li>
-                  <li>
-                    <strong>Prepares Land for Planting:-</strong> Proper soil
-                    application ensures a stable foundation for lawns, gardens,
-                    and landscaping features.
-                  </li>
-                  <li>
-                    <strong>Corrects Grading Issues:-</strong> Spreading soil
-                    can help level uneven surfaces or create slopes for proper
-                    water drainage.
-                  </li>
-                  <li>
-                    <strong>Enhances Drainage and Aeration:-</strong> New soil
-                    can improve the structure and permeability of compacted or
-                    poor-quality ground.
-                  </li>
-                </ul>
-              </div>
 
-              <div className={styles.serviceImage}>
-                <Image
-                  src={`/assets/sod/soil_delivery.jpg`}
-                  alt="surface drainage"
-                  width={480}
-                  height={380}
-                  className={styles.image}
-                />
-              </div>
-            </div>
-            <hr className={styles.divider} />
-
-            {/*Section 2 */}
-            <div className={`${styles.service}`}>
+            {/* Section 1: Surface Soil */}
+            <div className={`${styles.service} ${styles.reverse}`}>
               <div className={styles.serviceText}>
-                <p>
-                  <strong>
-                    Tips for Effective Soil Delivery and Spreading:
-                  </strong>
-                </p>
+                <h3>
+                  <strong>{soilInfo.surfaceSoil.title}</strong>
+                </h3>
                 <br />
                 <ul>
-                  <li>
-                    <strong>Weather Considerations:</strong> Avoid spreading
-                    soil on rainy days, as wet soil is harder to work with and
-                    may compact.
-                  </li>
-                  <li>
-                    <strong>Work Efficiently:</strong> Spread the soil
-                    immediately after delivery to prevent it from drying out or
-                    being washed away. ​
-                  </li>
-                  <li>
-                    <strong>Ensure Even Coverage:</strong> Use a leveling tool
-                    to achieve a uniform surface, especially for lawns.
-                  </li>
-                  <li>
-                    <strong>Mix Layers:</strong> Blend new soil with the
-                    existing soil to prevent drainage issues or layering
-                    effects.
-                  </li>
+                  {soilInfo.surfaceSoil.points.map((point, index) => (
+                    <li key={index}>
+                      <strong>{point.label}:</strong> {point.description}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`/assets/sod/soil_prep.jpg`}
-                  alt="drainage"
+                  src={soilInfo.surfaceSoil.image}
+                  alt="Surface Soil Delivery"
                   width={480}
                   height={380}
                   className={styles.image}
@@ -147,25 +75,47 @@ export default function Soil() {
             </div>
             <hr className={styles.divider} />
 
-            {/*Section 3 */}
+            {/* Tips for Soil Delivery */}
+            <div className={`${styles.service}`}>
+              <div className={styles.serviceText}>
+                <h3>
+                  <strong>{soilInfo.soilTips.title}</strong>
+                </h3>
+                <br />
+                <ul>
+                  {soilInfo.soilTips.points.map((point, index) => (
+                    <li key={index}>
+                      <strong>{point.label}:</strong> {point.description}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className={styles.serviceImage}>
+                <Image
+                  src={soilInfo.soilTips.image}
+                  alt="Soil Tips"
+                  width={480}
+                  height={380}
+                  className={styles.image}
+                />
+              </div>
+            </div>
+            <hr className={styles.divider} />
+
+            {/* Importance */}
             <div className={`${styles.service} ${styles.reverse}`}>
               <div className={styles.serviceText}>
                 <p style={{ textAlign: "center" }}>
-                  <strong>
-                    Soil delivery and spreading are fundamental steps in
-                    preparing landscapes for planting, leveling, and aesthetic
-                    improvements. By selecting the right soil, planning
-                    carefully, and applying it effectively, you can create a
-                    thriving garden or lawn that supports healthy plant growth.
-                  </strong>
+                  <strong>{soilInfo.importance.description}</strong>
                 </p>
                 <br />
               </div>
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`/assets/sod/sod_footer.jpg`}
-                  alt="drainage"
+                  src={soilInfo.importance.image}
+                  alt="Soil Importance"
                   width={480}
                   height={380}
                   className={styles.image}

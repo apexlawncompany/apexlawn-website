@@ -1,11 +1,7 @@
 import styles from "./landscaping.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
-import MulchSection from "@/src/components/LandScapingServices/mulchSection";
-import SoddingSeedingSection from "@/src/components/LandScapingServices/soddingSeedingSection";
-import DrainageSection from "@/src/components/LandScapingServices/drainageSection";
-import SoilSection from "@/src/components/LandScapingServices/soilSection";
-import HardScapingSection from "@/src/components/LandScapingServices/hardScapingSection";
+import landscapingdata from "@/src/data/landScapingData";
 
 export default function LandScaping() {
   const options = [
@@ -30,30 +26,15 @@ export default function LandScaping() {
 
         <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
-            <div id="mulch">
-              <MulchSection />
-            </div>
-            <hr className={styles.divider} />
-
-            <div id="sodding">
-              <SoddingSeedingSection />
-            </div>
-            <hr className={styles.divider} />
-
-            <div id="drainage">
-              <DrainageSection />
-            </div>
-            <hr className={styles.divider} />
-
-            <div id="soil">
-              <SoilSection />
-            </div>
-            <hr className={styles.divider} />
-
-            <div id="hardScaping">
-              <HardScapingSection />
-            </div>
-            <div style={{ height: 20 }}></div>
+            {landscapingdata.map((service, index) => (
+              <div id={service.id} key={service.id}>
+                {service.component && <service.component service={service} />}
+                {/* Conditionally render divider, skip for last component */}
+                {index < landscapingdata.length - 1 && (
+                  <hr className={styles.divider} />
+                )}
+              </div>
+            ))}
           </div>
         </div>
 
