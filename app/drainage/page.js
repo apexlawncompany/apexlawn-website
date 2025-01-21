@@ -2,6 +2,7 @@ import styles from "./drainage.module.css";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
 import ContactDetails from "../../src/components/ContactDetails";
+import { drainageInfo } from "@/src/data/drainageData";
 
 export default function Drainage() {
   return (
@@ -11,7 +12,7 @@ export default function Drainage() {
           id="about"
           className={styles.aboutBg}
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(/assets/drainage/drainage_bg.jpg)`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${drainageInfo.about.image})`,
           }}
         >
           <div className={styles.contactDetails}>
@@ -33,17 +34,14 @@ export default function Drainage() {
                   <h1
                     style={{
                       color: "white",
-                      whiteSpace: "nowrap",
                     }}
                   >
-                    About Drainage
+                    {drainageInfo.about.title}
                   </h1>
                 </div>
                 <div>
-                  <p style={{ color: "white"}}>
-                    Draining refers to the process of managing and removing
-                    excess water from the soil to ensure proper growing
-                    conditions for plants.
+                  <p style={{ color: "white" }}>
+                    {drainageInfo.about.description}
                   </p>
                 </div>
               </div>
@@ -56,81 +54,27 @@ export default function Drainage() {
             <TransparentBtn className={styles.blackTextButton}>
               Setup an Appointment
             </TransparentBtn>
-            {/*Section 1 */}
+
+            {/* Section 1: Surface Drainage */}
             <div className={`${styles.service} ${styles.reverse}`}>
               <div className={styles.serviceText}>
-                <h3>Surface Drainage</h3>
-                <p>
-                  <strong>
-                    Purpose: Removes water from the surface of the soil.
-                  </strong>
-                </p>
-                <ul>
-                  <li>
-                    Water is directed away using sloping land, channels, or
-                    ditches.
-                  </li>
-                  <li>
-                    Ensures water doesn’t accumulate and cause erosion or
-                    puddles.
-                    <ul>
-                      <li>​Sloping the landscape.</li>
-                      <li>Shallow trenches.</li>
-                      <li>Installing open drains.</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-
-              <div className={styles.serviceImage}>
-                <Image
-                  src={`/assets/drainage/drainage1.jpg`}
-                  alt="surface drainage"
-                  width={480}
-                  height={380}
-                  className={styles.image}
-                />
-              </div>
-            </div>
-            <hr className={styles.divider} />
-
-            {/*Section 2 */}
-            <div className={`${styles.service}`}>
-              <div className={styles.serviceText}>
-                <p>
-                  <strong>The best drainage system depends on:</strong>
-                </p>
+                <h3>
+                  <strong>{drainageInfo.surfaceDrainage.title}</strong>
+                </h3>
                 <br />
                 <ul>
-                  <li>
-                    <strong>Soil Type:</strong> Sandy soils drain well, while
-                    clay soils often require subsurface drainage.
-                  </li>
-                  <li>
-                    <strong>Terrain:</strong> Sloped areas may need slope or
-                    French drains.
-                  </li>
-                  <li>
-                    <strong>Water Volume:</strong> Areas with heavy rainfall
-                    might require a combination of systems.
-                  </li>
-                  <li>
-                    <strong>Budget:</strong> Natural drainage and surface
-                    drainage are cost-effective, while subsurface systems are
-                    more expensive but highly efficient.
-                  </li>
-                  <li>
-                    Proper drainage not only ensures healthy plant growth but
-                    also protects your garden and surrounding structures from
-                    water damage.
-                  </li>
+                  {drainageInfo.surfaceDrainage.points.map((point, index) => (
+                    <li key={index}>
+                      <strong>{point.label}:</strong> {point.description}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`/assets/drainage/drainage2.jpg`}
-                  alt="drainage"
+                  src={drainageInfo.surfaceDrainage.image}
+                  alt="Surface Drainage"
                   width={480}
                   height={380}
                   className={styles.image}
@@ -139,25 +83,47 @@ export default function Drainage() {
             </div>
             <hr className={styles.divider} />
 
-            {/*Section 3 */}
+            {/* Section 2: Best Drainage System */}
+            <div className={`${styles.service}`}>
+              <div className={styles.serviceText}>
+                <h3>
+                  <strong>{drainageInfo.bestDrainage.title}</strong>
+                </h3>
+                <br />
+                <ul>
+                  {drainageInfo.bestDrainage.points.map((point, index) => (
+                    <li key={index}>
+                      <strong>{point.label}:</strong> {point.description}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className={styles.serviceImage}>
+                <Image
+                  src={drainageInfo.bestDrainage.image}
+                  alt="Best Drainage System"
+                  width={480}
+                  height={380}
+                  className={styles.image}
+                />
+              </div>
+            </div>
+            <hr className={styles.divider} />
+
+            {/* Section 3: Importance of Drainage */}
             <div className={`${styles.service} ${styles.reverse}`}>
               <div className={styles.serviceText}>
                 <p style={{ textAlign: "center" }}>
-                  <strong>
-                    Drainage is a crucial aspect of gardening and landscaping
-                    that ensures optimal soil and plant health by managing
-                    excess water. Proper drainage systems prevent waterlogging,
-                    reduce soil erosion, and enhance root aeration, which leads
-                    to better plant growth and overall garden sustainability.
-                  </strong>
+                  <strong>{drainageInfo.importance.description}</strong>
                 </p>
                 <br />
               </div>
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`/assets/drainage/drainage3.jpg`}
-                  alt="drainage"
+                  src={drainageInfo.importance.image}
+                  alt="Importance of Drainage"
                   width={480}
                   height={380}
                   className={styles.image}

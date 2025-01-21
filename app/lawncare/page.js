@@ -7,6 +7,7 @@ import AeriationSeeding from "@/src/components/LawncareServices/aeriation";
 import FertilizatinWeeding from "@/src/components/LawncareServices/fertilization";
 import Maintenance from "@/src/components/LawncareServices/maintenance";
 import TransparentBtn from "@/src/components/TransparentBtn";
+import lawncareData from "@/src/data/lawncareData";
 
 export default function Lawncare() {
 
@@ -32,35 +33,15 @@ export default function Lawncare() {
         
         <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
-            <div id="cut-packages">
-              <CutPackages />
-            </div>
-            <hr className={styles.divider} />
-
-            <div id="full-packages">
-              <FullPackages />
-            </div>
-            <hr className={styles.divider} />
-
-            <div id="hedges">
-              <Hedges />
-            </div>
-            <hr className={styles.divider} />
-
-            <div id="aeriation-seeding">
-              <AeriationSeeding />
-            </div>
-            <hr className={styles.divider} />
-
-            <div id="fertilization-weeding">
-              <FertilizatinWeeding />
-            </div>
-            <hr className={styles.divider} />
-
-            <div id="maintenance">
-              <Maintenance />
-            </div>
-            <div style={{ height: 15 }}></div>
+          {lawncareData.map((service, index) => (
+              <div id={service.id} key={service.id}>
+                {service.component && <service.component service={service} />}
+                {/* Conditionally render divider, skip for last component */}
+                {index < lawncareData.length - 1 && (
+                  <hr className={styles.divider} />
+                )}
+              </div>
+            ))}
           </div>
         </div>
 

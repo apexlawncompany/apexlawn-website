@@ -1,26 +1,29 @@
 "use client";
 import Image from "next/image";
 import styles from "../../../app/lawncare/lawncare.module.css";
-import { basePath } from "@/next.config";
 
-export default function Hedges() {
+export default function Hedges({ service }) {
+  const { title, content, image } = service;
   return (
     <div className={`${styles.service} ${styles.reverse}`}>
       <div className={styles.serviceText}>
-        <h2>Hedges</h2>
-        <p className={styles.priceList}>
-          <strong>Hedge Trimming S $3 · M $6 · L $9 · O $12</strong>
-        </p>
-        <p>
-          Hedges can be rounded or squared. Hedge trimming is priced per hedge.
-          Hand-pruning and shaping is also available for an hourly fee.​​​
-        </p>
+        <h2>{title}</h2>
+        {content.map((item, index) => (
+          <div key={index}>
+            {item.price && (
+              <p className={styles.priceList}>
+                <strong>{item.price}</strong>
+              </p>
+            )}
+            {item.description && <p>{item.description}</p>}
+          </div>
+        ))}
       </div>
 
       <div className={styles.serviceImage}>
         <Image
-          src={`/assets/hedge1.JPG`}
-          alt="full Service"
+          src={image}
+          alt={title}
           width={300}
           height={200}
           className={styles.image}

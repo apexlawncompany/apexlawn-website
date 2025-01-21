@@ -2,30 +2,16 @@
 import Image from "next/image";
 import styles from "../../../app/lawncare/lawncare.module.css";
 import { useState } from "react";
-import { basePath } from "@/next.config";
 
-export default function CutPackages() {
-  const pricingDetails = {
-    standard: [
-      { size: "Small", price: "$89" },
-      { size: "Medium", price: "$109" },
-      { size: "Medium-Large", price: "$129" },
-      { size: "Large", price: "$149" },
-      { size: "Very Large", price: "$Variable (Per Month)" },
-    ],
-    addon: [
-      { size: "Small", price: "$59" },
-      { size: "Medium", price: "$69" },
-      { size: "Medium-Large", price: "$85" },
-      { size: "Large", price: "$95" },
-      { size: "Custom", price: "$Variable (Per Month)" },
-    ],
-  };
+export default function CutPackages({ service }) {
+  const { pricingDetails, sizeChart, mapUrl } = service.additionalData;
   const [pricingType, setPricingType] = useState("standard");
   const [showSizeChart, setShowSizeChart] = useState(false);
+
   const handlePricingToggle = () => {
     setPricingType((prev) => (prev === "standard" ? "addon" : "standard"));
   };
+
   const handleSizeChartToggle = () => {
     setShowSizeChart(!showSizeChart);
   };
@@ -38,16 +24,10 @@ export default function CutPackages() {
             <p>
               <strong>Use GISACRES Value</strong>
             </p>
-            <p>
-              Less Than 0.2 Acres — S <br />
-              0.2 to 0.29 Acres — M <br />
-              0.3 to 0.39 Acres — ML <br />
-              0.4 to 0.49 Acres — L <br />
-              Greater Than — C <br />
-            </p>
+            <p>{sizeChart}</p>
           </div>
           <iframe
-            src="https://nconemap.maps.arcgis.com/apps/webappviewer/index.html?id=c49f804bced8479fb83d0cadf1436b25"
+            src={mapUrl}
             className={styles.map}
             title="GIS Acres Map"
           ></iframe>
@@ -55,7 +35,7 @@ export default function CutPackages() {
       ) : (
         <div className={`${styles.service} ${styles.reverse}`}>
           <div className={styles.serviceText}>
-            <h2>Cut Packages</h2>
+            <h2>{service.title}</h2>
 
             <div className={styles.pricing}>
               <button
@@ -83,23 +63,13 @@ export default function CutPackages() {
               </p>
             </div>
 
-            <p>
-              The Cut Package includes service on a biweekly or weekly schedule:
-            </p>
-            <p>
-              <strong>Summer:</strong> (Mar-Oct) Mowing, blowing,
-              string-trimming, & edging.
-            </p>
-            <p>
-              <strong>Winter:</strong> (Nov-Dec) Leaf-removal, & string-trimming
-              (Jan) No service (Feb) Spring Prep​.
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: service.description }} />
           </div>
 
           <div className={styles.serviceImage}>
             <Image
-              src={`/assets/cut_package.JPG`}
-              alt="Cut Packages"
+              src={service.image}
+              alt={service.title}
               width={300}
               height={230}
               className={styles.image}

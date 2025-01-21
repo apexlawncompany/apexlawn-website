@@ -2,6 +2,7 @@ import styles from "./hardscape.module.css";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
 import ContactDetails from "../../src/components/ContactDetails";
+import { hardscapeInfo } from "@/src/data/hardscapeData";
 
 export default function HardScape() {
   return (
@@ -11,7 +12,7 @@ export default function HardScape() {
           id="about"
           className={styles.aboutBg}
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(/assets/hardscape/hardscape_bg.jpg)`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), transparent),url(${hardscapeInfo.about.image})`,
           }}
         >
           <div className={styles.contactDetails}>
@@ -35,14 +36,12 @@ export default function HardScape() {
                       color: "white",
                     }}
                   >
-                    About Hardscaping
+                    {hardscapeInfo.about.title}
                   </h1>
                 </div>
                 <div>
                   <p style={{ color: "white" }}>
-                    Hardscaping forms the backbone of a well-designed outdoor
-                    space, complementing the living elements of landscaping,
-                    such as plants and lawns.
+                    {hardscapeInfo.about.description}
                   </p>
                 </div>
               </div>
@@ -55,39 +54,26 @@ export default function HardScape() {
             <TransparentBtn className={styles.blackTextButton}>
               Setup an Appointment
             </TransparentBtn>
-            {/*Section 1 */}
+
+            {/* Section 1: Importance of Hardscaping */}
             <div className={`${styles.service} ${styles.reverse}`}>
               <div className={styles.serviceText}>
                 <h3>
-                  <strong>Importance of Hardscaping:</strong>
+                  <strong>{hardscapeInfo.importance.title}</strong>
                 </h3>
                 <br />
                 <ul>
-                  <li>
-                    <strong>Structure and Functionality:</strong> Defines
-                    outdoor spaces and creates areas for specific purposes
-                    (e.g., dining, recreation, walking paths).
-                  </li>
-                  <li>
-                    Ensures stability in sloped areas with retaining walls and
-                    terraces.
-                  </li>
-                  <li>
-                    <strong>Aesthetic Appeal:</strong> Enhances the visual
-                    harmony of a landscape by providing balance and contrast to
-                    greenery.
-                  </li>
-                  <li>
-                    <strong>Increases Property Value:</strong> Adds to the curb
-                    appeal and usability of outdoor spaces, making properties
-                    more attractive to potential buyers.
-                  </li>
+                  {hardscapeInfo.importance.points.map((point, index) => (
+                    <li key={index}>
+                      <strong>{point.label}:</strong> {point.description}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`/assets/hardscape/hardscape1.jpg`}
+                  src={hardscapeInfo.importance.image}
                   alt="Hard Scaping"
                   width={480}
                   height={380}
@@ -97,36 +83,25 @@ export default function HardScape() {
             </div>
             <hr className={styles.divider} />
 
-            {/*Section 2 */}
+            {/* Section 2: Hardscaping Considerations */}
             <div className={`${styles.service}`}>
               <div className={styles.serviceText}>
                 <h3>
-                  <strong>Hardscaping Considerations:</strong>
+                  <strong>{hardscapeInfo.considerations.title}</strong>
                 </h3>
                 <br />
                 <ul>
-                  <li>
-                    <strong>Design Balance:</strong> Harmonize hardscaping with
-                    softscaping for a cohesive look.
-                  </li>
-                  <li>
-                    <strong>Material Choice:</strong> Select materials based on
-                    durability, climate, and design preferences. ​
-                  </li>
-                  <li>
-                    <strong>Drainage:</strong> Ensure proper drainage systems to
-                    avoid water pooling or erosion.
-                  </li>
-                  <li>
-                    <strong>Budget:</strong> Hardscaping projects can be costly,
-                    so plan according to priorities and available funds.
-                  </li>
+                  {hardscapeInfo.considerations.points.map((point, index) => (
+                    <li key={index}>
+                      <strong>{point.label}:</strong> {point.description}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className={styles.serviceImage}>
                 <Image
-                  src={`/assets/hardscape/hardscape2.jpg`}
+                  src={hardscapeInfo.considerations.image}
                   alt="Hard Scaping"
                   width={480}
                   height={380}
