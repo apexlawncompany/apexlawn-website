@@ -1,79 +1,114 @@
-.heading {
-  background-color: #000;
-  font-size: 30px;
-  color: white;
-  text-align: center;
-  padding-bottom: 5px;
-  padding-top: 60px;
+.product{
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
 }
+
+
+.productImage {
+  cursor: pointer;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productImage:hover {
+  transform: scale(1.1); /* Zoom-in effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.productText{
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
 .responivepage {
   text-align: center;
   padding: 2rem 2rem;
-  font-size: 50px;
+  font-size: 20px;
 }
 
 .footer {
   background-color: black;
+  margin-top: 288px;
   padding: 2rem;
+}
+@media (max-width: 1024px) {
+  .responivepage {
+    padding: 0 1.5rem;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .heading {
-    font-size: 30px;
-    padding-top: 52px;
+  .product{
+    gap: 5px;
   }
-  .responivepage {
-    text-align: center;
-    padding: 5rem 2rem;
-    font-size: 40px;
+  .productImage {
+    width: 180px;
+    height: 150px;
+    padding-top: 10px;
+  }
+  .productText{
+    font-size: 15px;
   }
   .footer {
-    padding: 25px;
+    padding: 5px;
+    margin-top: 288px;
   }
 }
 
 @media (min-width: 550px) and (max-width: 768px) {
-  .heading {
-    font-size: 25px;
-    padding-top: 43px;
+  .product{
+    gap: 5px;
   }
-  .responivepage {
-    text-align: center;
-    padding: 4rem 2rem;
-    font-size: 30px;
+  .productImage {
+    width: 150px;
+    height: 130px;
+    padding-top: 10px;
   }
-
+  .productText{
+    font-size: 12px;
+  }
   .footer {
-    padding: 20px;
+    padding: 5px;
+    margin-top: 288px;
   }
 }
 
 @media (min-width: 425px) and (max-width: 550px) {
-  .heading {
-    font-size: 20px;
-    padding-top: 32px;
+  .product{
+    gap: 5px;
   }
-  .responivepage {
-    text-align: center;
-    padding: 5rem 2rem;
-    font-size: 35px;
+  .productImage {
+    width: 130px;
+    height: 110px;
+    padding-top: 2px;
+  }
+  .productText{
+    font-size: 10px;
   }
   .footer {
     padding: 5px;
+    margin-top: 288px;
   }
 }
 
 @media (min-width: 320px) and (max-width: 424px) {
-  .heading {
-    font-size: 10px;
-    padding-top: 25px;
+  .product{
+    gap: 5px;
   }
-  .responivepage {
-    text-align: center;
-    padding: 5rem 2rem;
-    font-size: 25px;
+  .productImage {
+    width: 90px;
+    height: 90px;
+    padding-top: 2px;
+  }
+  .productText{
+    font-size: 8px;
   }
   .footer {
     padding: 5px;
+    margin-top: 288px;
   }
 }
