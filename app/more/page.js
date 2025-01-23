@@ -1,38 +1,50 @@
+"use client";
 import styles from "./more.module.css";
-import ServicesOptions from "@/src/components/ServicesAndPricings";
+import Image from "next/image";
 import TransparentBtn from "@/src/components/TransparentBtn";
+import { useRouter } from "next/navigation";
+import MOREPRODUCTS_DATA from "@/src/data/moreProductsData";
 
-export default function More() {
-  const options = [
-    { text: "Top", path: "top" },
-    { text: "Locations", path: "locations" },
-    { text: "Sanford", path: "sanford" },
-    { text: "Setup An Appointment", path: "footer" },
-    { text: "Bottom", path: "footer" },
-  ];
+export default function MoreProducts() {
+  const router = useRouter();
+
+  const navigateToProduct = (path) => {
+    router.push(path); // Use router.push for navigation
+  };
 
   return (
     <>
-      <ServicesOptions options={options} />
-      <div className={`page-content`} style={{ minHeight: "600px" }}>
-        <div id="top" className={styles.heading}>
-          <p id="services-pricing">Services & Pricings</p>
-        </div>
-
+      <div className="page-content">
         <div className={`page-section ${styles.responivepage}`}>
-          <div className="center-aligned">
-            <p style={{ color: "red"}}>
-              PAGE COMING SOON<br /> CALL/TEXT:
-            </p>
-            <a style={{  textDecoration:"underline" }} href="tel:9046792513">9</a>
-            <a style={{   textDecoration:"underline" }} href="tel:9199394665">199394665</a>
-            <p>FOR MORE INFOMATION ON PRODUCTS <br/>
-            OR TRY ANOTHER PAGE</p>
+          <div className={styles.product}>
+            {MOREPRODUCTS_DATA.map((product, index) => (
+              <div
+                key={index}
+                style={{ animationDelay: `${index * 0.2}s` }}
+                onClick={() => navigateToProduct(product.path)}
+              >
+                <Image
+                  src={product.image}
+                  alt={product.text}
+                  width={230}
+                  height={175}
+                  className={styles.productImage}
+                />
+
+                <div className={styles.productText}>
+                  <strong>{product.text}</strong>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-      <div id="footer" className={styles.footer}>
-        <TransparentBtn>Setup an Appointment</TransparentBtn>
+        <div id="footer" className={styles.footer}>
+          <div className="page-section">
+            <div className="center-aligned">
+              <TransparentBtn>Setup an Appointment</TransparentBtn>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
