@@ -61,7 +61,8 @@ const DronePage = () => {
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
-            request: formData.request,
+            location: formData.location,
+            request: formData.day,
             details: formData.details,
           },
         });
