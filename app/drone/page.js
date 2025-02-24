@@ -4,6 +4,7 @@ import styles from "./drone.module.css";
 import Image from "next/image";
 import validLocations from "@/src/data/locations";
 import ReCAPTCHA from "react-google-recaptcha";
+import { sendMail } from "@/src/utils";
 
 const DronePage = () => {
   // State management for form inputs
@@ -67,7 +68,7 @@ const DronePage = () => {
           },
         });
       }
-
+      sendMail(formData, "drone");
       console.log("Form Submitted Successfully:", formData);
     }
   };

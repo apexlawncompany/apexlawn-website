@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./appointment.module.css";
 import Image from "next/image";
 import ReCAPTCHA from "react-google-recaptcha";
+import { sendMail } from "@/src/utils";
 
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({
@@ -65,7 +66,7 @@ const AppointmentForm = () => {
           },
         });
       }
-
+      sendMail(formData);
       console.log("Form Submitted Successfully:", formData);
     }
   };
