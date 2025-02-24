@@ -54,7 +54,7 @@ export async function POST(req) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.RECEIVER_MAIL,
+      to: process.env.RECEIVERS_MAIL,
       ...mailData,
     };
 
