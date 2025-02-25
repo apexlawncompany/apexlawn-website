@@ -1,11 +1,5 @@
 import styles from "./lawncare.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
-import CutPackages from "@/src/components/LawncareServices/cutPackages";
-import FullPackages from "@/src/components/LawncareServices/fullPackages";
-import Hedges from "@/src/components/LawncareServices/hedges";
-import AeriationSeeding from "@/src/components/LawncareServices/aeriation";
-import FertilizatinWeeding from "@/src/components/LawncareServices/fertilization";
-import Maintenance from "@/src/components/LawncareServices/maintenance";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import lawncareData from "@/src/data/lawncareData";
 

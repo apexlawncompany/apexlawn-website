@@ -17,7 +17,7 @@ const HEADER_DATA = [
   {
     type: "text",
     text: "Landscaping",
-    path: "/landscaping",
+    path: "/landscape",
   },
   {
     type: "text",

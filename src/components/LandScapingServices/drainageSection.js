@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "../../../app/landscaping/landscaping.module.css";
+import styles from "../../../app/landscape/landscape.module.css";
 import TransparentBtn from "../TransparentBtn";
 import Link from "next/link";
 

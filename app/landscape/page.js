@@ -1,9 +1,9 @@
-import styles from "./landscaping.module.css";
+import styles from "./landscape.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import landscapingdata from "@/src/data/landScapingData";
 
-export default function LandScaping() {
+export default function LandScape() {
   const options = [
     { text: "Top", path: "top" },
     { text: "Services And Pricings", path: "services-pricing" },
