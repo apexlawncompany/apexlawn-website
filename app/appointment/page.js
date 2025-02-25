@@ -25,6 +25,17 @@ const AppointmentForm = () => {
     setFormData({ ...formData, [id]: value });
   };
 
+  // Format Phone Numbers
+  const formatPhoneNumber = (value) => {
+    const cleaned = value.replace(/\D/g, "").slice(0, 10); // Remove non-numeric and limit to 10 digits
+    if (cleaned.length < 4) return cleaned;
+    if (cleaned.length < 7)
+      return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3)}`;
+    return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(
+      6
+    )}`;
+  };
+  
   // Validate form fields
   const validateForm = () => {
     let newErrors = {};
@@ -36,8 +47,8 @@ const AppointmentForm = () => {
     }
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
-    } else if (!/^\d+$/.test(formData.phone)) {
-      newErrors.phone = "Phone number must contain only numbers";
+    } else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ""))) {
+      newErrors.phone = "Phone number must be 10 digits";
     }
     return newErrors;
   };
@@ -126,8 +137,10 @@ const AppointmentForm = () => {
                     <input
                       type="text"
                       id="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
+                      value={formatPhoneNumber(formData.phone)}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
                       autoComplete="off"
                       size={39}
                     />
