@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../../../app/deicing/deicing.module.css";
+import styles from "../../../app/ice/deicing.module.css";
 
 export default function SnowRemoval({ service }) {
   const { title, content, image } = service;

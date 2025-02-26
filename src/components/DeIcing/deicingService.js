@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../../../app/deicing/deicing.module.css";
+import styles from "../../../app/ice/deicing.module.css";
 import TransparentBtn from "../TransparentBtn";
 
 export default function Deicing({ service }) {

@@ -2,7 +2,7 @@ const MOREPRODUCTS_DATA = [
     {
       type: "text",
       text: "De-icing",
-      path: "/deicing",
+      path: "/ice",
       image: "/assets/de_icing.jpg",
     },
     {
