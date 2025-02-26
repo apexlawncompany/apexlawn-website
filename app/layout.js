@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "Apex Lawn Company",
-              url: "https://apexlawncompany.github.io/apexlawn-website/",
+              url: "https://apexlawncompany.com/",
               telephone: "+1 919-939-4665",
               address: {
                 "@type": "PostalAddress",
@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
 
         <meta
           name="google-site-verification"
-          content="Q-h9fQ_yBWCyBHKa6MHkm-ME3RYiWcIHuufxSyVIft0"
+          content="4dUl9t48EWmeEmFKFSRvm145FIrZP0ROLTbzHWxMVdk"
         />
         <meta name="description" content="Quality Affordable Lawncare" />
         <meta
