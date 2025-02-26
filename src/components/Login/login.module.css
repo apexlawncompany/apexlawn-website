@@ -1,0 +1,92 @@
+.loginBtn {
+
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.loginText {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 90px;
+    right: 0;
+    margin-right: 50px;
+    width: 180px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(242, 240, 240, 0.1);
+    border-radius: 5px;
+    padding: 10px 0;
+    /* z-index: 1000; */
+    opacity: 0;
+    /* transform: translateY(10px); */
+    animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown ul li {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #080808;
+    line-height: 0.8;
+    font-size: 18px;
+}
+
+/* .dropdown ul li:hover {
+    background: #6e6c6c;
+} */
+
+.dropdown ul li h4 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #080000;
+}
+
+.dropdown ul li span {
+    font-size: 18px;
+    color: #080000;
+}
+
+.loginSignupBtn {
+    background: rgb(131, 190, 73);
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+}
