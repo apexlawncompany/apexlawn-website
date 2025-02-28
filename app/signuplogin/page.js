@@ -1,9 +1,12 @@
 "use client";
 import { useState } from "react";
 import styles from "./signuplogin.module.css";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 const SignupLogin = () => {
-    const [isLogin, setIsLogin] = useState(true);
+    const [isLoginScreen, setIsLoginScreen] = useState(false);
+    const [error, setError] = useState(null);
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -15,16 +18,38 @@ const SignupLogin = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            const result = await signIn("credentials", {
+                email: formData.email,
+                password: formData.password,
+                redirect: false,
+            });
+            if (result.error) {
+                setError(result.error);
+            } else {
+
+                window.location.href = "/";
+                setError(null);
+                setIsLoggedIn(true);
+            }
+        } catch (error) {
+            setError(error.message);
+            setIsLoggedIn(false);
+        }
     }
     return (
        <>
+      
        <div className={`page-content ${styles.authContainer}`}>
        <div className={styles.authBox}>
-        <h2>{isLogin ? "Login" : "Sign Up"}</h2>
+      {
+        error && <div className={styles.error}>{error}</div>
+       }
+        <h2>{isLoginScreen ? "Login" : "Sign Up"}</h2>
         <form onSubmit={handleSubmit}>
-          {!isLogin && (
+          {!isLoginScreen && (
             <>
             <input
               type="text"
@@ -60,10 +85,10 @@ const SignupLogin = () => {
             onChange={handleChange}
             required
           />
-          <button type="submit">{isLogin ? "Login" : "Sign Up"}</button>
+          <button type="submit">{isLoginScreen ? "Login" : "Sign Up"}</button>
         </form>
-        <p onClick={() => setIsLogin(!isLogin)} className= {styles.toggleText}>
-          {isLogin
+        <p onClick={() => setIsLoginScreen(!isLoginScreen)} className= {styles.toggleText}>
+          {!isLoginScreen
             ? "Don't have an account? Sign Up"
             : "Already have an account? Login"}
         </p>

@@ -1,5 +1,4 @@
 .loginBtn {
-
     position: absolute;
     right: 70px;
     top: 50%;
@@ -55,7 +54,7 @@
 }
 
 .dropdown ul li {
-    padding: 10px 15px;
+    padding: 10px 5px;
     cursor: pointer;
     transition: background 0.2s;
     color: #080808;
@@ -88,5 +87,6 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 8px;
+    margin-left: 0;
 }

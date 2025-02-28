@@ -1,14 +1,21 @@
 "use client";
 import styles from "./login.module.css";
-import { useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import { getSession, signOut } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 const Login = () => {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [session, setSession] = useState(null);
     const router = useRouter();
 
+    useEffect(() => {
+      getSession().then((session) => {
+        setSession(session);
+      });
+    }, []);
 
     return (
        <>
@@ -16,17 +23,31 @@ const Login = () => {
       onMouseLeave={() => setIsOpen(false)}>
        <div className={styles.loginBtn}> 
         <FaRegUser size={35} color="#ffffff"/>
-        <span className={styles.loginText}>Login</span>
+        <span className={styles.loginText}>
+          {session ? `Welcome ${session.user.name}` : "Login"}
+        </span>
       </div>
       {isOpen && (
         <div className={styles.dropdown}>
           <ul>
             <li>
                 <span>To access account</span>
-                <button className={styles.loginSignupBtn} onClick={() => router.push("/signuplogin")}>Login / Signup</button> 
+             <ul>
+              {
+                session ? (
+                  <li>
+                    <button className={styles.loginSignupBtn} onClick={() => signOut()}>Logout</button>
+                  </li>
+                ) : (
+                  <li>
+                    <button className={styles.loginSignupBtn} onClick={() => router.push("/signuplogin")}>Login / Signup</button>
+                  </li>
+                )
+              }
+            </ul>
             </li>
-                <li>Cart</li>
             <li>Catalogs</li>
+            <li>Cart</li>
           </ul>
         </div>
       )}
