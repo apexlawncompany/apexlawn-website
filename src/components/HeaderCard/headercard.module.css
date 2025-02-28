@@ -1,3 +1,14 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .headerCard {
   width: 150px;
   height: 95px;
@@ -9,6 +20,8 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
 }
 
 .headerName {
@@ -70,6 +83,6 @@
     height: 27px;
   }
   .headerName {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
