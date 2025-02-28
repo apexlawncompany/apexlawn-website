@@ -22,7 +22,7 @@ const HEADER_DATA = [
   {
     type: "text",
     text: "More Products",
-    path: "/more"
+    path: "/more-products"
   },
 ];
 
