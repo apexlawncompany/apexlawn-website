@@ -1,0 +1,62 @@
+/* Center the auth container */
+.authContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f4f4;
+}
+
+/* Box styling */
+.authBox {
+    width: 350px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Heading */
+.authBox h2 {
+    margin-bottom: 15px;
+}
+
+/* Input fields */
+.authBox input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Submit button */
+.authBox button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.authBox button:hover {
+    background: #0056b3;
+}
+
+/* Toggle between Login & Signup */
+.toggleText {
+    margin-top: 15px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.toggleText:hover {
+    text-decoration: underline;
+}
