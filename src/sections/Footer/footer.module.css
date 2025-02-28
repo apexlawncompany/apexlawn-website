@@ -1,7 +1,21 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .footer {
   background-color: rgb(71, 71, 71);
   /* height: 52px; */
   padding: 1rem 0.5rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 1.3s;
 }
 
 .footerWrap {

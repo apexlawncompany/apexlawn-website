@@ -1,3 +1,20 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.responivepage {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
 .service {
   display: flex;
   align-items: center;
@@ -78,6 +95,9 @@
   background-color: black;
   padding: 2rem;
   margin-top: 10px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 1s;
 }
 
 @media (max-width: 1024px) {

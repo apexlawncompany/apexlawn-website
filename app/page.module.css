@@ -1,5 +1,7 @@
 .homepage {
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .greenbar {
@@ -8,47 +10,66 @@
   height: 54px;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.responivepage {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
 .carouselSection {
   color: #fff;
   height: 480px;
 }
 
-@media (max-width: 1024px){
-  .responivepage{padding : 0 1.5rem ;}
+@media (max-width: 1024px) {
+  .responivepage {
+    padding: 0 1.5rem;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .homepage {
-    padding : 90px 0 0;
+    padding: 90px 0 0;
   }
-  .greenbar{
+  .greenbar {
     height: 45px;
   }
 }
 
 @media (min-width: 550px) and (max-width: 768px) {
   .homepage {
-    padding : 75px 0 0;
+    padding: 75px 0 0;
   }
-  .greenbar{
+  .greenbar {
     height: 40px;
   }
 }
 
 @media (min-width: 425px) and (max-width: 550px) {
   .homepage {
-    padding : 59px 0 0;
+    padding: 59px 0 0;
   }
-  .greenbar{
+  .greenbar {
     height: 33px;
   }
 }
 
 @media (min-width: 320px) and (max-width: 425px) {
   .homepage {
-    padding : 45px 0 0;
+    padding: 45px 0 0;
   }
-  .greenbar{
+  .greenbar {
     height: 31px;
   }
 }
