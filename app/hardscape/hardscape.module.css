@@ -1,8 +1,28 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .aboutBg {
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: center;
   z-index: -1;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
+.responivepage {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.8s;
 }
 
 .contactDetails{
@@ -86,6 +106,9 @@
   background-color: black;
   padding: 2rem;
   margin-top: 20px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 1.3s;
 }
 
 @media (max-width: 1024px) {
