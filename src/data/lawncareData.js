@@ -31,6 +31,15 @@ const lawncareData = [
           { size: "Custom", price: "$Variable (Per Month)" },
         ],
       },
+      sizeChart: [
+        "Less Than 0.2 Acres - S",
+        "0.2 to 0.29 Acres - M",
+        "0.3 to 0.39 Acres - ML",
+        "0.4 to 0.49 Acres - L",
+        "Greater Than - C",
+      ],
+      mapUrl:
+        "https://nconemap.maps.arcgis.com/apps/webappviewer/index.html?id=c49f804bced8479fb83d0cadf1436b25",
     },
   },
   {

@@ -24,7 +24,9 @@ export default function CutPackages({ service }) {
             <p>
               <strong>Use GISACRES Value</strong>
             </p>
-            <p>{sizeChart}</p>
+            {sizeChart.map((item, index) => (
+              <p key={index}>{item}</p>
+            ))}
           </div>
           <iframe
             src={mapUrl}
