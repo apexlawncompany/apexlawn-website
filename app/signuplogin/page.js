@@ -4,6 +4,7 @@ import styles from "./signuplogin.module.css";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { signUpUser } from "../services/service";
+import { ToastContainer, toast, Bounce } from "react-toastify";
 const SignupLogin = () => {
     const [isLoginScreen, setIsLoginScreen] = useState(false);
     const [error, setError] = useState(null);
@@ -19,12 +20,6 @@ const SignupLogin = () => {
     }
 
     const handleSubmit = async (e) => {
-      debugger
-      console.log(formData);
-      console.log(e);
-
-
-
         e.preventDefault();
         if(isLoginScreen){
           try {
@@ -34,9 +29,19 @@ const SignupLogin = () => {
                 redirect: false,
             });
             if (result.error) {
+              toast.error('Invalid email or password', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+                });
                 setError(result.error);
             } else {
-
                 window.location.href = "/";
                 setError(null);
                 setIsLoggedIn(true);
@@ -50,7 +55,17 @@ const SignupLogin = () => {
         try {
           const result = await signUpUser(formData.email, formData.password, formData.first_name, formData.last_name);
           if(result.status === 200 && result.message === "User created successfully"){
-           alert("User created successfully");
+            toast.success('User created successfully', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+              transition: Bounce,
+              });
             setError(null);
             setIsLoginScreen(true);
 
@@ -61,15 +76,20 @@ const SignupLogin = () => {
               last_name: "",
             });
           } else if(result.status === 500 && result.error.includes('duplicate')){
-            alert("User email already exists");
+            toast.error('User email already exists', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+              transition: Bounce,
+              });
             setError(result.error);
             setIsLoginScreen(false);
-            setFormData({
-              email: "",
-              password: "",
-              first_name: "",
-              last_name: "",
-            });
+            
           }
         } catch (error) {
           setError(error.message);
@@ -82,9 +102,6 @@ const SignupLogin = () => {
       
        <div className={`page-content ${styles.authContainer}`}>
        <div className={styles.authBox}>
-      {
-        error && <div className={styles.error}>{error}</div>
-       }
         <h2>{isLoginScreen ? "Login" : "Sign Up"}</h2>
         <form onSubmit={handleSubmit}>
           {!isLoginScreen && (
@@ -125,12 +142,16 @@ const SignupLogin = () => {
           />
           <button type="submit">{isLoginScreen ? "Login" : "Sign Up"}</button>
         </form>
+       
         <p onClick={() => setIsLoginScreen(!isLoginScreen)} className= {styles.toggleText}>
           {!isLoginScreen
             ? "Don't have an account? Sign Up"
             : "Already have an account? Login"}
         </p>
       </div>
+      <ToastContainer
+      position="top-right"
+      autoClose={5000}/>
     </div>
        </>
     )
