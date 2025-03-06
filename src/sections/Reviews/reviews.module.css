@@ -9,6 +9,33 @@
   flex-direction: column;
   align-items: center;
   flex: 1;
+  opacity: 0; /* Initially hidden */
+  transform: translateX(-90%); /* Initially off-screen */
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.googleReviews.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.certificate {
+  flex: 1;
+  max-width: 430px;
+  background: #fff;
+  border: 5px solid rgb(3, 195, 157);
+  border-radius: 28px;
+  display: flex;
+  color: rgb(53, 52, 52);
+  align-items: center;
+  opacity: 0; /* Initially hidden */
+  transform: translateX(90%); /* Initially off-screen */
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.certificate.animate {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .starRating {
@@ -37,17 +64,6 @@
 
 .plusVertical {
   transform: rotate(90deg);
-}
-
-.certificate {
-  flex: 1;
-  max-width: 430px;
-  background: #fff;
-  border: 5px solid rgb(3, 195, 157);
-  border-radius: 28px;
-  display: flex;
-  color: rgb(53, 52, 52);
-  align-items: center;
 }
 
 .reviewText {
