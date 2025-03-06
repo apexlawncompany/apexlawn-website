@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect } from "react";
 import Image from "next/image";
 import styles from "./reviews.module.css";
@@ -18,7 +18,9 @@ function Reviews() {
       { threshold: 0.1 }
     );
 
-    const elements = document.querySelectorAll(`.${styles.googleReviews}, .${styles.certificate}`);
+    const elements = document.querySelectorAll(
+      `.${styles.googleReviews}, .${styles.certificate}`
+    );
     elements.forEach((el) => observer.observe(el));
 
     return () => {
@@ -37,9 +39,11 @@ function Reviews() {
               src={`/star.png`}
               width={100}
               height={100}
-              style={{
-                // Maintain aspect ratio
-              }}
+              style={
+                {
+                  // Maintain aspect ratio
+                }
+              }
             />
           ))}
           <p className={styles.plusSymbol}>
