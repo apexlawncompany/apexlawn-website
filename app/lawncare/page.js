@@ -3,6 +3,17 @@ import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import lawncareData from "@/src/data/lawncareData";
 
+export async function generateMetadata({ searchParams }) {
+
+  return {
+    // title: `Best Lawncare Services in Apex| Apex Lawn Company`,
+    // description: `Get the best lawn care services in Apex. Mowing, fertilization, weeding, and more at affordable prices. Contact us today!`,
+    alternates: {
+      canonical: "https://apexlawncompany.com/lawncare",
+    },
+  };
+}
+
 export default function Lawncare() {
 
   const options = [

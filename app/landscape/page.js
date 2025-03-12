@@ -3,6 +3,17 @@ import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import landscapingdata from "@/src/data/landScapingData";
 
+export async function generateMetadata({ searchParams }) {
+
+  return {
+    // title: `Best Landscape Services in Apex| Apex Lawn Company`,
+    // description: `Get the best landscape services in Apex. Mulch, sod installation, soil delivery, and more at affordable prices. Contact us today!`,
+    alternates: {
+      canonical: "https://apexlawncompany.com/landscape",
+    },
+  };
+}
+
 export default function LandScape() {
   const options = [
     { text: "Top", path: "top" },
