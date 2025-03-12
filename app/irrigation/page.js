@@ -2,6 +2,29 @@ import styles from "./irrigation.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 
+
+export async function generateMetadata({ searchParams }) {
+  return {
+     title: `Irrigation Services in Apex| Apex Lawn Company`,
+      description: `Get the best irrigation services in Apex. Irrigation, and sprinkler systems more at affordable prices. Contact us today!`,
+      openGraph: {
+        title: "Irrigation Services in Apex| Apex Lawn Company",
+        description: `Get the best irrigation services in Apex. Irrigation, and sprinkler systems more at affordable prices. Contact us today!`,
+        url: "https://apexlawncompany.com/irrigation",
+        siteName: "Apex Lawn Company",
+        type: "website",
+        locale: "en_US",
+      },
+      keywords: "irrigation, irrigation services, irrigation installation, irrigation maintenance, irrigation repair, irrigation replacement, irrigation installation services, irrigation maintenance services, irrigation repair services, irrigation replacement services",
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: "index, follow",
+      },
+  };
+}
+
+
 export default function Irrigation() {
   const options = [
     { text: "Top", path: "top" },

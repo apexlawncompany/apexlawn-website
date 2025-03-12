@@ -6,10 +6,24 @@ import lawncareData from "@/src/data/lawncareData";
 export async function generateMetadata({ searchParams }) {
 
   return {
-    // title: `Best Lawncare Services in Apex| Apex Lawn Company`,
-    // description: `Get the best lawn care services in Apex. Mowing, fertilization, weeding, and more at affordable prices. Contact us today!`,
+     title: `Lawncare Services in Apex| Apex Lawn Company`,
+      description: `Get the best lawn care services in Apex. Mowing, fertilization, weeding, and more at affordable prices. Contact us today!`,
     alternates: {
       canonical: "https://apexlawncompany.com/lawncare",
+    },
+    openGraph: {
+      title: "Lawncare Services in Apex| Apex Lawn Company",
+      description: `Get the best lawn care services in Apex. Mowing, fertilization, weeding, and more at affordable prices. Contact us today!`,
+      url: "https://apexlawncompany.com/lawncare",
+      siteName: "Apex Lawn Company",
+      type: "website",
+      locale: "en_US",
+    },
+    keywords: "lawn care, lawn maintenance, lawn mowing, lawn fertilization, lawn weeding, lawn aeration, lawn care services, lawn care company, lawn care company in Apex, lawn care services in Apex",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: "index, follow",
     },
   };
 }

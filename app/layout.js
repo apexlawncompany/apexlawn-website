@@ -10,12 +10,37 @@ const OpenSans = localFont({
   weight: "400 600 900",
 });
 
+
+export const generateMetadata = () => {
+  return {
+    title: "Apex Lawn Company",
+    description: "apex lawn company, lawncare, lawn care, Grass Fertilization, residential lawn maintenance, leaf removal companies, lawn, maintenance service, turf lawn care, Lawn Fertilizer And Weed Control Company, leaf removal services, residential lawn service, Grass Fertilization Service, landscaping companies near me, landscape maintenance contractor, best lawn mowing, fall leaf cleanup, lawn aeration company, lawn aeration costs, lawn services, grass cutting service, lawn maintenance.", 
+    openGraph: {
+      title: "Apex Lawn Company",
+      description: "apex lawn company, lawncare, lawn care, Grass Fertilization, residential lawn maintenance, leaf removal companies, lawn, maintenance service, turf lawn care, Lawn Fertilizer And Weed Control Company, leaf removal services, residential lawn service, Grass Fertilization Service, landscaping companies near me, landscape maintenance contractor, best lawn mowing, fall leaf cleanup, lawn aeration company, lawn aeration costs, lawn services, grass cutting service, lawn maintenance",
+      url: "https://apexlawncompany.com", // Your website URL
+      siteName: "Apex Lawn Company",
+      type: "website",
+      locale: "en_US",
+    },
+    alternates: {
+      canonical: "https://apexlawncompany.com",
+    },
+    keywords: "apex lawn company, lawncare, lawn care, Grass Fertilization, residential lawn maintenance, leaf removal companies, lawn, maintenance service, turf lawn care, Lawn Fertilizer And Weed Control Company, leaf removal services, residential lawn service, Grass Fertilization Service, landscaping companies near me, landscape maintenance contractor, best lawn mowing, fall leaf cleanup, lawn aeration company, lawn aeration costs, lawn services, grass cutting service, lawn maintenance",
+    robots: {
+      index: true, // Allow search engines to index
+      follow: true, // Allow search engines to follow links
+      googleBot: "index, follow", // Specific instructions for Google
+    },
+  };
+  
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>Apex Lawn Company</title>
-
+    
         {/* Google Tag Manager */}
         <Script
           id="google-tag-manager"

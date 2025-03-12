@@ -2,6 +2,16 @@ import styles from "./powerwash.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 
+
+
+export async function generateMetadata({ searchParams }) {
+  return {
+     title: `Power Washing Services in Apex| Apex Lawn Company`,
+      description: `Get the best power washing services in Apex. Power washing, and fence cleaning more at affordable prices. Contact us today!`,
+  };
+}
+
+
 export default function PowerWash() {
   const options = [
     { text: "Top", path: "top" },

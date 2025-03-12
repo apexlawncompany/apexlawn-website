@@ -4,6 +4,33 @@ import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
 import { mulchInfo } from "@/src/data/mulchData";
 
+
+
+export async function generateMetadata({ searchParams }) {
+  return {
+     title: `Mulch Services in Apex| Apex Lawn Company`,
+      description: `Get the best mulch services in Apex. Mulch, sod installation, soil delivery, and more at affordable prices. Contact us today!`,
+    alternates: {
+      canonical: "https://apexlawncompany.com/mulch",
+    },  
+    openGraph: {
+      title: "Mulch Services in Apex| Apex Lawn Company",
+      description: `Get the best mulch services in Apex. Mulch, sod installation, soil delivery, and more at affordable prices. Contact us today!`,
+      url: "https://apexlawncompany.com/mulch",
+      siteName: "Apex Lawn Company",
+      type: "website",
+      locale: "en_US",
+    },  
+    keywords: "mulch, mulch services, mulch installation, mulch delivery, mulch installation services, mulch delivery services, mulch services in Apex, mulch installation in Apex, mulch delivery in Apex",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: "index, follow",
+    },
+  };
+}
+
+
 export default function Mulch() {
   const options = [
     { text: "Top", path: "top" },

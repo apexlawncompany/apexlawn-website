@@ -2,6 +2,32 @@ import styles from "./outdoorlighting.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 
+
+export async function generateMetadata({ searchParams }) {
+  return {
+     title: `Outdoor Lighting Services in Apex| Apex Lawn Company`,
+      description: `Get the best outdoor lighting services in Apex. Outdoor lighting, and fence lighting for Christmas and Thanksgiving holidays more at affordable prices. Contact us today!`,
+    alternates: {
+      canonical: "https://apexlawncompany.com/outdoorlighting",
+    },
+    openGraph: {
+      title: "Outdoor Lighting Services in Apex| Apex Lawn Company",
+      description: `Get the best outdoor lighting services in Apex. Outdoor lighting, and fence lighting for Christmas and Thanksgiving holidays more at affordable prices. Contact us today!`,
+      url: "https://apexlawncompany.com/outdoorlighting",
+      siteName: "Apex Lawn Company",
+      type: "website",
+      locale: "en_US",
+    },
+    keywords: "outdoor lighting, outdoor lighting services, outdoor lighting installation, outdoor lighting maintenance, outdoor lighting repair, outdoor lighting replacement, outdoor lighting installation services, outdoor lighting maintenance services, outdoor lighting repair services, outdoor lighting replacement services",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: "index, follow",
+    },
+  };
+}
+
+
 export default function OutDoorLighting() {
   const options = [
     { text: "Top", path: "top" },
