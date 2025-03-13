@@ -2,36 +2,6 @@ import styles from "./powerwash.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 
-
-
-export async function generateMetadata({ searchParams }) {
-
-  const cities = ["Apex", "Cary", "Morrisville", "Chapel Hill", "Pittsboro", "Moncure", "New Hill", "Sanford", "Spring Lake", "Hope Mills", "Fayetteville", "Raleigh", "Holly springs", "Garner"]
-  const citiesString = cities.join(", ");
-
-
-  return {
-     title: `Power Washing Services in ${citiesString} | Apex Lawn Company`,
-      description: `Get the best power washing services in ${citiesString}. Power washing, and fence cleaning more at affordable prices. Contact us today!`,
-
-    openGraph: {
-      title: `Power Washing Services in ${citiesString} | Apex Lawn Company`,
-      description: `Get the best power washing services in ${citiesString}. Power washing, and fence cleaning more at affordable prices. Contact us today!`,
-      url: "https://apexlawncompany.com/powerwash",
-      siteName: "Apex Lawn Company",
-      type: "website",
-      locale: "en_US",
-    },
-    keywords: `power washing, power washing services, power washing installation, power washing maintenance, power washing repair, power washing replacement, power washing installation services, power washing maintenance services, power washing repair services, power washing replacement services, power washing services in ${citiesString}, power washing installation in ${citiesString}, power washing maintenance in ${citiesString}, power washing repair in ${citiesString}, power washing replacement in ${citiesString}`,
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: "index, follow",
-    },
-  };
-}
-
-
 export default function PowerWash() {
   const options = [
     { text: "Top", path: "top" },

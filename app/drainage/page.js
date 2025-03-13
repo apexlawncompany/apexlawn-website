@@ -6,21 +6,27 @@ import { drainageInfo } from "@/src/data/drainageData";
 
 
 export async function generateMetadata({ searchParams }) {
+
+  const cities = ["Apex", "Cary", "Morrisville", "Chapel Hill", "Pittsboro", "Moncure", "New Hill", "Sanford", "Spring Lake", "Hope Mills", "Fayetteville", "Raleigh", "Holly springs", "Garner"]
+  const citiesString = cities.join(", ");
+
+
+
   return {
-     title: `Drainage Services in Apex| Apex Lawn Company`,
-      description: `Get the best drainage services in Apex. Drainage, and drainage systems more at affordable prices. Contact us today!`,
+     title: `Drainage Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best drainage services in ${citiesString}. Drainage, and drainage systems more at affordable prices. Contact us today!`,
     alternates: {
       canonical: "https://apexlawncompany.com/drainage",
     },
     openGraph: {
-      title: "Drainage Services in Apex| Apex Lawn Company",
-      description: `Get the best drainage services in Apex. Drainage, and drainage systems more at affordable prices. Contact us today!`,
+      title: `Drainage Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best drainage services in ${citiesString}. Drainage, and drainage systems more at affordable prices. Contact us today!`,
       url: "https://apexlawncompany.com/drainage",
       siteName: "Apex Lawn Company",
       type: "website",
       locale: "en_US",
     },  
-    keywords: "drainage, drainage services, drainage installation, drainage maintenance, drainage repair, drainage replacement, drainage installation services, drainage maintenance services, drainage repair services, drainage replacement services",
+    keywords: `drainage, drainage services, drainage installation, drainage maintenance, drainage repair, drainage replacement, drainage installation services, drainage maintenance services, drainage repair services, drainage replacement services, drainage services in ${citiesString}, drainage installation in ${citiesString}, drainage maintenance in ${citiesString}, drainage repair in ${citiesString}, drainage replacement in ${citiesString}`,
     robots: {
       index: true,
       follow: true,
