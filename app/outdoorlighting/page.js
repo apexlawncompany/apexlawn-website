@@ -4,21 +4,26 @@ import TransparentBtn from "@/src/components/TransparentBtn";
 
 
 export async function generateMetadata({ searchParams }) {
+
+  const cities = ["Apex", "Cary", "Morrisville", "Chapel Hill", "Pittsboro", "Moncure", "New Hill", "Sanford", "Spring Lake", "Hope Mills", "Fayetteville", "Raleigh", "Holly springs", "Garner"]
+  const citiesString = cities.join(", ");
+
+
   return {
-     title: `Outdoor Lighting Services in Apex| Apex Lawn Company`,
-      description: `Get the best outdoor lighting services in Apex. Outdoor lighting, and fence lighting for Christmas and Thanksgiving holidays more at affordable prices. Contact us today!`,
+     title: `Outdoor Lighting Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best outdoor lighting services in ${citiesString}. Outdoor lighting, and fence lighting for Christmas and Thanksgiving holidays more at affordable prices. Contact us today!`,
     alternates: {
       canonical: "https://apexlawncompany.com/outdoorlighting",
     },
     openGraph: {
-      title: "Outdoor Lighting Services in Apex| Apex Lawn Company",
-      description: `Get the best outdoor lighting services in Apex. Outdoor lighting, and fence lighting for Christmas and Thanksgiving holidays more at affordable prices. Contact us today!`,
+      title: `Outdoor Lighting Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best outdoor lighting services in ${citiesString}. Outdoor lighting, and fence lighting for Christmas and Thanksgiving holidays more at affordable prices. Contact us today!`,
       url: "https://apexlawncompany.com/outdoorlighting",
       siteName: "Apex Lawn Company",
       type: "website",
       locale: "en_US",
     },
-    keywords: "outdoor lighting, outdoor lighting services, outdoor lighting installation, outdoor lighting maintenance, outdoor lighting repair, outdoor lighting replacement, outdoor lighting installation services, outdoor lighting maintenance services, outdoor lighting repair services, outdoor lighting replacement services",
+    keywords: `outdoor lighting, outdoor lighting services, outdoor lighting installation, outdoor lighting maintenance, outdoor lighting repair, outdoor lighting replacement, outdoor lighting installation services, outdoor lighting maintenance services, outdoor lighting repair services, outdoor lighting replacement services, outdoor lighting services in ${citiesString}, outdoor lighting installation in ${citiesString}, outdoor lighting maintenance in ${citiesString}, outdoor lighting repair in ${citiesString}, outdoor lighting replacement in ${citiesString}`,
     robots: {
       index: true,
       follow: true,

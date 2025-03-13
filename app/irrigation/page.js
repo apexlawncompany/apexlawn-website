@@ -4,12 +4,15 @@ import TransparentBtn from "@/src/components/TransparentBtn";
 
 
 export async function generateMetadata({ searchParams }) {
+  const cities = ["Apex", "Cary", "Morrisville", "Chapel Hill", "Pittsboro", "Moncure", "New Hill", "Sanford", "Spring Lake", "Hope Mills", "Fayetteville", "Raleigh", "Holly springs", "Garner"]
+  const citiesString = cities.join(", ");
+
   return {
-     title: `Irrigation Services in Apex| Apex Lawn Company`,
-      description: `Get the best irrigation services in Apex. Irrigation, and sprinkler systems more at affordable prices. Contact us today!`,
+     title: `Irrigation Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best irrigation services in ${citiesString}. Irrigation, and sprinkler systems more at affordable prices. Contact us today!`,
       openGraph: {
-        title: "Irrigation Services in Apex| Apex Lawn Company",
-        description: `Get the best irrigation services in Apex. Irrigation, and sprinkler systems more at affordable prices. Contact us today!`,
+        title: `Irrigation Services in ${citiesString} | Apex Lawn Company`,
+        description: `Get the best irrigation services in ${citiesString}. Irrigation, and sprinkler systems more at affordable prices. Contact us today!`,
         url: "https://apexlawncompany.com/irrigation",
         siteName: "Apex Lawn Company",
         type: "website",

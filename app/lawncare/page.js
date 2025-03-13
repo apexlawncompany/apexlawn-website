@@ -4,22 +4,24 @@ import TransparentBtn from "@/src/components/TransparentBtn";
 import lawncareData from "@/src/data/lawncareData";
 
 export async function generateMetadata({ searchParams }) {
+  const cities = ["Apex", "Cary", "Morrisville", "Chapel Hill", "Pittsboro", "Moncure", "New Hill", "Sanford", "Spring Lake", "Hope Mills", "Fayetteville", "Raleigh", "Holly springs", "Garner"];
+  const citiesString = cities.join(", ");
 
   return {
-     title: `Lawncare Services in Apex| Apex Lawn Company`,
-      description: `Get the best lawn care services in Apex. Mowing, fertilization, weeding, and more at affordable prices. Contact us today!`,
+     title: `Lawncare Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best lawn care services in ${citiesString}. Mowing, fertilization, weeding, and more at affordable prices. Contact us today!`,
     alternates: {
       canonical: "https://apexlawncompany.com/lawncare",
     },
     openGraph: {
-      title: "Lawncare Services in Apex| Apex Lawn Company",
-      description: `Get the best lawn care services in Apex. Mowing, fertilization, weeding, and more at affordable prices. Contact us today!`,
+      title: `Lawncare Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best lawn care services in ${citiesString}. Mowing, fertilization, weeding, and more at affordable prices. Contact us today!`,
       url: "https://apexlawncompany.com/lawncare",
       siteName: "Apex Lawn Company",
       type: "website",
       locale: "en_US",
     },
-    keywords: "lawn care, lawn maintenance, lawn mowing, lawn fertilization, lawn weeding, lawn aeration, lawn care services, lawn care company, lawn care company in Apex, lawn care services in Apex",
+    keywords: `lawn care, lawn maintenance, lawn mowing, lawn fertilization, lawn weeding, lawn aeration, lawn care services, lawn care company, lawn care company in ${citiesString}, lawn care services in ${citiesString}`,
     robots: {
       index: true,
       follow: true,

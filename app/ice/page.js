@@ -5,21 +5,24 @@ import deicingData from "@/src/data/deicingData";
 
 
 export async function generateMetadata({ searchParams }) {
+  const cities = ["Apex", "Cary", "Morrisville", "Chapel Hill", "Pittsboro", "Moncure", "New Hill", "Sanford", "Spring Lake", "Hope Mills", "Fayetteville", "Raleigh", "Holly springs", "Garner"]
+  const citiesString = cities.join(", ");
+
   return {
-     title: `De-Icing & Snow Removal Services in Apex| Apex Lawn Company`,
-      description: `Get the best de-icing and snow removal services in Apex. De-icing, and snow removal more at affordable prices. Contact us today!`,
+     title: `De-Icing & Snow Removal Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best de-icing and snow removal services in  ${citiesString}. De-icing, and snow removal more at affordable prices. Contact us today!`,
     alternates: {
       canonical: "https://apexlawncompany.com/ice",
     },
     openGraph: {
-      title: "De-Icing & Snow Removal Services in Apex| Apex Lawn Company",
-      description: `Get the best de-icing and snow removal services in Apex. De-icing, and snow removal more at affordable prices. Contact us today!`,
+      title: `De-Icing & Snow Removal Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best de-icing and snow removal services in ${citiesString}. De-icing, and snow removal more at affordable prices. Contact us today!`,
       url: "https://apexlawncompany.com/ice",
       siteName: "Apex Lawn Company",
       type: "website",
       locale: "en_US",
     },  
-    keywords: "de-icing, snow removal, snow removal services, snow removal company, snow removal services in Apex, snow removal company in Apex, snow removal services in Raleigh, snow removal company in Raleigh",
+    keywords: `de-icing, snow removal, snow removal services, snow removal company, snow removal services in ${citiesString}, snow removal company in ${citiesString}, snow removal services in ${citiesString}, snow removal company in ${citiesString}`,
     robots: {
       index: true,
       follow: true,

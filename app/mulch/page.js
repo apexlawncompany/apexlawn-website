@@ -7,21 +7,25 @@ import { mulchInfo } from "@/src/data/mulchData";
 
 
 export async function generateMetadata({ searchParams }) {
+
+  const cities = ["Apex", "Cary", "Morrisville", "Chapel Hill", "Pittsboro", "Moncure", "New Hill", "Sanford", "Spring Lake", "Hope Mills", "Fayetteville", "Raleigh", "Holly springs", "Garner"]
+  const citiesString = cities.join(", ");
+
   return {
-     title: `Mulch Services in Apex| Apex Lawn Company`,
-      description: `Get the best mulch services in Apex. Mulch, sod installation, soil delivery, and more at affordable prices. Contact us today!`,
+     title: `Mulch Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best mulch services in ${citiesString}. Mulch, sod installation, soil delivery, and more at affordable prices. Contact us today!`,
     alternates: {
       canonical: "https://apexlawncompany.com/mulch",
     },  
     openGraph: {
-      title: "Mulch Services in Apex| Apex Lawn Company",
-      description: `Get the best mulch services in Apex. Mulch, sod installation, soil delivery, and more at affordable prices. Contact us today!`,
+      title: `Mulch Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best mulch services in ${citiesString}. Mulch, sod installation, soil delivery, and more at affordable prices. Contact us today!`,
       url: "https://apexlawncompany.com/mulch",
       siteName: "Apex Lawn Company",
       type: "website",
       locale: "en_US",
     },  
-    keywords: "mulch, mulch services, mulch installation, mulch delivery, mulch installation services, mulch delivery services, mulch services in Apex, mulch installation in Apex, mulch delivery in Apex",
+    keywords: `mulch, mulch services, mulch installation, mulch delivery, mulch installation services, mulch delivery services, mulch services in ${citiesString}, mulch installation in ${citiesString}, mulch delivery in ${citiesString}`,
     robots: {
       index: true,
       follow: true,
