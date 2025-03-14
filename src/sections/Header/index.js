@@ -3,7 +3,6 @@ import styles from "./header.module.css";
 import HeaderCard from "@/src/components/HeaderCard";
 import localFont from "next/font/local";
 import Contact from "@/src/components/Contact";
-import { basePath } from "@/next.config";
 import Login from "@/src/components/Login";
 const AmaticSC = localFont({
   src: "../../../app/fonts/AmaticSC.woff",

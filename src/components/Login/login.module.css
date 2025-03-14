@@ -90,3 +90,63 @@
     margin-top: 8px;
     margin-left: 0;
 }
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Space between elements */
+    /* Fixed width, adjustable */
+    padding: 20px;
+    background-color: rgb(131, 190, 73);
+    /* White background */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+.loginForm input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+
+.loginForm button {
+    padding: 10px;
+    /* Inner spacing */
+    background-color: #e0f1e4;
+    /* Green background */
+    color: rgb(8, 1, 1);
+    /* White text */
+    border: none;
+    /* No border */
+    border-radius: 4px;
+    /* Rounded corners */
+    font-size: 16px;
+    /* Slightly larger text */
+    cursor: pointer;
+    /* Hand cursor on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth color transition */
+
+}
+
+.pageBackground {
+
+    /* Full-screen height */
+    /* background-image: url('/background.jpg'); */
+    /* Reference from /public
+    background-size: cover;
+    /* Cover the entire area */
+    /* background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Prevent tiling */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
