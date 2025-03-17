@@ -67,7 +67,7 @@ const landscapingdata = [
 
   {
     id: "soil",
-    title: "Soil Delivery & Spreading",
+    title: "Top Dressing & Spreading",
     details: [
       {
         price: "Uses and Benefits of TopDressing",

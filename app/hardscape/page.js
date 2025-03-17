@@ -27,7 +27,7 @@ export default function HardScape() {
                   display: "flex",
                   gap: "30px",
                   alignItems: "center",
-                  padding: "40px 15px 15px",
+                  padding: "40px 5% 15px",
                 }}
               >
                 <div>

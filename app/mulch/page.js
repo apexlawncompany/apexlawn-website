@@ -38,7 +38,7 @@ export default function Mulch() {
                   display: "flex",
                   gap: "30px",
                   alignItems: "center",
-                  padding: "15px",
+                  padding: "15px 5%",
                 }}
               >
                 <div>

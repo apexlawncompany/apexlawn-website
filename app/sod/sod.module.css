@@ -121,7 +121,7 @@
 
 @media (max-width: 1024px) {
   .responivepage {
-    padding: 0 1.5rem;
+    margin: 0 5%;
   }
   .divider {
     margin: 5px 0;
@@ -164,7 +164,7 @@
     border: 3px solid rgb(255, 221, 0);
   }
   .footer {
-    padding: 25px;
+    padding: 25px 5%;
   }
 }
 
@@ -200,7 +200,7 @@
     padding-top: 2px;
   }
   .footer {
-    padding: 20px;
+    padding: 20px 5%;
   }
 }
 
@@ -239,7 +239,7 @@
     padding-top: 2px;
   }
   .footer {
-    padding: 5px;
+    padding: 5px 5%;
   }
 }
 
@@ -278,6 +278,6 @@
     padding-top: 2px;
   }
   .footer {
-    padding: 5px;
+    padding: 5px 5%;
   }
 }

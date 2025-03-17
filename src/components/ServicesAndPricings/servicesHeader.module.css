@@ -152,7 +152,7 @@
 
 @media (min-width: 320px) and (max-width: 424px) {
   .options-navbar {
-    top: 42px;
+    top: 48px;
   }
   .options {
     gap: 7px;

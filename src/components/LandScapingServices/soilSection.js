@@ -23,7 +23,7 @@ export default function SoilSection({ service }) {
       <div className={styles.serviceImage}>
         <Image
           src={image}
-          alt="Soil Delivery"
+          alt="Top Dressing"
           width={280}
           height={300}
           className={styles.image}
@@ -31,7 +31,7 @@ export default function SoilSection({ service }) {
         <div className={styles.buttonGroup}>
           <Link href={link} style={{ width: "100%" }}>
             <TransparentBtn className={styles.blackTextButton}>
-              See Soil Delivery Options
+              See Top Dressing Options
             </TransparentBtn>
           </Link>
         </div>

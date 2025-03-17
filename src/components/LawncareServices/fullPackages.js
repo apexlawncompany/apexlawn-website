@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "../../../app/lawncare/lawncare.module.css";
 import { useState } from "react";
+import TransparentBtn from "../TransparentBtn";
 
 export default function FullPackages({ service }) {
   const {
@@ -60,7 +61,7 @@ export default function FullPackages({ service }) {
         <p>
           <strong>Winter:</strong> {seasonalDetails.winter}
         </p>
-
+        <br />
         {/* Premium Service */}
         <p className={styles.priceList}>
           <strong>{premiumPricingPara}</strong>
@@ -77,16 +78,23 @@ export default function FullPackages({ service }) {
       {/* Images */}
       <div className={styles.serviceImage}>
         {images.map((image, index) => (
-          <Image
-            key={index}
-            src={image.src}
-            alt={image.alt}
-            width={image.width}
-            height={image.height}
-            className={`${styles.image} ${
-              index === 0 ? styles.fullService1 : styles.fullService2
-            }`}
-          />
+          <div key={index} className={styles.imageWrapper}>
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              className={`${styles.image} ${
+                index === 0 ? styles.fullService1 : styles.fullService2
+              }`}
+            />
+            {/* Render the button below the first image */}
+            {index === 0 && (
+              <TransparentBtn className={styles.blackTextButton} style={{ width: `${image.width}px` }}>
+                Setup an Appointment
+              </TransparentBtn>
+            )}
+          </div>
         ))}
       </div>
     </div>

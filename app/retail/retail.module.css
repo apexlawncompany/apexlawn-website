@@ -28,7 +28,7 @@
     font-size: 40px;
   }
   .footer {
-    padding: 25px;
+    padding: 25px 5%;
   }
 }
 
@@ -44,7 +44,7 @@
   }
 
   .footer {
-    padding: 20px;
+    padding: 20px 5%;
   }
 }
 
@@ -59,7 +59,7 @@
     font-size: 35px;
   }
   .footer {
-    padding: 5px;
+    padding: 5px 5%;
   }
 }
 
@@ -74,6 +74,6 @@
     font-size: 25px;
   }
   .footer {
-    padding: 5px;
+    padding: 5px 5%;
   }
 }
