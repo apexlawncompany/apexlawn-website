@@ -54,7 +54,7 @@
     height: 55px;
   }
   .headerName {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
@@ -68,14 +68,14 @@
     height: 40px;
   }
   .headerName {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 320px) and (max-width: 424px) {
   .headerCard {
     width: 150px;
-    height: 30px;
+    height: 35px;
     border: 2px solid rgb(255, 221, 0);
     border-radius: 10px;
   }
@@ -83,6 +83,6 @@
     height: 27px;
   }
   .headerName {
-    font-size: 12px;
+    font-size: 14px;
   }
 }

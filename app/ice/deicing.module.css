@@ -102,7 +102,7 @@
 
 @media (max-width: 1024px) {
   .responivepage {
-    padding: 0 1.5rem;
+    margin: 0 5%;
   }
   .divider {
     margin: 5px 0;
@@ -114,7 +114,7 @@
     font-size: 2rem;
   }
   .serviceText p {
-    font-size: 13px;
+    font-size: 15px;
   }
   .serviceImage img {
     /* width: 270px;
@@ -128,44 +128,11 @@
     padding: 0 0;
   }
   .footer {
-    padding: 25px;
+    padding: 25px 5%;
   }
 }
 
 @media (min-width: 550px) and (max-width: 768px) {
-  .serviceText h2 {
-    font-size: 2rem;
-  }
-  .serviceText ul li {
-    font-size: 12px;
-  }
-  .serviceText p {
-    font-size: 10px;
-  }
-  .serviceImage {
-    gap: 6px;
-  }
-  .serviceImage img {
-    /* width: 220px;
-    height: 190px; */
-    padding-top: 2px;
-  }
-  .priceList {
-    font-size: 15px !important;
-  }
-  .priceItem {
-    padding: 0 0;
-  }
-  .footer {
-    padding: 20px;
-  }
-}
-
-@media (min-width: 425px) and (max-width: 550px) {
-  .heading {
-    font-size: 20px;
-    padding-top: 32px;
-  }
   .service {
     margin: 9px 0px;
     flex-direction: column;
@@ -173,13 +140,13 @@
     gap: 0;
   }
   .serviceText h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .serviceText ul li {
-    font-size: 12px;
+    font-size: 14px;
   }
   .serviceText p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .service.reverse {
     flex-direction: column;
@@ -193,25 +160,67 @@
     display: flex;
     justify-content: center;
   }
-  /* .serviceImage img {
+  .serviceImage img {
     width: 100%;
-  } */
+    height: auto;
+    object-fit: cover;
+  }
   .priceList {
-    font-size: 12px !important;
+    font-size: 15px !important;
   }
   .priceItem {
     padding: 0 0;
   }
   .footer {
-    padding: 5px;
+    padding: 20px 5%;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 550px) {
+  .service {
+    margin: 9px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .serviceText h2 {
+    font-size: 1.5rem;
+  }
+  .serviceText ul li {
+    font-size: 14px;
+  }
+  .serviceText p {
+    font-size: 14px;
+  }
+  .service.reverse {
+    flex-direction: column;
+  }
+  .serviceText {
+    order: 2;
+    width: 100%;
+  }
+  .serviceImage {
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .serviceImage img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .priceList {
+    font-size: 14px !important;
+  }
+  .priceItem {
+    padding: 0 0;
+  }
+  .footer {
+    padding: 5px 5%;
   }
 }
 
 @media (min-width: 320px) and (max-width: 424px) {
-  .heading {
-    font-size: 10px;
-    padding-top: 25px;
-  }
   .service {
     margin: 9px 0px;
     flex-direction: column;
@@ -225,10 +234,10 @@
     margin-left: 10px;
   }
   .serviceText ul li {
-    font-size: 12px;
+    font-size: 14px;
   }
   .serviceText p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .service.reverse {
     flex-direction: column;
@@ -239,21 +248,22 @@
   }
   .serviceImage {
     order: 1;
-    width: 100%;
     display: flex;
     justify-content: center;
   }
   .serviceImage img {
     width: 100%;
+    height: auto;
+    object-fit: cover;
   }
   .priceList {
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
   .priceItem {
     padding: 0 0;
   }
   .footer {
-    padding: 5px;
+    padding: 5px 5%;
   }
 }
 

@@ -2,7 +2,7 @@ export const soilInfo = {
   about: {
     title: "About Top Dressing",
     description:
-      "Soil delivery and spreading are essential processes in gardening, landscaping, and construction projects. These steps are fundamental when preparing planting areas, leveling land, or enhancing soil quality for optimal plant growth.",
+      "Top dressing and spreading are essential processes in gardening, landscaping, and construction projects. These steps are fundamental when preparing planting areas, leveling land, or enhancing soil quality for optimal plant growth.",
     image: "/assets/sod/Top_Soil_Delivery.jpg",
   },
   surfaceSoil: {
@@ -32,7 +32,7 @@ export const soilInfo = {
     image: "/assets/sod/soil_delivery.jpg",
   },
   soilTips: {
-    title: "Tips for Effective Soil Delivery and Spreading",
+    title: "Tips for Effective Top Dressing and Spreading",
     points: [
       {
         label: "Weather Considerations",
@@ -59,7 +59,7 @@ export const soilInfo = {
   },
   importance: {
     description:
-      "Soil delivery and spreading are fundamental steps in preparing landscapes for planting, leveling, and aesthetic improvements. By selecting the right soil, planning carefully, and applying it effectively, you can create a thriving garden or lawn that supports healthy plant growth.",
+      "Top dressing and spreading are fundamental steps in preparing landscapes for planting, leveling, and aesthetic improvements. By selecting the right soil, planning carefully, and applying it effectively, you can create a thriving garden or lawn that supports healthy plant growth.",
     image: "/assets/sod/sod_footer.jpg",
   },
 };

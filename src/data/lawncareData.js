@@ -82,16 +82,16 @@ const lawncareData = [
     },
     images: [
       {
-        src: "/assets/full_service.JPG",
-        alt: "Full Service Image 1",
-        width: 300,
-        height: 200,
-      },
-      {
         src: "/assets/full_service2.jpg",
         alt: "Full Service Image 2",
         width: 300,
-        height: 400,
+        height: 350,
+      },
+      {
+        src: "/assets/full_service.JPG",
+        alt: "Full Service Image 1",
+        width: 300,
+        height: 300,
       },
     ],
     component: FullPackages,

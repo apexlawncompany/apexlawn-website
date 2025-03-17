@@ -6,8 +6,8 @@
 
 .greenbar {
   background-color: rgb(131, 190, 73);
-  border: 6px solid #000;
-  height: 54px;
+  border: 0px solid #000;
+  height: 44px;
 }
 
 @keyframes fadeIn {
@@ -40,36 +40,36 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .homepage {
-    padding: 90px 0 0;
+    padding: 94px 0 0;
   }
   .greenbar {
-    height: 45px;
+    height: 32px;
   }
 }
 
 @media (min-width: 550px) and (max-width: 768px) {
   .homepage {
-    padding: 75px 0 0;
+    padding: 80px 0 0;
   }
   .greenbar {
-    height: 40px;
+    height: 25px;
   }
 }
 
 @media (min-width: 425px) and (max-width: 550px) {
   .homepage {
-    padding: 59px 0 0;
+    padding: 64px 0 0;
   }
   .greenbar {
-    height: 33px;
+    height: 20px;
   }
 }
 
 @media (min-width: 320px) and (max-width: 425px) {
   .homepage {
-    padding: 45px 0 0;
+    padding: 49px 0 0;
   }
   .greenbar {
-    height: 31px;
+    height: 18px;
   }
 }

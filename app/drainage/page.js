@@ -23,12 +23,7 @@ export default function Drainage() {
           <div className={`page-section`}>
             <div className="center-aligned">
               <div
-                style={{
-                  display: "flex",
-                  gap: "30px",
-                  alignItems: "center",
-                  padding: "40px 15px 15px",
-                }}
+              className={styles.aboutText}
               >
                 <div>
                   <h1

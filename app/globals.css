@@ -120,6 +120,6 @@ a {
 @media (min-width: 320px) and (max-width: 424px) {
   .page-content {
     min-height: 470px;
-    padding: 44px 0 0;
+    padding: 49px 0 0;
   }
 }

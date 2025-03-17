@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/src/sections/Header";
 import Footer from "@/src/sections/Footer";
 import Script from "next/script";
+import IMAGES from "@/src/images";
 
 const OpenSans = localFont({
   src: "./fonts/OpenSans.woff",
@@ -67,6 +68,9 @@ export default function RootLayout({ children }) {
           name="keywords"
           content="apex lawn company, lawncare, lawn care, Grass Fertilization, residential lawn maintenance, leaf removal companies, lawn, maintenance service, turf lawn care, Lawn Fertilizer And Weed Control Company, leaf removal services, residential lawn service, Grass Fertilization Service, landscaping companies near me, landscape maintenance contractor, best lawn mowing, fall leaf cleanup, lawn aeration company, lawn aeration costs, lawn services, grass cutting service, lawn maintenance"
         ></meta>
+        {IMAGES.map((src, index) => (
+          <link key={index} rel="preload" href={src} as="image" />
+        ))}
       </head>
 
       <body className={`${OpenSans.className}`}>

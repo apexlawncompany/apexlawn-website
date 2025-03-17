@@ -27,7 +27,7 @@ export default function Soil() {
                   display: "flex",
                   gap: "30px",
                   alignItems: "center",
-                  padding: "40px 15px 15px",
+                  padding: "40px 5% 15px",
                 }}
               >
                 <div>
@@ -66,7 +66,7 @@ export default function Soil() {
               <div className={styles.serviceImage}>
                 <Image
                   src={soilInfo.surfaceSoil.image}
-                  alt="Surface Soil Delivery"
+                  alt="Surface Top Dressing"
                   width={480}
                   height={380}
                   className={styles.image}
@@ -75,7 +75,7 @@ export default function Soil() {
             </div>
             <hr className={styles.divider} />
 
-            {/* Tips for Soil Delivery */}
+            {/* Tips for Top Dressing */}
             <div className={`${styles.service}`}>
               <div className={styles.serviceText}>
                 <h3>
