@@ -4,14 +4,18 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #f4f4f4;
+    background: #ea1c1c;
+    background-image: url("/home-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* Box styling */
 .authBox {
     width: 350px;
     padding: 20px;
-    background: white;
+    background: rgb(239, 218, 85);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     text-align: center;
@@ -36,8 +40,8 @@
 .authBox button {
     width: 100%;
     padding: 10px;
-    background: #007bff;
-    color: white;
+    background: rgb(131, 190, 73);
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -47,13 +51,13 @@
 }
 
 .authBox button:hover {
-    background: #0056b3;
+    background: rgb(131, 190, 73);
 }
 
 /* Toggle between Login & Signup */
 .toggleText {
     margin-top: 15px;
-    color: #007bff;
+    color: rgb(131, 190, 73);
     cursor: pointer;
 }
 
