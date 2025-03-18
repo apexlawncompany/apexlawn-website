@@ -2,20 +2,22 @@ import styles from "./lawncare.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import lawncareData from "@/src/data/lawncareData";
+import { cities, lawnCarePrice, lawnCarePremiumService } from "../constant/constant"; 
+
+
 
 export async function generateMetadata({ searchParams }) {
-  const cities = ["Apex", "Cary", "Morrisville", "Chapel Hill", "Pittsboro", "Moncure", "New Hill", "Sanford", "Spring Lake", "Hope Mills", "Fayetteville", "Raleigh", "Holly springs", "Garner"];
   const citiesString = cities.join(", ");
 
   return {
      title: `Lawncare Services in ${citiesString} | Apex Lawn Company`,
-      description: `Get the best lawn care services in ${citiesString}. Mowing, fertilization, weeding, and more at affordable prices. Contact us today!`,
+      description: `Get the best lawn care services in ${citiesString}. Mowing, fertilization, weeding, and for small lawn ${lawnCarePrice["small lawn"]}, for medium lawn ${lawnCarePrice["medium lawn"]}, for large lawn ${lawnCarePrice["large lawn"]}, for medium-large lawn ${lawnCarePrice["medium-large lawn"]}, for premium services for small lawn ${lawnCarePremiumService["small lawn"]}, for premium service for medium lawn ${lawnCarePremiumService["medium lawn"]}, for premium service for large lawn ${lawnCarePremiumService["large lawn"]}, for premium service for medium-large lawn ${lawnCarePremiumService["medium-large lawn"]}. Contact us today!`,
     alternates: {
       canonical: "https://apexlawncompany.com/lawncare",
     },
     openGraph: {
-      title: `Lawncare Services in ${citiesString} | Apex Lawn Company`,
-      description: `Get the best lawn care services in ${citiesString}. Mowing, fertilization, weeding, and more at affordable prices. Contact us today!`,
+      title: `Lawncare Services in ${citiesString} | Apex Lawn Company`,  
+      description: `Get the best lawn care services in ${citiesString}. Mowing, fertilization, weeding, and for small lawn ${lawnCarePrice["small lawn"]}, for medium lawn ${lawnCarePrice["medium lawn"]}, for large lawn ${lawnCarePrice["large lawn"]}, for medium-large lawn ${lawnCarePrice["medium-large lawn"]}, for premium services for small lawn ${lawnCarePremiumService["small lawn"]}, for premium service for medium lawn ${lawnCarePremiumService["medium lawn"]}, for premium service for large lawn ${lawnCarePremiumService["large lawn"]}, for premium service for medium-large lawn ${lawnCarePremiumService["medium-large lawn"]}. Contact us today!`,
       url: "https://apexlawncompany.com/lawncare",
       siteName: "Apex Lawn Company",
       type: "website",

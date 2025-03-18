@@ -3,23 +3,23 @@ import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
 import { mulchInfo } from "@/src/data/mulchData";
+import { cities, mulchPrice } from "../constant/constant";
 
 
 
 export async function generateMetadata({ searchParams }) {
 
-  const cities = ["Apex", "Cary", "Morrisville", "Chapel Hill", "Pittsboro", "Moncure", "New Hill", "Sanford", "Spring Lake", "Hope Mills", "Fayetteville", "Raleigh", "Holly springs", "Garner"]
   const citiesString = cities.join(", ");
 
   return {
      title: `Mulch Services in ${citiesString} | Apex Lawn Company`,
-      description: `Get the best mulch services in ${citiesString}. Mulch, sod installation, soil delivery, and more at affordable prices. Contact us today!`,
+      description: `Get the best mulch services in ${citiesString}. Mulch, sod installation, soil delivery, and more at cy starting ${mulchPrice["cy starting"]}, designer mulches ${mulchPrice["designer mulches"]}, pine straw ${mulchPrice["pine straw"]}, cy aggregate ${mulchPrice["cy aggregate"]}. Contact us today!`,
     alternates: {
       canonical: "https://apexlawncompany.com/mulch",
     },  
     openGraph: {
       title: `Mulch Services in ${citiesString} | Apex Lawn Company`,
-      description: `Get the best mulch services in ${citiesString}. Mulch, sod installation, soil delivery, and more at affordable prices. Contact us today!`,
+      description: `Get the best mulch services in ${citiesString}. Mulch, sod installation, soil delivery, and more at cy starting ${mulchPrice["cy starting"]}, designer mulches ${mulchPrice["designer mulches"]}, pine straw ${mulchPrice["pine straw"]}, cy aggregate ${mulchPrice["cy aggregate"]}. Contact us today!`,
       url: "https://apexlawncompany.com/mulch",
       siteName: "Apex Lawn Company",
       type: "website",

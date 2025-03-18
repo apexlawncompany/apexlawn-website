@@ -1,22 +1,20 @@
 import styles from "./deicing.module.css";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import deicingData from "@/src/data/deicingData";
-
+import { cities, deIcePrice } from "../constant/constant";
 
 
 export async function generateMetadata({ searchParams }) {
-  const cities = ["Apex", "Cary", "Morrisville", "Chapel Hill", "Pittsboro", "Moncure", "New Hill", "Sanford", "Spring Lake", "Hope Mills", "Fayetteville", "Raleigh", "Holly springs", "Garner"]
   const citiesString = cities.join(", ");
-
   return {
      title: `De-Icing & Snow Removal Services in ${citiesString} | Apex Lawn Company`,
-      description: `Get the best de-icing and snow removal services in  ${citiesString}. De-icing, and snow removal more at affordable prices. Contact us today!`,
+      description: `Get the best de-icing and snow removal services in  ${citiesString}. Residential Drive & Path small size is  ${deIcePrice["Residential Drive & Path small"]}, Residential Drive & Path large size is ${deIcePrice["Residential Drive & Path large"]}, Commercial & Estate ${deIcePrice["Commercial & Estate"]} and snow removal Residential Drive & Path small size is ${deIcePrice["Snow Removal Residential Drive & Path small"]}, Residential Drive & Path large size is ${deIcePrice["Snow Removal Residential Drive & Path large"]}. Contact us today!`,
     alternates: {
       canonical: "https://apexlawncompany.com/ice",
     },
     openGraph: {
       title: `De-Icing & Snow Removal Services in ${citiesString} | Apex Lawn Company`,
-      description: `Get the best de-icing and snow removal services in ${citiesString}. De-icing, and snow removal more at affordable prices. Contact us today!`,
+      description: `Get the best de-icing and snow removal services in ${citiesString}. Residential Drive & Path small size is ${deIcePrice["Residential Drive & Path small"]}, Residential Drive & Path large size is ${deIcePrice["Residential Drive & Path large"]}, Commercial & Estate ${deIcePrice["Commercial & Estate"]} and snow removal Residential Drive & Path small size is ${deIcePrice["Snow Removal Residential Drive & Path small"]}, Residential Drive & Path large size is ${deIcePrice["Snow Removal Residential Drive & Path large"]}. Contact us today!`, 
       url: "https://apexlawncompany.com/ice",
       siteName: "Apex Lawn Company",
       type: "website",

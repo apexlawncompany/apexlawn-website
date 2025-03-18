@@ -3,15 +3,10 @@ import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
 import ContactDetails from "../../src/components/ContactDetails";
 import { drainageInfo } from "@/src/data/drainageData";
-
+import { cities } from "../constant/constant";
 
 export async function generateMetadata({ searchParams }) {
-
-  const cities = ["Apex", "Cary", "Morrisville", "Chapel Hill", "Pittsboro", "Moncure", "New Hill", "Sanford", "Spring Lake", "Hope Mills", "Fayetteville", "Raleigh", "Holly springs", "Garner"]
-  const citiesString = cities.join(", ");
-
-
-
+  const citiesString = cities.join(", "); 
   return {
      title: `Drainage Services in ${citiesString} | Apex Lawn Company`,
       description: `Get the best drainage services in ${citiesString}. Drainage, and drainage systems more at affordable prices. Contact us today!`,
