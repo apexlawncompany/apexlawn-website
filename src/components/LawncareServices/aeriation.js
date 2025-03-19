@@ -6,7 +6,7 @@ export default function AeriationSeeding({ service }) {
   const { title, content, image } = service;
 
   return (
-    <div className={`${styles.service}`}>
+    <div className={`${styles.service}  ${styles.reverse}`}>
       <div className={styles.serviceText}>
         <h2>{title}</h2>
         {content.map((item, index) => (
@@ -17,6 +17,10 @@ export default function AeriationSeeding({ service }) {
               </p>
             )}
             {item.description && <p>{item.description}</p>}
+            <br />
+            {item.services && (
+              <p dangerouslySetInnerHTML={{ __html: item.services }} />
+            )}
           </div>
         ))}
       </div>

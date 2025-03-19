@@ -8,6 +8,7 @@ export default function SnowRemoval({ service }) {
     <div className={`${styles.service}`}>
       <div className={styles.serviceText}>
         <h2>{title}</h2>
+        <br />
         {content.map((item, index) => (
           <div key={index}>
             {item.price && (
@@ -21,6 +22,7 @@ export default function SnowRemoval({ service }) {
                 className={styles.description}
               />
             )}
+             <br />
           </div>
         ))}
       </div>

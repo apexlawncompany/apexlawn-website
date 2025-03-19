@@ -8,10 +8,12 @@ export default function Deicing({ service }) {
     <div className={`${styles.service} ${styles.reverse}`}>
       <div className={styles.serviceText}>
         <h2>{title}</h2>
+        <br />
         <ul>
           <li>1000 lbs an acre 30F</li>
           <li>2000 lbs an acre 20F</li>
         </ul>
+        <br />
         {content.map((item, index) => (
           <div key={index}>
             {item.price && (
@@ -25,6 +27,7 @@ export default function Deicing({ service }) {
                 className={styles.description}
               />
             )}
+            <br />
           </div>
         ))}
       </div>

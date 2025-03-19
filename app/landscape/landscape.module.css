@@ -270,7 +270,7 @@
   .buttonGroup {
     padding-top: 2px;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
   }
   .priceList {
     font-size: 14px !important;
