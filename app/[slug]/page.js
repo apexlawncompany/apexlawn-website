@@ -1,7 +1,6 @@
-"use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import Head from "next/head";
+
 const redirects = {
   "apex-lawn-company": "/",
   "lawn-care-in-apex": "/lawncare",
@@ -10,23 +9,32 @@ const redirects = {
   "best-landscaping-company-in-apex": "/landscape",
   "mulch-installation-in-apex": "/mulch",
 };
+
+export async function generateStaticParams() {
+  // Define all possible slugs for static generation
+  const slugs = [
+    "apex-lawn-company",
+    "lawn-care-in-apex",
+    "best-lawn-care-services-in-apex",
+    "landscaping-in-apex",
+    "best-landscaping-company-in-apex",
+    "mulch-installation-in-apex",
+  ];
+
+  // Return an array of params objects
+  return slugs.map((slug) => ({ slug }));
+}
+
 export default function NonCanonicalPage({ params }) {
-  const router = useRouter();
-  const [slug, setSlug] = useState(null);
-  useEffect(() => {
-    params.then((unwrappedParams) => {
-      setSlug(unwrappedParams.slug);
-    });
-  }, [params]);
-  useEffect(() => {
-    if (slug) {
-      if (redirects[slug]) {
-        router.replace(redirects[slug]);
-      } else {
-        router.replace("/");
-      }
-    }
-  }, [slug, router]);
+  const slug = params.slug;
+
+  // Handle redirection on the server side
+  if (redirects[slug]) {
+    redirect(redirects[slug]);
+  } else {
+    redirect("/");
+  }
+
   return (
     <>
       <Head>
@@ -41,7 +49,6 @@ export default function NonCanonicalPage({ params }) {
           />
         )}
       </Head>
-      {/* <p>Redirecting...</p> */}
     </>
   );
 }
