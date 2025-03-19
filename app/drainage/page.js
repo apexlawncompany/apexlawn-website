@@ -3,6 +3,32 @@ import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
 import ContactDetails from "../../src/components/ContactDetails";
 import { drainageInfo } from "@/src/data/drainageData";
+import { cities } from "../constant/constant";
+
+export async function generateMetadata({ searchParams }) {
+  const citiesString = cities.join(", "); 
+  return {
+     title: `Drainage Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best drainage services in ${citiesString}. Drainage, and drainage systems more at affordable prices. Contact us today!`,
+    alternates: {
+      canonical: "https://apexlawncompany.com/drainage",
+    },
+    openGraph: {
+      title: `Drainage Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best drainage services in ${citiesString}. Drainage, and drainage systems more at affordable prices. Contact us today!`,
+      url: "https://apexlawncompany.com/drainage",
+      siteName: "Apex Lawn Company",
+      type: "website",
+      locale: "en_US",
+    },  
+    keywords: `drainage, drainage services, drainage installation, drainage maintenance, drainage repair, drainage replacement, drainage installation services, drainage maintenance services, drainage repair services, drainage replacement services, drainage services in ${citiesString}, drainage installation in ${citiesString}, drainage maintenance in ${citiesString}, drainage repair in ${citiesString}, drainage replacement in ${citiesString}`,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: "index, follow",
+    },
+  };
+}
 
 export default function Drainage() {
   return (

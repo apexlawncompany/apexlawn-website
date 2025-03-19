@@ -3,6 +3,37 @@ import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Image from "next/image";
 import { mulchInfo } from "@/src/data/mulchData";
+import { cities, mulchPrice } from "../constant/constant";
+
+
+
+export async function generateMetadata({ searchParams }) {
+
+  const citiesString = cities.join(", ");
+
+  return {
+     title: `Mulch Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best mulch services in ${citiesString}. Mulch, sod installation, soil delivery, and more at cy starting ${mulchPrice["cy starting"]}, designer mulches ${mulchPrice["designer mulches"]}, pine straw ${mulchPrice["pine straw"]}, cy aggregate ${mulchPrice["cy aggregate"]}. Contact us today!`,
+    alternates: {
+      canonical: "https://apexlawncompany.com/mulch",
+    },  
+    openGraph: {
+      title: `Mulch Services in ${citiesString} | Apex Lawn Company`,
+      description: `Get the best mulch services in ${citiesString}. Mulch, sod installation, soil delivery, and more at cy starting ${mulchPrice["cy starting"]}, designer mulches ${mulchPrice["designer mulches"]}, pine straw ${mulchPrice["pine straw"]}, cy aggregate ${mulchPrice["cy aggregate"]}. Contact us today!`,
+      url: "https://apexlawncompany.com/mulch",
+      siteName: "Apex Lawn Company",
+      type: "website",
+      locale: "en_US",
+    },  
+    keywords: `mulch, mulch services, mulch installation, mulch delivery, mulch installation services, mulch delivery services, mulch services in ${citiesString}, mulch installation in ${citiesString}, mulch delivery in ${citiesString}`,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: "index, follow",
+    },
+  };
+}
+
 
 export default function Mulch() {
   const options = [
