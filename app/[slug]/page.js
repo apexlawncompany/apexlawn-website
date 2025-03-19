@@ -11,7 +11,7 @@ const redirects = {
 };
 
 export async function generateStaticParams() {
-  // Define all possible slugs for static generation
+  // All possible slugs for static generation
   const slugs = [
     "apex-lawn-company",
     "lawn-care-in-apex",
