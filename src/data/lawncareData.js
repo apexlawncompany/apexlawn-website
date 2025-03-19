@@ -9,8 +9,8 @@ const lawncareData = [
   {
     id: "cut-packages",
     title: "Cut Packages",
-    description: `The Cut Package includes service on a biweekly or weekly schedule: <br/>
-    <strong>Summer:</strong> (Mar-Oct) Mowing, blowing, string-trimming, & edging. <br/>
+    description: `The Cut Package includes service on a biweekly or weekly schedule:<br/>
+    <br/><strong>Summer:</strong> (Mar-Oct) Mowing, blowing, string-trimming, & edging. <br/>
     <strong>Winter:</strong> (Nov-Dec) Leaf-removal, & string-trimming (Jan): No service (Feb): Spring Prep`,
     component: CutPackages,
     image: "/assets/cut_package.JPG",
@@ -42,6 +42,7 @@ const lawncareData = [
         "https://nconemap.maps.arcgis.com/apps/webappviewer/index.html?id=c49f804bced8479fb83d0cadf1436b25",
     },
   },
+
   {
     id: "full-packages",
     title: "Full Service Packages",
@@ -63,16 +64,24 @@ const lawncareData = [
     premiumPricingPara:
       "Premium Service · Small $200 · Medium $225 · Medium-Large $255 · Large $285",
     description: {
-      fullService:
+      residentialService:
         "The Full Service package includes applications on a rotational basis biweekly. A cut package add-on is recommended during the summer for weekly cutting.",
+      commercialService:
+        "The commercial maintenance is versatile to meet business demands.The package may be modified. Set-up appointment for acurate pricing.",
       premiumService:
         "Premium Service is our most advanced package: customized specifically for you. Due to the multitude of services provided, we can adjust different factors -- such as grass height, fertilizer, and herbicide -- to create a positive synergy for your yard.",
     },
-    seasonalDetails: {
+    residentialSeasonalDetails: {
       summer:
         "During the summer, the package includes Lawn Mowing, String-trimming, Edging, Blowing, Bed Maintenance, Hedge Maintenance, Fertilizer, and Weed Killer (beds, lawn, & driveway).",
       winter:
         "During the winter, it includes Pre-Emergent at the beginning and end of the season, Leaf Cleanup, Hedge Maintenance, Soil Balancing, Soil Testing, Dethatching, Vacuuming, and other services based on grass type.",
+    },
+    commercialSeasonalDetails: {
+      summer:
+        "Lawn Mowing, String-trimming, Edging, Blowing, Bed Maintenance, Debris Cleanup, Hedge Maintenance,  Weed Killer (beds, hard-surfaces & parking areas)",
+      winter:
+        "Aeration at beginning or end of season, Debris Cleanup, Fertilizer at beginning or end of season, Leaf Removal, Hedge Maintenance, Lot Vacuming, Dethatching and other.",
     },
     premiumSeasonalDetails: {
       summer:
@@ -85,16 +94,40 @@ const lawncareData = [
         src: "/assets/full_service2.jpg",
         alt: "Full Service Image 2",
         width: 300,
-        height: 350,
+        height: 300,
       },
       {
         src: "/assets/full_service.JPG",
         alt: "Full Service Image 1",
         width: 300,
-        height: 300,
+        height: 280,
       },
     ],
     component: FullPackages,
+  },
+
+  {
+    id: "maintenance",
+    title: "Maintenance & Packages",
+    content: [
+      {
+        description:
+          "Year-round maintenance is our solution for those who want to mow the lawn themselves. While you worry about getting the perfect stripes, we'll worry about soil-testing: nitrogen levels, pH levels, phosphate levels, and potassium levels, as well as iron and zinc absorption for your lawn and apply different fertilizers accordingly, as well as tackle tough weeds on your lawn, mulch, and driveway. During the fall and spring, depending on your type of grass, we'll dethatch, aerate, seed, and apply pre-emergent to your lawn.",
+        price:
+          "Total Maintenance S $59 · M $69 · ML $84 · L $104 · C $Variable (Per Month)",
+        services:
+          "<strong>Services Included:</strong> Aeration, Fertilization, Dethatching, Pre-Emergent, Lawn Vacuuming, Seeding, Soil Testing, Weed Control",
+      },
+      {
+        description:
+          "Spring up the new season with a lawn cleanup. Pre-emergent can reduce up to 70% of weeds and preparing the lawn early encourages even, healthy growth.",
+        price: "Spring Prep S $195 · M $215 · ML $240 · L $275",
+        services:
+          "<strong>Services Included:</strong> Cutting, Dethatching, Vacuuming, Fertilizer, Pre-Emergent",
+      },
+    ],
+    image: "/assets/maintenance.jpg",
+    component: Maintenance,
   },
 
   {
@@ -130,10 +163,18 @@ const lawncareData = [
           "The lawn is prepared by dethatching and vacuuming. Aeration creates plugs in the ground to allow decompression; seed fertilizer, and lime are spread over the plugs. This allows nutrients to enter directly into the root system.",
         price: "Aeration Package S $380 · M $420 · ML $470 · L $520",
       },
+      {
+        description:
+          "The cultivation is a great and cost-effective choice for lawn-planting and renewal.",
+        price: "Cultivation Package S $440 · M $550 · ML $660 · L $770",
+        services:
+          "<strong>Services Included:</strong> Power-raking & vacuuming, cultivation (double pass), seeding, fertilization & pre-emergent in three months",
+      },
     ],
     image: "/assets/aeriation.JPG",
     component: AeriationSeeding,
   },
+
   {
     id: "fertilization-weeding",
     title: "Fertilization And Weeding",
@@ -156,36 +197,6 @@ const lawncareData = [
     ],
     image: "/assets/fertilization.jpg",
     component: FertilizatinWeeding,
-  },
-  {
-    id: "maintenance",
-    title: "Maintenance & Packages",
-    content: [
-      {
-        description:
-          "Year-round maintenance is our solution for those who want to mow the lawn themselves. While you worry about getting the perfect stripes, we'll worry about soil-testing: nitrogen levels, pH levels, phosphate levels, and potassium levels, as well as iron and zinc absorption for your lawn and apply different fertilizers accordingly, as well as tackle tough weeds on your lawn, mulch, and driveway. During the fall and spring, depending on your type of grass, we'll dethatch, aerate, seed, and apply pre-emergent to your lawn.",
-        price:
-          "Total Maintenance S $59 · M $69 · ML $84 · L $104 · C $Variable (Per Month)",
-        services:
-          "<strong>Services Included:</strong> Aeration, Fertilization, Dethatching, Pre-Emergent, Lawn Vacuuming, Seeding, Soil Testing, Weed Control",
-      },
-      {
-        description:
-          "Spring up the new season with a lawn cleanup. Pre-emergent can reduce up to 70% of weeds and preparing the lawn early encourages even, healthy growth.",
-        price: "Spring Prep S $195 · M $215 · ML $240 · L $275",
-        services:
-          "<strong>Services Included:</strong> Cutting, Dethatching, Vacuuming, Fertilizer, Pre-Emergent",
-      },
-      {
-        description:
-          "The cultivation is a great and cost-effective choice for lawn-planting and renewal.",
-        price: "Cultivation Package S $440 · M $550 · ML $660 · L $770",
-        services:
-          "<strong>Services Included:</strong> Power-raking & vacuuming, cultivation (double pass), seeding, fertilization & pre-emergent in three months",
-      },
-    ],
-    image: "/assets/maintenance.jpg",
-    component: Maintenance,
   },
 ];
 

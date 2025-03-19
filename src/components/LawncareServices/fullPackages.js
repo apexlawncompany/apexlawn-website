@@ -9,7 +9,8 @@ export default function FullPackages({ service }) {
     title,
     pricingDetails,
     description,
-    seasonalDetails,
+    residentialSeasonalDetails,
+    commercialSeasonalDetails,
     premiumSeasonalDetails,
     images,
     premiumPricingPara,
@@ -54,12 +55,24 @@ export default function FullPackages({ service }) {
         </div>
 
         {/* Full Service Description */}
-        <p>{description.fullService}</p>
         <p>
-          <strong>Summer:</strong> {seasonalDetails.summer}
+          {pricingType === "residential"
+            ? description.residentialService
+            : description.commercialService}
         </p>
+        <br />
         <p>
-          <strong>Winter:</strong> {seasonalDetails.winter}
+          <strong>Summer:</strong>
+          {pricingType === "residential"
+            ? residentialSeasonalDetails.summer
+            : commercialSeasonalDetails.summer}
+        </p>
+        <br />
+        <p>
+          <strong>Winter:</strong>
+          {pricingType === "residential"
+            ? residentialSeasonalDetails.winter
+            : commercialSeasonalDetails.winter}
         </p>
         <br />
         {/* Premium Service */}
@@ -67,9 +80,11 @@ export default function FullPackages({ service }) {
           <strong>{premiumPricingPara}</strong>
         </p>
         <p>{description.premiumService}</p>
+        <br />
         <p>
           <strong>Summer:</strong> {premiumSeasonalDetails.summer}
         </p>
+        <br />
         <p>
           <strong>Winter:</strong> {premiumSeasonalDetails.winter}
         </p>
@@ -85,12 +100,15 @@ export default function FullPackages({ service }) {
               width={image.width}
               height={image.height}
               className={`${styles.image} ${
-                index === 0 ? styles.fullService1 : styles.fullService2
+                index === 0 ? styles.fullService2 : styles.fullService1
               }`}
             />
             {/* Render the button below the first image */}
             {index === 0 && (
-              <TransparentBtn className={styles.blackTextButton} style={{ width: `${image.width}px` }}>
+              <TransparentBtn
+                className={styles.blackTextButton}
+                style={{ width: `${image.width}px` }}
+              >
                 Setup an Appointment
               </TransparentBtn>
             )}

@@ -16,6 +16,7 @@ export default function DrainageSection({ service }) {
               <strong>{detail.price}</strong>
             </p>
             <p>{detail.description}</p>
+            <br />
           </div>
         ))}
       </div>

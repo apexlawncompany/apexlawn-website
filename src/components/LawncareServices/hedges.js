@@ -5,7 +5,7 @@ import styles from "../../../app/lawncare/lawncare.module.css";
 export default function Hedges({ service }) {
   const { title, content, image } = service;
   return (
-    <div className={`${styles.service} ${styles.reverse}`}>
+    <div className={`${styles.service}`}>
       <div className={styles.serviceText}>
         <h2>{title}</h2>
         {content.map((item, index) => (

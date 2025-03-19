@@ -108,6 +108,12 @@
   animation-delay: 1.5s;
 }
 
+@media (prefers-color-scheme: dark) {
+  .blackTextButton {
+    color: #ededed !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .responivepage {
     margin: 0 5%;

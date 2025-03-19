@@ -81,7 +81,7 @@
 }
 
 .roboticButton {
-  background-color: #343434 !important;
+  background-color: #3885df !important;
 }
 
 .buttonGroup {
@@ -136,7 +136,7 @@
 
 .blackTextButton {
   color: black !important;
-  margin-top: 5px;
+  margin: 15px 0px 10px;
 }
 
 .imageWrapper {
@@ -252,18 +252,9 @@
     height: auto;
     object-fit: cover;
   }
-  
-  /* .serviceImage img {
-    width: 220px;
-    height: 190px;
-    padding-top: 2px;
-  } */
-  /* .fullService2 {
-    height: 210px !important;
+  .fullService2 {
+    height: 518px !important;
   }
-  .maintenanceImage {
-    height: 270px !important;
-  } */
   .toggleButton,
   .sizeChartButton,
   .roboticButton {
@@ -327,15 +318,9 @@
     object-fit: cover;
   }
 
-  /* .fullService1 {
-    height: 180px !important;
-  }
   .fullService2 {
-    height: 240px !important;
+    height: 290px !important;
   }
-  .maintenanceImage {
-    height: 270px !important;
-  } */
   .toggleButton,
   .sizeChartButton,
   .roboticButton {
@@ -375,6 +360,9 @@
     flex-direction: column;
     align-items: center;
     gap: 0;
+  }
+  .fullService2 {
+    height: 240px !important;
   }
   .serviceText h2 {
     font-size: 1.5rem;
@@ -425,6 +413,8 @@
   }
   .blackTextButton{
     width: 100% !important;
+    margin-top: 5px;
+    margin-bottom: 0;
   }
   .footer {
     padding: 5px 5%;
