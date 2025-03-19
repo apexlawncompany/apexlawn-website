@@ -10,20 +10,6 @@ const redirects = {
   "best-landscaping-company-in-apex": "/landscape",
   "mulch-installation-in-apex": "/mulch",
 };
-export async function generateStaticParams() {
-  // all possible slugs for static generation
-  const slugs = [
-    "apex-lawn-company",
-    "lawn-care-in-apex",
-    "best-lawn-care-services-in-apex",
-    "landscaping-in-apex",
-    "best-landscaping-company-in-apex",
-    "mulch-installation-in-apex",
-  ];
-
-  // Return an array of params objects
-  return slugs.map((slug) => ({ slug }));
-}
 export default function NonCanonicalPage({ params }) {
   const router = useRouter();
   const [slug, setSlug] = useState(null);
