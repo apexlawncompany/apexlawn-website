@@ -101,10 +101,11 @@ export async function middleware(request) {
   } else {
     // Check if request is coming from a bot
     if (isBot) {
-      const newURL = `http://service.prerender.io/${request.url}`;
+      const newURL = `http://service.prerender.io${new URL(request.url).pathname}${new URL(request.url).search}`;
       const newHeaders = new Headers(request.headers);
       newHeaders.set("X-Prerender-Token","N7lfkRAeguvUESQZEyvN");
       newHeaders.set("X-Prerender-Int-Type", "NextJS");
+      console.log([...newHeaders.entries()]);
 
     
       try {
@@ -119,7 +120,11 @@ export async function middleware(request) {
     
         // Create a ReadableStream from the response body
         const { readable, writable } = new TransformStream();
-        res.body.pipeTo(writable);
+        if (res.body) {
+          res.body.pipeTo(writable);
+        } else {
+          throw new Error("Response body is null or undefined");
+        }
     
         const response = new NextResponse(readable, {
           status: res.status,
@@ -130,7 +135,7 @@ export async function middleware(request) {
   
         return response;
       } catch (error) {
-        
+        console.error("Error fetching from Prerender.io:", error);
         return NextResponse.next();
       }
     } else {
