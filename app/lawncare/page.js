@@ -8,7 +8,6 @@ import { cities, lawnCarePrice, lawnCarePremiumService } from "../constant/const
 
 export async function generateMetadata({ searchParams }) {
   const citiesString = cities.join(", ");
-
   return {
      title: `Lawncare Services in ${citiesString} | Apex Lawn Company`,
       description: `Get the best lawn care services in ${citiesString}. Mowing, fertilization, weeding, and for small lawn ${lawnCarePrice["small lawn"]}, for medium lawn ${lawnCarePrice["medium lawn"]}, for large lawn ${lawnCarePrice["large lawn"]}, for medium-large lawn ${lawnCarePrice["medium-large lawn"]}, for premium services for small lawn ${lawnCarePremiumService["small lawn"]}, for premium service for medium lawn ${lawnCarePremiumService["medium lawn"]}, for premium service for large lawn ${lawnCarePremiumService["large lawn"]}, for premium service for medium-large lawn ${lawnCarePremiumService["medium-large lawn"]}. Contact us today!`,
@@ -35,15 +34,19 @@ export async function generateMetadata({ searchParams }) {
 export default function Lawncare() {
 
   const options = [
-    { text: "Top", path: "top" },
-    { text: "Services And Pricings", path: "services-pricing" },
-    { text: "Cut Packages", path: "cut-packages" },
-    { text: "Full Service Packages", path: "full-packages" },
+    {
+      text: "Service Packages",
+      path: "services-pricing",
+      categories: [
+        { text: "Cut Packages", path: "cut-packages" },
+        { text: "Full Service Packages", path: "full-packages" },
+        // { text: "Commercial Packages", path: "commercial-packages" },
+        { text: "Total Maintenance", path: "maintenance" },
+      ],
+    },
     { text: "Hedges", path: "hedges" },
     { text: "Aeriation And Seeding", path: "aeriation-seeding" },
     { text: "Fertilization And Weeding", path: "fertilization-weeding" },
-    { text: "Total Maintenance", path: "maintenance" },
-    { text: "More", path: "footer" },
   ];
 
   return (
@@ -51,7 +54,7 @@ export default function Lawncare() {
       <ServicesOptions options={options} />
       <div className={`page-content`}>
         <div id="top" className={styles.heading}>
-          <p id="services-pricing">Services & Pricings</p>
+          <p id="services-pricing">Services & Pricing</p>
         </div>
         
         <div className={`page-section ${styles.responivepage}`}>

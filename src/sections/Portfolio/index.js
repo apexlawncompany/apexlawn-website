@@ -9,11 +9,16 @@ function Portfolio() {
     <div className={styles.portfolio}>
       <div className={styles.carousel}>
         <div className={styles.portfolioBtnWrp}>
-          <Link href="/retail" style={{ width: "100%" }}>
+          <a
+            href="https://www.icloud.com/sharedalbum/#B2SGY8gBYJRLl6B"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ width: "100%" }}
+          >
             <TransparentBtn className={styles.portfolioBtn}>
               View Project Portfolio
             </TransparentBtn>
-          </Link>
+          </a>
         </div>
         <Carousel />
       </div>

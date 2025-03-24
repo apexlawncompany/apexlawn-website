@@ -33,15 +33,11 @@ export async function generateMetadata({ searchParams }) {
 
 export default function LandScape() {
   const options = [
-    { text: "Top", path: "top" },
-    { text: "Services And Pricings", path: "services-pricing" },
     { text: "Mulching & Ground Cover ", path: "mulch" },
     { text: "Sodding & Seeding", path: "sodding" },
     { text: "Drainage", path: "drainage" },
     { text: "Soil", path: "soil" },
     { text: "Hardscaping", path: "hardScaping" },
-    { text: "Setup An Appointment", path: "footer" },
-    { text: "Bottom", path: "footer" },
   ];
 
   return (
@@ -49,7 +45,7 @@ export default function LandScape() {
       <ServicesOptions options={options} />
       <div className={`page-content`}>
         <div id="top" className={styles.heading}>
-          <p id="services-pricing">Services & Pricings</p>
+          <p id="services-pricing">Services & Pricing</p>
         </div>
 
         <div className={`page-section ${styles.responivepage}`}>
