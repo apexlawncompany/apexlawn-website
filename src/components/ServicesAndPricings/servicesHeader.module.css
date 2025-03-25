@@ -130,6 +130,9 @@
   .optionButton {
     color: black;
   }
+  .shadow {
+     background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))  !important;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
