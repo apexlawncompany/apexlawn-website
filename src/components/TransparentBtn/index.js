@@ -5,7 +5,11 @@ import { useRouter } from 'next/navigation';
 function TransparentBtn({ children, className, ...otherProps }) {
   const router = useRouter();
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (event) => {
+    const isInsideLink = event.currentTarget.closest('a');
+    if (isInsideLink) {
+      return;
+    }
     router.push('/appointments');
   };
 

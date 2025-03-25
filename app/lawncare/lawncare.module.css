@@ -15,7 +15,7 @@
   color: white;
   text-align: center;
   padding-bottom: 5px;
-  padding-top: 60px;
+  padding-top: 75px;
   opacity: 0;
   animation: fadeIn 0.8s ease-in-out forwards;
   animation-delay: 0.5s;
@@ -172,7 +172,7 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .heading {
     font-size: 30px;
-    padding-top: 50px;
+    padding-top: 54px;
   }
   .serviceText h2 {
     font-size: 2rem;
@@ -221,7 +221,7 @@
 @media (min-width: 550px) and (max-width: 768px) {
   .heading {
     font-size: 25px;
-    padding-top: 43px;
+    padding-top: 63px;
   }
   .service {
     margin: 9px 0px;
@@ -286,7 +286,7 @@
 @media (min-width: 425px) and (max-width: 550px) {
   .heading {
     font-size: 20px;
-    padding-top: 32px;
+    padding-top: 50px;
   }
   .service {
     margin: 9px 0px;
@@ -353,7 +353,7 @@
 @media (min-width: 320px) and (max-width: 424px) {
   .heading {
     font-size: 10px;
-    padding-top: 25px;
+    padding-top: 38px;
   }
   .service {
     margin: 9px 0px;

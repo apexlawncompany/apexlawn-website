@@ -15,7 +15,7 @@
   color: white;
   text-align: center;
   padding-bottom: 5px;
-  padding-top: 60px;
+  padding-top: 75px;
   opacity: 0;
   animation: fadeIn 0.8s ease-in-out forwards;
   animation-delay: 0.5s;
@@ -126,7 +126,7 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .heading {
     font-size: 30px;
-    padding-top: 52px;
+    padding-top: 54px;
   }
   .aboutBg h1 {
     font-size: 40px;
@@ -166,7 +166,7 @@
 @media (min-width: 550px) and (max-width: 768px) {
   .heading {
     font-size: 25px;
-    padding-top: 43px;
+    padding-top: 63px;
   }
   .aboutBg h1 {
     font-size: 30px;
@@ -202,7 +202,7 @@
 @media (min-width: 425px) and (max-width: 550px) {
   .heading {
     font-size: 20px;
-    padding-top: 32px;
+    padding-top: 50px;
   }
   .aboutBg h1 {
     font-size: 25px;
@@ -241,7 +241,7 @@
 @media (min-width: 320px) and (max-width: 424px) {
   .heading {
     font-size: 10px;
-    padding-top: 25px;
+    padding-top: 38px;
   }
   .aboutBg h1 {
     font-size: 20px;
