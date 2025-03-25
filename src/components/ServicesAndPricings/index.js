@@ -1,9 +1,8 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ContactDetails from "../ContactDetails";
 import styles from "./servicesHeader.module.css";
 import localFont from "next/font/local";
-import { useState } from "react";
 
 const AmaticSC = localFont({
   src: "../../../app/fonts/AmaticSC.woff",
@@ -19,11 +18,14 @@ export const debounce = (func, delay) => {
   };
 };
 
-function ServicesOptions({ options }) {
+function ServicesOptions({ options, isDarkMode }) {
   const [activeSection, setActiveSection] = useState(0);
-  const [showShadow, setShowShadow] = useState(false);
-  const optionsRef = useRef(null);
   const [expandedCategory, setExpandedCategory] = useState(new Set());
+  const [shadowColor, setShadowColor] = useState(
+    isDarkMode ? "rgba(0, 0, 0, 0.7)" : ""
+  );
+  const [showShadow, setShowShadow] = useState(true);
+  const optionsRef = useRef(null);
   const navbarRef = useRef(null);
   const navigateToDiv = (path, index, categoryIndex) => {
     setActiveSection(
@@ -52,6 +54,27 @@ function ServicesOptions({ options }) {
       });
     }
   };
+  useEffect(() => {
+    const updateShadowColor = () => {
+      const scrollY = window.scrollY;
+      // setShowShadow(scrollY > 0); // Keep shadow visible when scrolled
+
+      if (isDarkMode) {
+        setShadowColor("rgba(0, 0, 0, 0.7)"); // Always dark in dark mode
+      } else {
+        if (scrollY === 0) {
+          setShadowColor("rgba(0, 0, 0, 0.7)"); // Black gradient at the top in light mode
+        } else {
+          setShadowColor("rgba(255, 255, 255, 0.7)"); // White gradient when scrolled in light mode
+        }
+      }
+    };
+
+    window.addEventListener("scroll", updateShadowColor);
+    updateShadowColor();
+
+    return () => window.removeEventListener("scroll", updateShadowColor);
+  }, [isDarkMode]);
 
   // Handling service options highlight on scroll/selection of each servie.
   useEffect(() => {
@@ -133,11 +156,18 @@ function ServicesOptions({ options }) {
       subtree: true,
     });
   }, []);
-  
+
   return (
     <div ref={navbarRef} className={styles["options-navbar"]}>
       <div className={styles.servicesHeader}>
-        {showShadow && <span className={styles.shadow}></span>}
+        {showShadow && (
+          <span
+            className={styles.shadow}
+            style={{
+              background: `linear-gradient(to left, ${shadowColor}, rgba(0, 0, 0, 0))`,
+            }}
+          ></span>
+        )}
         <div
           ref={optionsRef}
           className={`${styles.options} ${AmaticSC.className}`}
@@ -147,7 +177,7 @@ function ServicesOptions({ options }) {
               <button
                 key={index}
                 className={`${styles.optionButton} ${styles.mainButton} ${
-                  activeSection === index ? "selected" : ""
+                  activeSection === index ? styles.selected : ""
                 }`}
                 style={{
                   background: activeSection === index ? "#474747" : "",
@@ -161,7 +191,9 @@ function ServicesOptions({ options }) {
                 option.categories?.map((category, categoryIndex) => (
                   <button
                     key={categoryIndex}
-                    className={`${styles.optionButton} ${styles.categoryButton}`}
+                    className={`${styles.optionButton} ${styles.categoryButton} ${
+                      activeSection === `${index}-${categoryIndex}` ? styles.selected : ""
+                    }`}
                     style={{
                       background:
                         activeSection === `${index}-${categoryIndex}`
