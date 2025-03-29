@@ -12,7 +12,7 @@ const landscapingdata = [
       {
         price: "$67 per cy starting and $94 for designer mulches",
         description:
-          'We make sure your mulch beds are thick, even, and well defined. Purchase, delivery, and cleanup of the mulch are included in the service. Each cy covers ~100sqft @3" Call for pricing on larger projects.',
+          'We make sure your mulch beds are thick, even, and well defined. Purchase, delivery, and cleanup of the mulch are included in the service. Each cy covers ~100sqft @3". Call for pricing on larger projects.',
       },
       {
         price: "$12.50 per bale for pine straw",

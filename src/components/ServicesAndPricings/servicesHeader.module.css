@@ -41,7 +41,7 @@
 
 .servicesHeader {
   width: 100%;
-  max-width: 960px;
+  max-width: 1000px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -118,12 +118,12 @@
 .shadow {
   position: absolute;
   top: 1px;
-  right: 0;
+  right: -2px;
   width: 19px;
   height: 72px;
   z-index: 1;
   /* background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); */
-  border-radius: 70px 0 0 70px;
+  border-radius: 7px 0 0 7px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -137,7 +137,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .servicesHeader {
-    max-width: 700px;
+    max-width: 955px;
   }
   .options-navbar {
     top: 92px;
@@ -177,7 +177,8 @@
 
 @media (min-width: 550px) and (max-width: 768px) {
   .servicesHeader {
-    max-width: 685px;
+    width: 95%;
+    max-width: 715px;
   }
   .options-navbar {
     top: 83px;
@@ -219,7 +220,7 @@
 @media (min-width: 425px) and (max-width: 550px) {
   .servicesHeader {
     width: 95%;
-    max-width: 630px;
+    /* max-width: 630px; */
   }
   .options-navbar {
     top: 63px;
@@ -260,8 +261,7 @@
 
 @media (min-width: 320px) and (max-width: 424px) {
   .servicesHeader {
-    width: 90%;
-    max-width: 500px;
+    width: 95%;
   }
   .options-navbar {
     top: 48px;
