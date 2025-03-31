@@ -55,6 +55,7 @@ function ServicesOptions({ options, isDarkMode }) {
       });
     }
   };
+
   useEffect(() => {
     const updateShadowColor = () => {
       const scrollY = window.scrollY;
@@ -80,76 +81,85 @@ function ServicesOptions({ options, isDarkMode }) {
   // Handling service options highlight on scroll/selection of each servie.
   useEffect(() => {
     let timeoutId;
-    const handleScroll = debounce(() => {
-      const navbarHeight =
-        (document.getElementById("navbar").offsetHeight || 109) - 5;
-      const scrollTopArr = [];
 
-      options.forEach((section, sectionIndex) => {
-        const sectionElement = document.getElementById(section?.path);
-        const sectionTop = sectionElement?.getBoundingClientRect()?.top || 0;
-        // scrollTopArr.push(sectionTop - navbarHeight);
-        if (sectionTop - navbarHeight > 0) {
-          scrollTopArr.push(sectionIndex);
-        }
-        if (section?.categories?.length) {
-          section.categories.forEach((category, categoryIndex) => {
-            const categoryElement = document.getElementById(category?.path);
-            const categoryTop =
-              categoryElement?.getBoundingClientRect()?.top || 0;
-            // scrollTopArr.push(categoryTop - navbarHeight);
-            if (categoryTop - navbarHeight > 0) {
-              scrollTopArr.push(`${sectionIndex}-${categoryIndex}`);
+    const handleScroll = () => {
+        if (timeoutId) clearTimeout(timeoutId);
+
+        const navbarElement = document.getElementById("navbar");
+        const navbarHeight = navbarElement ? navbarElement.offsetHeight : 100;
+        const viewportHeight = window.innerHeight;
+        const threshold = viewportHeight * 0.3; // 30% of viewport height
+
+        let activeSectionIndex = undefined;
+        let shouldExpandMain = null;
+        let newExpandedCategory = new Set();
+
+        for (let i = 0; i < options.length; i++) {
+            const section = options[i];
+            const sectionElement = document.getElementById(section?.path);
+            if (!sectionElement) continue;
+
+            const sectionRect = sectionElement.getBoundingClientRect();
+            const sectionTop = sectionRect.top - navbarHeight;
+            const sectionBottom = sectionRect.bottom - navbarHeight;
+
+            // Highlight when 30% of section is visible
+            if (sectionBottom > threshold && sectionTop < threshold) {
+                activeSectionIndex = i;
+                newExpandedCategory.add(i);
             }
-          });
-        }
-      });
-      // const index = scrollTopArr.findIndex((option) => option > -0);
-      const latestIndex = scrollTopArr.length > 0 ? scrollTopArr[0] : undefined;
-      if (latestIndex === undefined) {
-        return;
-      }
-      let index = latestIndex;
 
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      if (typeof index === "string") {
-        const sectionIndex = parseInt(latestIndex.split("-")[0]);
-        const categoryIndex = parseInt(latestIndex.split("-")[1]);
-        if (sectionIndex > -1 && !expandedCategory.has(sectionIndex)) {
-          index = sectionIndex;
+            if (section?.categories?.length) {
+                for (let j = 0; j < section.categories.length; j++) {
+                    const category = section.categories[j];
+                    const categoryElement = document.getElementById(category?.path);
+                    if (!categoryElement) continue;
+
+                    const categoryRect = categoryElement.getBoundingClientRect();
+                    const categoryTop = categoryRect.top - navbarHeight;
+                    const categoryBottom = categoryRect.bottom - navbarHeight;
+
+                    // Adjusted visibility threshold
+                    if (categoryBottom > threshold && categoryTop < threshold) {
+                        activeSectionIndex = `${i}-${j}`;
+                        shouldExpandMain = i;
+                    }
+                }
+            }
         }
+
+        if (activeSectionIndex === undefined) return;
+
         timeoutId = setTimeout(() => {
-          setExpandedCategory((prev) => {
-            const newSet = new Set([sectionIndex]);
-            setActiveSection(`${sectionIndex}-${categoryIndex}`);
-            // if (!newSet.has(sectionIndex)) {
-            //   newSet.add(sectionIndex);
+            if (shouldExpandMain !== null) {
+                setExpandedCategory(new Set([shouldExpandMain])); // Expand necessary category
+            } else {
+                setExpandedCategory(newExpandedCategory);
+            }
+        }, 1500);
 
-            // }
+        setActiveSection((prev) => (prev === activeSectionIndex ? prev : activeSectionIndex));
+    };
+
+    const handleMainButtonClick = (index) => {
+        setExpandedCategory((prev) => {
+            const newSet = new Set();
+            if (!prev.has(index)) newSet.add(index);
             return newSet;
-          });
-        }, 2500);
-      } else {
-        timeoutId = setTimeout(() => {
-          if (options[index].categories) {
-            setExpandedCategory(new Set([index]));
-          } else {
-            setExpandedCategory(new Set());
-          }
-          
-        }, 2500);
-      }
-      setActiveSection(index);
-    }, 0);
+        });
+    };
+
+    const onScroll = () => requestAnimationFrame(handleScroll);
+
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("scroll", onScroll);
+        clearTimeout(timeoutId);
     };
-  }, [expandedCategory]);
+}, [expandedCategory]);
+
 
   useEffect(() => {
     function checkOverflow() {
