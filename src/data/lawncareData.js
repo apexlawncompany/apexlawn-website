@@ -108,7 +108,7 @@ const lawncareData = [
 
   {
     id: "maintenance",
-    title: "Maintenance & Packages",
+    title: "Total Maintenance",
     content: [
       {
         description:
@@ -118,6 +118,20 @@ const lawncareData = [
         services:
           "<strong>Services Included:</strong> Aeration, Fertilization, Dethatching, Pre-Emergent, Lawn Vacuuming, Seeding, Soil Testing, Weed Control",
       },
+    ],
+    image: "/assets/maintenance.jpg",
+    component: Maintenance,
+  },
+
+  {
+    id: "hedges",
+    title: "Hedges & Cleanup",
+    content: [
+      {
+        description:
+          "Hedges can be rounded or squared. Hedge trimming is priced per hedge. Hand-pruning and shaping is also available for an hourly fee.​​​",
+        price: "Hedge Trimming S $3 · M $6 · L $9 · O $12",
+      },
       {
         description:
           "Spring up the new season with a lawn cleanup. Pre-emergent can reduce up to 70% of weeds and preparing the lawn early encourages even, healthy growth.",
@@ -126,27 +140,13 @@ const lawncareData = [
           "<strong>Services Included:</strong> Cutting, Dethatching, Vacuuming, Fertilizer, Pre-Emergent",
       },
     ],
-    image: "/assets/maintenance.jpg",
-    component: Maintenance,
-  },
-
-  {
-    id: "hedges",
-    title: "Hedges",
-    content: [
-      {
-        description:
-          "Hedges can be rounded or squared. Hedge trimming is priced per hedge. Hand-pruning and shaping is also available for an hourly fee.​​​",
-        price: "Hedge Trimming S $3 · M $6 · L $9 · O $12",
-      },
-    ],
     component: Hedges,
     image: "/assets/hedge1.JPG",
   },
 
   {
-    id: "aeriation-seeding",
-    title: "Aeriation & Seeding",
+    id: "aeration-verticutting",
+    title: "Aeration & Verticutting",
     content: [
       {
         description:
@@ -176,8 +176,8 @@ const lawncareData = [
   },
 
   {
-    id: "fertilization-weeding",
-    title: "Fertilization And Weeding",
+    id: "weedControl-Applications",
+    title: "Weed Control & Applications",
     content: [
       {
         description:

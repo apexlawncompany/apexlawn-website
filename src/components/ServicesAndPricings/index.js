@@ -27,6 +27,7 @@ function ServicesOptions({ options, isDarkMode }) {
   const [showShadow, setShowShadow] = useState(true);
   const optionsRef = useRef(null);
   const navbarRef = useRef(null);
+
   const navigateToDiv = (path, index, categoryIndex) => {
     setActiveSection(
       categoryIndex !== undefined ? `${index}-${categoryIndex}` : index
@@ -62,7 +63,7 @@ function ServicesOptions({ options, isDarkMode }) {
       if (isDarkMode) {
         setShadowColor("rgba(0, 0, 0, 0.7)"); // Always dark in dark mode
       } else {
-        if (scrollY === 0) {
+        if (scrollY < 115 ) {
           setShadowColor("rgba(0, 0, 0, 0.7)"); // Black gradient at the top in light mode
         } else {
           setShadowColor("rgba(255, 255, 255, 0.7)"); // White gradient when scrolled in light mode
@@ -104,8 +105,10 @@ function ServicesOptions({ options, isDarkMode }) {
         }
       });
       // const index = scrollTopArr.findIndex((option) => option > -0);
-      const latestIndex = scrollTopArr.length > 0 ? scrollTopArr[0] : 0;
-
+      const latestIndex = scrollTopArr.length > 0 ? scrollTopArr[0] : undefined;
+      if (latestIndex === undefined) {
+        return;
+      }
       let index = latestIndex;
 
       if (timeoutId) {
@@ -119,19 +122,28 @@ function ServicesOptions({ options, isDarkMode }) {
         }
         timeoutId = setTimeout(() => {
           setExpandedCategory((prev) => {
-            const newSet = new Set(prev);
+            const newSet = new Set([sectionIndex]);
+            setActiveSection(`${sectionIndex}-${categoryIndex}`);
+            // if (!newSet.has(sectionIndex)) {
+            //   newSet.add(sectionIndex);
 
-            if (!newSet.has(sectionIndex)) {
-              newSet.add(sectionIndex);
-              setActiveSection(`${sectionIndex}-${categoryIndex}`);
-            }
+            // }
             return newSet;
           });
         }, 2500);
+      } else {
+        timeoutId = setTimeout(() => {
+          if (options[index].categories) {
+            setExpandedCategory(new Set([index]));
+          } else {
+            setExpandedCategory(new Set());
+          }
+          
+        }, 2500);
       }
       setActiveSection(index);
-    }, 100);
-
+    }, 0);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -191,8 +203,12 @@ function ServicesOptions({ options, isDarkMode }) {
                 option.categories?.map((category, categoryIndex) => (
                   <button
                     key={categoryIndex}
-                    className={`${styles.optionButton} ${styles.categoryButton} ${
-                      activeSection === `${index}-${categoryIndex}` ? styles.selected : ""
+                    className={`${styles.optionButton} ${
+                      styles.categoryButton
+                    } ${
+                      activeSection === `${index}-${categoryIndex}`
+                        ? styles.selected
+                        : ""
                     }`}
                     style={{
                       background:

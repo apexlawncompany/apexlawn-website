@@ -16,6 +16,10 @@ export default function Hedges({ service }) {
               </p>
             )}
             {item.description && <p>{item.description}</p>}
+            <br />
+            {item.services && (
+              <p dangerouslySetInnerHTML={{ __html: item.services }} />
+            )}
           </div>
         ))}
       </div>
