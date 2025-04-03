@@ -44,9 +44,9 @@ export default function Lawncare() {
         { text: "Total Maintenance", path: "maintenance" },
       ],
     },
-    { text: "Hedges", path: "hedges" },
-    { text: "Aeriation And Seeding", path: "aeriation-seeding" },
-    { text: "Fertilization And Weeding", path: "fertilization-weeding" },
+    { text: "Hedges And Cleanup", path: "hedges" },
+    { text: "Aeration And Verticutting", path: "aeration-verticutting" },
+    { text: "Weed Control And Applications", path: "weedControl-Applications" },
   ];
 
   return (

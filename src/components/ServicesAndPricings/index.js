@@ -27,10 +27,12 @@ function ServicesOptions({ options, isDarkMode }) {
   const [showShadow, setShowShadow] = useState(true);
   const optionsRef = useRef(null);
   const navbarRef = useRef(null);
+  const buttonRefs = useRef({});
   const navigateToDiv = (path, index, categoryIndex) => {
     setActiveSection(
       categoryIndex !== undefined ? `${index}-${categoryIndex}` : index
     );
+
     if (options[index]?.categories?.length && categoryIndex === undefined) {
       setExpandedCategory((prev) => {
         const newSet = new Set(prev);
@@ -44,16 +46,50 @@ function ServicesOptions({ options, isDarkMode }) {
     } else {
       setExpandedCategory(new Set());
     }
+
+    // Scroll the page to the section
     const element = document.getElementById(path);
     if (element) {
-      const scrollHeight = element.getBoundingClientRect().top + window.scrollY;
-      const scrollTo = scrollHeight - 208;
+      const navbarHeight =
+        document.getElementById("navbar")?.offsetHeight || 100;
+      const scrollHeight =
+        element.getBoundingClientRect().top +
+        window.scrollY -
+        navbarHeight -
+        80;
       window.scrollTo({
-        top: scrollTo,
+        top: scrollHeight,
         behavior: "smooth",
       });
     }
+
+    // Auto-scroll inside optionsRef to make selected option visible
+    setTimeout(() => {
+      const selectedButton =
+        buttonRefs.current[
+          categoryIndex !== undefined ? `${index}-${categoryIndex}` : index
+        ];
+      if (selectedButton && optionsRef.current) {
+        const container = optionsRef.current;
+        const buttonLeft = selectedButton.offsetLeft;
+        const buttonWidth = selectedButton.offsetWidth;
+        const containerWidth = container.clientWidth;
+        const scrollLeft = container.scrollLeft;
+
+        // If button is outside visible area, scroll smoothly
+        if (
+          buttonLeft < scrollLeft ||
+          buttonLeft + buttonWidth > scrollLeft + containerWidth
+        ) {
+          container.scrollTo({
+            left: buttonLeft - containerWidth / 2 + buttonWidth / 2,
+            behavior: "smooth",
+          });
+        }
+      }
+    }, 500); // Slight delay ensures page scroll takes priority
   };
+
   useEffect(() => {
     const updateShadowColor = () => {
       const scrollY = window.scrollY;
@@ -62,7 +98,7 @@ function ServicesOptions({ options, isDarkMode }) {
       if (isDarkMode) {
         setShadowColor("rgba(0, 0, 0, 0.7)"); // Always dark in dark mode
       } else {
-        if (scrollY === 0) {
+        if (scrollY < 115) {
           setShadowColor("rgba(0, 0, 0, 0.7)"); // Black gradient at the top in light mode
         } else {
           setShadowColor("rgba(255, 255, 255, 0.7)"); // White gradient when scrolled in light mode
@@ -79,63 +115,95 @@ function ServicesOptions({ options, isDarkMode }) {
   // Handling service options highlight on scroll/selection of each servie.
   useEffect(() => {
     let timeoutId;
-    const handleScroll = debounce(() => {
-      const navbarHeight =
-        (document.getElementById("navbar").offsetHeight || 109) - 5;
-      const scrollTopArr = [];
 
-      options.forEach((section, sectionIndex) => {
+    const handleScroll = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+
+      const navbarElement = document.getElementById("navbar");
+      const navbarHeight = navbarElement ? navbarElement.offsetHeight : 100;
+      const viewportHeight = window.innerHeight;
+      const threshold = viewportHeight * 0.3; // 30% of viewport height
+
+      let activeSectionIndex = undefined;
+      let shouldExpandMain = null;
+      let newExpandedCategory = new Set();
+
+      for (let i = 0; i < options.length; i++) {
+        const section = options[i];
         const sectionElement = document.getElementById(section?.path);
-        const sectionTop = sectionElement?.getBoundingClientRect()?.top || 0;
-        // scrollTopArr.push(sectionTop - navbarHeight);
-        if (sectionTop - navbarHeight > 0) {
-          scrollTopArr.push(sectionIndex);
+        if (!sectionElement) continue;
+
+        const sectionRect = sectionElement.getBoundingClientRect();
+        const sectionTop = sectionRect.top - navbarHeight;
+        const sectionBottom = sectionRect.bottom - navbarHeight;
+
+        // Highlight when 30% of section is visible
+        if (sectionBottom > threshold && sectionTop < threshold) {
+          activeSectionIndex = i;
+          newExpandedCategory.add(i);
         }
+
         if (section?.categories?.length) {
-          section.categories.forEach((category, categoryIndex) => {
+          for (let j = 0; j < section.categories.length; j++) {
+            const category = section.categories[j];
             const categoryElement = document.getElementById(category?.path);
-            const categoryTop =
-              categoryElement?.getBoundingClientRect()?.top || 0;
-            // scrollTopArr.push(categoryTop - navbarHeight);
-            if (categoryTop - navbarHeight > 0) {
-              scrollTopArr.push(`${sectionIndex}-${categoryIndex}`);
+            if (!categoryElement) continue;
+
+            const categoryRect = categoryElement.getBoundingClientRect();
+            const categoryTop = categoryRect.top - navbarHeight;
+            const categoryBottom = categoryRect.bottom - navbarHeight;
+
+            // Check if a category is visible
+            if (categoryBottom > threshold && categoryTop < threshold) {
+              activeSectionIndex = `${i}-${j}`;
+              shouldExpandMain = i;
             }
-          });
+          }
         }
-      });
-      // const index = scrollTopArr.findIndex((option) => option > -0);
-      const latestIndex = scrollTopArr.length > 0 ? scrollTopArr[0] : 0;
-
-      let index = latestIndex;
-
-      if (timeoutId) {
-        clearTimeout(timeoutId);
       }
-      if (typeof index === "string") {
-        const sectionIndex = parseInt(latestIndex.split("-")[0]);
-        const categoryIndex = parseInt(latestIndex.split("-")[1]);
-        if (sectionIndex > -1 && !expandedCategory.has(sectionIndex)) {
-          index = sectionIndex;
+
+      if (activeSectionIndex === undefined) return;
+      timeoutId = setTimeout(() => {
+          if (shouldExpandMain !== null) {
+            setExpandedCategory(new Set([shouldExpandMain])); // Expand necessary category
+          } else {
+            setExpandedCategory(newExpandedCategory);
+          }
+      }, 1500);
+      setActiveSection((prev) => (prev === activeSectionIndex ? prev : activeSectionIndex));
+      // Auto-scroll the options menu when the section is visible in the viewport
+      setTimeout(() => {
+        const selectedButton = buttonRefs.current[activeSectionIndex];
+
+        if (selectedButton && optionsRef.current) {
+          const container = optionsRef.current;
+          const buttonLeft = selectedButton.offsetLeft;
+          const buttonWidth = selectedButton.offsetWidth;
+          const containerWidth = container.clientWidth;
+          const scrollLeft = container.scrollLeft;
+
+          // If button is outside visible area, scroll smoothly
+          if (
+            buttonLeft < scrollLeft ||
+            buttonLeft + buttonWidth > scrollLeft + containerWidth
+          ) {
+            container.scrollTo({
+              left: buttonLeft - containerWidth / 2 + buttonWidth / 2,
+              behavior: "smooth",
+            });
+          }
         }
-        timeoutId = setTimeout(() => {
-          setExpandedCategory((prev) => {
-            const newSet = new Set(prev);
+      }, 100); // Ensure scrolling after highlighting
+    };
 
-            if (!newSet.has(sectionIndex)) {
-              newSet.add(sectionIndex);
-              setActiveSection(`${sectionIndex}-${categoryIndex}`);
-            }
-            return newSet;
-          });
-        }, 2500);
-      }
-      setActiveSection(index);
-    }, 100);
+    const onScroll = () => requestAnimationFrame(handleScroll);
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(timeoutId);
     };
   }, [expandedCategory]);
 
@@ -175,6 +243,7 @@ function ServicesOptions({ options, isDarkMode }) {
           {options.map((option, index) => (
             <React.Fragment key={index}>
               <button
+                ref={(el) => (buttonRefs.current[index] = el)}
                 key={index}
                 className={`${styles.optionButton} ${styles.mainButton} ${
                   activeSection === index ? styles.selected : ""
@@ -190,9 +259,16 @@ function ServicesOptions({ options, isDarkMode }) {
               {expandedCategory.has(index) &&
                 option.categories?.map((category, categoryIndex) => (
                   <button
+                    ref={(el) =>
+                      (buttonRefs.current[`${index}-${categoryIndex}`] = el)
+                    }
                     key={categoryIndex}
-                    className={`${styles.optionButton} ${styles.categoryButton} ${
-                      activeSection === `${index}-${categoryIndex}` ? styles.selected : ""
+                    className={`${styles.optionButton} ${
+                      styles.categoryButton
+                    } ${
+                      activeSection === `${index}-${categoryIndex}`
+                        ? styles.selected
+                        : ""
                     }`}
                     style={{
                       background:
