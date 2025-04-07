@@ -1,80 +1,218 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.responivepage {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.service.reverse {
+  flex-direction: row-reverse;
+}
+
+.serviceText {
+  flex: 1;
+}
+
+.serviceText h2 {
+  font-size: 3rem;
+}
+
+.serviceText p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.serviceImage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.serviceImage img {
+  padding-top: 5px;
+}
+
+.image {
+  border-radius: 5%;
+}
+
+.divider {
+  border: 1px solid #343434;
+  margin: 15px 0;
+}
+
 .heading {
-    background-color: #000;
-    font-size: 30px;
-    color: white;
-    text-align: center;
-    padding-bottom: 5px;
-    padding-top: 60px;
-  }
+  font-size: 23px !important;
+  font-weight: normal;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer {
+  background-color: black;
+  padding: 2rem;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@media (max-width: 1024px) {
   .responivepage {
-    text-align: center;
-    padding: 2rem 2rem;
-    font-size: 50px;
+    margin: 0 5%;
   }
-  
+  .divider {
+    margin: 5px 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .serviceText h2 {
+    font-size: 2rem;
+  }
+  .serviceText p {
+    font-size: 15px;
+  }
+  .serviceImage img {
+    /* width: 270px;
+    height: 250px; */
+    padding-top: 2px;
+  }
+  .heading {
+    font-size: 18px !important;
+  }
   .footer {
-    background-color: black;
-    padding: 2rem;
+    padding: 25px 5%;
   }
-  
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .heading {
-      font-size: 30px;
-      padding-top: 52px;
-    }
-    .responivepage {
-      text-align: center;
-      padding: 5rem 2rem;
-      font-size: 40px;
-    }
-    .footer {
-      padding: 25px 5%;
-    }
+}
+
+@media (min-width: 550px) and (max-width: 768px) {
+  .service {
+    margin: 9px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
   }
-  
-  @media (min-width: 550px) and (max-width: 768px) {
-    .heading {
-      font-size: 25px;
-      padding-top: 43px;
-    }
-    .responivepage {
-      text-align: center;
-      padding: 4rem 2rem;
-      font-size: 30px;
-    }
-  
-    .footer {
-      padding: 20px 5%;
-    }
+  .serviceText h2 {
+    font-size: 2rem;
   }
-  
-  @media (min-width: 425px) and (max-width: 550px) {
-    .heading {
-      font-size: 20px;
-      padding-top: 32px;
-    }
-    .responivepage {
-      text-align: center;
-      padding: 5rem 2rem;
-      font-size: 35px;
-    }
-    .footer {
-      padding: 5px 5%;
-    }
+  .serviceText p {
+    font-size: 14px;
   }
-  
-  @media (min-width: 320px) and (max-width: 424px) {
-    .heading {
-      font-size: 10px;
-      padding-top: 25px;
-    }
-    .responivepage {
-      text-align: center;
-      padding: 5rem 2rem;
-      font-size: 25px;
-    }
-    .footer {
-      padding: 5px 5%;
-    }
+  .service.reverse {
+    flex-direction: column;
   }
-  
+  .serviceText {
+    order: 2;
+    width: 100%;
+  }
+  .serviceImage {
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .serviceImage img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .heading {
+    font-size: 15px !important;
+  }
+  .footer {
+    padding: 20px 5%;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 550px) {
+  .service {
+    margin: 9px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .serviceText h2 {
+    font-size: 1.5rem;
+  }
+  .serviceText p {
+    font-size: 14px;
+  }
+  .service.reverse {
+    flex-direction: column;
+  }
+  .serviceText {
+    order: 2;
+    width: 100%;
+  }
+  .serviceImage {
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .serviceImage img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .heading {
+    font-size: 14px !important;
+  }
+  .footer {
+    padding: 5px 5%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 424px) {
+  .service {
+    margin: 9px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .serviceText h2 {
+    font-size: 1.5rem;
+  }
+  .serviceText p {
+    font-size: 14px;
+  }
+  .service.reverse {
+    flex-direction: column;
+  }
+  .serviceText {
+    order: 2;
+    width: 100%;
+  }
+  .serviceImage {
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .serviceImage img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .heading {
+    font-size: 14px !important;
+  }
+  .footer {
+    padding: 5px 5%;
+  }
+}

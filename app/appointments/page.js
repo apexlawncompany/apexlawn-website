@@ -4,8 +4,10 @@ import styles from "./appointment.module.css";
 import Image from "next/image";
 import ReCAPTCHA from "react-google-recaptcha";
 import { sendMail } from "@/src/utils";
+import { useRouter } from "next/navigation";
 
 const AppointmentForm = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -79,6 +81,7 @@ const AppointmentForm = () => {
       }
       sendMail(formData);
       console.log("Form Submitted Successfully:", formData);
+      router.push("/thankyou");
     }
   };
 
@@ -92,12 +95,11 @@ const AppointmentForm = () => {
   };
 
   return (
-    <div className={`page-content ${styles.pageHeight}`}>
+    <div className={`page-content`}>
       <div className={`page-section ${styles.responivepage}`}>
         <div className="center-aligned">
           <div className={styles.formPage}>
             <div className={styles.formContainer}>
-              {!formSubmitted ? (
                 <form onSubmit={handleSubmit}>
                   {/* Name */}
                   <div>
@@ -188,12 +190,6 @@ const AppointmentForm = () => {
                     Submit
                   </button>
                 </form>
-              ) : (
-                <div className={styles.thankYouMessage}>
-                  <h2>Thanks for submitting!</h2>
-                  <p>We will contact you shortly.</p>
-                </div>
-              )}
             </div>
             <div className={styles.imageContainer}>
               <Image

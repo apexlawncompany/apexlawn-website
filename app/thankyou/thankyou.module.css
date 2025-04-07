@@ -1,0 +1,52 @@
+.thankYouPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.thankYouMessage {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .thankYouPage {
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .imageContainer img {
+    width: 450px;
+    height: 475px;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 768px) {
+  .imageContainer img {
+    width: 350px;
+    height: 370px;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 550px) {
+  .imageContainer img {
+    width: 230px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 424px) {
+  .imageContainer img {
+    width: 180px;
+    height: 255px;
+  }
+  .thankYouMessage {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+}

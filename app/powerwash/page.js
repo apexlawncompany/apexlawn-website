@@ -1,38 +1,31 @@
 import styles from "./powerwash.module.css";
-import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
+import powerWashData from "@/src/data/powerWashData";
 
 export default function PowerWash() {
-  const options = [
-    { text: "Top", path: "top" },
-    { text: "Locations", path: "locations" },
-    { text: "Sanford", path: "sanford" },
-    { text: "Setup An Appointment", path: "footer" },
-    { text: "Bottom", path: "footer" },
-  ];
-
   return (
     <>
-      <ServicesOptions options={options} />
-      <div className={`page-content`} style={{ minHeight: "600px" }}>
-        <div id="top" className={styles.heading}>
-          <p id="services-pricing">Services & Pricings</p>
-        </div>
-
+      <div className={`page-content`}>
         <div className={`page-section ${styles.responivepage}`}>
           <div className="center-aligned">
-            <p style={{ color: "red"}}>
-              PAGE COMING SOON<br /> CALL/TEXT:
-            </p>
-            <a style={{  textDecoration:"underline" }} href="tel:9046792513">9</a>
-            <a style={{   textDecoration:"underline" }} href="tel:9199394665">199394665</a>
-            <p>FOR MORE INFOMATION ON PRODUCTS <br/>
-            OR TRY ANOTHER PAGE</p>
+            {powerWashData.map((service, index) => (
+              <div id={service.id} key={service.id}>
+                {service.component && <service.component service={service} />}
+                {index < powerWashData.length - 1 && (
+                  <hr className={styles.divider} />
+                )}
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-      <div id="footer" className={styles.footer}>
-        <TransparentBtn>Setup an Appointment</TransparentBtn>
+
+        <div id="footer" className={styles.footer}>
+          <div className="page-section">
+            <div className="center-aligned">
+              <TransparentBtn>Setup an Appointment</TransparentBtn>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

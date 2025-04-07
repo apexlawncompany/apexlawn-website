@@ -3,6 +3,7 @@ import SoddingSeedingSection from "../components/LandScapingServices/soddingSeed
 import DrainageSection from "../components/LandScapingServices/drainageSection";
 import SoilSection from "../components/LandScapingServices/soilSection";
 import HardScapingSection from "../components/LandScapingServices/hardScapingSection";
+import CleanupSection from "../components/LandScapingServices/cleanupSection";
 
 const landscapingdata = [
   {
@@ -113,6 +114,30 @@ const landscapingdata = [
     image: "/assets/hardScaping.JPG",
     link: "/hardscape",
     component: HardScapingSection,
+  },
+
+  {
+    id: "cleanUp",
+    title: "Cleanup Services",
+    details: [
+      {
+        heading: "Yard-Waste​​​​​",
+        description:
+          "From leaves to tress. We can breakup and remove debris from your lawn or off the road. Call for pricing.",
+      },
+      {
+        heading: "Junk Removal​​​​​",
+        description:
+          "Resale, Recycling and Dumping options. Call for pricing.",
+      },
+      {
+        heading: "Job-Site Cleanup​​​​​",
+        description:
+          "Finish a project and have a mess you don't want to deal with ? Call to find the beast solution for your situation.",
+      },
+    ],
+    image: "/assets/clean_up.JPG",
+    component: CleanupSection,
   },
 ];
 
