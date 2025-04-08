@@ -38,6 +38,7 @@ export default function LandScape() {
     { text: "Drainage", path: "drainage" },
     { text: "Soil", path: "soil" },
     { text: "Hardscaping", path: "hardScaping" },
+    { text: "Cleanup Services", path: "cleanUp" },
   ];
 
   return (
