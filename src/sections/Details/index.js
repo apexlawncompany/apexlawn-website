@@ -41,7 +41,7 @@ function Details() {
             garage in 2019 at the age of 17.
           </p>
           <p className={styles.marginTop}>
-            The company has become a premeir landscape maintenance and install
+            The company has become a premier landscape maintenance and install
             option for the Triangle Area.
           </p>
           <p className={styles.marginTop}>
