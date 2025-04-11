@@ -34,7 +34,7 @@ function ServicesOptions({ options, isDarkMode }) {
     );
     let active;
     if(typeof activeSection === "string"){
-      const [mainIndex, catIndex] = activeSection.split("-").map(Number);
+      const [mainIndex] = activeSection.split("-").map(Number);
       active = parseInt(mainIndex)
 
     }
