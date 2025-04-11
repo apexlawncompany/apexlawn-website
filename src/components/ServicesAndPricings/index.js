@@ -12,9 +12,9 @@ const AmaticSC = localFont({
 
 export const debounce = (func, delay) => {
   let timeout;
-  return function (...args) {
+  return (...args) => {
     clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), delay);
+    timeout = setTimeout(() => func(...args), delay);
   };
 };
 
@@ -32,18 +32,20 @@ function ServicesOptions({ options, isDarkMode }) {
     setActiveSection(
       categoryIndex !== undefined ? `${index}-${categoryIndex}` : index
     );
+    let active;
+    if(typeof activeSection === "string"){
+      const [mainIndex] = activeSection.split("-").map(Number);
+      active = parseInt(mainIndex)
 
+    }
+    
     if (options[index]?.categories?.length && categoryIndex === undefined) {
       setExpandedCategory((prev) => {
         const newSet = new Set(prev);
-        if (newSet.has(index)) {
-          newSet.delete(index);
-        } else {
-          newSet.add(index);
-        }
+        newSet.has(index) ? newSet.delete(index) : newSet.add(index);
         return newSet;
       });
-    } else {
+    } else if (index !== active) {
       setExpandedCategory(new Set());
     }
 
@@ -53,41 +55,9 @@ function ServicesOptions({ options, isDarkMode }) {
       const navbarHeight =
         document.getElementById("navbar")?.offsetHeight || 100;
       const scrollHeight =
-        element.getBoundingClientRect().top +
-        window.scrollY -
-        navbarHeight -
-        80;
-      window.scrollTo({
-        top: scrollHeight,
-        behavior: "smooth",
-      });
+        element.getBoundingClientRect().top + window.scrollY - navbarHeight - 80;
+      window.scrollTo({ top: scrollHeight, behavior: "smooth" });
     }
-
-    // Auto-scroll inside optionsRef to make selected option visible
-    setTimeout(() => {
-      const selectedButton =
-        buttonRefs.current[
-          categoryIndex !== undefined ? `${index}-${categoryIndex}` : index
-        ];
-      if (selectedButton && optionsRef.current) {
-        const container = optionsRef.current;
-        const buttonLeft = selectedButton.offsetLeft;
-        const buttonWidth = selectedButton.offsetWidth;
-        const containerWidth = container.clientWidth;
-        const scrollLeft = container.scrollLeft;
-
-        // If button is outside visible area, scroll smoothly
-        if (
-          buttonLeft < scrollLeft ||
-          buttonLeft + buttonWidth > scrollLeft + containerWidth
-        ) {
-          container.scrollTo({
-            left: buttonLeft - containerWidth / 2 + buttonWidth / 2,
-            behavior: "smooth",
-          });
-        }
-      }
-    }, 500); // Slight delay ensures page scroll takes priority
   };
 
   useEffect(() => {
@@ -128,10 +98,9 @@ function ServicesOptions({ options, isDarkMode }) {
       let shouldExpandMain = null;
       let newExpandedCategory = new Set();
 
-      for (let i = 0; i < options.length; i++) {
-        const section = options[i];
+      options.forEach((section, i) => {
         const sectionElement = document.getElementById(section?.path);
-        if (!sectionElement) continue;
+        if (!sectionElement) return;
 
         const sectionRect = sectionElement.getBoundingClientRect();
         const sectionTop = sectionRect.top - navbarHeight;
@@ -143,24 +112,21 @@ function ServicesOptions({ options, isDarkMode }) {
           newExpandedCategory.add(i);
         }
 
-        if (section?.categories?.length) {
-          for (let j = 0; j < section.categories.length; j++) {
-            const category = section.categories[j];
-            const categoryElement = document.getElementById(category?.path);
-            if (!categoryElement) continue;
+        section?.categories?.forEach((category, j) => {
+          const categoryElement = document.getElementById(category?.path);
+          if (!categoryElement) return;
 
-            const categoryRect = categoryElement.getBoundingClientRect();
-            const categoryTop = categoryRect.top - navbarHeight;
-            const categoryBottom = categoryRect.bottom - navbarHeight;
+          const categoryRect = categoryElement.getBoundingClientRect();
+          const categoryTop = categoryRect.top - navbarHeight;
+          const categoryBottom = categoryRect.bottom - navbarHeight;
 
             // Check if a category is visible
-            if (categoryBottom > threshold && categoryTop < threshold) {
-              activeSectionIndex = `${i}-${j}`;
-              shouldExpandMain = i;
-            }
+          if (categoryBottom > threshold && categoryTop < threshold) {
+            activeSectionIndex = `${i}-${j}`;
+            shouldExpandMain = i;
           }
-        }
-      }
+        });
+      });
 
       if (activeSectionIndex === undefined) return;
       timeoutId = setTimeout(() => {
@@ -169,22 +135,22 @@ function ServicesOptions({ options, isDarkMode }) {
           } else {
             setExpandedCategory(newExpandedCategory);
           }
-      }, 1500);
+      }, 1000);
       setActiveSection((prev) => (prev === activeSectionIndex ? prev : activeSectionIndex));
       // Auto-scroll the options menu when the section is visible in the viewport
       setTimeout(() => {
         const selectedButton = buttonRefs.current[activeSectionIndex];
-
+      
         if (selectedButton && optionsRef.current) {
           const container = optionsRef.current;
           const buttonLeft = selectedButton.offsetLeft;
           const buttonWidth = selectedButton.offsetWidth;
           const containerWidth = container.clientWidth;
           const scrollLeft = container.scrollLeft;
-
+      
           // If button is outside visible area, scroll smoothly
           if (
-            buttonLeft < scrollLeft ||
+            buttonLeft < scrollLeft || 
             buttonLeft + buttonWidth > scrollLeft + containerWidth
           ) {
             container.scrollTo({
@@ -205,17 +171,17 @@ function ServicesOptions({ options, isDarkMode }) {
       window.removeEventListener("scroll", onScroll);
       clearTimeout(timeoutId);
     };
-  }, [expandedCategory]);
+  }, [options]);
 
   useEffect(() => {
     function checkOverflow() {
       setTimeout(() => {
-        const element = optionsRef.current;
+      const element = optionsRef.current;
 
-        setShowShadow(
-          element.scrollWidth > element.clientWidth ||
-            element.scrollHeight > element.clientHeight
-        );
+      setShowShadow(
+        element.scrollWidth > element.clientWidth ||
+          element.scrollHeight > element.clientHeight
+      );
       }, 1000);
     }
     const observer = new MutationObserver(checkOverflow);
