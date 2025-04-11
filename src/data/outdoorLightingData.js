@@ -16,7 +16,7 @@ const outdoorLightingData = [
         heading: "Decor",
       },
     ],
-    image: "/assets/holiday_lighting.jpg",
+    image: "/assets/holiday_lightings.JPG",
     component: HolidayLightingSection,
   },
 ];

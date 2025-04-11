@@ -23,9 +23,9 @@ function Details() {
         <div className={styles.cardBody}>
           <p className="text-center">Average Price Per Cut: $49</p>
           <p className={styles.marginTop}>
-            Customized Care & Same Team Assigned to Each Lawn
+            Customized Care & Same Team Assigned to Each Lawn.
           </p>
-          <p className={styles.marginTop}>Satisfaction Guaruntee</p>
+          <p className={styles.marginTop}>Industry Leader in Automation.</p>
           <p className={styles.marginTop}>Customer Support: Mon-Sat 8am-7pm</p>
           <p className={styles.marginTop}>
             Workers paid living wage by W-2.{" "}
@@ -37,8 +37,11 @@ function Details() {
         <div className={styles.cardHeader}>About Our Team</div>
         <div className={styles.cardBody}>
           <p className="text-center">
-            We take pride in our team.James started Apex Lawn Company out of his
-            garage in 2019 at the age of 17.
+            We take pride in our team.
+          </p>
+          <p className={styles.marginTop}>
+          James started Apex Lawn Company out of his
+          garage in 2019 at the age of 17.
           </p>
           <p className={styles.marginTop}>
             The company has become a premier landscape maintenance and install
