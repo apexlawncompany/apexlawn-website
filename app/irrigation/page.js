@@ -8,7 +8,7 @@ export default function Irrigation() {
     { text: "Locations", path: "locations" },
     { text: "Sanford", path: "sanford" },
     { text: "Setup An Appointment", path: "footer" },
-    { text: "Bottom", path: "footer" },
+    { text: "Bottom ", path: "footer" },
   ];
 
   return (
