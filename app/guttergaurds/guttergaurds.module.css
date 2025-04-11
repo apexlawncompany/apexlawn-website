@@ -1,0 +1,252 @@
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .responivepage {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 0.5s;
+  }
+
+  .service {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .service.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .serviceText {
+    flex: 1;
+  }
+
+  .serviceText h2 {
+    font-size: 3rem;
+  }
+
+  .serviceText p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .serviceImage {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .serviceImage img {
+    padding-top: 2px;
+  }
+
+  .image {
+    border-radius: 5%;
+  }
+
+  .divider {
+    border: 1px solid #343434;
+    margin: 15px 0;
+  }
+
+  .priceList {
+    font-size: 23px !important;
+    font-weight: normal;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .priceItem {
+    padding: 0 5px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .buttonGroup {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .blackTextButton {
+    color: black !important;
+    margin: 5px 0;
+  }
+
+  .footer {
+    background-color: black;
+    padding: 2rem;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 1s;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .blackTextButton {
+      color: #ededed !important;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .responivepage {
+      margin: 0 5%;
+    }
+    .divider {
+      margin: 5px 0;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .serviceText h2 {
+      font-size: 2rem;
+    }
+    .serviceText p {
+      font-size: 15px;
+    }
+    .serviceImage img {
+      /* width: 270px;
+      height: 250px; */
+      padding-top: 2px;
+    }
+    .priceList {
+      font-size: 18px !important;
+    }
+    .priceItem {
+      padding: 0 0;
+    }
+    .footer {
+      padding: 25px 5%;
+    }
+  }
+
+  @media (min-width: 550px) and (max-width: 768px) {
+    .service {
+      margin: 9px 0px;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .serviceText h2 {
+      font-size: 2rem;
+    }
+    .serviceText p {
+      font-size: 14px;
+    }
+    .service.reverse {
+      flex-direction: column;
+    }
+    .serviceText {
+      order: 2;
+      width: 100%;
+    }
+    .serviceImage {
+      order: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .serviceImage img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .priceList {
+      font-size: 15px !important;
+    }
+    .priceItem {
+      padding: 0 0;
+    }
+    .footer {
+      padding: 20px 5%;
+    }
+  }
+
+  @media (min-width: 425px) and (max-width: 550px) {
+    .service {
+      margin: 9px 0px;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .serviceText h2 {
+      font-size: 1.5rem;
+    }
+    .serviceText p {
+      font-size: 14px;
+    }
+    .service.reverse {
+      flex-direction: column;
+    }
+    .serviceText {
+      order: 2;
+      width: 100%;
+    }
+    .serviceImage {
+      order: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .serviceImage img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .priceList {
+      font-size: 14px !important;
+    }
+    .priceItem {
+      padding: 0 0;
+    }
+    .footer {
+      padding: 5px 5%;
+    }
+  }
+
+  @media (min-width: 320px) and (max-width: 424px) {
+    .service {
+      margin: 9px 0px;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .serviceText h2 {
+      font-size: 1.5rem;
+    }
+    .serviceText p {
+      font-size: 14px;
+    }
+    .service.reverse {
+      flex-direction: column;
+    }
+    .serviceText {
+      order: 2;
+      width: 100%;
+    }
+    .serviceImage {
+      order: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .serviceImage img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .priceList {
+      font-size: 14px !important;
+    }
+    .priceItem {
+      padding: 0 0;
+    }
+    .footer {
+      padding: 5px 5%;
+    }
+  }

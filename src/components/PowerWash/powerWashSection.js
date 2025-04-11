@@ -30,7 +30,7 @@ export default function PowerWashSection({ service }) {
         <Image
           src={image}
           alt={title}
-          width={355}
+          width={310}
           height={400}
           className={styles.image}
         />

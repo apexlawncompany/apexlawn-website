@@ -9,6 +9,16 @@
   }
 }
 
+.holidayLightBg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: top;
+  z-index: -1;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
 .responivepage {
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
@@ -30,8 +40,8 @@
   flex: 1;
 }
 
-.serviceText h2 {
-  font-size: 3rem;
+.serviceText h3 {
+  font-size: 2.5rem;
 }
 
 .serviceText p {
@@ -68,7 +78,7 @@
 .footer {
   background-color: black;
   padding: 2rem;
-  margin-top: 10px;
+  /* margin-top: 40px; */
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
   animation-delay: 1s;
@@ -104,6 +114,9 @@
 }
 
 @media (min-width: 550px) and (max-width: 768px) {
+  .holidayLightBg {
+    background-position: center;
+  }
   .service {
     margin: 9px 0px;
     flex-direction: column;
@@ -142,6 +155,9 @@
 }
 
 @media (min-width: 425px) and (max-width: 550px) {
+  .holidayLightBg {
+    background-position: center;
+  }
   .service {
     margin: 9px 0px;
     flex-direction: column;
@@ -180,6 +196,9 @@
 }
 
 @media (min-width: 320px) and (max-width: 424px) {
+  .holidayLightBg {
+    background-position: center;
+  }
   .service {
     margin: 9px 0px;
     flex-direction: column;
