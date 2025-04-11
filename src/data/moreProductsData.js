@@ -9,13 +9,19 @@ const MOREPRODUCTS_DATA = [
       type: "text",
       text: "Power Wash",
       path: "/powerwash",
-      image: "/assets/power_wash.jpeg",
+      image: "/assets/power_wash_main.jpg",
     },
     {
       type: "text",
       text: "Outdoor Lighting",
       path: "/outdoorlighting",
       image: "/assets/outdoor_light.jpg",
+    },
+    {
+      type: "text",
+      text: "Gutter Guards",
+      path: "/guttergaurds",
+      image: "/assets/gutter_gaurds_main.JPG",
     },
   ];
   
