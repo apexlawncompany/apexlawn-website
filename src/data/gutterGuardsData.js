@@ -1,7 +1,7 @@
-import Cleaning from "../components/GutterGaurds/cleaning";
-import gutterGaurd from "../components/GutterGaurds/gutterGaurds";
+import cleaningSection from "../components/GutterGaurd/cleaningSection";
+import gutterGaurdSection from "../components/GutterGaurd/gutterGaurdSection";
 
-const gutterGaurdData = [
+const gutterGaurdsData = [
   {
     id: "cleaning",
     title: "Cleaning",
@@ -20,7 +20,7 @@ const gutterGaurdData = [
       },
     ],
     image: "/assets/gutter_gaurds_cleaning.jpg",
-    component: Cleaning,
+    component: cleaningSection,
   },
 
   {
@@ -43,8 +43,8 @@ const gutterGaurdData = [
       },
     ],
     image: "/assets/gutter_gaurds.jpg",
-    component: gutterGaurd,
+    component: gutterGaurdSection,
   },
 ];
 
-export default gutterGaurdData;
+export default gutterGaurdsData;

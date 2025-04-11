@@ -1,7 +1,7 @@
 import Image from "next/image";
-import styles from "../../../app/gutterGaurds/gutterGaurds.module.css";
+import styles from "../../../app/guttergaurds/guttergaurds.module.css";
 
-export default function gutterGaurd({ service }) {
+export default function gutterGaurdSection({ service }) {
   const { title, content, image } = service;
   return (
     <div className={`${styles.service}`}>

@@ -1,8 +1,8 @@
 import Image from "next/image";
-import styles from "../../../app/gutterGaurds/gutterGaurds.module.css";
+import styles from "../../../app/guttergaurds/guttergaurds.module.css";
 import TransparentBtn from "../TransparentBtn";
 
-export default function Cleaning({ service }) {
+export default function cleaningSection({ service }) {
   const { title, content, image } = service;
   return (
     <div className={`${styles.service} ${styles.reverse}`}>
