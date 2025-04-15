@@ -8,7 +8,7 @@ const IMAGES = [
     "/assets/soil.JPG",
     "/assets/de_icing.jpg",
     "/assets/snow_removal.webp",
-    "/assets/power_wash.jpeg",
+    "/assets/power_wash_main1.jpg",
     "/assets/outdoor_light.jpg",
     "/header-background.jpg",
     "/assets/drone_area_map.jpg",
