@@ -33,12 +33,11 @@ function ServicesOptions({ options, isDarkMode }) {
       categoryIndex !== undefined ? `${index}-${categoryIndex}` : index
     );
     let active;
-    if(typeof activeSection === "string"){
+    if (typeof activeSection === "string") {
       const [mainIndex] = activeSection.split("-").map(Number);
-      active = parseInt(mainIndex)
-
+      active = parseInt(mainIndex);
     }
-    
+
     if (options[index]?.categories?.length && categoryIndex === undefined) {
       setExpandedCategory((prev) => {
         const newSet = new Set(prev);
@@ -55,7 +54,10 @@ function ServicesOptions({ options, isDarkMode }) {
       const navbarHeight =
         document.getElementById("navbar")?.offsetHeight || 100;
       const scrollHeight =
-        element.getBoundingClientRect().top + window.scrollY - navbarHeight - 80;
+        element.getBoundingClientRect().top +
+        window.scrollY -
+        navbarHeight -
+        80;
       window.scrollTo({ top: scrollHeight, behavior: "smooth" });
     }
   };
@@ -120,7 +122,7 @@ function ServicesOptions({ options, isDarkMode }) {
           const categoryTop = categoryRect.top - navbarHeight;
           const categoryBottom = categoryRect.bottom - navbarHeight;
 
-            // Check if a category is visible
+          // Check if a category is visible
           if (categoryBottom > threshold && categoryTop < threshold) {
             activeSectionIndex = `${i}-${j}`;
             shouldExpandMain = i;
@@ -130,27 +132,29 @@ function ServicesOptions({ options, isDarkMode }) {
 
       if (activeSectionIndex === undefined) return;
       timeoutId = setTimeout(() => {
-          if (shouldExpandMain !== null) {
-            setExpandedCategory(new Set([shouldExpandMain])); // Expand necessary category
-          } else {
-            setExpandedCategory(newExpandedCategory);
-          }
+        if (shouldExpandMain !== null) {
+          setExpandedCategory(new Set([shouldExpandMain])); // Expand necessary category
+        } else {
+          setExpandedCategory(newExpandedCategory);
+        }
       }, 1000);
-      setActiveSection((prev) => (prev === activeSectionIndex ? prev : activeSectionIndex));
+      setActiveSection((prev) =>
+        prev === activeSectionIndex ? prev : activeSectionIndex
+      );
       // Auto-scroll the options menu when the section is visible in the viewport
       setTimeout(() => {
         const selectedButton = buttonRefs.current[activeSectionIndex];
-      
+
         if (selectedButton && optionsRef.current) {
           const container = optionsRef.current;
           const buttonLeft = selectedButton.offsetLeft;
           const buttonWidth = selectedButton.offsetWidth;
           const containerWidth = container.clientWidth;
           const scrollLeft = container.scrollLeft;
-      
+
           // If button is outside visible area, scroll smoothly
           if (
-            buttonLeft < scrollLeft || 
+            buttonLeft < scrollLeft ||
             buttonLeft + buttonWidth > scrollLeft + containerWidth
           ) {
             container.scrollTo({
@@ -176,12 +180,12 @@ function ServicesOptions({ options, isDarkMode }) {
   useEffect(() => {
     function checkOverflow() {
       setTimeout(() => {
-      const element = optionsRef.current;
+        const element = optionsRef.current;
 
-      setShowShadow(
-        element.scrollWidth > element.clientWidth ||
-          element.scrollHeight > element.clientHeight
-      );
+        setShowShadow(
+          element.scrollWidth > element.clientWidth ||
+            element.scrollHeight > element.clientHeight
+        );
       }, 1000);
     }
     const observer = new MutationObserver(checkOverflow);
@@ -222,8 +226,12 @@ function ServicesOptions({ options, isDarkMode }) {
               >
                 {option.text}
               </button>
-              {expandedCategory.has(index) &&
-                option.categories?.map((category, categoryIndex) => (
+              <div
+                className={`${styles.subCategories} ${
+                  expandedCategory.has(index) ? styles.showSubCategory : ""
+                }`}
+              >
+                {option.categories?.map((category, categoryIndex) => (
                   <button
                     ref={(el) =>
                       (buttonRefs.current[`${index}-${categoryIndex}`] = el)
@@ -253,6 +261,7 @@ function ServicesOptions({ options, isDarkMode }) {
                     {category.text}
                   </button>
                 ))}
+              </div>
             </React.Fragment>
           ))}
         </div>

@@ -133,6 +133,19 @@
   border-radius: 1px 0 0 1px;
 }
 
+.subCategories {
+  display: flex;
+  gap: 16px;
+  max-width: 0px;
+  transition: max-width 1s ease-in-out;
+  overflow: hidden;
+}
+
+.showSubCategory {
+  max-width: 1000px;
+  overflow: unset;
+}
+
 @media (prefers-color-scheme: dark) {
   .optionButton {
     color: black;
@@ -152,9 +165,12 @@
   .options {
     gap: 13px;
   }
+  .subCategories {
+    gap: 13px;
+  }
   .mainButton {
     width: 100px;
-    height: 50px;
+    height: 55px;
     font-size: 18px;
   }
   .categoryButton {
@@ -163,14 +179,7 @@
     font-size: 16px;
   }
   .mainButton.selected {
-    width: 120px;
-    height: 53px;
-    border-width: 5px;
-  }
-  .categoryButton.selected {
-    width: 90px;
-    height: 48px;
-    border-width: 5px;
+    font-size: 19px;
   }
   .optionButton {
     border: 4px solid rgb(255, 221, 0);
@@ -191,12 +200,15 @@
     top: 83px;
   }
   .options {
-    padding: 0px 20px;
-    gap: 10px;
+    padding: 5px 20px;
+    gap: 15px;
+  }
+  .subCategories {
+    gap: 15px;
   }
   .mainButton {
-    width: 90px;
-    height: 50px;
+    width: 95px;
+    height: 55px;
     font-size: 15px;
   }
   .categoryButton {
@@ -205,15 +217,9 @@
     font-size: 15px;
   }
   .mainButton.selected {
-    width: 100px;
-    height: 53px;
-    border-width: 5px;
+    font-size: 17px;
   }
-  .categoryButton.selected {
-    width: 85px;
-    height: 48px;
-    border-width: 5px;
-  }
+
   .optionButton {
     border: 4px solid rgb(255, 221, 0);
     border-radius: 10px;
@@ -234,7 +240,10 @@
     top: 63px;
   }
   .options {
-    padding: 0px 5px;
+    padding: 2px 5px;
+    gap: 9px;
+  }
+  .subCategories {
     gap: 9px;
   }
   .mainButton {
@@ -243,19 +252,12 @@
     font-size: 12px;
   }
   .categoryButton {
-    width: 50px;
-    height: 35px;
+    width: 55px;
+    height: 33px;
     font-size: 10px;
   }
   .mainButton.selected {
-    width: 100px;
-    height: 43px;
-    border-width: 4px;
-  }
-  .categoryButton.selected {
-    width: 55px;
-    height: 38px;
-    border-width: 4px;
+    font-size: 15px;
   }
   .optionButton {
     border: 3px solid rgb(255, 221, 0);
@@ -276,7 +278,10 @@
     top: 48px;
   }
   .options {
-    padding: 0px 5px;
+    padding: 2px 5px;
+    gap: 7px;
+  }
+  .subCategories {
     gap: 7px;
   }
   .mainButton {
@@ -290,14 +295,7 @@
     font-size: 10px;
   }
   .mainButton.selected {
-    width: 100px;
-    height: 36px;
-    border-width: 3px;
-  }
-  .categoryButton.selected {
-    width: 55px;
-    height: 30px;
-    border-width: 3px;
+    font-size: 13px
   }
   .optionButton {
     border: 2px solid rgb(255, 221, 0);
