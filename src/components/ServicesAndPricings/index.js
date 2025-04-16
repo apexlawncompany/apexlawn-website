@@ -226,6 +226,7 @@ function ServicesOptions({ options, isDarkMode }) {
               >
                 {option.text}
               </button>
+              {option.categories?.length > 0 && (
               <div
                 className={`${styles.subCategories} ${
                   expandedCategory.has(index) ? styles.showSubCategory : ""
@@ -262,6 +263,7 @@ function ServicesOptions({ options, isDarkMode }) {
                   </button>
                 ))}
               </div>
+            )}
             </React.Fragment>
           ))}
         </div>
