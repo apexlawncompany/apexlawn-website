@@ -3,6 +3,8 @@ import styles from "./page.module.css";
 import Details from "@/src/sections/Details";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import Portfolio from "@/src/sections/Portfolio";
+import StarRating from "@/src/components/StarRating";
+import Head from "next/head";
 
 export async function generateMetadata({ searchParams }) {
 
@@ -16,11 +18,38 @@ export async function generateMetadata({ searchParams }) {
 }
 
 export default function Home() {
+  const businessData = {
+    name: "Apex Lawn Company",
+    rating: 5,
+    reviewCount: 75,
+  };
+  const structuredData = {
+    "@context": "https://apexlawncompany.com/",
+    "@type": "LocalBusiness",
+    name: businessData.name,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: " 501 W Williams St Box 1012",
+      addressLocality: "Apex",
+      addressRegion: "NC",
+      postalCode: "27502",
+      addressCountry: "US",
+    },
+    telephone: "+1 919-939-4665",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: businessData.rating,
+      reviewCount: businessData.reviewCount,
+    },
+  };
+
   return (
     <div
       className={`page-content ${styles.homepage}`}
       style={{ backgroundImage: `url(/home-background.jpg)` }}
     >
+    <StarRating rating={businessData.rating} reviewCount={businessData.reviewCount} />
+
       <div className={styles.greenbar}></div>
       <div className={`page-section ${styles.responivepage}`}>
         <div className="center-aligned">
