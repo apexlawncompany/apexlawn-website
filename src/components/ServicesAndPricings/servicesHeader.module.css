@@ -52,7 +52,7 @@
 
 .options {
   display: flex;
-  gap: 16px;
+  gap: 0px !important;
   white-space: nowrap;
   text-transform: uppercase;
   overflow-wrap: break-word;
@@ -83,12 +83,18 @@
   animation: fadeIn 0.8s ease-in-out forwards;
   animation-delay: 0.5s;
   flex-shrink: 0;
+  margin-right: 15px;
+}
+
+.optionButton:last-child {
+  margin-right: 0px;
 }
 
 .optionButton:hover:not(.selected) {
   background-color: gray;
   transform: scale(1.1) !important; /* Zoom-in effect */
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+  transform-origin: center;
 }
 
 .mainButton {
@@ -99,6 +105,7 @@
 
 .mainButton.selected {
   font-size: 23px;
+  transform-origin: center;
   transform: scale(1.1) !important; /* Ensure it stays scaled */
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2); /* Highlight with a shadow */
   transition: transform 1s ease-in, box-shadow 0.5s ease-in; /* Smooth transition */
@@ -114,12 +121,10 @@
 }
 
 .categoryButton.selected {
-  /* width: 110px;
-  height: 55px; */
+  transform-origin: center;
   transform: scale(1.1) !important; /* Ensure it stays scaled */
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2); /* Highlight with a shadow */
   transition: transform 1s ease-in, box-shadow 0.5s ease-in; /* Smooth transition */
-  /* border-width: 6px; */
 }
 
 .shadow {
@@ -135,15 +140,16 @@
 
 .subCategories {
   display: flex;
-  gap: 16px;
+  gap: 0px !important;
   max-width: 0px;
-  transition: max-width 1s ease-in-out;
+  transition: all 0.8s ease;
   overflow: hidden;
 }
 
 .showSubCategory {
   max-width: 1000px;
   overflow: unset;
+  padding-right: 15px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -151,7 +157,11 @@
     color: black;
   }
   .shadow {
-     background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))  !important;
+    background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0)
+    ) !important;
   }
 }
 
@@ -163,9 +173,6 @@
     top: 92px;
   }
   .options {
-    gap: 13px;
-  }
-  .subCategories {
     gap: 13px;
   }
   .mainButton {
@@ -203,8 +210,8 @@
     padding: 5px 20px;
     gap: 15px;
   }
-  .subCategories {
-    gap: 15px;
+  .optionButton{
+    margin-right: 12px;
   }
   .mainButton {
     width: 95px;
@@ -216,6 +223,9 @@
     height: 45px;
     font-size: 15px;
   }
+  .showSubCategory {
+    padding-right: 12px;
+  }
   .mainButton.selected {
     font-size: 17px;
   }
@@ -225,8 +235,8 @@
     border-radius: 10px;
   }
   .shadow {
-    top: 5px;
-    height: 52px;
+    top: 9px;
+    height: 55px;
     width: 18px;
   }
 }
@@ -243,8 +253,8 @@
     padding: 2px 5px;
     gap: 9px;
   }
-  .subCategories {
-    gap: 9px;
+  .optionButton{
+    margin-right: 12px;
   }
   .mainButton {
     width: 80px;
@@ -255,6 +265,9 @@
     width: 55px;
     height: 33px;
     font-size: 10px;
+  }
+  .showSubCategory {
+    padding-right: 12px;
   }
   .mainButton.selected {
     font-size: 15px;
@@ -281,8 +294,8 @@
     padding: 2px 5px;
     gap: 7px;
   }
-  .subCategories {
-    gap: 7px;
+  .optionButton{
+    margin-right: 10px;
   }
   .mainButton {
     width: 80px;
@@ -294,8 +307,11 @@
     height: 28px;
     font-size: 10px;
   }
+  .showSubCategory {
+    padding-right: 10px;
+  }
   .mainButton.selected {
-    font-size: 13px
+    font-size: 13px;
   }
   .optionButton {
     border: 2px solid rgb(255, 221, 0);

@@ -226,44 +226,44 @@ function ServicesOptions({ options, isDarkMode }) {
               >
                 {option.text}
               </button>
-              {option.categories?.length > 0 && (
-              <div
-                className={`${styles.subCategories} ${
-                  expandedCategory.has(index) ? styles.showSubCategory : ""
-                }`}
-              >
-                {option.categories?.map((category, categoryIndex) => (
-                  <button
-                    ref={(el) =>
-                      (buttonRefs.current[`${index}-${categoryIndex}`] = el)
-                    }
-                    key={categoryIndex}
-                    className={`${styles.optionButton} ${
-                      styles.categoryButton
-                    } ${
-                      activeSection === `${index}-${categoryIndex}`
-                        ? styles.selected
-                        : ""
-                    }`}
-                    style={{
-                      background:
+              {option.categories?.length ? (
+                <div
+                  className={`${styles.subCategories} ${
+                    expandedCategory.has(index) ? styles.showSubCategory : ""
+                  }`}
+                >
+                  {option.categories?.map((category, categoryIndex) => (
+                    <button
+                      ref={(el) =>
+                        (buttonRefs.current[`${index}-${categoryIndex}`] = el)
+                      }
+                      key={categoryIndex}
+                      className={`${styles.optionButton} ${
+                        styles.categoryButton
+                      } ${
                         activeSection === `${index}-${categoryIndex}`
-                          ? "#474747"
-                          : "",
-                      color:
-                        activeSection === `${index}-${categoryIndex}`
-                          ? "white"
-                          : "",
-                    }}
-                    onClick={() =>
-                      navigateToDiv(category.path, index, categoryIndex)
-                    }
-                  >
-                    {category.text}
-                  </button>
-                ))}
-              </div>
-            )}
+                          ? styles.selected
+                          : ""
+                      }`}
+                      style={{
+                        background:
+                          activeSection === `${index}-${categoryIndex}`
+                            ? "#474747"
+                            : "",
+                        color:
+                          activeSection === `${index}-${categoryIndex}`
+                            ? "white"
+                            : "",
+                      }}
+                      onClick={() =>
+                        navigateToDiv(category.path, index, categoryIndex)
+                      }
+                    >
+                      {category.text}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
             </React.Fragment>
           ))}
         </div>
