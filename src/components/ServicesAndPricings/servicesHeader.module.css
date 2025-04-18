@@ -92,7 +92,7 @@
 
 .optionButton:hover:not(.selected) {
   background-color: gray;
-  transform: scale(1.1) !important; /* Zoom-in effect */
+  scale: 1.1 !important; /* Zoom-in effect */
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
   transform-origin: center;
 }
@@ -101,14 +101,15 @@
   width: 150px;
   height: 60px;
   font-size: 22px;
+  transition: scale 0.25s ease, box-shadow 0.25s ease-in;
 }
 
 .mainButton.selected {
   font-size: 23px;
   transform-origin: center;
-  transform: scale(1.1) !important; /* Ensure it stays scaled */
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2); /* Highlight with a shadow */
-  transition: transform 1s ease-in, box-shadow 0.5s ease-in; /* Smooth transition */
+  scale: 1.1 !important;
+  box-shadow: 0 3px 20px rgba(247, 129, 129, 0.2);
+  /* transition: transform 1s ease-in, box-shadow 0.5s ease-in;  */
 }
 
 .categoryButton {
@@ -118,13 +119,13 @@
   max-width: 0;
   transform-origin: left;
   animation: leftToRight 0.8s ease-in-out forwards;
+  transition: scale 0.25s ease-in, box-shadow 0.25s ease-in;
 }
 
 .categoryButton.selected {
   transform-origin: center;
-  transform: scale(1.1) !important; /* Ensure it stays scaled */
+  scale: 1.1 !important;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2); /* Highlight with a shadow */
-  transition: transform 1s ease-in, box-shadow 0.5s ease-in; /* Smooth transition */
 }
 
 .shadow {
@@ -142,14 +143,21 @@
   display: flex;
   gap: 0px !important;
   max-width: 0px;
-  transition: all 0.8s ease;
-  overflow: hidden;
+  transition: all 1s ease;
+  /* overflow: hidden; */
+  padding-right: 0px;
+  visibility: hidden;
+  z-index: -1;
+  opacity: 0;
 }
 
 .showSubCategory {
   max-width: 1000px;
-  overflow: unset;
+  /* overflow: unset; */
   padding-right: 15px;
+  visibility: visible;
+  z-index: 1;
+  opacity: 1;
 }
 
 @media (prefers-color-scheme: dark) {
