@@ -101,7 +101,7 @@
   width: 150px;
   height: 60px;
   font-size: 22px;
-  transition: scale 0.25s ease, box-shadow 0.25s ease-in;
+  transition: scale 0.75s ease, box-shadow 0.25s ease-in;
 }
 
 .mainButton.selected {

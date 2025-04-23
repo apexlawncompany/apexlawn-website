@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import styles from "./drone.module.css";
 import Image from "next/image";
 import validLocations from "@/src/data/locations";
@@ -16,9 +16,11 @@ const DronePage = () => {
     address: "",
     day: "",
     details: "",
+    images: [],
   });
 
   const [errors, setErrors] = useState({});
+  const inputRef = useRef();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
 
@@ -98,6 +100,13 @@ const DronePage = () => {
       setCaptchaVerified(false);
     }
   };
+
+  const imagePreviews = useMemo(() => {
+    return formData.images.map((file) => ({
+      url: URL.createObjectURL(file),
+      id: crypto.randomUUID(),
+    }));
+  }, [formData.images]);
 
   return (
     <div className={`page-content ${styles.pageHeight}`}>
@@ -243,6 +252,7 @@ const DronePage = () => {
                     <textarea
                       id="details"
                       rows={7}
+                      style={{ width: "100%" }}
                       cols={39}
                       value={formData.details}
                       onChange={handleChange}
@@ -256,11 +266,85 @@ const DronePage = () => {
                       onChange={handleCaptchaChange}
                     />
                   </div>
+                  
+                  {/* Image Previews with Remove Button */}
+                  {imagePreviews.length > 0 && (
+                    <div className={styles.imageList}>
+                      {imagePreviews.map((img, index) => (
+                        <div key={index} className={styles.imageItem}>
+                          <img
+                            src={img.url}
+                            width={100}
+                            height={100}
+                            style={{
+                              objectFit: "cover",
+                              borderRadius: "8px",
+                            }}
+                          />
+                          <button
+                            className={styles.removeBtn}
+                            onClick={() => {
+                              // Remove from formData.images too
+                              const updatedImages = [...formData.images];
+                              updatedImages.splice(index, 1);
+                              setFormData((prev) => ({
+                                ...prev,
+                                images: updatedImages,
+                              }));
+                            }}
+                          >
+                            ✕
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
-                  {/* Submit Button */}
-                  <button type="submit" disabled={!captchaVerified}>
-                    Submit
-                  </button>
+                  {/* File Upload */}
+                  <div
+                    className={styles.formActions}
+                  >
+                    {/* Submit Button */}
+                    <button type="submit" className={styles.submitButton} disabled={!captchaVerified}>
+                      Submit
+                    </button>
+
+                    {/* Upload Section (Icon + Label) */}
+                    <div
+                      className={styles.uploadSection}
+                      onClick={() => inputRef.current?.click()}
+                    >
+                      <Image
+                        src={`/utils/upload.png`}
+                        alt="Upload Icon"
+                        className={styles.uploadIcon}
+                        width={30}
+                        height={30}
+                      />
+                      <label
+                        htmlFor="image"
+                        className={styles.uploadLabel}
+                      >
+                        Upload Images
+                      </label>
+                      <input
+                        type="file"
+                        id="image"
+                        accept="image/*"
+                        multiple
+                        ref={inputRef}
+                        style={{ display: "none" }}
+                        onChange={(e) => {
+                          console.log("-->", e.target.files);
+                          const newImages = Array.from(e.target.files || []);
+                          setFormData((prev) => ({
+                            ...prev,
+                            images: [...prev.images, ...newImages],
+                          }));
+                        }}
+                      />
+                    </div>
+                  </div>
                 </form>
               ) : (
                 <div className={styles.thankYouMessage}>
