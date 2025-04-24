@@ -97,10 +97,11 @@ const AppointmentForm = () => {
   };
 
   const imagePreviews = useMemo(() => {
-    return formData.images.map((file) => ({
-      url: URL.createObjectURL(file),
-      id: crypto.randomUUID(),
-    }));
+    return formData.images.map((file) => {
+      const type = file.type;
+      const url = URL.createObjectURL(file);
+      return { file, type, url, id: crypto.randomUUID() };
+    });
   }, [formData.images]);
 
   return (
@@ -196,17 +197,31 @@ const AppointmentForm = () => {
                 {/* Image Previews with Remove Button */}
                 {imagePreviews.length > 0 && (
                   <div className={styles.imageList}>
-                    {imagePreviews.map((img, index) => (
+                    {imagePreviews.map((item, index) => (
                       <div key={index} className={styles.imageItem}>
-                        <img
-                          src={img.url}
-                          width={100}
-                          height={100}
-                          style={{
-                            objectFit: "cover",
-                            borderRadius: "8px",
-                          }}
-                        />
+                        {item.type.startsWith("image/") ? (
+                          <img
+                            src={item.url}
+                            width={100}
+                            height={100}
+                            style={{ objectFit: "cover", borderRadius: "8px" }}
+                          />
+                        ) : item.type === "application/pdf" ? (
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            📄 PDF File
+                          </a>
+                        ) : item.type.startsWith("video/") ? (
+                          <video width={100} height={100} style={{ objectFit: "cover", borderRadius: "8px" }}>
+                            <source src={item.url} type={item.type} />
+                            Your browser does not support the video tag.
+                          </video>
+                        ) : (
+                          <p>Unsupported File</p>
+                        )}
                         <button
                           className={styles.removeBtn}
                           onClick={() => {
@@ -251,25 +266,35 @@ const AppointmentForm = () => {
                       width={30}
                       height={30}
                     />
-                    <label
-                      htmlFor="image"
-                      className={styles.uploadLabel}
-                    >
+                    <label htmlFor="image" className={styles.uploadLabel}>
                       Upload Images
                     </label>
                     <input
                       type="file"
                       id="image"
-                      accept="image/*"
+                      accept="image/*,application/pdf,video/*"
+                      capture="environment"
                       multiple
                       ref={inputRef}
                       style={{ display: "none" }}
                       onChange={(e) => {
                         console.log("-->", e.target.files);
-                        const newImages = Array.from(e.target.files || []);
+                        const selectedFiles = Array.from(e.target.files || []);
+
+                        const maxFileSizeMB = 10; // for example, 10 MB
+                        const validFiles = selectedFiles.filter((file) => {
+                          if (file.size > maxFileSizeMB * 1024 * 1024) {
+                            alert(
+                              `${file.name} is too large. Max allowed is ${maxFileSizeMB}MB`
+                            );
+                            return false;
+                          }
+                          return true;
+                        });
+
                         setFormData((prev) => ({
                           ...prev,
-                          images: [...prev.images, ...newImages],
+                          images: [...prev.images, ...validFiles],
                         }));
                       }}
                     />
