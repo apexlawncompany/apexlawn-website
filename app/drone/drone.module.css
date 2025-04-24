@@ -9,6 +9,7 @@
 .formContainer div input {
   padding: 5px;
   margin: 5px;
+  width: 100%;
 }
 
 .formContainer label {
@@ -26,9 +27,7 @@
   height: 30px;
 }
 
-.formContainer button {
-  padding: 5px;
-  margin: 5px;
+.submitButton {
   text-decoration: none;
   cursor: pointer;
   border: none;
@@ -39,13 +38,15 @@
   width: 100px;
   font-size: 16px;
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 8px;
+  margin-bottom: 5px;
 }
+
 .formContainer iframe {
   width: auto !important;
 }
 
-.formContainer button:disabled {
+.submitButton:disabled {
   background-color: #ccc;
   color: #666;
   cursor: not-allowed;
@@ -60,6 +61,60 @@
   margin-top: 50px;
   font-size: 20px;
   font-weight: bold;
+}
+
+.formActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.uploadSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.uploadIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.uploadLabel {
+  cursor: pointer;
+  margin: 0;
+  font-size: 16px;
+}
+
+.imageList {
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.imageItem {
+  position: relative;
+  display: inline-block;
+}
+
+.removeBtn {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #666;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 14px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 1024px) {
@@ -82,7 +137,7 @@
   .formContainer select{
     font-size: 15px;
   }
-  .formContainer button {
+  .submitButton {
     font-size: 15px;
     height: 30px;
   }
@@ -92,6 +147,27 @@
   }
   .formContainer label {
     padding: 4px;
+  }
+  .uploadIcon {
+    width: 25px;
+    height: 25px;
+  }
+  .uploadLabel {
+    font-size: 15px;
+  }
+  .imageList {
+    gap: 12px;
+  }
+  .imageItem img {
+    width: 80px;
+    height: 80px;
+  }
+  .removeBtn {
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    top: -5px;
+    right: -5px;
   }
 }
 
@@ -114,7 +190,7 @@
     padding: 3px;
     margin: 3px;
   }
-  .formContainer button {
+  .submitButton {
     font-size: 10px;
     height: 25px;
   }
@@ -128,6 +204,27 @@
   }
   .formContainer label {
     padding: 3px;
+  }
+  .uploadIcon {
+    width: 20px;
+    height: 20px;
+  }
+  .uploadLabel {
+    font-size: 12px;
+  }
+  .imageList {
+    gap: 10px;
+  }
+  .imageItem img {
+    width: 70px;
+    height: 70px;
+  }
+  .removeBtn {
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    top: -4px;
+    right: -4px;
   }
 }
 
@@ -150,7 +247,8 @@
     padding: 2px;
     margin: 2px;
   }
-  .formContainer button {
+  .submitButton {
+    order: 2;
     font-size: 8px;
     height: 20px;
   }
@@ -166,6 +264,35 @@
   }
   .formContainer label {
     padding: 2px;
+  }
+  .uploadSection {
+    order: 1;
+    margin-top: 10px;
+  }
+  .uploadIcon {
+    width: 20px;
+    height: 20px;
+  }
+  .uploadLabel {
+    font-size: 10px;
+  }
+  .imageList {
+    gap: 8px;
+  }
+  .imageItem img {
+    width: 60px;
+    height: 60px;
+  }
+  .removeBtn {
+    font-size: 8px;
+    width: 14px;
+    height: 14px;
+    top: -3px;
+    right: -3px;
+  }
+  .formActions {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -193,7 +320,8 @@
     height: 12px;
     margin-left: 0px
   }
-  .formContainer button {
+  .submitButton {
+    order :2;
     font-size: 5px;
     height: 15px;
   }
@@ -206,5 +334,34 @@
   }
   .thankYouMessage {
     font-size: 10px;
+  }
+  .uploadSection {
+    order: 1;
+    justify-content: center;
+  }
+  .uploadIcon {
+    width: 15px;
+    height: 15px;
+  }
+  .uploadLabel {
+    font-size: 8px;
+  }
+  .imageList {
+    gap: 5px;
+  }
+  .imageItem img {
+    width: 50px;
+    height: 50px;
+  }
+  .removeBtn {
+    font-size: 6px;
+    width: 12px;
+    height: 12px;
+    top: -2px;
+    right: -2px;
+  }
+  .formActions {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

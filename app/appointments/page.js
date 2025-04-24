@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import styles from "./appointment.module.css";
 import Image from "next/image";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -14,8 +14,10 @@ const AppointmentForm = () => {
     phone: "",
     request: "",
     details: "",
+    images: [],
   });
   const [errors, setErrors] = useState({});
+  const inputRef = useRef();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
 
@@ -37,7 +39,7 @@ const AppointmentForm = () => {
       6
     )}`;
   };
-  
+
   // Validate form fields
   const validateForm = () => {
     let newErrors = {};
@@ -94,102 +96,186 @@ const AppointmentForm = () => {
     }
   };
 
+  const imagePreviews = useMemo(() => {
+    return formData.images.map((file) => ({
+      url: URL.createObjectURL(file),
+      id: crypto.randomUUID(),
+    }));
+  }, [formData.images]);
+
   return (
     <div className={`page-content`}>
       <div className={`page-section ${styles.responivepage}`}>
         <div className="center-aligned">
           <div className={styles.formPage}>
             <div className={styles.formContainer}>
-                <form onSubmit={handleSubmit}>
-                  {/* Name */}
-                  <div>
-                    <label htmlFor="name">Name *</label> <br />
-                    <input
-                      type="text"
-                      id="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      autoComplete="off"
-                      size={39}
-                    />
-                    {errors.name && (
-                      <p className={styles.error}>{errors.name}</p>
-                    )}
-                  </div>
+              <form onSubmit={handleSubmit}>
+                {/* Name */}
+                <div>
+                  <label htmlFor="name">Name *</label> <br />
+                  <input
+                    type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    autoComplete="off"
+                    size={39}
+                  />
+                  {errors.name && <p className={styles.error}>{errors.name}</p>}
+                </div>
 
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="email">Email *</label> <br />
-                    <input
-                      type="text"
-                      id="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      autoComplete="off"
-                      size={39}
-                    />
-                    {errors.email && (
-                      <p className={styles.error}>{errors.email}</p>
-                    )}
-                  </div>
+                {/* Email */}
+                <div>
+                  <label htmlFor="email">Email *</label> <br />
+                  <input
+                    type="text"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    autoComplete="off"
+                    size={39}
+                  />
+                  {errors.email && (
+                    <p className={styles.error}>{errors.email}</p>
+                  )}
+                </div>
 
-                  {/* Phone */}
-                  <div>
-                    <label htmlFor="phone">Phone *</label> <br />
-                    <input
-                      type="text"
-                      id="phone"
-                      value={formatPhoneNumber(formData.phone)}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                      autoComplete="off"
-                      size={39}
-                    />
-                    {errors.phone && (
-                      <p className={styles.error}>{errors.phone}</p>
-                    )}
-                  </div>
+                {/* Phone */}
+                <div>
+                  <label htmlFor="phone">Phone *</label> <br />
+                  <input
+                    type="text"
+                    id="phone"
+                    value={formatPhoneNumber(formData.phone)}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                    autoComplete="off"
+                    size={39}
+                  />
+                  {errors.phone && (
+                    <p className={styles.error}>{errors.phone}</p>
+                  )}
+                </div>
 
-                  {/* Day of Service */}
-                  <div>
-                    <label htmlFor="request">Day Service Requested For</label>{" "}
-                    <br />
-                    <input
-                      type="text"
-                      id="request"
-                      value={formData.request}
-                      onChange={handleChange}
-                      autoComplete="off"
-                      size={39}
-                    />
-                  </div>
+                {/* Day of Service */}
+                <div>
+                  <label htmlFor="request">Day Service Requested For</label>{" "}
+                  <br />
+                  <input
+                    type="text"
+                    id="request"
+                    value={formData.request}
+                    onChange={handleChange}
+                    autoComplete="off"
+                    size={39}
+                  />
+                </div>
 
-                  {/* Details */}
-                  <div>
-                    <label htmlFor="details">Details and Message</label> <br />
-                    <textarea
-                      id="details"
-                      rows={7}
-                      cols={39}
-                      value={formData.details}
-                      onChange={handleChange}
-                    />
-                  </div>
+                {/* Details */}
+                <div>
+                  <label htmlFor="details">Details and Message</label> <br />
+                  <textarea
+                    id="details"
+                    rows={7}
+                    style={{ width: "100%" }}
+                    cols={39}
+                    value={formData.details}
+                    onChange={handleChange}
+                  />
+                </div>
 
-                  {/* reCAPTCHA */}
-                  <div className={styles.recaptcha}>
-                    <ReCAPTCHA
-                      sitekey={reCaptchaSiteKey}
-                      onChange={handleCaptchaChange}
-                    />
-                  </div>
+                {/* reCAPTCHA */}
+                <div className={styles.recaptcha}>
+                  <ReCAPTCHA
+                    sitekey={reCaptchaSiteKey}
+                    onChange={handleCaptchaChange}
+                  />
+                </div>
 
+                {/* Image Previews with Remove Button */}
+                {imagePreviews.length > 0 && (
+                  <div className={styles.imageList}>
+                    {imagePreviews.map((img, index) => (
+                      <div key={index} className={styles.imageItem}>
+                        <img
+                          src={img.url}
+                          width={100}
+                          height={100}
+                          style={{
+                            objectFit: "cover",
+                            borderRadius: "8px",
+                          }}
+                        />
+                        <button
+                          className={styles.removeBtn}
+                          onClick={() => {
+                            // Remove from formData.images too
+                            const updatedImages = [...formData.images];
+                            updatedImages.splice(index, 1);
+                            setFormData((prev) => ({
+                              ...prev,
+                              images: updatedImages,
+                            }));
+                          }}
+                        >
+                          ✕
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* File Upload */}
+                <div
+                 className={styles.formActions}
+                >
                   {/* Submit Button */}
-                  <button type="submit" disabled={!captchaVerified}>
+                  <button
+                    type="submit"
+                    className={styles.submitButton}
+                    disabled={!captchaVerified}
+                  >
                     Submit
                   </button>
-                </form>
+
+                  {/* Upload Section (Icon + Label) */}
+                  <div
+                    className={styles.uploadSection}
+                    onClick={() => inputRef.current?.click()}
+                  >
+                    <Image
+                      src={`/utils/upload.png`}
+                      alt="Upload Icon"
+                      className={styles.uploadIcon}
+                      width={30}
+                      height={30}
+                    />
+                    <label
+                      htmlFor="image"
+                      className={styles.uploadLabel}
+                    >
+                      Upload Images
+                    </label>
+                    <input
+                      type="file"
+                      id="image"
+                      accept="image/*"
+                      multiple
+                      ref={inputRef}
+                      style={{ display: "none" }}
+                      onChange={(e) => {
+                        console.log("-->", e.target.files);
+                        const newImages = Array.from(e.target.files || []);
+                        setFormData((prev) => ({
+                          ...prev,
+                          images: [...prev.images, ...newImages],
+                        }));
+                      }}
+                    />
+                  </div>
+                </div>
+              </form>
             </div>
             <div className={styles.imageContainer}>
               <Image
