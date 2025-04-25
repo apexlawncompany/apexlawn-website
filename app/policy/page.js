@@ -149,27 +149,6 @@ export default function Policy() {
             stored on-file may be removed on request of client after payment.
           </p>
           <div style={{ height: 20 }}></div>
-          <div className={styles["license-row"]}>
-            <div className={styles.heading}>Insurance & Licenses</div>
-            <hr className={styles.separator} />
-
-            <div className={styles.text}>
-              <p>
-                Request a Certificate of General Liability Insurance (contact: {" "}
-                <a href="mailto:client@apexlawncompany.com">
-                  client@apexlawncompany.com
-                </a>
-                )
-              </p>
-              <p>
-                NCDA&CS (contact: {" "}
-                <a href="mailto:client@apexlawncompany.com">
-                  client@apexlawncompany.com
-                </a>
-                )
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
