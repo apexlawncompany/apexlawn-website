@@ -75,11 +75,11 @@ function Footer() {
         )}
 
         {view === 'hours' && (
-          <>
-            <p className={footerStyles.footerText}>{hoursTexts[0]}</p>
+          <div className={footerStyles.hoursWrap}>
+            <p className={`${footerStyles.footerText}`}>{hoursTexts[0]}</p>
             <p className={`${footerStyles.footerText} text-center`}>{hoursTexts[1]}</p>
             <p className={`${footerStyles.footerText} text-right`}>{hoursTexts[2]}</p>
-          </>
+          </div>
         )}
       </div>
     </div>

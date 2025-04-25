@@ -47,13 +47,24 @@
   pointer-events: auto;
 }
 
+.hoursWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 20px !important;
+}
+
 /* Footer responsiveness */
 @media (min-width: 768px) and (max-width: 1024px) {
   .footer {
     padding: 1rem 2rem;
   }
   .footerWrap {
-    font-size: 10px;
+    font-size: 14px;
+  }
+  .hoursWrap {
+    font-size: 14px !important;
   }
 }
 
@@ -64,6 +75,9 @@
   .footerWrap {
     font-size: 8px;
   }
+  .hoursWrap {
+    font-size: 10px !important;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 550px) {
@@ -71,6 +85,11 @@
     padding: 0.5rem 1.5rem;
   }
   .footerWrap {
-    font-size: 4px;
+    font-size: 7px;
+  }
+  .hoursWrap {
+    align-items: center;
+    flex-direction: column;
+    font-size: 8px !important;
   }
 }
