@@ -72,9 +72,9 @@ function Footer() {
               </span>
             </p>
             <p className={`${footerStyles.footerText} text-center`}>
-              <a className={footerStyles.linkBtn} href="/licenses">
+              <Link className={footerStyles.linkBtn} href="/licenses">
                 Licenses & Insurance
-              </a>
+              </Link>
             </p>
             <p
               className={`${footerStyles.footerText} ${footerStyles.footerTextMax} text-right`}
