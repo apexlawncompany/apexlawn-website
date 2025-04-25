@@ -364,7 +364,7 @@ const DronePage = () => {
                             e.target.files || []
                           );
 
-                          const maxFileSizeMB = 10; // for example, 10 MB
+                          const maxFileSizeMB = 25; // for example, 10 MB
                           const validFiles = selectedFiles.filter((file) => {
                             if (file.size > maxFileSizeMB * 1024 * 1024) {
                               alert(
