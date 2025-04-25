@@ -11,7 +11,6 @@
 
 .footer {
   background-color: rgb(71, 71, 71);
-  /* height: 52px; */
   padding: 1rem 0.5rem;
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
@@ -27,9 +26,10 @@
 
 .footerText {
   flex: 1;
+  /* cursor: default; */
 }
 
-.footerText:hover {
+.linkBtn:hover {
   color: rgb(13, 13, 13);
   transition: color 0.2s ease;
 }
@@ -38,29 +38,58 @@
   max-width: 272px;
 }
 
+.linkBtn {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  pointer-events: auto;
+}
+
+.hoursWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 14px !important;
+}
+
+/* Footer responsiveness */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .footer{
+  .footer {
     padding: 1rem 2rem;
   }
   .footerWrap {
-    font-size: 10px;
+    font-size: 14px;
+  }
+  .hoursWrap {
+    font-size: 14px !important;
   }
 }
 
 @media (min-width: 550px) and (max-width: 768px) {
-  .footer{
+  .footer {
     padding: 1rem 2.5rem;
   }
   .footerWrap {
-    font-size: 8px;
+    font-size: 10px;
+  }
+  .hoursWrap {
+    font-size: 10px !important;
   }
 }
 
 @media (min-width: 320px) and (max-width: 550px) {
-  .footer{
+  .footer {
     padding: 0.5rem 1.5rem;
   }
   .footerWrap {
-    font-size: 4px;
+    font-size: 9px;
+  }
+  .hoursWrap {
+    align-items: center;
+    flex-direction: column;
+    font-size: 9px !important;
   }
 }
