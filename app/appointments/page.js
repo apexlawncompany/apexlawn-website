@@ -200,7 +200,8 @@ const AppointmentForm = () => {
                     {imagePreviews.map((item, index) => (
                       <div key={index} className={styles.imageItem}>
                         {item.type.startsWith("image/") ? (
-                          <img
+                          <Image
+                            alt="Preview"
                             src={item.url}
                             width={100}
                             height={100}

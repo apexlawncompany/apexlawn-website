@@ -343,6 +343,7 @@
   }
   .uploadSection {
     order: 1;
+    margin-top: 10px;
     justify-content: center;
   }
   .uploadIcon {
