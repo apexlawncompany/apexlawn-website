@@ -243,9 +243,7 @@ const AppointmentForm = () => {
                 )}
 
                 {/* File Upload */}
-                <div
-                 className={styles.formActions}
-                >
+                <div className={styles.formActions}>
                   {/* Submit Button */}
                   <button
                     type="submit"
@@ -258,7 +256,16 @@ const AppointmentForm = () => {
                   {/* Upload Section (Icon + Label) */}
                   <div
                     className={styles.uploadSection}
-                    onClick={() => inputRef.current?.click()}
+                    onClick={() => {
+                      const message = `LAWNCARE: Photos of the front back and sides as well as mulch and pine straw beds that need to be refreshed annually
+
+LANDSCAPE: Siteplan, or platmap, delineation of proposed project area, and photo(s) of proposed project area
+
+IRRIGATION: Photos of controller, panel behind controller, and any visible issues (broken heads etc.)`;
+                      if (window.confirm(message)) {
+                        inputRef.current?.click(); // Only open file picker after OK
+                      }
+                    }}
                   >
                     <Image
                       src={`/utils/upload.png`}

@@ -8,6 +8,7 @@ function Footer() {
   const footerRef = useRef(null);
   const [fade, setFade] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showAddress, setShowAddress] = useState(false);
   const [currentHourText, setCurrentHourText] = useState(0);
   const hoursTexts = [
     "Open Till 7pm Today",
@@ -28,20 +29,19 @@ function Footer() {
 
   // Cycle through texts if mobile and viewing hours
   useEffect(() => {
-    if (view === "hours" && isMobile) {
+    if (view === "default" && isMobile) {
       const interval = setInterval(() => {
         setFade(true); // Start fading out
-  
+
         setTimeout(() => {
           setCurrentHourText((prev) => (prev + 1) % hoursTexts.length);
           setFade(false); // Fade back in
         }, 500); // fade out duration (500ms)
       }, 3000); // Show each text for 3 seconds
-  
+
       return () => clearInterval(interval);
     }
   }, [view, isMobile, hoursTexts.length]);
-  
 
   // Handle click outside any textable footer content
   useEffect(() => {
@@ -75,9 +75,21 @@ function Footer() {
             >
               © ® 2025
             </p>
-            <p className={`${footerStyles.footerText} text-center`}>
-              501 W Williams St. P.O. Box 1012, Apex, NC 27502
-            </p>
+
+            {isMobile ? (
+              <p
+                className={`${footerStyles.footerText} text-center ${
+                  fade ? footerStyles.fade : ""
+                }`}
+              >
+                {hoursTexts[currentHourText]}
+              </p>
+            ) : (
+              <p className={`${footerStyles.footerText} text-center`}>
+                501 W Williams St. P.O. Box 1012, Apex, NC 27502
+              </p>
+            )}
+
             <p
               className={`${footerStyles.footerText} ${footerStyles.footerTextMax} text-right`}
             >
@@ -93,19 +105,36 @@ function Footer() {
 
         {view === "about" && (
           <>
-            <p className={footerStyles.footerText}>
-              <span
-                className={footerStyles.linkBtn}
-                onClick={() => setView("hours")}
-              >
-                Hours & Location
-              </span>
-            </p>
+            {isMobile ? (
+              <p className={footerStyles.footerText}>
+                {showAddress ? (
+                  "501 W Williams St. P.O. Box 1012, Apex, NC 27502"
+                ) : (
+                  <span
+                    className={footerStyles.linkBtn}
+                    onClick={() => setShowAddress(true)}
+                  >
+                    Address
+                  </span>
+                )}
+              </p>
+            ) : (
+              <p className={footerStyles.footerText}>
+                <span
+                  className={footerStyles.linkBtn}
+                  onClick={() => setView("hours")}
+                >
+                  Hours & Location
+                </span>
+              </p>
+            )}
+
             <p className={`${footerStyles.footerText} text-center`}>
               <Link className={footerStyles.linkBtn} href="/licenses">
                 Licenses & Insurance
               </Link>
             </p>
+
             <p
               className={`${footerStyles.footerText} ${footerStyles.footerTextMax} text-right`}
             >
@@ -117,23 +146,15 @@ function Footer() {
         )}
 
         {view === "hours" && (
-          <div className={footerStyles.hoursWrap}>
-            {isMobile ? (
-              <p className={`${footerStyles.footerText} text-center ${fade ? footerStyles.fade : ""}`}>
-              {hoursTexts[currentHourText]}
+          <>
+            <p className={`${footerStyles.footerText}`}>{hoursTexts[0]}</p>
+            <p className={`${footerStyles.footerText} text-center`}>
+              {hoursTexts[1]}
             </p>
-            ) : (
-              <>
-                <p className={`${footerStyles.footerText}`}>{hoursTexts[0]}</p>
-                <p className={`${footerStyles.footerText} text-center`}>
-                  {hoursTexts[1]}
-                </p>
-                <p className={`${footerStyles.footerText} text-right`}>
-                  {hoursTexts[2]}
-                </p>
-              </>
-            )}
-          </div>
+            <p className={`${footerStyles.footerText} text-right`}>
+              {hoursTexts[2]}
+            </p>
+          </>
         )}
       </div>
     </div>
