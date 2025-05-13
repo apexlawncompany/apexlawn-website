@@ -20,6 +20,8 @@ const AppointmentForm = () => {
   const inputRef = useRef();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [openFileExplorer, setOpenFileExplorer] = useState(false);
 
   const reCaptchaSiteKey = "6LeIarEqAAAAADgWfRRxNEzrqdSGUCDx1RPEoRJV"; // Replace with your actual site key
 
@@ -27,6 +29,25 @@ const AppointmentForm = () => {
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
+  };
+
+  const handleUploadClick = () => {
+    if (!openFileExplorer) {
+      setShowModal(true);
+    }
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false); // Close the modal
+  };
+
+  const handleContinueClick = () => {
+    setShowModal(false); // Close the modal
+    setOpenFileExplorer(true);
+    setTimeout(() => {
+      inputRef.current?.click(); // Open the file explorer after modal closes
+      setOpenFileExplorer(false); // Reset the flag after opening the file explorer
+    }, 100); // Small delay to ensure modal closes first
   };
 
   // Format Phone Numbers
@@ -216,7 +237,11 @@ const AppointmentForm = () => {
                             📄 PDF File
                           </a>
                         ) : item.type.startsWith("video/") ? (
-                          <video width={100} height={100} style={{ objectFit: "cover", borderRadius: "8px" }}>
+                          <video
+                            width={100}
+                            height={100}
+                            style={{ objectFit: "cover", borderRadius: "8px" }}
+                          >
                             <source src={item.url} type={item.type} />
                             Your browser does not support the video tag.
                           </video>
@@ -256,7 +281,7 @@ const AppointmentForm = () => {
                   {/* Upload Section (Icon + Label) */}
                   <div
                     className={styles.uploadSection}
-                    onClick={() => inputRef.current?.click()}
+                    onClick={handleUploadClick}
                   >
                     <Image
                       src={`/utils/upload.png`}
@@ -265,19 +290,15 @@ const AppointmentForm = () => {
                       width={30}
                       height={30}
                     />
-                    <label htmlFor="image" className={styles.uploadLabel}>
-                      Upload Images
-                    </label>
+                    <label className={styles.uploadLabel}>Upload Images</label>
                     <input
                       type="file"
-                      id="image"
                       accept="image/*,application/pdf,video/*"
                       capture="environment"
                       multiple
                       ref={inputRef}
                       style={{ display: "none" }}
                       onChange={(e) => {
-                        console.log("-->", e.target.files);
                         const selectedFiles = Array.from(e.target.files || []);
 
                         const maxFileSizeMB = 25; // for example, 10 MB
@@ -312,6 +333,43 @@ const AppointmentForm = () => {
           </div>
         </div>
       </div>
+
+      {/* Upload Instructions Modal */}
+      {showModal && (
+        <div className={styles.modalBackdrop}>
+          <div className={styles.modal}>
+            {/* Close Icon */}
+            <button
+              className={styles.closeIcon}
+              onClick={handleModalClose}
+              aria-label="Close Modal"
+            >
+              ✕
+            </button>
+            <h3>📷 Upload Instructions</h3>
+            <ul>
+              <li>
+                <strong>Lawncare:</strong> Photos of the front, back, sides, and
+                mulch/pine straw beds to be refreshed annually.
+              </li>
+              <li>
+                <strong>Landscape:</strong> Site plan or plat map, project area
+                delineation, and photo(s) of proposed project area.
+              </li>
+              <li>
+                <strong>Irrigation:</strong> Photo of controller, panel behind
+                it, and any visible issues (e.g., broken heads).
+              </li>
+            </ul>
+            <button
+              className={styles.continueBtn}
+              onClick={handleContinueClick}
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
