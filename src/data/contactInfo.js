@@ -1,5 +1,5 @@
 const contactInfo = {
-    phoneNumber: "9199394665",
+    phoneNumber: "(919) 939-4665",
     email: "client@apexlawncompany.com",
   };
   
