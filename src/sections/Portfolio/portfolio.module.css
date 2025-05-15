@@ -17,7 +17,63 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+/* Container for the icons row */
+.roundIconsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 50px 0;
+}
+
+/* Container for the buttons */
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 1rem;  */
+}
+
+.portfolioCombo {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  border: 5px solid rgb(255, 221, 0);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  transition: transform 0.2s ease;
+}
+
+.portfolioCombo:hover {
+  transform: scale(1.1);
+}
+
+.portfolioIcon {
+  margin-bottom: 8px;
+}
+
+.portfolioText{
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.instaIcon {
+  border: 5px solid rgb(255, 221, 0);
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.instaIcon:hover {
+  transform: scale(1.1);
 }
 
 .appointmentBtn {
@@ -25,7 +81,7 @@
   margin: 2px 0;
 }
 
-.portfolioBtnWrp {
+.carouselBtnWrp{
   position: absolute;
   width: calc(100% + 10px);
   top: -5px;
@@ -33,10 +89,31 @@
   z-index: 99;
 }
 
-.portfolioBtn {
+.carouselServicesBtn {
   padding: 10px;
   margin: 0;
   background: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .appointments {
+    justify-content: space-evenly;
+  }
+  .portfolioCombo {
+    width: 100px;
+    height: 100px;
+  }
+  .portfolioText{
+    font-size: 13px;
+  }
+  .portfolioIcon{
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .instaIcon {
+    width: 100px !important;
+    height: 100px !important;
+  }
 }
 
 @media (max-width: 750px) {
@@ -48,6 +125,26 @@
   .appointments {
     width: 100%;
   }
+  .roundIconsContainer {
+    order: 2;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+  .portfolioCombo {
+    width: 100px;
+    height: 100px;
+  }
+  .portfolioText{
+    font-size: 12px;
+  }
+  .portfolioIcon{
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .instaIcon {
+    width: 100px !important;
+    height: 100px !important;
+  }
 }
 
 @media (max-width: 425px) {
@@ -57,5 +154,27 @@
   }
   .portfolio {
     margin: 16px 0 25px;
+  }
+  .roundIconsContainer {
+    order: 2;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+  .portfolioCombo {
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgb(255, 221, 0);
+  }
+  .portfolioText{
+    font-size: 9px;
+  }
+  .portfolioIcon{
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .instaIcon {
+    border: 2px solid rgb(255, 221, 0);
+    width: 80px !important;
+    height: 80px !important;
   }
 }
