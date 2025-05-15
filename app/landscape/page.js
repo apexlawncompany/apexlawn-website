@@ -36,9 +36,9 @@ export default function LandScape() {
     { text: "Mulching & Ground Cover ", path: "mulch" },
     { text: "Sodding & Seeding", path: "sodding" },
     { text: "Drainage", path: "drainage" },
-    { text: "Soil", path: "soil" },
+    { text: "Top Dressing", path: "topdressing" },
     { text: "Hardscaping", path: "hardScaping" },
-    { text: "Cleanup Services", path: "cleanUp" },
+    { text: "Cleanup Services", path: "cleanup" },
   ];
 
   return (

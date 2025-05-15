@@ -67,7 +67,7 @@ const landscapingdata = [
   },
 
   {
-    id: "soil",
+    id: "topdressing",
     title: "Top Dressing & Spreading",
     details: [
       {
@@ -117,7 +117,7 @@ const landscapingdata = [
   },
 
   {
-    id: "cleanUp",
+    id: "cleanup",
     title: "Cleanup Services",
     details: [
       {

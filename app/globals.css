@@ -22,6 +22,10 @@ body {
   overflow-x: hidden;
 }
 
+[id] {
+  scroll-margin-top: 150px; /* Adjust based on your header height */
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
