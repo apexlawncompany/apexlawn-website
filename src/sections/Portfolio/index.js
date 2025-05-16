@@ -33,10 +33,10 @@ function Portfolio() {
           >
             <div className={styles.portfolioCombo}>
               <Image
-                src="/portfolio.png"
+                src="/gallery.png"
                 alt="Portfolio"
-                width={50}
-                height={50}
+                width={70}
+                height={65}
                 className={styles.portfolioIcon}
               />
               <span className={styles.portfolioText}>View Portfolio</span>
@@ -50,7 +50,7 @@ function Portfolio() {
             title="Visit Instagram"
           >
             <Image
-              src="/instagram.png"
+              src="/instagram_icon.png"
               alt="Instagram"
               width={150}
               height={150}
