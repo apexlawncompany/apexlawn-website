@@ -38,7 +38,7 @@
 .portfolioCombo {
   width: 150px;
   height: 150px;
-  background-color: black;
+  /* background-color: black; */
   border: 5px solid rgb(255, 221, 0);
   border-radius: 50%;
   display: flex;
