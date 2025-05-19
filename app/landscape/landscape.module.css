@@ -151,6 +151,17 @@
   .blackTextButton {
     color: #ededed !important;
   }
+  .tabHeader {
+    border: 2px solid white;
+  }
+  .tabButton {
+    background-color: black;
+    color: white;
+  }
+  .activeTab {
+    background-color: white;
+    color: black;
+  }
 }
 
 @media (max-width: 1024px) {

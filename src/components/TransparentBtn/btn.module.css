@@ -18,6 +18,13 @@
   color: rgb(22, 22, 22);
 }
 
+@media (prefers-color-scheme: dark) {
+  .transparentBtn:hover {
+    background: transparent;
+    color: #fff;
+  }
+}
+
 @media (max-width: 750px) {
   .transparentBtn {
     font-size: 15px;

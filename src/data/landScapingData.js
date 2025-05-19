@@ -37,7 +37,7 @@ const landscapingdata = [
           },
         ],
         image: "/assets/stones.JPG",
-        link: "/mulch",
+        link: "/stone",
       },
     },
     component: MulchSection,
