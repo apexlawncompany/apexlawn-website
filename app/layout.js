@@ -74,6 +74,23 @@ export default function RootLayout({ children }) {
     `,
           }}
         />
+        
+        {/* Fraud Blocker */}
+        <Script
+          id="fraud-blocker"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+      (function () {
+        var s = document.createElement("script"),
+          h = document.head;
+        s.async = 1;
+        s.src = "https://monitor.fraudblocker.com/fbt.js?sid=foZzqTgYKvkBW87Or4EhU";
+        h.appendChild(s);
+      })();
+    `,
+          }}
+        />
 
         <script
           type="application/ld+json"
@@ -125,8 +142,15 @@ export default function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-
-        {/* End Google Tag Manager (noscript) */}
+        {/* Fraud Blocker (noscript) */}
+        <noscript>
+          <a href="https://fraudblocker.com" rel="nofollow">
+            <img
+              src="https://monitor.fraudblocker.com/fbt.gif?sid=foZzqTgYKvkBW87Or4EhU"
+              alt="Fraud Blocker"
+            />
+          </a>
+        </noscript>
 
         <Header />
         {children}
