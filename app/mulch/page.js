@@ -72,11 +72,11 @@ export default function Mulch() {
                   padding: "15px 5%",
                 }}
               >
-                <div>
+                {/* <div>
                   <h1 style={{ color: "white", whiteSpace: "nowrap" }}>
                     {mulchInfo.about.title}
                   </h1>
-                </div>
+                </div> */}
                 <div>
                   <p style={{ color: "white" }}>
                     {mulchInfo.about.description}

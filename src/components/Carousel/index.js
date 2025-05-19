@@ -1,12 +1,12 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import { Autoplay, EffectCreative } from "swiper/modules";
-import CAROUSEL_DATA from "@/src/data/carousel";
+import "swiper/css";
 import Image from "next/image";
+import CAROUSEL_DATA from "@/src/data/carousel";
 import styles from "./carousel.module.css";
 
-function Carousel({ onSlideChange }) {
+function Carousel({ onSlideChange, swiperRef }) {
   return (
     <Swiper
       spaceBetween={30}
@@ -19,6 +19,7 @@ function Carousel({ onSlideChange }) {
       speed={500}
       effect={"creative"}
       onSlideChange={(swiper) => onSlideChange(swiper.realIndex)}
+      onSwiper={(swiper) => (swiperRef.current = swiper)}
       creativeEffect={{
         prev: {
           shadow: true,
@@ -29,10 +30,10 @@ function Carousel({ onSlideChange }) {
         },
       }}
       modules={[Autoplay, EffectCreative]}
-      className="mySwiper"
+      className={styles.carouselSwiper}
     >
       {CAROUSEL_DATA.map((item, index) => (
-        <SwiperSlide key={"carousel-" + index}>
+        <SwiperSlide key={`carousel-${index}`}>
           <div style={{ width: "100%", height: "100%", position: "relative" }}>
             <Image
               alt={item.label}

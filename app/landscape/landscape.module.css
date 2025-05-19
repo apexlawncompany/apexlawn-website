@@ -38,6 +38,62 @@
   flex-direction: row-reverse;
 }
 
+.tabHeader {
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  margin: 10px auto;
+  border: 2px solid black;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.tabButton {
+  flex: 1;
+  padding: 8px 0;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.activeTab {
+  background-color: black;
+  color: white;
+}
+
+.tabDivider {
+  width: 2px;
+  background-color: black;
+}
+
+.horizontalScrollContainer {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 20px;
+}
+
+.horizontalScrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 100%;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  scroll-snap-align: start;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
 .serviceText {
   flex: 1;
 }
@@ -95,6 +151,17 @@
   .blackTextButton {
     color: #ededed !important;
   }
+  .tabHeader {
+    border: 2px solid white;
+  }
+  .tabButton {
+    background-color: black;
+    color: white;
+  }
+  .activeTab {
+    background-color: white;
+    color: black;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -134,6 +201,9 @@
   }
   .footer {
     padding: 25px 5%;
+  }
+  .tabButton {
+    font-size: 18px;
   }
 }
 
@@ -179,6 +249,17 @@
   }
   .footer {
     padding: 20px 5%;
+  }
+  .horizontalScrollContainer {
+    gap: 20px
+  }
+  .slide {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+  }
+  .tabButton {
+    font-size: 15px;
   }
 }
 
@@ -227,6 +308,17 @@
   }
   .footer {
     padding: 5px 5%;
+  }
+  .horizontalScrollContainer {
+    gap: 20px
+  }
+  .slide {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+  }
+  .tabButton {
+    font-size: 14px;
   }
 }
 
@@ -277,5 +369,16 @@
   }
   .footer {
     padding: 5px 5%;
+  }
+  .horizontalScrollContainer {
+    gap: 20px
+  }
+  .slide {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+  }
+  .tabButton {
+    font-size: 14px;
   }
 }
