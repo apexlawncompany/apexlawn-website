@@ -5,7 +5,7 @@ const CAROUSEL_DATA = [
     link: "/lawncare",
   },
   {
-    image: "/carousel/carousel_landscaping.JPG",
+    image: "/carousel/landscape.JPG",
     label: "Landscaping",
     link: "/landscape",
   },
@@ -17,7 +17,7 @@ const CAROUSEL_DATA = [
   },
 
   {
-    image: "/carousel/carousel_irrigation.JPG",
+    image: "/carousel/irrigation.JPG",
     label: "Irrigation",
     link: "/irrigation",
   },

@@ -6,8 +6,8 @@ function TransparentBtn({ children, className, ...otherProps }) {
   const router = useRouter();
 
   const handleButtonClick = (event) => {
-    const isInsideLink = event.currentTarget.closest('a');
-    if (isInsideLink) {
+    const tag = event.target.tagName.toLowerCase();
+    if (['a', 'img', 'svg', 'path'].includes(tag)) {
       return;
     }
     router.push('/appointments');

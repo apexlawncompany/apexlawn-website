@@ -8,29 +8,41 @@ import CleanupSection from "../components/LandScapingServices/cleanupSection";
 const landscapingdata = [
   {
     id: "mulch",
-    title: "Mulch & Ground Cover",
-    details: [
-      {
-        price: "$67 per cy starting and $94 for designer mulches",
-        description:
-          'We make sure your mulch beds are thick, even, and well defined. Purchase, delivery, and cleanup of the mulch are included in the service. Each cy covers ~100sqft @3". Call for pricing on larger projects.',
+    title: "Mulch & Stone Ground Cover",
+    tabs: {
+      mulch: {
+        title: "Mulch & Ground Cover",
+        details: [
+          {
+            price: "$67 per cy starting and $94 for designer mulches",
+            description:
+              'We make sure your mulch beds are thick, even, and well defined. Purchase, delivery, and cleanup of the mulch are included in the service. Each cy covers ~100sqft @3". Call for pricing on larger projects.',
+          },
+          {
+            price: "$12.50 per bale for pine straw",
+            description:
+              "We supply long-leaf pinestraw from farms that preserve the endangered long-leaf pine. Long-leaf needles last longer and are more vibrant. 5 bales cover 200sqft.",
+          },
+        ],
+        image: "/assets/mulch.JPG",
+        link: "/mulch",
       },
-      {
-        price: "$12.50 per bale for pine straw",
-        description:
-          "We supply long-leaf pinestraw from farms that preserve the endangered long-leaf pine. Long-leaf needles last longer and are more vibrant. 5 bales cover 200sqft.",
+      stone: {
+        title: "Stone & Aggregates",
+        details: [
+          {
+            price: "$198 per cy starting aggregate",
+            description:
+              'We offer 1" gravel for driveways and 1" ABC stone for areas requiring less permiation, decorative gravel for walkways and garden beds, and aggregates such as sand for a variety of applications.',
+          },
+        ],
+        image: "/assets/stones.JPG",
+        link: "/mulch",
       },
-      {
-        price: "$198 per cy starting aggregate",
-        description:
-          'We offer 1" gravel for driveways and 1" ABC stone for areas requiring less permiation, decorative gravel for walkways and garden beds, and aggregates such as sand for a variety of applications.',
-      },
-    ],
-    image: "/assets/mulch.JPG",
-    link: "/mulch",
+    },
     component: MulchSection,
   },
-
+  
   {
     id: "sodding",
     title: "Sodding & New Lawns",

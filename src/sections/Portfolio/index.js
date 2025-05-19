@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import styles from "./portfolio.module.css";
 import Carousel from "@/src/components/Carousel";
@@ -9,19 +9,45 @@ import CAROUSEL_DATA from "@/src/data/carousel";
 
 function Portfolio() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const swiperRef = useRef(null);
   const activeSlide = CAROUSEL_DATA[activeIndex];
+
+  const handlePrev = () => {
+    swiperRef.current?.slidePrev();
+  };
+
+  const handleNext = () => {
+    swiperRef.current?.slideNext();
+  };
 
   return (
     <div className={styles.portfolio}>
       <div className={styles.carousel}>
+        {/* Navigation + Tab Button */}
         <div className={styles.carouselBtnWrp}>
-          <Link href={activeSlide.link} style={{ width: "100%" }}>
-            <TransparentBtn className={styles.carouselServicesBtn}>
+          <TransparentBtn className={styles.carouselServicesBtn}>
+            <Image
+              src="/carousel/back-arrow.png"
+              alt="Previous"
+              width={20}
+              height={20}
+              className={styles.chevronIcon}
+              onClick={handlePrev}
+            />
+            <Link href={activeSlide.link} style={{ width: "100%", textAlign: "center" }}>
               {activeSlide.label}
-            </TransparentBtn>
-          </Link>
+            </Link>
+            <Image
+              src="/carousel/right-chevron.png"
+              alt="Next"
+              width={20}
+              height={20}
+              className={styles.chevronIcon}
+              onClick={handleNext}
+            />
+          </TransparentBtn>
         </div>
-        <Carousel onSlideChange={setActiveIndex} />
+        <Carousel onSlideChange={setActiveIndex} swiperRef={swiperRef} />
       </div>
       <div className={styles.appointments}>
         {/* Icons Row Container */}
