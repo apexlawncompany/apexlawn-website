@@ -7,10 +7,15 @@ import Link from "next/link";
 
 export default function MulchSection({ service }) {
   const [activeTab, setActiveTab] = useState("mulch");
+  const [selectedPattern, setSelectedPattern] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
   const scrollRef = useRef(null);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+    setSelectedPattern(null);
+    setSelectedSize(null);
+
     if (scrollRef.current) {
       const index = tab === "stone" ? 1 : 0;
       scrollRef.current.scrollTo({
@@ -63,14 +68,24 @@ export default function MulchSection({ service }) {
       >
         {["mulch", "stone"].map((tabKey) => {
           const tabData = service.tabs[tabKey];
+          const isStoneTab = tabKey === "stone";
+
           return (
             <div key={tabKey} className={`${styles.slide}`}>
               <div className={styles.serviceImage}>
                 <Image
-                  src={tabData.image}
-                  alt={tabData.title}
+                  src={
+                    isStoneTab && selectedPattern?.image
+                      ? selectedPattern.image
+                      : tabData.image
+                  }
+                  alt={
+                    isStoneTab && selectedPattern?.name
+                      ? selectedPattern.name
+                      : tabData.title
+                  }
                   width={330}
-                  height={300}
+                  height={320}
                   className={`${styles.image} ${styles.mulchImage}`}
                 />
                 <div className={styles.buttonGroup}>
@@ -83,17 +98,69 @@ export default function MulchSection({ service }) {
                   </Link>
                 </div>
               </div>
+
               <div className={styles.serviceText}>
                 <h3>{tabData.title}</h3>
-                {tabData.details.map((detail, index) => (
-                  <div key={index}>
-                    <p className={styles.priceList}>
+
+                {isStoneTab ? (
+                  <div>
+                  <p className={styles.priceList}>
+                    <strong>{selectedPattern?.price || tabData.details?.[0]?.price}</strong>
+                  </p>
+                  <p>{tabData.details[0].description}</p>
+                  </div>
+                ) : (
+                  <>
+                    {tabData.details?.map((detail, index) => (
+                      <div key={index}>
+                        <p className={styles.priceList}>
                       <strong>{detail.price}</strong>
                     </p>
                     <p>{detail.description}</p>
                     <br />
-                  </div>
-                ))}
+                      </div>
+                    ))}
+                  </>
+                )}
+                
+                {isStoneTab && tabData.patterns && (
+                  <>
+                    <div className={styles.selectorRow}>
+                      {tabData.patterns.map((pattern, index) => (
+                        <button
+                          key={index}
+                          className={`${styles.patternBtn} ${
+                            selectedPattern?.name === pattern.name
+                              ? styles.active
+                              : ""
+                          }`}
+                          onClick={() => {
+                            setSelectedPattern(pattern);
+                            setSelectedSize(null);
+                          }}
+                        >
+                          {pattern.name}
+                        </button>
+                      ))}
+                    </div>
+
+                    {selectedPattern && (
+                      <div className={styles.selectorRow}>
+                        {selectedPattern.sizes.map((size, index) => (
+                          <button
+                            key={index}
+                            className={`${styles.sizeBtn} ${
+                              selectedSize === size ? styles.active : ""
+                            }`}
+                            onClick={() => setSelectedSize(size)}
+                          >
+                            {size}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                )}
               </div>
             </div>
           );
