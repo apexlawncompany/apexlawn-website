@@ -60,111 +60,114 @@ export default function MulchSection({ service }) {
         </button>
       </div>
 
-      {/* Horizontal Scroll Content */}
-      <div
-        className={styles.horizontalScrollContainer}
-        ref={scrollRef}
-        onScroll={handleScroll}
-      >
-        {["mulch", "stone"].map((tabKey) => {
-          const tabData = service.tabs[tabKey];
-          const isStoneTab = tabKey === "stone";
+      <div className={styles.scrollWrapper}>
+        {activeTab === "mulch" && <div className={styles.rightFade} />}
+        {/* Horizontal Scroll Content */}
+        <div
+          className={styles.horizontalScrollContainer}
+          ref={scrollRef}
+          onScroll={handleScroll}
+        >
+          {["mulch", "stone"].map((tabKey) => {
+            const tabData = service.tabs[tabKey];
+            const isStoneTab = tabKey === "stone";
 
-          return (
-            <div key={tabKey} className={`${styles.slide}`}>
-              <div className={styles.serviceImage}>
-                <Image
-                  src={
-                    isStoneTab && selectedPattern?.image
-                      ? selectedPattern.image
-                      : tabData.image
-                  }
-                  alt={
-                    isStoneTab && selectedPattern?.name
-                      ? selectedPattern.name
-                      : tabData.title
-                  }
-                  width={330}
-                  height={320}
-                  className={`${styles.image} ${styles.mulchImage}`}
-                />
-                <div className={styles.buttonGroup}>
-                  <Link href={tabData.link} style={{ width: "100%" }}>
-                    <TransparentBtn className={styles.blackTextButton}>
-                      {tabKey === "mulch"
-                        ? "See Mulch Options"
-                        : "See Stone Options"}
-                    </TransparentBtn>
-                  </Link>
-                </div>
-              </div>
-
-              <div className={styles.serviceText}>
-                <h3>{tabData.title}</h3>
-
-                {isStoneTab ? (
-                  <div>
-                  <p className={styles.priceList}>
-                    <strong>{selectedPattern?.price || tabData.details?.[0]?.price}</strong>
-                  </p>
-                  <p>{tabData.details[0].description}</p>
+            return (
+              <div key={tabKey} className={`${styles.slide}`}>
+                <div className={styles.serviceImage}>
+                  <Image
+                    src={
+                      isStoneTab && selectedPattern?.image
+                        ? selectedPattern.image
+                        : tabData.image
+                    }
+                    alt={tabData.title}
+                    width={330}
+                    height={247}
+                    className={styles.image}
+                    style={isStoneTab && selectedPattern?.image ? { objectFit: "cover" } : {objectFit: "contain"}}
+                  />
+                  <div className={styles.buttonGroup}>
+                    <Link href={tabData.link} style={{ width: "100%" }}>
+                      <TransparentBtn className={styles.blackTextButton}>
+                        {tabKey === "mulch"
+                          ? "See Mulch Options"
+                          : "See Stone Options"}
+                      </TransparentBtn>
+                    </Link>
                   </div>
-                ) : (
-                  <>
-                    {tabData.details?.map((detail, index) => (
-                      <div key={index}>
-                        <p className={styles.priceList}>
-                      <strong>{detail.price}</strong>
-                    </p>
-                    <p>{detail.description}</p>
-                    <br />
-                      </div>
-                    ))}
-                  </>
-                )}
-                
-                {isStoneTab && tabData.patterns && (
-                  <>
-                    <div className={styles.selectorRow}>
-                      {tabData.patterns.map((pattern, index) => (
-                        <button
-                          key={index}
-                          className={`${styles.patternBtn} ${
-                            selectedPattern?.name === pattern.name
-                              ? styles.active
-                              : ""
-                          }`}
-                          onClick={() => {
-                            setSelectedPattern(pattern);
-                            setSelectedSize(null);
-                          }}
-                        >
-                          {pattern.name}
-                        </button>
-                      ))}
-                    </div>
+                </div>
 
-                    {selectedPattern && (
+                <div className={styles.serviceText}>
+                  <h3>{tabData.title}</h3>
+
+                  {isStoneTab ? (
+                    <div>
+                      <p className={styles.priceList}>
+                        <strong>
+                          {selectedPattern?.price ||
+                            tabData.details?.[0]?.price}
+                        </strong>
+                      </p>
+                      <p>{tabData.details[0].description}</p>
+                    </div>
+                  ) : (
+                    <>
+                      {tabData.details?.map((detail, index) => (
+                        <div key={index}>
+                          <p className={styles.priceList}>
+                            <strong>{detail.price}</strong>
+                          </p>
+                          <p>{detail.description}</p>
+                          <br />
+                        </div>
+                      ))}
+                    </>
+                  )}
+
+                  {isStoneTab && tabData.patterns && (
+                    <>
                       <div className={styles.selectorRow}>
-                        {selectedPattern.sizes.map((size, index) => (
+                        {tabData.patterns.map((pattern, index) => (
                           <button
                             key={index}
-                            className={`${styles.sizeBtn} ${
-                              selectedSize === size ? styles.active : ""
+                            className={`${styles.patternBtn} ${
+                              selectedPattern?.name === pattern.name
+                                ? styles.active
+                                : ""
                             }`}
-                            onClick={() => setSelectedSize(size)}
+                            onClick={() => {
+                              setSelectedPattern(pattern);
+                              setSelectedSize(null);
+                            }}
                           >
-                            {size}
+                            {pattern.name}
                           </button>
                         ))}
                       </div>
-                    )}
-                  </>
-                )}
+
+                      {selectedPattern && (
+                        <div className={styles.selectorRow}>
+                          {selectedPattern.sizes.map((size, index) => (
+                            <button
+                              key={index}
+                              className={`${styles.sizeBtn} ${
+                                selectedSize === size ? styles.active : ""
+                              }`}
+                              onClick={() => setSelectedSize(size)}
+                            >
+                              {size}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
 
       {/* Call to Action Buttons */}
