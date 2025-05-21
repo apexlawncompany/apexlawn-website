@@ -28,6 +28,7 @@ export default function SoilSection({ service }) {
           width={280}
           height={300}
           className={styles.image}
+          style={{ objectFit: "cover", objectPosition: "left" }}
         />
         <div className={styles.buttonGroup}>
           <Link href={link} style={{ width: "100%" }}>
