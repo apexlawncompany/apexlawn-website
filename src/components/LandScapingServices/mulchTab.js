@@ -15,8 +15,8 @@ export default function MulchTab({ tabData }) {
           alt={tabData.title}
           width={330}
           height={247}
-          className={styles.image}
-          style={{ objectFit: "contain" }}
+          className={styles.mulchImg}
+          style={{ objectFit: "contain"}}
         />
         <div className={styles.buttonGroup}>
           <Link href={tabData.link} style={{ width: "100%" }}>

@@ -26,7 +26,7 @@ export default function StoneTab({ tabData }) {
           alt={tabData.title}
           width={330}
           height={247}
-          className={styles.image}
+          className={styles.stoneImg}
           style={{ objectFit: selectedPattern?.image ? "cover" : "contain" }}
         />
         <div className={styles.buttonGroup}>
