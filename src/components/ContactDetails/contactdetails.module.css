@@ -19,7 +19,7 @@
     font-size: inherit;
     color: inherit;
     cursor: pointer;
-    font-weight: 700;
+    /* font-weight: 700; */
   }
   
   .contact a {

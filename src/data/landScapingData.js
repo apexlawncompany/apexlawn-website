@@ -29,6 +29,38 @@ const landscapingdata = [
       },
       stone: {
         title: "Stone & Aggregates",
+        patterns: [
+          {
+            name: "Delaware",
+            image: "/assets/Delaware.jpg",
+            price: "$220 per cy",
+            sizes: ["3/4-1", "1-3", "2-5", "3-7"],
+          },
+          {
+            name: "Pennsylvania",
+            image: "/assets/Tennessee.jpg",
+            price: "$210 per cy",
+            sizes: ["3/4-1", "1-3", "2-5", "3-7"],
+          },
+          {
+            name: "Tennessee",
+            image: "/assets/Tennessee.jpg",
+            price: "$200 per cy",
+            sizes: ["3/4-1", "1-3", "2-5", "3-7"],
+          },
+          {
+            name: "Slate Chips",
+            image: "/assets/Tennessee.jpg",
+            price: "$190 per cy",
+            sizes: ["3/4-1"],
+          },
+          {
+            name: "Montana",
+            image: "/assets/Tennessee.jpg",
+            price: "$215 per cy",
+            sizes: ["3/4-1", "1-3"],
+          },
+        ],        
         details: [
           {
             price: "$198 per cy starting aggregate",

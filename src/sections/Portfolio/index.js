@@ -29,8 +29,8 @@ function Portfolio() {
             <Image
               src="/carousel/back-arrow.png"
               alt="Previous"
-              width={20}
-              height={20}
+              width={30}
+              height={30}
               className={styles.chevronIcon}
               onClick={handlePrev}
             />
@@ -40,8 +40,8 @@ function Portfolio() {
             <Image
               src="/carousel/right-chevron.png"
               alt="Next"
-              width={20}
-              height={20}
+              width={30}
+              height={30}
               className={styles.chevronIcon}
               onClick={handleNext}
             />

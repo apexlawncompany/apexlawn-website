@@ -1,9 +1,10 @@
 "use client";
 import { useState, useRef } from "react";
-import Image from "next/image";
 import styles from "../../../app/landscape/landscape.module.css";
 import TransparentBtn from "../TransparentBtn";
 import Link from "next/link";
+import MulchTab from "./mulchTab";
+import StoneTab from "./stoneTab";
 
 export default function MulchSection({ service }) {
   const [activeTab, setActiveTab] = useState("mulch");
@@ -24,11 +25,7 @@ export default function MulchSection({ service }) {
     if (scrollRef.current) {
       const scrollLeft = scrollRef.current.scrollLeft;
       const width = scrollRef.current.clientWidth;
-      if (scrollLeft > width / 2) {
-        setActiveTab("stone");
-      } else {
-        setActiveTab("mulch");
-      }
+      setActiveTab(scrollLeft > width / 2 ? "stone" : "mulch");
     }
   };
 
@@ -55,49 +52,27 @@ export default function MulchSection({ service }) {
         </button>
       </div>
 
-      {/* Horizontal Scroll Content */}
-      <div
-        className={styles.horizontalScrollContainer}
-        ref={scrollRef}
-        onScroll={handleScroll}
-      >
-        {["mulch", "stone"].map((tabKey) => {
-          const tabData = service.tabs[tabKey];
-          return (
-            <div key={tabKey} className={`${styles.slide}`}>
-              <div className={styles.serviceImage}>
-                <Image
-                  src={tabData.image}
-                  alt={tabData.title}
-                  width={330}
-                  height={300}
-                  className={`${styles.image} ${styles.mulchImage}`}
-                />
-                <div className={styles.buttonGroup}>
-                  <Link href={tabData.link} style={{ width: "100%" }}>
-                    <TransparentBtn className={styles.blackTextButton}>
-                      {tabKey === "mulch"
-                        ? "See Mulch Options"
-                        : "See Stone Options"}
-                    </TransparentBtn>
-                  </Link>
-                </div>
+      {/* Scrollable Tab Content */}
+      <div className={styles.scrollWrapper}>
+        {activeTab === "mulch" && <div className={styles.rightFade} />}
+        <div
+          className={styles.horizontalScrollContainer}
+          ref={scrollRef}
+          onScroll={handleScroll}
+        >
+          {["mulch", "stone"].map((tabKey) => {
+            const tabData = service.tabs[tabKey];
+            return (
+              <div key={tabKey} className={styles.slide}>
+                {tabKey === "mulch" ? (
+                  <MulchTab tabData={tabData} />
+                ) : (
+                  <StoneTab tabData={tabData} />
+                )}
               </div>
-              <div className={styles.serviceText}>
-                <h3>{tabData.title}</h3>
-                {tabData.details.map((detail, index) => (
-                  <div key={index}>
-                    <p className={styles.priceList}>
-                      <strong>{detail.price}</strong>
-                    </p>
-                    <p>{detail.description}</p>
-                    <br />
-                  </div>
-                ))}
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
 
       {/* Call to Action Buttons */}

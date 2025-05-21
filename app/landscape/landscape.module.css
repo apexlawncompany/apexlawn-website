@@ -51,7 +51,7 @@
 .tabButton {
   flex: 1;
   padding: 8px 0;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 20px;
   border: none;
   background-color: white;
@@ -70,14 +70,31 @@
   background-color: black;
 }
 
+.scrollWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.rightFade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.rightFade {
+  right: 0;
+  background: linear-gradient(to left, white 0%, transparent 100%);
+}
+
 .horizontalScrollContainer {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto 20px;
+  scroll-padding: 0 20px;
+  gap: 20px;
 }
 
 .horizontalScrollContainer::-webkit-scrollbar {
@@ -85,12 +102,14 @@
 }
 
 .slide {
-  flex: 0 0 100%;
+  flex: 0 0 calc(100% - 40px); /* So 20px of next slide shows */
+  scroll-snap-align: start;
+  min-width: 280px;
   display: flex;
   gap: 1rem;
   justify-content: space-between;
   scroll-snap-align: start;
-  padding-right: 20px;
+  /* padding-right: 20px; */
   box-sizing: border-box;
 }
 
@@ -99,19 +118,25 @@
 }
 
 .serviceText h3 {
-  /* color: #000; */
-  font-size: 48px;
+  font-size: 46px;
 }
 
 .serviceText p {
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
+.mulchImage,
+.stoneImage,
 .serviceImage {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
+}
+
+.mulchImg,
+.stoneImg {
+  border-radius: 5%;
 }
 
 .image {
@@ -136,6 +161,43 @@
   font-weight: normal;
   display: flex;
   flex-wrap: wrap;
+}
+
+.selectorRow {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  border: 5px solid rgb(255, 221, 0);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 16px 0;
+  background: white;
+  white-space: nowrap;
+}
+
+.patternBtn,
+.sizeBtn {
+  padding: 10px 16px;
+  border: none;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-right: 1px solid rgb(200, 200, 200);
+}
+
+.patternBtn:last-child,
+.sizeBtn:last-child {
+  border-right: none;
+}
+
+.patternBtn:hover,
+.sizeBtn:hover {
+  background-color: #eee;
+}
+
+.active {
+  background-color: #444;
+  color: white;
 }
 
 .footer {
@@ -171,6 +233,17 @@
   .divider {
     margin: 5px 0;
   }
+  .selectorRow {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    border: 2px solid rgb(255, 221, 0);
+  }
+  .patternBtn,
+  .sizeBtn {
+    flex: 1 1;
+    padding: 10px 10px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -184,14 +257,11 @@
   .serviceText p {
     font-size: 15px;
   }
+  .mulchImage img,
+  .stoneImage img,
   .serviceImage img {
-    /* width: 270px;
-    height: 250px; */
     padding-top: 2px;
   }
-  /* .mulchImage {
-    height: 270px !important;
-  } */
   .blackTextButton {
     font-size: 15px;
     border: 3px solid rgb(255, 221, 0);
@@ -231,11 +301,15 @@
     order: 2;
     width: 100%;
   }
+  .mulchImage,
+  .stoneImage,
   .serviceImage {
     order: 1;
     display: flex;
     justify-content: center;
   }
+  .mulchImage img,
+  .stoneImage img,
   .serviceImage img {
     width: 100%;
     height: auto;
@@ -251,9 +325,12 @@
     padding: 20px 5%;
   }
   .horizontalScrollContainer {
-    gap: 20px
+    gap: 10px;
+    scroll-padding: 0 0;
   }
   .slide {
+    flex: 0 0 calc(100% - 0px);
+    min-width: 350px;
     flex-direction: column;
     gap: 1rem;
     padding: 0;
@@ -287,19 +364,31 @@
     order: 2;
     width: 100%;
   }
+  .mulchImage,
+  .stoneImage,
   .serviceImage {
     order: 1;
     display: flex;
     justify-content: center;
   }
-  .serviceImage img {
+  .mulchImg {
+    border-radius: 5% 0 0 5%;
+  }
+  .stoneImg {
+    border-radius: 0 5% 5% 0;
+  }
+  .mulchImage img,
+  .serviceImage img{
     width: 100%;
     height: auto;
     object-fit: cover;
   }
-  /* .mulchImage {
-    height: 190px !important;
-  } */
+  .stoneImage img
+  {
+    width: 100%;
+    height: 257px;
+    object-fit: cover;
+  }
   .buttonGroup {
     padding-top: 2px;
   }
@@ -310,9 +399,12 @@
     padding: 5px 5%;
   }
   .horizontalScrollContainer {
-    gap: 20px
+    gap: 0px;
+    scroll-padding: 0 0;
   }
   .slide {
+    flex: 0 0 calc(100% - 0px);
+    min-width: 350px;
     flex-direction: column;
     gap: 1rem;
     padding: 0;
@@ -346,21 +438,38 @@
     order: 2;
     width: 100%;
   }
+  .mulchImage,
+  .stoneImage,
   .serviceImage {
     order: 1;
     display: flex;
     justify-content: center;
   }
-  .serviceImage img {
+  .mulchImg {
+    border-radius: 5% 0 0 5%;
+  }
+  .stoneImg {
+    border-radius: 0 5% 5% 0;
+  }
+  .mulchImage img,
+  .serviceImage img{
     width: 100%;
     height: auto;
     object-fit: cover;
   }
-  /* .mulchImage {
-    height: 140px !important;
-  } */
+  .stoneImage img
+  {
+    width: 100%;
+    height: 216px;
+    object-fit: cover;
+  }
+  .serviceImage img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
   .buttonGroup {
-    padding-top: 2px;
+    padding-top: 2px; 
     flex-direction: column;
     gap: 10px;
   }
@@ -371,10 +480,12 @@
     padding: 5px 5%;
   }
   .horizontalScrollContainer {
-    gap: 20px
+    gap: 0px;
+    scroll-padding: 0 0;
   }
   .slide {
     flex-direction: column;
+    flex: 0 0 calc(100% - 0px);
     gap: 1rem;
     padding: 0;
   }
