@@ -190,11 +190,6 @@
   border-right: none;
 }
 
-.patternBtn:hover,
-.sizeBtn:hover {
-  background-color: #eee;
-}
-
 .active {
   background-color: #444;
   color: white;
@@ -216,13 +211,19 @@
   .tabHeader {
     border: 2px solid white;
   }
-  .tabButton {
+  .tabButton,
+  .patternBtn,
+  .sizeBtn {
     background-color: black;
     color: white;
   }
-  .activeTab {
+  .activeTab,
+  .active {
     background-color: white;
     color: black;
+  }
+  .rightFade {
+    background: linear-gradient(to left, black 0%, transparent 100%);
   }
 }
 
@@ -378,13 +379,12 @@
     border-radius: 0 5% 5% 0;
   }
   .mulchImage img,
-  .serviceImage img{
+  .serviceImage img {
     width: 100%;
     height: auto;
     object-fit: cover;
   }
-  .stoneImage img
-  {
+  .stoneImage img {
     width: 100%;
     height: 257px;
     object-fit: cover;
@@ -452,24 +452,23 @@
     border-radius: 0 5% 5% 0;
   }
   .mulchImage img,
-  .serviceImage img{
+  .serviceImage img {
     width: 100%;
     height: auto;
     object-fit: cover;
   }
-  .stoneImage img
-  {
+  .stoneImage img {
     width: 100%;
     height: 216px;
     object-fit: cover;
   }
-  .serviceImage img{
+  .serviceImage img {
     width: 100%;
     height: auto;
     object-fit: cover;
   }
   .buttonGroup {
-    padding-top: 2px; 
+    padding-top: 2px;
     flex-direction: column;
     gap: 10px;
   }
