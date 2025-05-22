@@ -29,7 +29,7 @@ export default function StoneTab({ tabData }) {
           className={styles.stoneImg}
           style={{ objectFit: selectedPattern?.image ? "cover" : "contain" }}
         />
-        <div className={styles.buttonGroup}>
+        <div className={`${styles.buttonGroup} ${styles.stoneOptionsButton}`}>
           <Link href={tabData.link} style={{ width: "100%" }}>
             <TransparentBtn className={styles.blackTextButton}>
               See Stone Options
@@ -38,7 +38,7 @@ export default function StoneTab({ tabData }) {
         </div>
       </div>
 
-      <div className={styles.serviceText}>
+      <div className={`${styles.stoneServiceText} ${styles.serviceText}`}>
         <h3>{tabData.title}</h3>
         <p className={styles.priceList}>
           <strong>{selectedPattern?.price || tabData.details?.[0]?.price}</strong>
