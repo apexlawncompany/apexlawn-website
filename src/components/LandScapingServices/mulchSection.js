@@ -55,6 +55,7 @@ export default function MulchSection({ service }) {
       {/* Scrollable Tab Content */}
       <div className={styles.scrollWrapper}>
         {activeTab === "mulch" && <div className={styles.rightFade} />}
+        {activeTab === "stone" && <div className={styles.leftFade} />}
         <div
           className={styles.horizontalScrollContainer}
           ref={scrollRef}
