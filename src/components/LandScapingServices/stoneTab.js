@@ -48,7 +48,7 @@ export default function StoneTab({ tabData }) {
         {/* Pattern selector */}
         {tabData.patterns?.length > 0 && (
           <>
-            <div className={styles.selectorRow}>
+            <div className={styles.patternRow}>
               {tabData.patterns.map((pattern, index) => (
                 <button
                   key={index}
@@ -67,7 +67,7 @@ export default function StoneTab({ tabData }) {
 
             {/* Size selector */}
             {selectedPattern?.sizes?.length > 0 && (
-              <div className={styles.selectorRow}>
+              <div className={styles.sizeRow}>
                 {selectedPattern.sizes.map((size, index) => (
                   <button
                     key={index}
