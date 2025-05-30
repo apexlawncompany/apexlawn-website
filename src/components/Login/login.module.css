@@ -1,0 +1,118 @@
+.loginBtn {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.loginText {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 90px;
+    right: 0;
+    margin-right: 50px;
+    width: 150px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(242, 240, 240, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+.optionList {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.optionItem {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: rgb(131, 190, 73);
+  border-bottom: 1px solid #fff;
+  transition: background 0.3s ease;
+}
+
+.optionItem:hover {
+  background-color: #444;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown ul li {
+    padding: 10px 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #ffffff;
+    text-align: center;
+    line-height: 0.8;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: rgb(131, 190, 73);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loginForm input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+
+.loginForm button {
+    padding: 10px;
+    background-color: #e0f1e4;
+    color: rgb(8, 1, 1);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* .pageBackground {
+    background-repeat: no-repeat;
+} */
