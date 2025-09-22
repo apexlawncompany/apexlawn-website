@@ -8,12 +8,11 @@
     transform: translateY(0);
   }
 }
-
 .header-navbar {
   width: 100vw;
   padding: 6px 0 8px;
   position: fixed;
-  top: 0;
+  top: var(--header-offset, 0px);
   left: 0;
   display: flex;
   flex-direction: column;
