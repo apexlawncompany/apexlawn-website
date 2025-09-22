@@ -1,9 +1,11 @@
 import HEADER_DATA from "@/src/data/header";
-import styles from "./header.module.css";
+import { BLURBS_DATA } from "@/src/data/blurbData";
 import HeaderCard from "@/src/components/HeaderCard";
-import localFont from "next/font/local";
 import Contact from "@/src/components/Contact";
-import { basePath } from "@/next.config";
+import CityBlurb from "@/src/components/Blurb";
+import localFont from "next/font/local";
+import styles from "./header.module.css";
+import { useMemo } from "react";
 
 const AmaticSC = localFont({
   src: "../../../app/fonts/AmaticSC.woff",
@@ -12,8 +14,18 @@ const AmaticSC = localFont({
 });
 
 function Header() {
+  const randomCity = useMemo(() => {
+    const cities = Object.keys(BLURBS_DATA);
+    return cities[Math.floor(Math.random() * cities.length)];
+  }, []);
   return (
-    <div className={`page-section ${AmaticSC.className}`}>
+    <div
+      className={`page-section ${AmaticSC.className}`}
+      style={{ background: "black" }}
+    >
+      {/* Blurb on top */}
+      <CityBlurb city={randomCity} />
+
       <nav
         className={styles["header-navbar"]}
         style={{
