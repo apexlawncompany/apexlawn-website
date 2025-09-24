@@ -2,7 +2,6 @@ import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
-    // const reqObj = await req.json();
     const formData = await req.formData();
     const name = formData.get("name");
     const email = formData.get("email");
@@ -13,6 +12,7 @@ export async function POST(req) {
     const address = formData.get("address");
     const day = formData.get("day");
     const page = formData.get("page");
+    const source = formData.get("source") || "website"; // 👈 new
     const files = formData.getAll("images");
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -24,21 +24,23 @@ export async function POST(req) {
         pass: process.env.EMAIL_PASS,
       },
     });
+
     let mailData = null;
     switch (page) {
       case "appointment":
         {
           // const { email, name, phone, request, details } = reqObj;
-          mailData = {
-            subject: `New Client Inquiry`,
-            text: `You have received a new submission on your form from ${name}
+        mailData = {
+          subject: `New Client Inquiry`,
+          text: `You have received a new submission on your form from ${name}
       Full Name: ${name}
       Email: ${email}
       Phone: ${phone}
       Service Request: ${requestDay}
       Details: ${details}
+      Source: ${source}
       `,
-          };
+        };
         }
         break;
       case "drone":
@@ -53,6 +55,7 @@ export async function POST(req) {
         Address: ${address}
         Service Request: ${day}
         Details: ${details}
+        Source: ${source}
         `,
         };
       default:

@@ -3,7 +3,7 @@ import React, { useMemo, useRef, useState } from "react";
 import styles from "./appointment.module.css";
 import Image from "next/image";
 import ReCAPTCHA from "react-google-recaptcha";
-import { sendMail } from "@/src/utils";
+import { getSource, sendMail } from "@/src/utils";
 import { useRouter } from "next/navigation";
 
 const AppointmentForm = () => {
@@ -86,7 +86,7 @@ const AppointmentForm = () => {
 
     if (Object.keys(newErrors).length === 0 && captchaVerified) {
       setFormSubmitted(true);
-
+      const source = getSource();
       // Push event to GTM
       if (window.dataLayer) {
         window.dataLayer.push({
@@ -99,11 +99,12 @@ const AppointmentForm = () => {
             phone: formData.phone,
             request: formData.request,
             details: formData.details,
+            source,
           },
         });
       }
       sendMail(formData);
-      console.log("Form Submitted Successfully:", formData);
+      console.log("Form Submitted Successfully:", formData, "Source:", source);
       router.push("/thankyou");
     }
   };

@@ -4,7 +4,7 @@ import styles from "./drone.module.css";
 import Image from "next/image";
 import validLocations from "@/src/data/locations";
 import ReCAPTCHA from "react-google-recaptcha";
-import { sendMail } from "@/src/utils";
+import { getSource, sendMail } from "@/src/utils";
 
 const DronePage = () => {
   // State management for form inputs
@@ -89,7 +89,7 @@ const DronePage = () => {
 
     if (Object.keys(newErrors).length === 0 && captchaVerified) {
       setFormSubmitted(true);
-
+      const source = getSource();
       // Push event to GTM
       if (window.dataLayer) {
         window.dataLayer.push({
@@ -104,11 +104,13 @@ const DronePage = () => {
             address: formData.address,
             request: formData.day,
             details: formData.details,
+            source,
           },
         });
       }
       sendMail(formData, "drone");
-      console.log("Form Submitted Successfully:", formData);
+      console.log("Form Submitted Successfully:", formData, "Source:", source);
+      // router.push("/thankyou");
     }
   };
 

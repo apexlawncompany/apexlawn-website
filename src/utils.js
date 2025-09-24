@@ -1,3 +1,10 @@
+export const getSource = () => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("source")) return params.get("source");
+  if (document.referrer.includes("google.com")) return "google";
+  return "website";
+};
+
 export const sendMail = async (formData, page) => {
   try {
     const data = new FormData();
@@ -10,11 +17,14 @@ export const sendMail = async (formData, page) => {
     data.append("address", formData.address);
     data.append("day", formData.day);
     data.append("page", page || "appointment");
+    data.append("source", getSource()); // 👈 new
+
     if (formData.images && formData.images.length > 0) {
-      formData.images.forEach((file, idx) => {
-        data.append("images", file); // use same key if backend expects multiple with same name
+      formData.images.forEach((file) => {
+        data.append("images", file);
       });
     }
+
     const res = await fetch("/api/send-mail", {
       method: "POST",
       body: data,
