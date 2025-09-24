@@ -1,10 +1,11 @@
 "use client";
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef, useState, useEffect } from "react";
 import styles from "./appointment.module.css";
 import Image from "next/image";
 import ReCAPTCHA from "react-google-recaptcha";
 import { sendMail } from "@/src/utils";
 import { useRouter } from "next/navigation";
+import { getCookie } from "@/src/cookies";
 
 const AppointmentForm = () => {
   const router = useRouter();
@@ -15,9 +16,16 @@ const AppointmentForm = () => {
     request: "",
     details: "",
     images: [],
+    source: "",
   });
   const [errors, setErrors] = useState({});
   const inputRef = useRef();
+  useEffect(() => {
+    const lead = getCookie("lead_source");
+    if (lead) {
+      setFormData((prev) => ({ ...prev, source: lead }));
+    }
+  }, []);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -86,7 +94,7 @@ const AppointmentForm = () => {
 
     if (Object.keys(newErrors).length === 0 && captchaVerified) {
       setFormSubmitted(true);
-
+      // const source = getSource();
       // Push event to GTM
       if (window.dataLayer) {
         window.dataLayer.push({
@@ -99,6 +107,7 @@ const AppointmentForm = () => {
             phone: formData.phone,
             request: formData.request,
             details: formData.details,
+            // source,
           },
         });
       }
@@ -266,6 +275,14 @@ const AppointmentForm = () => {
                     ))}
                   </div>
                 )}
+
+                <input
+                  type="hidden"
+                  name="source"
+                  id="lead_source"
+                  value={formData.source || ""}
+                  readOnly
+                />
 
                 {/* File Upload */}
                 <div className={styles.formActions}>

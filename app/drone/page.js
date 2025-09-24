@@ -1,10 +1,11 @@
 "use client";
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef, useState, useEffect } from "react";
 import styles from "./drone.module.css";
 import Image from "next/image";
 import validLocations from "@/src/data/locations";
 import ReCAPTCHA from "react-google-recaptcha";
 import { sendMail } from "@/src/utils";
+import { getCookie } from "@/src/cookies";
 
 const DronePage = () => {
   // State management for form inputs
@@ -17,8 +18,14 @@ const DronePage = () => {
     day: "",
     details: "",
     images: [],
+    source: "",
   });
-
+  useEffect(() => {
+    const lead = getCookie("lead_source");
+    if (lead) {
+      setFormData((prev) => ({ ...prev, source: lead }));
+    }
+  }, []);
   const [errors, setErrors] = useState({});
   const inputRef = useRef();
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -89,7 +96,7 @@ const DronePage = () => {
 
     if (Object.keys(newErrors).length === 0 && captchaVerified) {
       setFormSubmitted(true);
-
+      // const source = getSource();
       // Push event to GTM
       if (window.dataLayer) {
         window.dataLayer.push({
@@ -109,6 +116,7 @@ const DronePage = () => {
       }
       sendMail(formData, "drone");
       console.log("Form Submitted Successfully:", formData);
+      // router.push("/thankyou");
     }
   };
 
@@ -345,6 +353,13 @@ const DronePage = () => {
                       ))}
                     </div>
                   )}
+                  <input
+                  type="hidden"
+                  name="source"
+                  id="lead_source"
+                  value={formData.source || ""}
+                  readOnly
+                />
 
                   {/* File Upload */}
                   <div className={styles.formActions}>
