@@ -1,8 +1,10 @@
 "use client";
 import styles from "./contact.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import contactInfo from "@/src/data/contactInfo";
+import { getCookie } from "@/src/cookies";
+import { sendPhoneClickMail } from "@/src/phoneClickUtils";
 
 function Contact() {
   const [showDetails, setShowDetails] = useState(false);
@@ -28,21 +30,27 @@ function Contact() {
     return false;
   };
 
+  const onPhoneClick = (phone) => {
+    // Pushing GTM event
+    window.gtag?.("event", "conversion", {
+      send_to: "AW-755275043",
+      event_category: "phone_click",
+      value: phone,
+      source: getCookie("lead_source") || "website",
+    });
+
+    // Sending backend email
+    sendPhoneClickMail(phone);
+  };
+
   return (
     <div className={styles.contact}>
       {showDetails ? (
         <p onClick={() => setShowDetails(false)}>
-          Call or Text: {" "}
+          Call or Text:{" "}
           <a
             href={`tel:${contactInfo.phoneNumber}`}
-            // Optional: track phone clicks too
-            onClick={() =>
-              window.gtag?.("event", "conversion", {
-                send_to: "AW-755275043", // optional conversion ID for phone
-                event_category: "phone_click",
-                value: contactInfo.phoneNumber,
-              })
-            }
+            onClick={() => onPhoneClick(contactInfo.phoneNumber)}
           >
             {contactInfo.phoneNumber}
           </a>
