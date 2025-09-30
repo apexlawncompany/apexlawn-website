@@ -1,0 +1,35 @@
+.responivepage {
+  padding-top: 200px;
+  padding: 2rem;
+}
+
+.twoColumn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.leftCol {
+  flex: 1;
+  min-width: 300px;
+}
+
+.rightCol {
+  flex: 1;
+  min-width: 300px;
+  font-size: 1.3rem;
+}
+
+.leftCol img {
+  /* width: auto; */
+  /* height: auto; */
+  object-fit: cover;
+}
+
+.cityImage {
+  margin-top: 1rem;
+  border-radius: 5%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}

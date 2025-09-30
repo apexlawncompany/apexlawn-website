@@ -1,0 +1,26 @@
+.blurbContainer {
+  background: #000;
+  padding: 0.6rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+.blurbVisible {
+  opacity: 1;
+  max-height: 200px;
+}
+
+.blurbText {
+  color: #fff;
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+}
