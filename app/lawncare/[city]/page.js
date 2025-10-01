@@ -28,7 +28,7 @@ export default function LawncareCity({ params }) {
   const randomBlurb = blurbs[Math.floor(Math.random() * blurbs.length)];
 
   return (
-    <div className="page-content" style={{ minHeight: "600px" }}>
+    <div className={`page-content ${styles.main}`}>
       <div className={`page-section ${styles.responivepage}`}>
         <div className="center-aligned">
           <div className={styles.twoColumn}>

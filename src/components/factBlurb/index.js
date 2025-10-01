@@ -1,26 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import styles from "./factBlurb.module.css";
-import { factBlurbs } from "@/src/data/factBlurbs";
 
-function FactBlurb() {
-  const pathname = usePathname();
-  const match = pathname.match(/^\/lawncare\/([^/]+)$/);
-  const city = match ? match[1] : null;
-
+function FactBlurb({ blurb }) {
   const [visible, setVisible] = useState(false);
-  const [blurb, setBlurb] = useState(null);
-
-  // Pick random blurb once per mount
-  useEffect(() => {
-    if (city && factBlurbs[city]) {
-      const blurbs = factBlurbs[city];
-      const random = blurbs[Math.floor(Math.random() * blurbs.length)];
-      setBlurb(random);
-    }
-  }, [city]);
 
   // Show immediately, hide after 6s
   useEffect(() => {

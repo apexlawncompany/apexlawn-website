@@ -15,7 +15,7 @@
 
 .blurbVisible {
   opacity: 1;
-  max-height: 200px;
+  max-height: 150px;
 }
 
 .blurbText {
@@ -23,4 +23,16 @@
   margin: 0;
   font-size: 20px;
   text-align: center;
+ }
+
+@media (max-width: 600px) {
+  .blurbContainer {
+    padding: 0.4rem;
+    max-height: 200px;
+    font-size: 16px;
+  }
+  .blurbText {
+    font-size: 16px;
+    padding: 0.2rem;
+  }
 }

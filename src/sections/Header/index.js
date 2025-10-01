@@ -8,6 +8,7 @@ import localFont from "next/font/local";
 import Contact from "@/src/components/Contact";
 import FactBlurb from "@/src/components/factBlurb";
 import { factBlurbs } from "@/src/data/factBlurbs";
+import { useEffect, useState } from "react";
 
 const AmaticSC = localFont({
   src: "../../../app/fonts/AmaticSC.woff",
@@ -17,17 +18,17 @@ const AmaticSC = localFont({
 
 function Header() {
   const pathname = usePathname();
+  const match = pathname.match(/^\/(lawncare|landscape)\/([^/]+)$/);
+  const city = match ? match[2] : null;
 
-  // Match /[city]
-  const match = pathname.match(/^\/lawncare\/([^/]+)$/);
-  const city = match ? match[1] : null;
+  const [randomBlurb, setRandomBlurb] = useState(null);
 
-  // Pick a random blurb for this city
-  let randomBlurb = null;
-  if (city && factBlurbs[city]) {
-    const blurbs = factBlurbs[city];
-    randomBlurb = blurbs[Math.floor(Math.random() * blurbs.length)];
-  }
+  useEffect(() => {
+    if (city && factBlurbs[city]) {
+      const blurbs = factBlurbs[city];
+      setRandomBlurb(blurbs[Math.floor(Math.random() * blurbs.length)]);
+    }
+  }, [city]);
 
   return (
     <div className={`page-section ${AmaticSC.className}`}>
