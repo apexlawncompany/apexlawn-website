@@ -1,7 +1,7 @@
 .contact {
   background: #83be49;
   position: absolute;
-  top: 109px;
+  top: 111px;
   font-size: 28px;
   padding: 2px 16px;
   border-radius: 10px;
@@ -25,7 +25,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .contact {
-    top: 94px;
+    top: 96px;
     font-size: 20px;
     position: absolute;
   }
@@ -33,7 +33,7 @@
 
 @media (min-width: 550px) and (max-width: 768px) {
   .contact {
-    top: 80px;
+    top: 82px;
     font-size: 15px;
     position: absolute;
   }
@@ -41,14 +41,14 @@
 
 @media (min-width: 425px) and (max-width: 550px) {
   .contact {
-    top: 64px;
+    top: 66px;
     font-size: 10px;
   }
 }
 
 @media (min-width: 320px) and (max-width: 420px) {
   .contact {
-    top: 49px;
+    top: 52px;
     font-size: 9px;
   }
 }
