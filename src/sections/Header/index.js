@@ -33,7 +33,6 @@ function Header() {
   return (
     <div className={`page-section ${AmaticSC.className}`}>
       {/* Only mount FactBlurb when a city page */}
-      {city && randomBlurb && <FactBlurb blurb={randomBlurb} />}
 
       <nav
         className={styles["header-navbar"]}
@@ -42,6 +41,7 @@ function Header() {
         }}
         id="navbar"
       >
+        {city && randomBlurb && <FactBlurb blurb={randomBlurb} />}
         <div className={`center-aligned ${styles["cards-wrap"]}`}>
           {HEADER_DATA.map((item, index) => (
             <HeaderCard key={"item-" + index} item={item} />

@@ -4,47 +4,33 @@ import { useEffect, useState } from "react";
 import styles from "./factBlurb.module.css";
 
 function FactBlurb({ blurb }) {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   // Show immediately, hide after 6s
   useEffect(() => {
-    if (!blurb) return;
-
-    setVisible(true);
+    if (!visible) return;
     const timer = setTimeout(() => {
       setVisible(false);
     }, 6000);
 
     return () => clearTimeout(timer);
-  }, [blurb]);
-
-  // Keep header offset in sync when visible changes
-  useEffect(() => {
-    if (!blurb) return;
-
-    const offsetValue = visible
-      ? `${document.getElementById("city-blurb")?.offsetHeight || 0}px`
-      : "0px";
-
-    document.documentElement.style.setProperty("--header-offset", offsetValue);
-  }, [visible, blurb]);
+  }, [visible]);
 
   // Scroll behavior
   useEffect(() => {
-    if (!blurb) return;
 
     const handleScroll = () => {
       if (window.scrollY === 0) {
         setVisible(true);
-        setTimeout(() => setVisible(false), 6000);
+        // setTimeout(() => setVisible(false), 6000);
       } else {
         setVisible(false);
       }
     };
-
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [blurb]);
+  }, []);
 
   if (!blurb) return null;
 
