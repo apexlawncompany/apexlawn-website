@@ -2,20 +2,14 @@ import styles from "./lawncare.module.css";
 import ServicesOptions from "@/src/components/ServicesAndPricings";
 import TransparentBtn from "@/src/components/TransparentBtn";
 import lawncareData from "@/src/data/lawncareData";
-import {
-  cities,
-  lawnCarePrice,
-  lawnCarePremiumService,
-} from "../constant/constant";
+import { cityBlurbs } from "@/src/data/cityBlurbs";
 
 export async function generateMetadata() {
   return {
     title: "Lawncare Services in the Triangle | Apex Lawn Company",
     description:
       "Trusted lawn care in Apex, Cary, Morrisville, and beyond. Mowing, irrigation, drainage, and landscaping with over 5 years of experience in the Triangle Area.",
-    alternates: {
-      canonical: "https://apexlawncompany.com/lawncare",
-    },
+    alternates: { canonical: "https://apexlawncompany.com/lawncare" },
     robots: { index: true, follow: true },
   };
 }
@@ -28,7 +22,6 @@ export default function Lawncare() {
       categories: [
         { text: "Cut Packages", path: "cut-packages" },
         { text: "Full Service Packages", path: "full-packages" },
-        // { text: "Commercial Packages", path: "commercial-packages" },
         { text: "Total Maintenance", path: "maintenance" },
       ],
     },
@@ -40,6 +33,7 @@ export default function Lawncare() {
   return (
     <>
       <ServicesOptions options={options} />
+
       <div className={`page-content`}>
         <div id="top" className={styles.heading}>
           <p id="services-pricing">Services & Pricing</p>
@@ -50,7 +44,6 @@ export default function Lawncare() {
             {lawncareData.map((service, index) => (
               <div id={service.id} key={service.id}>
                 {service.component && <service.component service={service} />}
-                {/* Conditionally render divider, skip for last component */}
                 {index < lawncareData.length - 1 && (
                   <hr className={styles.divider} />
                 )}
@@ -58,6 +51,20 @@ export default function Lawncare() {
             ))}
           </div>
         </div>
+
+        {/* Optional: Internal links to city pages */}
+        {/* <div className="city-links">
+          <h2>Serving Cities Across the Triangle</h2>
+          <ul>
+            {Object.keys(cityBlurbs).map((city) => (
+              <li key={city}>
+                <a href={`/lawncare/${city}`}>
+                  Lawncare Services in {city}, NC
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div> */}
 
         <div id="footer" className={styles.footer}>
           <div className="page-section">

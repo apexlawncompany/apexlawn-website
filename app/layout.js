@@ -74,7 +74,7 @@ export default function RootLayout({ children }) {
     `,
           }}
         />
-        
+
         {/* Fraud Blocker */}
         <Script
           id="fraud-blocker"
@@ -96,25 +96,44 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
+                "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "Apex Lawn Company",
-              url: "https://apexlawncompany.com/",
-              telephone: "+1 919-939-4665",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "501 W Williams St Box 1012",
-                addressLocality: "Apex",
-                addressRegion: "NC",
-                postalCode: "27502",
-                addressCountry: "US",
+                name: "Apex Lawn Company",
+                url: "https://apexlawncompany.com/",
+                telephone: "+1 919-939-4665",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "501 W Williams St Box 1012",
+                  addressLocality: "Apex",
+                  addressRegion: "NC",
+                  postalCode: "27502",
+                  addressCountry: "US",
+                },
+                areaServed: [
+                  { "@type": "City", name: "Apex" },
+                  { "@type": "City", name: "Cary" },
+                  { "@type": "City", name: "Morrisville" },
+                  { "@type": "City", name: "Holly Springs" },
+                  { "@type": "City", name: "Raleigh" },
+                  { "@type": "City", name: "Chapel Hill" },
+                  { "@type": "City", name: "Sanford" },
+                  { "@type": "City", name: "Garner" },
+                  { "@type": "City", name: "Pittsboro" },
+                  { "@type": "City", name: "Moncure" },
+                  { "@type": "City", name: "New Hill" },
+                  { "@type": "City", name: "Spring Lake" },
+                  { "@type": "City", name: "Hope Mills" },
+                  { "@type": "City", name: "Fayetteville" },
+                ],
+                aggregateRating: {
+                  "@type": "AggregateRating",
+                  ratingValue: "4.5",
+                  reviewCount: "123",
+                },
               },
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.5",
-                reviewCount: "123",
-              },
-            }),
+              null,
+              2
+            ),
           }}
         />
 

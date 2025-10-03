@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { cityBlurbs } from "@/src/data/cityBlurbs";
 import styles from "./city.module.css";
+import CitySchema from "@/src/components/citySchema";
 
 export async function generateMetadata({ params }) {
   const { city } = params;
@@ -25,7 +26,8 @@ export async function generateMetadata({ params }) {
 export default function LawncareCity({ params }) {
   const { city } = params;
   const blurbs = cityBlurbs[city] || [];
-  const randomBlurb = blurbs[Math.floor(Math.random() * blurbs.length)];
+  const randomBlurb =
+    blurbs.length > 0 ? blurbs[Math.floor(Math.random() * blurbs.length)] : "";
 
   return (
     <div className={`page-content ${styles.main}`}>
@@ -53,6 +55,9 @@ export default function LawncareCity({ params }) {
           </div>
         </div>
       </div>
+
+      {/* Inject city-specific schema for SEO */}
+      <CitySchema city={city} />
     </div>
   );
 }
