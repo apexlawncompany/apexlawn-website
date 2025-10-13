@@ -10,34 +10,55 @@ function Footer() {
   const [isMobile, setIsMobile] = useState(false);
   const [showAddress, setShowAddress] = useState(false);
   const [currentHourText, setCurrentHourText] = useState(0);
-  const hoursTexts = [
-    "Open Till 7pm Today",
-    "M-F 7am-7pm | Sat 12-5",
-    "Next Holiday: July 4th",
-  ];
+  const [hoursTexts, setHoursTexts] = useState([]);
 
   // Detect screen size
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth < 550);
     }
-
-    handleResize(); // Set initial value
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Cycle through texts if mobile and viewing hours
+  // Set hours dynamically based on Eastern Time
   useEffect(() => {
-    if (view === "default" && isMobile) {
-      const interval = setInterval(() => {
-        setFade(true); // Start fading out
+    const now = new Date();
+    // Convert to Eastern Time
+    const ncTime = new Date(
+      now.toLocaleString("en-US", { timeZone: "America/New_York" })
+    );
+    const day = ncTime.getDay(); // 0 = Sunday, 6 = Saturday
 
+    let todayHours = "";
+
+    if (day === 0) {
+      todayHours = "Closed Today";
+    } else if (day >= 1 && day <= 5) {
+      todayHours = "Open Till 7PM Today";
+    } else if (day === 6) {
+      todayHours = "Open Till 5PM Today";
+    }
+
+    // Add supporting info
+    setHoursTexts([
+      todayHours,
+      "M-F 7am-7pm | Sat 12-5",
+      "Next Holiday: Thanks Giving",
+    ]);
+  }, []);
+
+  // Cycle through texts if mobile
+  useEffect(() => {
+    if (view === "default" && isMobile && hoursTexts.length > 0) {
+      const interval = setInterval(() => {
+        setFade(true);
         setTimeout(() => {
           setCurrentHourText((prev) => (prev + 1) % hoursTexts.length);
-          setFade(false); // Fade back in
-        }, 500); // fade out duration (500ms)
-      }, 3000); // Show each text for 3 seconds
+          setFade(false);
+        }, 500);
+      }, 3000);
 
       return () => clearInterval(interval);
     }
@@ -82,7 +103,7 @@ function Footer() {
                   fade ? footerStyles.fade : ""
                 }`}
               >
-                {hoursTexts[currentHourText]}
+                {hoursTexts[currentHourText] || ""}
               </p>
             ) : (
               <p className={`${footerStyles.footerText} text-center`}>
@@ -145,7 +166,7 @@ function Footer() {
           </>
         )}
 
-        {view === "hours" && (
+        {view === "hours" && hoursTexts.length > 0 && (
           <>
             <p className={`${footerStyles.footerText}`}>{hoursTexts[0]}</p>
             <p className={`${footerStyles.footerText} text-center`}>
