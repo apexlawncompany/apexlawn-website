@@ -1,0 +1,83 @@
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem 0;
+  font-weight: 600;
+}
+
+.section {
+  margin-bottom: 1rem;
+}
+
+.summaryText {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #333;
+  text-align: left;
+}
+
+.summaryText p {
+  margin-bottom: 1rem;
+}
+
+.summary {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  /* background: #f8f8f8; */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.summary:hover {
+  background-color: #e9f5ee;
+}
+
+.icon {
+  width: 14px;
+  transform: rotate(0);
+  transition: transform 0.3s ease;
+}
+
+details[open] .icon {
+  transform: rotate(180deg);
+}
+
+.content {
+  padding: 1rem 1.5rem;
+  color: #333;
+  line-height: 1.6;
+  /* background-color: #fff; */
+  border-left: 3px solid #2c7a4b;
+  border-radius: 0 8px 8px 8px;
+  margin-top: 0.5rem;
+}
+
+.image {
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.imageWrapper {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  margin: 1.5rem 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.footer {
+  background-color: black !important;
+  padding: 2rem;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 1s;
+}
