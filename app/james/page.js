@@ -14,31 +14,34 @@ export default function James() {
     <div className="page-content">
       <div className={`page-section ${styles.responivepage}`}>
         <div className="center-aligned">
-          <h1 className={styles.heading}>
-            James Kakkar - Owner of Apex Lawn Company
-          </h1>
-
-          {/* Portrait Image */}
-          <div className={styles.imageWrapper}>
-            <Image
-              src="/assets/James-Portrait.jpg"
-              alt="Portrait of James Kakkar"
-              width={300}
-              height={400}
-              className={styles.image}
-            />
+          <div className={`${styles.intro}`}>
+            <div className={styles.jamesImg}>
+              {/* Portrait Image */}
+              <Image
+                src="/assets/James-Portrait.jpg"
+                alt="Portrait of James Kakkar"
+                width={300}
+                height={400}
+                className={styles.image}
+              />
+            </div>
+            <div className={styles.summaryDiv}>
+              <h1 className={styles.heading}>
+                James Kakkar - Owner of Apex Lawn Company
+              </h1>
+              {/* Summary Section */}
+              {summarySection && (
+                <div className={styles.summaryText}>
+                  {summarySection.content}
+                </div>
+              )}
+            </div>
           </div>
-
-          {/* Summary Section */}
-          {summarySection && (
-            <div className={styles.summaryText}>{summarySection.content}</div>
-          )}
-
           {/* Dropdown Sections */}
           {otherSections.map((section, index) => (
             <div key={section.id} id={section.id} className={styles.section}>
               <details>
-                <summary className={styles.summary}>
+                <summary className={styles.detailsSections}>
                   <Image
                     src="/utils/down.png"
                     alt=""
@@ -49,7 +52,7 @@ export default function James() {
                   {section.title}
                 </summary>
 
-                <div className={styles.content}>{section.content}</div>
+                <div className={styles.detailsContent}>{section.content}</div>
               </details>
 
               {index < otherSections.length - 1 && (
