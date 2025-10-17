@@ -23,6 +23,12 @@ const MOREPRODUCTS_DATA = [
     path: "/guttergaurds",
     image: "/assets/gutter_gaurds_main.JPG",
   },
+  {
+    type: "text",
+    text: "James Kakkar",
+    path: "/james",
+    image: "/assets/James-Portrait-short.jpg",
+  },
 ];
 
 export default MOREPRODUCTS_DATA;

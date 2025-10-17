@@ -7,7 +7,7 @@
 
 .productImage {
   cursor: pointer;
-  object-fit: cover;
+  object-fit: fill;
   border-radius: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
