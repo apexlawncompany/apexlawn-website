@@ -45,7 +45,7 @@ function Footer() {
     setHoursTexts([
       todayHours,
       "M-F 7am-7pm | Sat 12-5",
-      "Next Holiday: Thanks Giving",
+      "Next Holiday: Thanksgiving",
     ]);
   }, []);
 

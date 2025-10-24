@@ -172,7 +172,7 @@ const jamesData = [
 
   {
     id: "wrongful-arrest",
-    title: "The Wrongful Arrest",
+    title: "Wrongful Arrest",
     content: (
       <>
         <p>
