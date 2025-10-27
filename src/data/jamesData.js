@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import styles from "../../app/james/james.module.css";
 
 const jamesData = [
   {
@@ -236,14 +238,55 @@ const jamesData = [
           or sharing stories over coffee. Reach him directly:
         </p>
         <br />
-        <ul>
-          <li>
-            Email:{" "}
-            <Link href="mailto:james@apexlawncompany.com">
-              james@apexlawncompany.com
-            </Link>
-          </li>
-        </ul>
+
+        {/*Social Icons Section*/}
+        <div className={styles.socialIcons}>
+          {/* Email */}
+          <Link
+            href="mailto:james@apexlawncompany.com"
+            aria-label="Email James"
+            target="_blank"
+          >
+            <Image
+              src="/james_email.png"
+              alt="Email"
+              width={30}
+              height={30}
+              className={styles.socialIconImg}
+            />
+          </Link>
+
+          {/* Instagram */}
+          <Link
+            href="https://www.instagram.com/james.offroad?igsh=eDhrMGl3eGZvaGxp&utm_source=qr"
+            aria-label="Instagram"
+            target="_blank"
+          >
+            <Image
+              src="/james_insta.png"
+              alt="Instagram"
+              width={30}
+              height={30}
+              className={styles.socialIconImg}
+            />
+          </Link>
+
+          {/* X */}
+          <Link
+            href="https://x.com/sjkairway?s=21"
+            aria-label="Twitter"
+            target="_blank"
+          >
+            <Image
+              src="/james_x.png"
+              alt="Twitter"
+              width={30}
+              height={30}
+              className={styles.socialIconImg}
+            />
+          </Link>
+        </div>
+
         <br />
         <p>Let's build something great together in Apex, NC.</p>
       </>

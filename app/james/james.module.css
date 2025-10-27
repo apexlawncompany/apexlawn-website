@@ -72,6 +72,30 @@ details[open] .icon {
   border: none;
   border-top: 1px solid #ddd;
 }
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.socialIcons a {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.socialIcons a:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.socialIconImg {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
 .footer {
   background-color: black;
   padding: 2rem;
