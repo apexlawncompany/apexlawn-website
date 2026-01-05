@@ -99,7 +99,7 @@ export default function Policy() {
             provided to earn your business, and enhance your landscape.
           </p>
           <br />
-          <p>Thank you — Apex Lawn Company.</p>
+          <p>Thank you - Apex Lawn Company.</p>
           <br />
           <h2>Termination of Contracts</h2>
           <p>
