@@ -4,7 +4,8 @@ import styles from "./city.module.css";
 import CitySchema from "@/src/components/citySchema";
 
 export async function generateMetadata({ params }) {
-  const { city } = params;
+  const { city } = await params;
+
   return {
     title: `Lawncare Services in ${city}, NC | Apex Lawn Company`,
     description: `Get expert lawn care in ${city}, NC. Apex Lawn Company provides mowing, irrigation, drainage, snow removal, and landscaping with 5+ years of Triangle experience.`,
@@ -23,22 +24,24 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function LawncareCity({ params }) {
-  const { city } = params;
+export default async function LawncareCity({ params }) {
+  const { city } = await params;
+
   const blurbs = cityBlurbs[city] || [];
   const randomBlurb =
-    blurbs.length > 0 ? blurbs[Math.floor(Math.random() * blurbs.length)] : "";
+    blurbs.length > 0
+      ? blurbs[Math.floor(Math.random() * blurbs.length)]
+      : "";
 
   return (
     <div className={`page-content ${styles.main}`}>
       <div className={`page-section ${styles.responivepage}`}>
         <div className="center-aligned">
           <div className={styles.twoColumn}>
-            {/* Left Side */}
             <div className={styles.leftCol}>
               <h1>Lawncare Services in {city}, NC</h1>
               <Image
-                src="/assets/aeriation.JPG" // replace with your real image path
+                src="/assets/aeriation.JPG"
                 alt={`Lawncare in ${city}, NC`}
                 width={430}
                 height={380}
@@ -46,7 +49,6 @@ export default function LawncareCity({ params }) {
               />
             </div>
 
-            {/* Right Side */}
             <div className={styles.rightCol}>
               <p>
                 <strong>{randomBlurb}</strong>
@@ -56,7 +58,6 @@ export default function LawncareCity({ params }) {
         </div>
       </div>
 
-      {/* Inject city-specific schema for SEO */}
       <CitySchema city={city} />
     </div>
   );
