@@ -37,7 +37,7 @@
 }
 
 
-@media(min-width: 500px) and (max-width: 1000px) {
+@media (max-width: 1024px) {
   .details{
     font-size: 10px;
   }
@@ -53,7 +53,7 @@
   }
 }
 
-@media (min-width: 400px) and (max-width: 500px) {
+@media (max-width: 769px) {
   .details{
     font-size: 12px;
     flex-direction: column;
@@ -75,11 +75,12 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 400px) {
+@media (max-width: 426px) {
   .details{
     font-size: 12px;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    margin: 12px 0
   }
   .detailsCard{
     width: 100%;
@@ -91,7 +92,7 @@
   }
   .cardBody{
     border: 3px solid rgb(255, 221, 0);
-    margin-top: 10px;
+    margin-top: 12px;
     padding: 6px 8px;
   }
 }

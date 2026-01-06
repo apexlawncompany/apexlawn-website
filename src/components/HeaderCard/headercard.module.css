@@ -31,7 +31,7 @@
   text-transform: uppercase;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .headerCard {
     width: 120px;
     height: 80px;
@@ -44,7 +44,7 @@
   }
 }
 
-@media (min-width: 550px) and (max-width: 768px) {
+@media (max-width: 769px) {
   .headerCard {
     width: 100px;
     height: 65px;
@@ -58,7 +58,7 @@
   }
 }
 
-@media (min-width: 425px) and (max-width: 550px) {
+@media (max-width: 550px) {
   .headerCard {
     height: 50px;
     border: 3px solid rgb(255, 221, 0);
@@ -72,7 +72,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 424px) {
+@media (max-width: 426px) {
   .headerCard {
     width: 150px;
     height: 35px;
