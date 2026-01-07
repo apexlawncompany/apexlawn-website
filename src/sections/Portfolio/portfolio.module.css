@@ -1,6 +1,6 @@
 .portfolio {
   display: flex;
-  margin: 16px 0 90px;
+  margin: 24px 0 48px;
   gap: 20px;
 }
 
@@ -62,7 +62,7 @@
 .portfolioText {
   font-size: 15px;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 .instaIcon {

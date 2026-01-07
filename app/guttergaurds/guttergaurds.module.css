@@ -36,7 +36,7 @@
 
   .serviceText p {
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   .serviceImage {
@@ -69,11 +69,6 @@
     padding: 0 5px;
     display: inline-block;
     position: relative;
-  }
-
-  .buttonGroup {
-    display: flex;
-    gap: 1rem;
   }
 
   .blackTextButton {

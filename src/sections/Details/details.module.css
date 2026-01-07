@@ -3,7 +3,7 @@
   justify-content: space-between;
   color: rgb(53, 52, 52);
   font-size: 14px;
-  margin: 2.25rem 0 0.5rem;
+  margin: 24px 0
 }
 
 .detailsCard {
@@ -15,7 +15,7 @@
 .cardHeader {
   font-size: 28px;
   background-color: rgba(22, 22, 22, 0.5);
-  border-radius: 20px;
+  border-radius: 24px;
   color: #fff;
   text-align: center;
   padding: 4px;
@@ -26,14 +26,16 @@
 .cardBody {
   background: #fff;
   /* height: 250px; */
-  border-radius: 30px;
+  border-radius: 24px;
   border: 5px solid rgb(255, 221, 0);
   padding: 4px 12px;
+  margin-top: 12px;
   flex: 1;
+  line-height: 1.5;
 }
 
 .cardBody .marginTop {
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 
@@ -58,7 +60,6 @@
     font-size: 12px;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 15px;
   }
   .detailsCard{
     width: 100%;
@@ -70,7 +71,6 @@
   }
   .cardBody{
     border: 3px solid rgb(255, 221, 0);
-    margin-top: 10px;
     padding: 6px 8px;
   }
 }
@@ -92,7 +92,6 @@
   }
   .cardBody{
     border: 3px solid rgb(255, 221, 0);
-    margin-top: 12px;
     padding: 6px 8px;
   }
 }
