@@ -29,7 +29,7 @@ export default function Home() {
           <Reviews />
           <Details />
           <TransparentBtn>Setup an Appointment</TransparentBtn>
-          <div style={{ height: 12 }}></div>
+          {/* <div style={{ height: 12 }}></div> */}
         </div>
       </div>
     </div>

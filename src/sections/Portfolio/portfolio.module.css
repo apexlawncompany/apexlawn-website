@@ -1,6 +1,6 @@
 .portfolio {
   display: flex;
-  margin: 16px 0 90px;
+  margin: 24px 0 48px;
   gap: 20px;
 }
 
@@ -59,10 +59,10 @@
   margin-bottom: 8px;
 }
 
-.portfolioText{
+.portfolioText {
   font-size: 15px;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 .instaIcon {
@@ -81,7 +81,7 @@
   margin: 2px 0;
 }
 
-.carouselBtnWrp{
+.carouselBtnWrp {
   position: absolute;
   width: calc(100% + 10px);
   top: -5px;
@@ -116,10 +116,10 @@
     width: 100px;
     height: 100px;
   }
-  .portfolioText{
+  .portfolioText {
     font-size: 13px;
   }
-  .portfolioIcon{
+  .portfolioIcon {
     width: 30px !important;
     height: 30px !important;
   }
@@ -129,7 +129,7 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 767px) {
   .portfolio {
     flex-direction: column;
     align-items: center;
@@ -147,10 +147,10 @@
     width: 100px;
     height: 100px;
   }
-  .portfolioText{
+  .portfolioText {
     font-size: 12px;
   }
-  .portfolioIcon{
+  .portfolioIcon {
     width: 30px !important;
     height: 30px !important;
   }
@@ -160,23 +160,34 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 426px) {
+  .portfolio {
+    gap: 12px;
+  }
   .carousel {
     width: 100%;
     height: 300px;
     border: 2px solid rgb(255, 221, 0);
+    border-radius: 20px;
   }
-  .carouselBtnWrp{
-    width: calc(100% + 4px);
-    /* top: -5px; */
-    left: -2px;
+  .carouselBtnWrp {
+    width: 100%;
+    top: 0px;
+    left: 0px;
+  }
+  .carouselServicesBtn {
+    padding: 5px;
+  }
+  .chevronIcon {
+    width: 20px;
+    height: 20px;
   }
   .portfolio {
-    margin: 16px 0 25px;
+    margin: 12px 0;
   }
   .roundIconsContainer {
     order: 2;
-    margin-top: 20px;
+    margin-top: 12px;
     margin-bottom: 0px;
   }
   .portfolioCombo {
@@ -184,10 +195,10 @@
     height: 80px;
     border: 2px solid rgb(255, 221, 0);
   }
-  .portfolioText{
+  .portfolioText {
     font-size: 9px;
   }
-  .portfolioIcon{
+  .portfolioIcon {
     width: 20px !important;
     height: 20px !important;
   }

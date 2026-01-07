@@ -173,7 +173,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .servicesHeader {
     max-width: 955px;
   }
@@ -206,7 +206,7 @@
   }
 }
 
-@media (min-width: 550px) and (max-width: 768px) {
+@media (max-width: 769px) {
   .servicesHeader {
     width: 95%;
     max-width: 715px;
@@ -249,49 +249,9 @@
   }
 }
 
-@media (min-width: 425px) and (max-width: 550px) {
-  .servicesHeader {
-    width: 95%;
-    /* max-width: 630px; */
-  }
-  .options-navbar {
-    top: 63px;
-  }
-  .options {
-    padding: 2px 5px;
-    gap: 9px;
-  }
-  .optionButton{
-    margin-right: 12px;
-  }
-  .mainButton {
-    width: 80px;
-    height: 40px;
-    font-size: 12px;
-  }
-  .categoryButton {
-    width: 55px;
-    height: 33px;
-    font-size: 10px;
-  }
-  .showSubCategory {
-    padding-right: 12px;
-  }
-  .mainButton.selected {
-    font-size: 15px;
-  }
-  .optionButton {
-    border: 3px solid rgb(255, 221, 0);
-    border-radius: 5px;
-  }
-  .shadow {
-    top: 3px;
-    height: 43px;
-    width: 18px;
-  }
-}
 
-@media (min-width: 320px) and (max-width: 424px) {
+
+@media (max-width: 426px) {
   .servicesHeader {
     width: 95%;
   }
@@ -326,7 +286,7 @@
     border-radius: 5px;
   }
   .shadow {
-    top: 3px;
+    top: 4px;
     height: 35px;
     width: 18px;
   }
