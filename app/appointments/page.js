@@ -28,6 +28,10 @@ const AppointmentForm = () => {
   }, []);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const recaptchaRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
   const [openFileExplorer, setOpenFileExplorer] = useState(false);
 
@@ -87,13 +91,14 @@ const AppointmentForm = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submitting) return;
     const newErrors = validateForm();
     setErrors(newErrors);
+    setSubmitError("");
 
     if (Object.keys(newErrors).length === 0 && captchaVerified) {
-      setFormSubmitted(true);
       // const source = getSource();
       // Push event to GTM
       if (window.dataLayer) {
@@ -111,7 +116,18 @@ const AppointmentForm = () => {
           },
         });
       }
-      sendMail(formData);
+      setSubmitting(true);
+      const result = await sendMail(formData, "appointment", captchaToken);
+      setSubmitting(false);
+      if (!result.ok) {
+        setSubmitError(result.error);
+        // Each captcha token works once, so the box must be ticked again.
+        recaptchaRef.current?.reset();
+        setCaptchaVerified(false);
+        setCaptchaToken("");
+        return;
+      }
+      setFormSubmitted(true);
       console.log("Form Submitted Successfully:", formData);
       router.push("/thankyou");
     }
@@ -119,6 +135,7 @@ const AppointmentForm = () => {
 
   // Handle reCAPTCHA verification
   const handleCaptchaChange = (token) => {
+    setCaptchaToken(token || "");
     if (token) {
       setCaptchaVerified(true);
     } else {
@@ -219,6 +236,7 @@ const AppointmentForm = () => {
                 {/* reCAPTCHA */}
                 <div className={styles.recaptcha}>
                   <ReCAPTCHA
+                    ref={recaptchaRef}
                     sitekey={reCaptchaSiteKey}
                     onChange={handleCaptchaChange}
                   />
@@ -284,15 +302,21 @@ const AppointmentForm = () => {
                   readOnly
                 />
 
+                {submitError && (
+                  <p className={styles.error} role="alert">
+                    {submitError}
+                  </p>
+                )}
+
                 {/* File Upload */}
                 <div className={styles.formActions}>
                   {/* Submit Button */}
                   <button
                     type="submit"
                     className={styles.submitButton}
-                    disabled={!captchaVerified}
+                    disabled={!captchaVerified || submitting}
                   >
-                    Submit
+                    {submitting ? "Sending..." : "Submit"}
                   </button>
 
                   {/* Upload Section (Icon + Label) */}

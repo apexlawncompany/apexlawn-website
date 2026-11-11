@@ -1,8 +1,43 @@
 import nodemailer from "nodemailer";
 
+// Asks Google whether the captcha token from the form is genuine and unused.
+// The browser-side checkbox alone can be skipped by a bot posting straight to
+// this route; this server-side check can't. Any doubt counts as a fail.
+async function verifyCaptcha(token) {
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
+  if (!secret) {
+    console.error("send-mail: RECAPTCHA_SECRET_KEY is not set");
+    return false;
+  }
+  if (!token) return false;
+
+  try {
+    const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ secret, response: token }),
+    });
+    const data = await res.json();
+    return data.success === true;
+  } catch (err) {
+    console.error("send-mail: captcha check failed:", err?.message || err);
+    return false;
+  }
+}
+
 export async function POST(req) {
   try {
     const formData = await req.formData();
+
+    // Refuse before anything else happens (no email is built or sent).
+    const captchaOk = await verifyCaptcha(formData.get("captchaToken"));
+    if (!captchaOk) {
+      return Response.json(
+        { error: "Captcha check failed. Please tick the box again." },
+        { status: 400 }
+      );
+    }
+
     const name = formData.get("name");
     const email = formData.get("email");
     const phone = formData.get("phone");

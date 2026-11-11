@@ -30,6 +30,10 @@ const DronePage = () => {
   const inputRef = useRef();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const recaptchaRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
   const [openFileExplorer, setOpenFileExplorer] = useState(false);
   const reCaptchaSiteKey = "6LeIarEqAAAAADgWfRRxNEzrqdSGUCDx1RPEoRJV";
@@ -89,13 +93,14 @@ const DronePage = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submitting) return;
     const newErrors = validateForm();
     setErrors(newErrors);
+    setSubmitError("");
 
     if (Object.keys(newErrors).length === 0 && captchaVerified) {
-      setFormSubmitted(true);
       // const source = getSource();
       // Push event to GTM
       if (window.dataLayer) {
@@ -114,7 +119,18 @@ const DronePage = () => {
           },
         });
       }
-      sendMail(formData, "drone");
+      setSubmitting(true);
+      const result = await sendMail(formData, "drone", captchaToken);
+      setSubmitting(false);
+      if (!result.ok) {
+        setSubmitError(result.error);
+        // Each captcha token works once, so the box must be ticked again.
+        recaptchaRef.current?.reset();
+        setCaptchaVerified(false);
+        setCaptchaToken("");
+        return;
+      }
+      setFormSubmitted(true);
       console.log("Form Submitted Successfully:", formData);
       // router.push("/thankyou");
     }
@@ -122,6 +138,7 @@ const DronePage = () => {
 
   // Handle reCAPTCHA verification
   const handleCaptchaChange = (token) => {
+    setCaptchaToken(token || "");
     if (token) {
       setCaptchaVerified(true);
     } else {
@@ -291,6 +308,7 @@ const DronePage = () => {
                   {/* reCAPTCHA */}
                   <div className={styles.recaptcha}>
                     <ReCAPTCHA
+                      ref={recaptchaRef}
                       sitekey={reCaptchaSiteKey}
                       onChange={handleCaptchaChange}
                     />
@@ -361,15 +379,24 @@ const DronePage = () => {
                   readOnly
                 />
 
+                  {submitError && (
+                    <p
+                      role="alert"
+                      style={{ color: "red", padding: "5px", fontSize: "14px" }}
+                    >
+                      {submitError}
+                    </p>
+                  )}
+
                   {/* File Upload */}
                   <div className={styles.formActions}>
                     {/* Submit Button */}
                     <button
                       type="submit"
                       className={styles.submitButton}
-                      disabled={!captchaVerified}
+                      disabled={!captchaVerified || submitting}
                     >
-                      Submit
+                      {submitting ? "Sending..." : "Submit"}
                     </button>
 
                     {/* Upload Section (Icon + Label) */}
