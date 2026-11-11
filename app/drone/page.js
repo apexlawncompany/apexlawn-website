@@ -6,6 +6,9 @@ import validLocations from "@/src/data/locations";
 import ReCAPTCHA from "react-google-recaptcha";
 import { sendMail } from "@/src/utils";
 import { getCookie } from "@/src/cookies";
+import UploadMeter from "@/src/components/UploadMeter";
+import { addPhotos, bytesUsed } from "@/src/imageUpload";
+import { UPLOAD_BUDGET_BYTES } from "@/src/uploadLimits";
 
 const DronePage = () => {
   // State management for form inputs
@@ -30,6 +33,12 @@ const DronePage = () => {
   const inputRef = useRef();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const recaptchaRef = useRef(null);
+  const [photoMessage, setPhotoMessage] = useState("");
+  const [preparingPhotos, setPreparingPhotos] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [openFileExplorer, setOpenFileExplorer] = useState(false);
   const reCaptchaSiteKey = "6LeIarEqAAAAADgWfRRxNEzrqdSGUCDx1RPEoRJV";
@@ -89,13 +98,14 @@ const DronePage = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submitting) return;
     const newErrors = validateForm();
     setErrors(newErrors);
+    setSubmitError("");
 
     if (Object.keys(newErrors).length === 0 && captchaVerified) {
-      setFormSubmitted(true);
       // const source = getSource();
       // Push event to GTM
       if (window.dataLayer) {
@@ -114,7 +124,18 @@ const DronePage = () => {
           },
         });
       }
-      sendMail(formData, "drone");
+      setSubmitting(true);
+      const result = await sendMail(formData, "drone", captchaToken);
+      setSubmitting(false);
+      if (!result.ok) {
+        setSubmitError(result.error);
+        // Each captcha token works once, so the box must be ticked again.
+        recaptchaRef.current?.reset();
+        setCaptchaVerified(false);
+        setCaptchaToken("");
+        return;
+      }
+      setFormSubmitted(true);
       console.log("Form Submitted Successfully:", formData);
       // router.push("/thankyou");
     }
@@ -122,6 +143,7 @@ const DronePage = () => {
 
   // Handle reCAPTCHA verification
   const handleCaptchaChange = (token) => {
+    setCaptchaToken(token || "");
     if (token) {
       setCaptchaVerified(true);
     } else {
@@ -291,6 +313,7 @@ const DronePage = () => {
                   {/* reCAPTCHA */}
                   <div className={styles.recaptcha}>
                     <ReCAPTCHA
+                      ref={recaptchaRef}
                       sitekey={reCaptchaSiteKey}
                       onChange={handleCaptchaChange}
                     />
@@ -337,6 +360,7 @@ const DronePage = () => {
                           )}
                           <button
                             className={styles.removeBtn}
+                            type="button"
                             onClick={() => {
                               // Remove from formData.images too
                               const updatedImages = [...formData.images];
@@ -345,6 +369,7 @@ const DronePage = () => {
                                 ...prev,
                                 images: updatedImages,
                               }));
+                              setPhotoMessage("");
                             }}
                           >
                             ✕
@@ -353,6 +378,18 @@ const DronePage = () => {
                       ))}
                     </div>
                   )}
+                  {(formData.images.length > 0 || preparingPhotos) && (
+                    <div style={{ margin: "8px 0", display: "flex", alignItems: "center", gap: 8 }}>
+                      <UploadMeter used={bytesUsed(formData.images)} budget={UPLOAD_BUDGET_BYTES} />
+                      {preparingPhotos && <span style={{ fontSize: 13 }}>Preparing photos...</span>}
+                    </div>
+                  )}
+                  {photoMessage && (
+                    <p role="status" style={{ color: "#c62828", fontSize: 13, margin: "4px 0" }}>
+                      {photoMessage}
+                    </p>
+                  )}
+
                   <input
                   type="hidden"
                   name="source"
@@ -361,15 +398,24 @@ const DronePage = () => {
                   readOnly
                 />
 
+                  {submitError && (
+                    <p
+                      role="alert"
+                      style={{ color: "red", padding: "5px", fontSize: "14px" }}
+                    >
+                      {submitError}
+                    </p>
+                  )}
+
                   {/* File Upload */}
                   <div className={styles.formActions}>
                     {/* Submit Button */}
                     <button
                       type="submit"
                       className={styles.submitButton}
-                      disabled={!captchaVerified}
+                      disabled={!captchaVerified || submitting || preparingPhotos}
                     >
-                      Submit
+                      {submitting ? "Sending..." : "Submit"}
                     </button>
 
                     {/* Upload Section (Icon + Label) */}
@@ -389,31 +435,19 @@ const DronePage = () => {
                       </label>
                       <input
                         type="file"
-                        accept="image/*,application/pdf,video/*"
+                        accept="image/*"
                         capture="environment"
                         multiple
                         ref={inputRef}
                         style={{ display: "none" }}
-                        onChange={(e) => {
-                          const selectedFiles = Array.from(
-                            e.target.files || []
-                          );
-
-                          const maxFileSizeMB = 25; // for example, 10 MB
-                          const validFiles = selectedFiles.filter((file) => {
-                            if (file.size > maxFileSizeMB * 1024 * 1024) {
-                              alert(
-                                `${file.name} is too large. Max allowed is ${maxFileSizeMB}MB`
-                              );
-                              return false;
-                            }
-                            return true;
-                          });
-
-                          setFormData((prev) => ({
-                            ...prev,
-                            images: [...prev.images, ...validFiles],
-                          }));
+                        onChange={async (e) => {
+                          const picked = Array.from(e.target.files || []);
+                          e.target.value = ""; // so the same photo can be picked again later
+                          setPreparingPhotos(true);
+                          const { files, message } = await addPhotos(formData.images, picked);
+                          setPreparingPhotos(false);
+                          setPhotoMessage(message);
+                          setFormData((prev) => ({ ...prev, images: files }));
                         }}
                       />
                     </div>

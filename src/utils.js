@@ -1,6 +1,9 @@
 import { getCookie } from "@/src/cookies"; // helper above
 
-export const sendMail = async (formData, page) => {
+// Sends a form to /api/send-mail and waits for the answer.
+// Returns { ok: true } or { ok: false, error } so the page can tell the
+// customer what happened instead of failing silently.
+export const sendMail = async (formData, page, captchaToken) => {
   try {
     const data = new FormData();
     data.append("name", formData.name || "");
@@ -12,6 +15,7 @@ export const sendMail = async (formData, page) => {
     data.append("address", formData.address || "");
     data.append("day", formData.day || "");
     data.append("page", page || "appointment");
+    data.append("captchaToken", captchaToken || "");
 
     // Source: prefer state, fallback to cookie
     const sourceValue = formData.source || getCookie("lead_source") || "website";
@@ -25,12 +29,29 @@ export const sendMail = async (formData, page) => {
       method: "POST",
       body: data,
     });
-    const { message } = await res.json();
-    if (!message) {
-      throw "Failed to send mail";
+
+    if (res.status === 413) {
+      return {
+        ok: false,
+        error:
+          "Your photos are too large to send together. Please remove some and try again.",
+      };
     }
-    console.log("Msg:", message);
+
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok || !body.message) {
+      return {
+        ok: false,
+        error: body.error || "Something went wrong sending your request. Please try again.",
+      };
+    }
+
+    return { ok: true };
   } catch (err) {
     console.log("failed to send mail:", err);
+    return {
+      ok: false,
+      error: "Couldn't reach the server. Please check your connection and try again.",
+    };
   }
 };
