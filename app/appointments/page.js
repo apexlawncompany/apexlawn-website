@@ -6,6 +6,9 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { sendMail } from "@/src/utils";
 import { useRouter } from "next/navigation";
 import { getCookie } from "@/src/cookies";
+import UploadMeter from "@/src/components/UploadMeter";
+import { addPhotos, bytesUsed } from "@/src/imageUpload";
+import { UPLOAD_BUDGET_BYTES } from "@/src/uploadLimits";
 
 const AppointmentForm = () => {
   const router = useRouter();
@@ -32,6 +35,8 @@ const AppointmentForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const recaptchaRef = useRef(null);
+  const [photoMessage, setPhotoMessage] = useState("");
+  const [preparingPhotos, setPreparingPhotos] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [openFileExplorer, setOpenFileExplorer] = useState(false);
 
@@ -277,6 +282,7 @@ const AppointmentForm = () => {
                         )}
                         <button
                           className={styles.removeBtn}
+                          type="button"
                           onClick={() => {
                             // Remove from formData.images too
                             const updatedImages = [...formData.images];
@@ -285,6 +291,7 @@ const AppointmentForm = () => {
                               ...prev,
                               images: updatedImages,
                             }));
+                            setPhotoMessage("");
                           }}
                         >
                           ✕
@@ -292,6 +299,18 @@ const AppointmentForm = () => {
                       </div>
                     ))}
                   </div>
+                )}
+
+                {(formData.images.length > 0 || preparingPhotos) && (
+                  <div style={{ margin: "8px 0", display: "flex", alignItems: "center", gap: 8 }}>
+                    <UploadMeter used={bytesUsed(formData.images)} budget={UPLOAD_BUDGET_BYTES} />
+                    {preparingPhotos && <span style={{ fontSize: 13 }}>Preparing photos...</span>}
+                  </div>
+                )}
+                {photoMessage && (
+                  <p role="status" style={{ color: "#c62828", fontSize: 13, margin: "4px 0" }}>
+                    {photoMessage}
+                  </p>
                 )}
 
                 <input
@@ -314,7 +333,7 @@ const AppointmentForm = () => {
                   <button
                     type="submit"
                     className={styles.submitButton}
-                    disabled={!captchaVerified || submitting}
+                    disabled={!captchaVerified || submitting || preparingPhotos}
                   >
                     {submitting ? "Sending..." : "Submit"}
                   </button>
@@ -334,29 +353,19 @@ const AppointmentForm = () => {
                     <label className={styles.uploadLabel}>Upload Images</label>
                     <input
                       type="file"
-                      accept="image/*,application/pdf,video/*"
+                      accept="image/*"
                       capture="environment"
                       multiple
                       ref={inputRef}
                       style={{ display: "none" }}
-                      onChange={(e) => {
-                        const selectedFiles = Array.from(e.target.files || []);
-
-                        const maxFileSizeMB = 25; // for example, 10 MB
-                        const validFiles = selectedFiles.filter((file) => {
-                          if (file.size > maxFileSizeMB * 1024 * 1024) {
-                            alert(
-                              `${file.name} is too large. Max allowed is ${maxFileSizeMB}MB`
-                            );
-                            return false;
-                          }
-                          return true;
-                        });
-
-                        setFormData((prev) => ({
-                          ...prev,
-                          images: [...prev.images, ...validFiles],
-                        }));
+                      onChange={async (e) => {
+                        const picked = Array.from(e.target.files || []);
+                        e.target.value = ""; // so the same photo can be picked again later
+                        setPreparingPhotos(true);
+                        const { files, message } = await addPhotos(formData.images, picked);
+                        setPreparingPhotos(false);
+                        setPhotoMessage(message);
+                        setFormData((prev) => ({ ...prev, images: files }));
                       }}
                     />
                   </div>

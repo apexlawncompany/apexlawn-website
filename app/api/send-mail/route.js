@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { UPLOAD_BUDGET_BYTES, MAX_FILES } from "@/src/uploadLimits";
 
 // Asks Google whether the captcha token from the form is genuine and unused.
 // The browser-side checkbox alone can be skipped by a bot posting straight to
@@ -24,6 +25,21 @@ async function verifyCaptcha(token) {
     return false;
   }
 }
+
+// Identifies a photo by its first bytes (its "signature"), not by the type the
+// browser claims, because that label is supplied by the sender and can be faked.
+// Returns the real type, or null if the file isn't one of the allowed photos.
+function detectPhotoType(buf) {
+  if (buf.length >= 3 && buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff) return "image/jpeg";
+  if (buf.length >= 8 && buf.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) return "image/png";
+  const head = buf.subarray(0, 12).toString("latin1");
+  if (head.startsWith("GIF87a") || head.startsWith("GIF89a")) return "image/gif";
+  if (head.startsWith("RIFF") && head.slice(8, 12) === "WEBP") return "image/webp";
+  if (head.slice(4, 8) === "ftyp" && /^(heic|heix|hevc|hevx|heim|heis|mif1|msf1)$/.test(head.slice(8, 12))) return "image/heic";
+  return null;
+}
+
+const badRequest = (error) => Response.json({ error }, { status: 400 });
 
 export async function POST(req) {
   try {
@@ -100,16 +116,26 @@ export async function POST(req) {
       throw "Invalid data";
     }
 
-    const attachments = await Promise.all(
-      files.map(async (file) => {
-        const buffer = Buffer.from(await file.arrayBuffer());
-        return {
-          filename: file.name,
-          content: buffer,
-          contentType: file.type,
-        };
-      })
-    );
+    // Attachments: photos only, at most MAX_FILES, within the upload budget.
+    // The forms already enforce this; this is the guard for anything else.
+    if (files.length > MAX_FILES) {
+      return badRequest(`Please attach no more than ${MAX_FILES} photos.`);
+    }
+    const attachments = [];
+    let totalBytes = 0;
+    for (const file of files) {
+      if (typeof file === "string") return badRequest("Invalid attachment.");
+      const buffer = Buffer.from(await file.arrayBuffer());
+      totalBytes += buffer.length;
+      if (totalBytes > UPLOAD_BUDGET_BYTES) {
+        return badRequest("Your photos are too large to send together. Please remove some and try again.");
+      }
+      const type = detectPhotoType(buffer);
+      if (!type) {
+        return badRequest("Only photos can be attached (JPG, PNG, WebP, GIF or HEIC).");
+      }
+      attachments.push({ filename: file.name, content: buffer, contentType: type });
+    }
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
